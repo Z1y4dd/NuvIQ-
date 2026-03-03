@@ -1,0 +1,135 @@
+{
+  "entities": {
+    "userProfile": {
+      "title": "User Profile",
+      "description": "Represents a user's profile information.",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "The user's unique ID from Firebase Authentication."
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "The user's email address."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The user's display name."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when the user account was created."
+        }
+      },
+      "required": ["uid", "email", "createdAt"]
+    },
+    "dataset": {
+      "title": "Dataset",
+      "description": "Metadata for a user-uploaded dataset.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the dataset."
+        },
+        "filename": {
+          "type": "string",
+          "description": "Original filename of the uploaded CSV."
+        },
+        "uploadDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of the upload."
+        },
+        "recordCount": {
+          "type": "number",
+          "description": "Number of records in the dataset."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["Completed", "Processing", "Failed", "Mapping"],
+          "description": "Processing status of the dataset."
+        },
+        "storagePath": {
+          "type": "string",
+          "description": "Path to the raw CSV file in Cloud Storage."
+        },
+        "kpis": {
+          "type": "array",
+          "description": "Key Performance Indicators derived from the dataset."
+        }
+      },
+      "required": ["id", "filename", "uploadDate", "recordCount", "status", "storagePath"]
+    },
+    "forecastResult": {
+      "title": "Forecast Result",
+      "description": "A single data point in a time-series forecast.",
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date",
+          "description": "The date of the forecast point."
+        },
+        "predictedSales": {
+          "type": "number",
+          "description": "The predicted sales value."
+        },
+        "confidenceIntervalLower": {
+          "type": "number",
+          "description": "The lower bound of the confidence interval."
+        },
+        "confidenceIntervalUpper": {
+          "type": "number",
+          "description": "The upper bound of the confidence interval."
+        }
+      },
+      "required": ["date", "predictedSales", "confidenceIntervalLower", "confidenceIntervalUpper"]
+    },
+    "associationRule": {
+      "title": "Association Rule",
+      "description": "A single market basket analysis association rule.",
+      "type": "object",
+      "properties": {
+        "antecedents": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "The 'if' part of the rule (products bought together)."
+        },
+        "consequents": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "The 'then' part of the rule (products also bought)."
+        },
+        "support": { "type": "number" },
+        "confidence": { "type": "number" },
+        "lift": { "type": "number" }
+      },
+      "required": ["antecedents", "consequents", "support", "confidence", "lift"]
+    }
+  },
+  "auth": {
+    "providers": ["email"]
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/userProfile" },
+      "description": "Stores public information for each user, keyed by their auth UID."
+    },
+    "/datasets/{datasetId}": {
+        "schema": { "$ref": "#/entities/dataset" },
+        "description": "Top-level collection for all datasets, linking to the user who owns it."
+    },
+    "/datasets/{datasetId}/forecasts": {
+        "schema": { "$ref": "#/entities/forecastResult" },
+        "description": "Subcollection to store time-series forecast results for a specific dataset."
+    },
+    "/datasets/{datasetId}/associationRules": {
+        "schema": { "$ref": "#/entities/associationRule" },
+        "description": "Subcollection to store market basket analysis rules for a specific dataset."
+    }
+  }
+}

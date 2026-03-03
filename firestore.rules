@@ -1,0 +1,26 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Users collection - users can only read/write their own data
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Datasets collection - users can only access their own datasets
+    match /datasets/{datasetId} {
+      allow read, write: if request.auth != null && resource.data.userId == request.auth.uid;
+      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
+
+      // Forecasts subcollection
+      match /forecasts/{forecastId} {
+        allow read, write: if request.auth != null && get(/databases/$(database)/documents/datasets/$(datasetId)).data.userId == request.auth.uid;
+      }
+
+      // Association rules subcollection
+      match /associationRules/{ruleId} {
+        allow read, write: if request.auth != null && get(/databases/$(database)/documents/datasets/$(datasetId)).data.userId == request.auth.uid;
+      }
+    }
+  }
+}

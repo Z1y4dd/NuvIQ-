@@ -1,0 +1,15 @@
+Dockerfile
+.dockerignore
+node_modules
+npm-debug.log
+README.md
+.next
+.git
+.env.local
+.env.local.example
+.firebaserc
+firebase-debug.log
+firestore-debug.log
+.idx
+.modified
+.cursor
