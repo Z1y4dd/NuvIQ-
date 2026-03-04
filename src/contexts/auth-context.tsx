@@ -7,6 +7,7 @@ import {
     signInWithEmailAndPassword,
     signOut as firebaseSignOut,
     onAuthStateChanged,
+    sendPasswordResetEmail,
 } from "firebase/auth";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { auth, db } from "@/lib/firebase";
@@ -17,6 +18,7 @@ interface AuthContextType {
     signUp: (email: string, password: string, name: string) => Promise<void>;
     signIn: (email: string, password: string) => Promise<void>;
     signOut: () => Promise<void>;
+    resetPassword: (email: string) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType>({
@@ -25,6 +27,7 @@ const AuthContext = createContext<AuthContextType>({
     signUp: async () => {},
     signIn: async () => {},
     signOut: async () => {},
+    resetPassword: async () => {},
 });
 
 export const useAuth = () => useContext(AuthContext);
@@ -80,12 +83,20 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         await firebaseSignOut(auth);
     };
 
+    const resetPassword = async (email: string) => {
+        if (!auth) {
+            throw new Error("Firebase is not initialized");
+        }
+        await sendPasswordResetEmail(auth, email);
+    };
+
     const value = {
         user,
         loading,
         signUp,
         signIn,
         signOut,
+        resetPassword,
     };
 
     return (

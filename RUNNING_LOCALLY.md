@@ -188,3 +188,30 @@ firebase emulators:start
 - Check the Emulator UI to see data in real-time
 - Modify Firestore rules in `firestore.rules`
 - Update Storage rules in `storage.rules`
+
+
+
+# =============================================================================
+# Google AI (Genkit / Gemini)
+# =============================================================================
+# Get your key at https://aistudio.google.com/app/apikey
+GOOGLE_GENAI_API_KEY=
+# =============================================================================
+# Firebase Project Config (used by the Next.js client)
+# Get these values from your Firebase project settings:
+# https://console.firebase.google.com → Project Settings → Your apps
+# =============================================================================
+NEXT_PUBLIC_FIREBASE_API_KEY=
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=nuviq-prod-8de69.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=nuviq-prod-8de69
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=nuviq-prod-8de69.firebasestorage.app
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=930368721273
+NEXT_PUBLIC_FIREBASE_APP_ID=1:930368721273:web:377766a7bd3ffdf28b1fa8
+
+# =============================================================================
+# Firebase Emulator Config (set to "true" when running locally with emulators)
+# =============================================================================
+NEXT_PUBLIC_USE_FIREBASE_EMULATOR=false
+NEXT_PUBLIC_FIREBASE_AUTH_EMULATOR_HOST=localhost:9099
+NEXT_PUBLIC_FIRESTORE_EMULATOR_HOST=localhost:8081
+NEXT_PUBLIC_FIREBASE_STORAGE_EMULATOR_HOST=localhost:9199
