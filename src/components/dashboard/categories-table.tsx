@@ -15,7 +15,13 @@ import {
     TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import { Download, TrendingUp, TrendingDown, Tags, Loader2 } from "lucide-react";
+import {
+    Download,
+    TrendingUp,
+    TrendingDown,
+    Tags,
+    Loader2,
+} from "lucide-react";
 import { useDataset } from "@/contexts/dataset-context";
 
 export default function CategoriesTable() {
@@ -43,7 +49,10 @@ export default function CategoriesTable() {
             {/* Card background decoration */}
             <div className="absolute inset-0 bg-gradient-to-br from-chart-3/[0.04] via-transparent to-primary/[0.02] pointer-events-none" />
             <div className="absolute inset-0 bg-grid-pattern-subtle opacity-20 pointer-events-none" />
-            <div className="geo-shape geo-ring w-[85px] h-[85px] -top-6 -right-6 opacity-25" style={{borderColor: "hsl(var(--chart-3) / 0.15)"}} />
+            <div
+                className="geo-shape geo-ring w-[85px] h-[85px] -top-6 -right-6 opacity-25"
+                style={{ borderColor: "hsl(var(--chart-3) / 0.15)" }}
+            />
             <div className="geo-shape geo-hexagon w-[22px] h-[22px] bottom-4 left-6 opacity-40" />
             <CardHeader className="relative flex flex-row items-start justify-between">
                 <div className="space-y-1.5">
@@ -51,7 +60,9 @@ export default function CategoriesTable() {
                         <div className="flex items-center justify-center h-8 w-8 rounded-lg bg-chart-3/10 text-chart-3">
                             <Tags className="h-4 w-4" />
                         </div>
-                        <CardTitle className="text-lg">Category Performance</CardTitle>
+                        <CardTitle className="text-lg">
+                            Category Performance
+                        </CardTitle>
                     </div>
                     <CardDescription>
                         {selectedDataset
@@ -76,14 +87,18 @@ export default function CategoriesTable() {
                         <Table>
                             <TableHeader>
                                 <TableRow className="bg-muted/50">
-                                    <TableHead className="font-semibold">Category</TableHead>
+                                    <TableHead className="font-semibold">
+                                        Category
+                                    </TableHead>
                                     <TableHead className="text-right font-semibold">
                                         Total Revenue
                                     </TableHead>
                                     <TableHead className="text-right font-semibold">
                                         Units Sold
                                     </TableHead>
-                                    <TableHead className="font-semibold">Top Product</TableHead>
+                                    <TableHead className="font-semibold">
+                                        Top Product
+                                    </TableHead>
                                     <TableHead className="text-right font-semibold">
                                         Growth Rate
                                     </TableHead>
@@ -108,15 +123,20 @@ export default function CategoriesTable() {
                                         <TableCell className="text-right font-mono text-sm">
                                             {category.totalUnitsSold.toLocaleString()}
                                         </TableCell>
-                                        <TableCell className="text-sm">{category.topProduct}</TableCell>
+                                        <TableCell className="text-sm">
+                                            {category.topProduct}
+                                        </TableCell>
                                         <TableCell className="text-right">
-                                            <div className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium ${
-                                                category.growthRate > 0
-                                                    ? "bg-green-500/10 text-green-600"
-                                                    : category.growthRate < 0
-                                                      ? "bg-red-500/10 text-red-600"
-                                                      : "bg-muted text-muted-foreground"
-                                            }`}>
+                                            <div
+                                                className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium ${
+                                                    category.growthRate > 0
+                                                        ? "bg-green-500/10 text-green-600"
+                                                        : category.growthRate <
+                                                            0
+                                                          ? "bg-red-500/10 text-red-600"
+                                                          : "bg-muted text-muted-foreground"
+                                                }`}
+                                            >
                                                 {category.growthRate > 0 ? (
                                                     <TrendingUp className="h-3 w-3" />
                                                 ) : category.growthRate < 0 ? (
@@ -125,7 +145,8 @@ export default function CategoriesTable() {
                                                 {category.growthRate > 0
                                                     ? "+"
                                                     : ""}
-                                                {category.growthRate.toFixed(1)}%
+                                                {category.growthRate.toFixed(1)}
+                                                %
                                             </div>
                                         </TableCell>
                                     </TableRow>
@@ -141,14 +162,18 @@ export default function CategoriesTable() {
                         <div className="absolute bottom-0 left-0 w-28 h-28 bg-gradient-to-tr from-purple-500/[0.04] to-transparent rounded-full translate-y-1/3 -translate-x-1/4" />
 
                         {selectedDataset ? (
-                            selectedDataset.headerMap?.category === undefined ? (
+                            selectedDataset.headerMap?.category === undefined ||
+                            selectedDataset.status === "Completed" ? (
                                 <div className="relative z-10">
                                     <div className="flex items-center justify-center h-16 w-16 rounded-2xl bg-muted/80 mb-4 mx-auto border border-border/50">
                                         <Tags className="h-7 w-7 text-muted-foreground" />
                                     </div>
-                                    <p className="text-muted-foreground font-medium text-sm">Category mapping skipped</p>
+                                    <p className="text-muted-foreground font-medium text-sm">
+                                        Category mapping skipped
+                                    </p>
                                     <p className="text-muted-foreground/60 text-xs mt-1 max-w-xs">
-                                        Category data was not mapped during upload for this dataset.
+                                        Category data was not mapped during
+                                        upload for this dataset.
                                     </p>
                                 </div>
                             ) : (
@@ -156,8 +181,12 @@ export default function CategoriesTable() {
                                     <div className="flex items-center justify-center h-16 w-16 rounded-2xl bg-blue-500/10 mb-4 mx-auto">
                                         <Loader2 className="h-8 w-8 text-blue-500 animate-spin" />
                                     </div>
-                                    <p className="text-muted-foreground text-sm font-medium">Analyzing category performance...</p>
-                                    <p className="text-muted-foreground/60 text-xs mt-1">Crunching the numbers</p>
+                                    <p className="text-muted-foreground text-sm font-medium">
+                                        Analyzing category performance...
+                                    </p>
+                                    <p className="text-muted-foreground/60 text-xs mt-1">
+                                        Crunching the numbers
+                                    </p>
                                 </div>
                             )
                         ) : (
@@ -165,9 +194,12 @@ export default function CategoriesTable() {
                                 <div className="flex items-center justify-center h-16 w-16 rounded-2xl bg-muted/80 mb-4 mx-auto border border-border/50">
                                     <Tags className="h-7 w-7 text-muted-foreground" />
                                 </div>
-                                <p className="text-muted-foreground font-medium text-sm">No category data yet</p>
+                                <p className="text-muted-foreground font-medium text-sm">
+                                    No category data yet
+                                </p>
                                 <p className="text-muted-foreground/60 text-xs mt-1 max-w-xs">
-                                    Select a processed dataset to see revenue breakdowns and growth rates by category.
+                                    Select a processed dataset to see revenue
+                                    breakdowns and growth rates by category.
                                 </p>
                             </div>
                         )}

@@ -161,13 +161,21 @@ export default function UploadsTable() {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ datasetId: upload.id }),
             });
-            if (!response.ok) throw new Error(`KPI API failed: ${response.statusText}`);
+            if (!response.ok)
+                throw new Error(`KPI API failed: ${response.statusText}`);
             const kpiResult = await response.json();
-            const kpisWithChange = kpiResult.kpis.map((k: any) => ({ ...k, change: "" }));
+            const kpisWithChange = kpiResult.kpis.map((k: any) => ({
+                ...k,
+                change: "",
+            }));
             await updateDataset(upload.id, { kpis: kpisWithChange });
         } catch (error: any) {
             console.error("KPI generation failed:", error);
-            toast({ title: "KPI Generation Failed", description: `Could not generate KPIs for ${upload.filename}.`, variant: "destructive" });
+            toast({
+                title: "KPI Generation Failed",
+                description: `Could not generate KPIs for ${upload.filename}.`,
+                variant: "destructive",
+            });
             failedCount++;
         }
 
@@ -175,23 +183,37 @@ export default function UploadsTable() {
             const response = await fetch("/api/ai/generate-forecast", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ datasetId: upload.id, forecastDays: [7] }),
+                body: JSON.stringify({
+                    datasetId: upload.id,
+                    forecastDays: [7],
+                }),
             });
-            if (!response.ok) throw new Error(`Forecast API failed: ${response.statusText}`);
+            if (!response.ok)
+                throw new Error(`Forecast API failed: ${response.statusText}`);
             const forecastResult = await response.json();
-            const sevenDayForecast = forecastResult.forecasts.find((f: any) => f.forecastDays === 7);
+            const sevenDayForecast = forecastResult.forecasts.find(
+                (f: any) => f.forecastDays === 7,
+            );
             if (sevenDayForecast) {
-                const forecastData = sevenDayForecast.results.map((f: any) => ({
-                    date: f.date, sales: null, predicted: f.predictedSales,
-                    lower: f.confidenceIntervalLower, upper: f.confidenceIntervalUpper,
-                })) || [];
+                const forecastData =
+                    sevenDayForecast.results.map((f: any) => ({
+                        date: f.date,
+                        sales: null,
+                        predicted: f.predictedSales,
+                        lower: f.confidenceIntervalLower,
+                        upper: f.confidenceIntervalUpper,
+                    })) || [];
                 await updateDataset(upload.id, { forecast: forecastData });
             } else {
                 throw new Error("7-day forecast not found in AI response.");
             }
         } catch (error: any) {
             console.error("Forecast generation failed:", error);
-            toast({ title: "Forecast Failed", description: `Could not generate forecast for ${upload.filename}.`, variant: "destructive" });
+            toast({
+                title: "Forecast Failed",
+                description: `Could not generate forecast for ${upload.filename}.`,
+                variant: "destructive",
+            });
             failedCount++;
         }
 
@@ -201,12 +223,19 @@ export default function UploadsTable() {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ datasetId: upload.id }),
             });
-            if (!response.ok) throw new Error(`Bundles API failed: ${response.statusText}`);
+            if (!response.ok)
+                throw new Error(`Bundles API failed: ${response.statusText}`);
             const bundlesResult = await response.json();
-            await updateDataset(upload.id, { bundles: bundlesResult.associationRules });
+            await updateDataset(upload.id, {
+                bundles: bundlesResult.associationRules,
+            });
         } catch (error: any) {
             console.error("Market basket analysis failed:", error);
-            toast({ title: "Bundle Analysis Failed", description: `Could not generate product bundles for ${upload.filename}.`, variant: "destructive" });
+            toast({
+                title: "Bundle Analysis Failed",
+                description: `Could not generate product bundles for ${upload.filename}.`,
+                variant: "destructive",
+            });
             failedCount++;
         }
 
@@ -217,27 +246,50 @@ export default function UploadsTable() {
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ datasetId: upload.id }),
                 });
-                if (!response.ok) throw new Error(`Categories API failed: ${response.statusText}`);
+                if (!response.ok)
+                    throw new Error(
+                        `Categories API failed: ${response.statusText}`,
+                    );
                 const categoriesResult = await response.json();
-                await updateDataset(upload.id, { categories: categoriesResult.categories });
+                await updateDataset(upload.id, {
+                    categories: categoriesResult.categories,
+                });
             } catch (error: any) {
                 console.error("Category analysis failed:", error);
-                toast({ title: "Category Analysis Failed", description: `Could not generate category performance for ${upload.filename}.`, variant: "destructive" });
+                toast({
+                    title: "Category Analysis Failed",
+                    description: `Could not generate category performance for ${upload.filename}.`,
+                    variant: "destructive",
+                });
                 failedCount++;
             }
         }
 
         const totalTasks = 3 + (headerMap["category"] !== undefined ? 1 : 0);
-        const finalStatus: Upload["status"] = failedCount === totalTasks ? "Failed" : "Completed";
+        const finalStatus: Upload["status"] =
+            failedCount === totalTasks ? "Failed" : "Completed";
         await updateDataset(upload.id, { status: finalStatus });
 
         if (failedCount > 0 && finalStatus === "Completed") {
-            toast({ title: "Processing Partially Complete", description: `Some analyses failed for ${upload.filename}. Available results are shown.`, variant: "destructive" });
+            toast({
+                title: "Processing Partially Complete",
+                description: `Some analyses failed for ${upload.filename}. Available results are shown.`,
+                variant: "destructive",
+            });
         } else if (finalStatus === "Failed") {
-            toast({ title: "Processing Failed", description: `All analyses failed for ${upload.filename}. Check console for details.`, variant: "destructive" });
+            toast({
+                title: "Processing Failed",
+                description: `All analyses failed for ${upload.filename}. Check console for details.`,
+                variant: "destructive",
+            });
         } else {
-            toast({ title: "Processing Complete", description: `${upload.filename} is ready to view.` });
-            setSelectedDataset(uploads.find((u) => u.id === upload.id) ?? null);
+            toast({
+                title: "Processing Complete",
+                description: `${upload.filename} is ready to view.`,
+            });
+            // Do NOT call setSelectedDataset here with stale closure `uploads`.
+            // The Firestore real-time subscription in DatasetContext will auto-select
+            // this dataset with fresh data once its status becomes "Completed".
         }
     };
 
@@ -263,7 +315,9 @@ export default function UploadsTable() {
 
     const handleUploadClick = () => fileInputRef.current?.click();
 
-    const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleFileChange = async (
+        event: React.ChangeEvent<HTMLInputElement>,
+    ) => {
         const file = event.target.files?.[0];
         if (!file || !user) return;
         try {
@@ -277,10 +331,17 @@ export default function UploadsTable() {
                 recordCount,
                 content: parsedContent,
             });
-            toast({ title: "File Uploaded", description: `${file.name} is ready for column mapping.` });
+            toast({
+                title: "File Uploaded",
+                description: `${file.name} is ready for column mapping.`,
+            });
         } catch (error: any) {
             console.error("Upload failed:", error);
-            toast({ title: "Upload Failed", description: error.message || "Could not upload file", variant: "destructive" });
+            toast({
+                title: "Upload Failed",
+                description: error.message || "Could not upload file",
+                variant: "destructive",
+            });
         }
         event.target.value = "";
     };
@@ -289,10 +350,17 @@ export default function UploadsTable() {
         try {
             await deleteDataset(upload.id);
             if (selectedDataset?.id === upload.id) setSelectedDataset(null);
-            toast({ title: "Dataset Deleted", description: "The selected dataset has been removed." });
+            toast({
+                title: "Dataset Deleted",
+                description: "The selected dataset has been removed.",
+            });
         } catch (error: any) {
             console.error("Delete failed:", error);
-            toast({ title: "Delete Failed", description: error.message || "Could not delete dataset", variant: "destructive" });
+            toast({
+                title: "Delete Failed",
+                description: error.message || "Could not delete dataset",
+                variant: "destructive",
+            });
         }
     };
 
@@ -305,12 +373,18 @@ export default function UploadsTable() {
             const selectedHeader = currentMappings[key];
             if (selectedHeader && selectedHeader !== "none") {
                 headerMap[key] = csvHeaders.indexOf(selectedHeader);
-            } else if (!requiredColumns[key as keyof typeof requiredColumns].optional) {
+            } else if (
+                !requiredColumns[key as keyof typeof requiredColumns].optional
+            ) {
                 missing.push(key);
             }
         });
         if (missing.length > 0) {
-            toast({ title: "Mapping Incomplete", description: `Please map the following required fields: ${missing.join(", ")}`, variant: "destructive" });
+            toast({
+                title: "Mapping Incomplete",
+                description: `Please map the following required fields: ${missing.join(", ")}`,
+                variant: "destructive",
+            });
             return;
         }
         processUpload(mappingCandidate, headerMap);
@@ -339,10 +413,13 @@ export default function UploadsTable() {
                             <div className="flex items-center justify-center h-8 w-8 rounded-lg bg-primary/10 text-primary">
                                 <UploadCloud className="h-4 w-4" />
                             </div>
-                            <CardTitle className="text-lg">Dataset Uploads</CardTitle>
+                            <CardTitle className="text-lg">
+                                Dataset Uploads
+                            </CardTitle>
                         </div>
                         <CardDescription>
-                            Manage your uploaded sales data. Select a dataset to activate it for analysis.
+                            Manage your uploaded sales data. Select a dataset to
+                            activate it for analysis.
                         </CardDescription>
                     </div>
                     <Button
@@ -368,10 +445,18 @@ export default function UploadsTable() {
                             <TableHeader>
                                 <TableRow className="bg-muted/50">
                                     <TableHead className="w-12"></TableHead>
-                                    <TableHead className="font-semibold">Filename</TableHead>
-                                    <TableHead className="font-semibold">Date Uploaded</TableHead>
-                                    <TableHead className="font-semibold">Records</TableHead>
-                                    <TableHead className="font-semibold">Status</TableHead>
+                                    <TableHead className="font-semibold">
+                                        Filename
+                                    </TableHead>
+                                    <TableHead className="font-semibold">
+                                        Date Uploaded
+                                    </TableHead>
+                                    <TableHead className="font-semibold">
+                                        Records
+                                    </TableHead>
+                                    <TableHead className="font-semibold">
+                                        Status
+                                    </TableHead>
                                     <TableHead className="w-12">
                                         <span className="sr-only">Actions</span>
                                     </TableHead>
@@ -380,14 +465,22 @@ export default function UploadsTable() {
                             <TableBody>
                                 {uploads.length === 0 ? (
                                     <TableRow>
-                                        <TableCell colSpan={6} className="h-40 text-center">
+                                        <TableCell
+                                            colSpan={6}
+                                            className="h-40 text-center"
+                                        >
                                             <div className="flex flex-col items-center gap-3 text-muted-foreground">
                                                 <div className="flex items-center justify-center h-12 w-12 rounded-2xl bg-muted">
                                                     <Inbox className="h-6 w-6" />
                                                 </div>
                                                 <div>
-                                                    <p className="font-medium text-foreground text-sm">No datasets yet</p>
-                                                    <p className="text-xs mt-0.5">Upload a CSV file to get started with analysis</p>
+                                                    <p className="font-medium text-foreground text-sm">
+                                                        No datasets yet
+                                                    </p>
+                                                    <p className="text-xs mt-0.5">
+                                                        Upload a CSV file to get
+                                                        started with analysis
+                                                    </p>
                                                 </div>
                                             </div>
                                         </TableCell>
@@ -398,55 +491,128 @@ export default function UploadsTable() {
                                             key={upload.id}
                                             className={cn(
                                                 "cursor-pointer transition-colors",
-                                                selectedDataset?.id === upload.id
+                                                selectedDataset?.id ===
+                                                    upload.id
                                                     ? "bg-primary/5"
                                                     : "hover:bg-muted/50",
                                             )}
-                                            onClick={() => setSelectedDataset(upload)}
+                                            onClick={() =>
+                                                setSelectedDataset(upload)
+                                            }
                                         >
                                             <TableCell>
-                                                {selectedDataset?.id === upload.id && (
+                                                {selectedDataset?.id ===
+                                                    upload.id && (
                                                     <div className="flex items-center justify-center">
                                                         <div className="h-2 w-2 rounded-full bg-primary" />
-                                                        <span className="sr-only">Selected Dataset</span>
+                                                        <span className="sr-only">
+                                                            Selected Dataset
+                                                        </span>
                                                     </div>
                                                 )}
                                             </TableCell>
-                                            <TableCell className="font-medium">{upload.filename}</TableCell>
-                                            <TableCell className="text-sm text-muted-foreground">{upload.date}</TableCell>
-                                            <TableCell className="font-mono text-sm">{upload.recordCount.toLocaleString()}</TableCell>
+                                            <TableCell className="font-medium">
+                                                {upload.filename}
+                                            </TableCell>
+                                            <TableCell className="text-sm text-muted-foreground">
+                                                {upload.date}
+                                            </TableCell>
+                                            <TableCell className="font-mono text-sm">
+                                                {upload.recordCount.toLocaleString()}
+                                            </TableCell>
                                             <TableCell>
                                                 {(() => {
-                                                    const config = statusConfig[upload.status as keyof typeof statusConfig];
+                                                    const config =
+                                                        statusConfig[
+                                                            upload.status as keyof typeof statusConfig
+                                                        ];
                                                     return config ? (
-                                                        <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium border ${config.className}`}>
+                                                        <span
+                                                            className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium border ${config.className}`}
+                                                        >
                                                             {config.icon}
                                                             {upload.status}
                                                         </span>
                                                     ) : (
-                                                        <Badge variant="secondary">{upload.status}</Badge>
+                                                        <Badge variant="secondary">
+                                                            {upload.status}
+                                                        </Badge>
                                                     );
                                                 })()}
                                             </TableCell>
-                                            <TableCell onClick={(e) => e.stopPropagation()}>
+                                            <TableCell
+                                                onClick={(e) =>
+                                                    e.stopPropagation()
+                                                }
+                                            >
                                                 <DropdownMenu>
-                                                    <DropdownMenuTrigger asChild>
-                                                        <Button aria-haspopup="true" size="icon" variant="ghost" className="h-8 w-8">
+                                                    <DropdownMenuTrigger
+                                                        asChild
+                                                    >
+                                                        <Button
+                                                            aria-haspopup="true"
+                                                            size="icon"
+                                                            variant="ghost"
+                                                            className="h-8 w-8"
+                                                        >
                                                             <MoreHorizontal className="h-4 w-4" />
-                                                            <span className="sr-only">Toggle menu</span>
+                                                            <span className="sr-only">
+                                                                Toggle menu
+                                                            </span>
                                                         </Button>
                                                     </DropdownMenuTrigger>
                                                     <DropdownMenuContent align="end">
-                                                        <DropdownMenuItem asChild>
-                                                            <Link href={getLinkPath(upload.id)}>View Details</Link>
+                                                        <DropdownMenuItem
+                                                            asChild
+                                                        >
+                                                            <Link
+                                                                href={getLinkPath(
+                                                                    upload.id,
+                                                                )}
+                                                            >
+                                                                View Details
+                                                            </Link>
                                                         </DropdownMenuItem>
-                                                        {upload.status !== "Completed" && upload.status !== "Processing" && (
-                                                            <DropdownMenuItem onClick={() => setMappingCandidate(upload)}>Map Columns</DropdownMenuItem>
-                                                        )}
+                                                        {upload.status !==
+                                                            "Completed" &&
+                                                            upload.status !==
+                                                                "Processing" && (
+                                                                <DropdownMenuItem
+                                                                    onClick={() =>
+                                                                        setMappingCandidate(
+                                                                            upload,
+                                                                        )
+                                                                    }
+                                                                >
+                                                                    Map Columns
+                                                                </DropdownMenuItem>
+                                                            )}
                                                         {upload.headerMap && (
-                                                            <DropdownMenuItem onClick={() => processUpload(upload, upload.headerMap!)} disabled={upload.status === "Processing"}>Re-process</DropdownMenuItem>
+                                                            <DropdownMenuItem
+                                                                onClick={() =>
+                                                                    processUpload(
+                                                                        upload,
+                                                                        upload.headerMap!,
+                                                                    )
+                                                                }
+                                                                disabled={
+                                                                    upload.status ===
+                                                                    "Processing"
+                                                                }
+                                                            >
+                                                                Re-process
+                                                            </DropdownMenuItem>
                                                         )}
-                                                        <DropdownMenuItem className="text-destructive focus:text-destructive" onClick={() => setItemToDelete(upload)}>Delete</DropdownMenuItem>
+                                                        <DropdownMenuItem
+                                                            className="text-destructive focus:text-destructive"
+                                                            onClick={() =>
+                                                                setItemToDelete(
+                                                                    upload,
+                                                                )
+                                                            }
+                                                        >
+                                                            Delete
+                                                        </DropdownMenuItem>
                                                     </DropdownMenuContent>
                                                 </DropdownMenu>
                                             </TableCell>
@@ -460,65 +626,112 @@ export default function UploadsTable() {
             </Card>
 
             {/* Column Mapping Dialog */}
-            <Dialog open={!!mappingCandidate} onOpenChange={(open) => !open && handleCancelMapping()}>
+            <Dialog
+                open={!!mappingCandidate}
+                onOpenChange={(open) => !open && handleCancelMapping()}
+            >
                 <DialogContent className="max-w-2xl">
                     <DialogHeader>
                         <DialogTitle>Map Your Data Columns</DialogTitle>
                         <DialogDescription>
                             Match the columns from{" "}
-                            <span className="font-semibold text-foreground">{mappingCandidate?.filename}</span>{" "}
+                            <span className="font-semibold text-foreground">
+                                {mappingCandidate?.filename}
+                            </span>{" "}
                             to the required fields for analysis.
                         </DialogDescription>
                     </DialogHeader>
                     <div className="grid gap-4 py-4">
-                        {Object.entries(requiredColumns).map(([key, { optional }]) => (
-                            <div key={key} className="grid grid-cols-3 items-center gap-4">
-                                <Label htmlFor={key} className="text-right capitalize text-sm">
-                                    {key}{" "}
-                                    {!optional && <span className="text-destructive">*</span>}
-                                    {optional && <span className="text-muted-foreground text-xs ml-1">(optional)</span>}
-                                </Label>
-                                <Select
-                                    value={currentMappings[key] ?? "none"}
-                                    onValueChange={(value) => setCurrentMappings((prev) => ({ ...prev, [key]: value }))}
+                        {Object.entries(requiredColumns).map(
+                            ([key, { optional }]) => (
+                                <div
+                                    key={key}
+                                    className="grid grid-cols-3 items-center gap-4"
                                 >
-                                    <SelectTrigger id={key} className="col-span-2">
-                                        <SelectValue placeholder="Select a column..." />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectItem value="none">
-                                            <span className="text-muted-foreground italic">Skip this column</span>
-                                        </SelectItem>
-                                        {csvHeaders.map((header) => (
-                                            <SelectItem key={header} value={header}>{header}</SelectItem>
-                                        ))}
-                                    </SelectContent>
-                                </Select>
-                            </div>
-                        ))}
+                                    <Label
+                                        htmlFor={key}
+                                        className="text-right capitalize text-sm"
+                                    >
+                                        {key}{" "}
+                                        {!optional && (
+                                            <span className="text-destructive">
+                                                *
+                                            </span>
+                                        )}
+                                        {optional && (
+                                            <span className="text-muted-foreground text-xs ml-1">
+                                                (optional)
+                                            </span>
+                                        )}
+                                    </Label>
+                                    <Select
+                                        value={currentMappings[key] ?? "none"}
+                                        onValueChange={(value) =>
+                                            setCurrentMappings((prev) => ({
+                                                ...prev,
+                                                [key]: value,
+                                            }))
+                                        }
+                                    >
+                                        <SelectTrigger
+                                            id={key}
+                                            className="col-span-2"
+                                        >
+                                            <SelectValue placeholder="Select a column..." />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectItem value="none">
+                                                <span className="text-muted-foreground italic">
+                                                    Skip this column
+                                                </span>
+                                            </SelectItem>
+                                            {csvHeaders.map((header) => (
+                                                <SelectItem
+                                                    key={header}
+                                                    value={header}
+                                                >
+                                                    {header}
+                                                </SelectItem>
+                                            ))}
+                                        </SelectContent>
+                                    </Select>
+                                </div>
+                            ),
+                        )}
                     </div>
                     <DialogFooter>
-                        <Button variant="ghost" onClick={handleCancelMapping}>Cancel</Button>
-                        <Button onClick={handleConfirmMapping}>Confirm & Process</Button>
+                        <Button variant="ghost" onClick={handleCancelMapping}>
+                            Cancel
+                        </Button>
+                        <Button onClick={handleConfirmMapping}>
+                            Confirm & Process
+                        </Button>
                     </DialogFooter>
                 </DialogContent>
             </Dialog>
 
             {/* Delete Confirmation Dialog */}
-            <AlertDialog open={!!itemToDelete} onOpenChange={(open) => !open && setItemToDelete(null)}>
+            <AlertDialog
+                open={!!itemToDelete}
+                onOpenChange={(open) => !open && setItemToDelete(null)}
+            >
                 <AlertDialogContent>
                     <AlertDialogHeader>
                         <AlertDialogTitle>Delete dataset?</AlertDialogTitle>
                         <AlertDialogDescription>
                             This will permanently delete{" "}
-                            <span className="font-semibold text-foreground">{itemToDelete?.filename}</span>.
-                            This action cannot be undone.
+                            <span className="font-semibold text-foreground">
+                                {itemToDelete?.filename}
+                            </span>
+                            . This action cannot be undone.
                         </AlertDialogDescription>
                     </AlertDialogHeader>
                     <AlertDialogFooter>
                         <AlertDialogCancel>Cancel</AlertDialogCancel>
                         <AlertDialogAction
-                            onClick={() => itemToDelete && handleDelete(itemToDelete)}
+                            onClick={() =>
+                                itemToDelete && handleDelete(itemToDelete)
+                            }
                             className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
                         >
                             Delete

@@ -1,6 +1,19 @@
-'use client';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+"use client";
+import {
+    Card,
+    CardHeader,
+    CardTitle,
+    CardDescription,
+    CardContent,
+} from "@/components/ui/card";
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { Download, Loader2, ShoppingBasket } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -13,14 +26,19 @@ export default function BundlesTable() {
 
     const handleDownload = () => {
         if (!bundlesData) return;
-        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(bundlesData, null, 2));
-        const downloadAnchorNode = document.createElement('a');
+        const dataStr =
+            "data:text/json;charset=utf-8," +
+            encodeURIComponent(JSON.stringify(bundlesData, null, 2));
+        const downloadAnchorNode = document.createElement("a");
         downloadAnchorNode.setAttribute("href", dataStr);
-        downloadAnchorNode.setAttribute("download", `${selectedDataset?.filename}_bundles.json`);
+        downloadAnchorNode.setAttribute(
+            "download",
+            `${selectedDataset?.filename}_bundles.json`,
+        );
         document.body.appendChild(downloadAnchorNode);
         downloadAnchorNode.click();
         downloadAnchorNode.remove();
-    }
+    };
 
     return (
         <Card className="relative overflow-hidden shadow-sm">
@@ -35,10 +53,14 @@ export default function BundlesTable() {
                         <div className="flex items-center justify-center h-8 w-8 rounded-lg bg-accent/10 text-accent">
                             <ShoppingBasket className="h-4 w-4" />
                         </div>
-                        <CardTitle className="text-lg">Product Bundle Recommendations</CardTitle>
+                        <CardTitle className="text-lg">
+                            Product Bundle Recommendations
+                        </CardTitle>
                     </div>
                     <CardDescription>
-                         {selectedDataset ? `Top product associations from market basket analysis on ${selectedDataset.filename}` : 'Select a dataset to view bundle recommendations.'}
+                        {selectedDataset
+                            ? `Top product associations from market basket analysis on ${selectedDataset.filename}`
+                            : "Select a dataset to view bundle recommendations."}
                     </CardDescription>
                 </div>
                 <Button
@@ -58,10 +80,18 @@ export default function BundlesTable() {
                         <Table>
                             <TableHeader>
                                 <TableRow className="bg-muted/50">
-                                    <TableHead className="font-semibold">Bought Together</TableHead>
-                                    <TableHead className="font-semibold">Also Bought</TableHead>
-                                    <TableHead className="text-right font-semibold">Confidence</TableHead>
-                                    <TableHead className="text-right font-semibold">Lift</TableHead>
+                                    <TableHead className="font-semibold">
+                                        Bought Together
+                                    </TableHead>
+                                    <TableHead className="font-semibold">
+                                        Also Bought
+                                    </TableHead>
+                                    <TableHead className="text-right font-semibold">
+                                        Confidence
+                                    </TableHead>
+                                    <TableHead className="text-right font-semibold">
+                                        Lift
+                                    </TableHead>
                                 </TableRow>
                             </TableHeader>
                             <TableBody>
@@ -69,16 +99,40 @@ export default function BundlesTable() {
                                     <TableRow key={index}>
                                         <TableCell className="font-medium">
                                             <div className="flex flex-wrap gap-1.5">
-                                                {rule.antecedents.map(item => <Badge key={item} variant="secondary" className="rounded-md font-normal">{item}</Badge>)}
+                                                {rule.antecedents.map(
+                                                    (item) => (
+                                                        <Badge
+                                                            key={item}
+                                                            variant="secondary"
+                                                            className="rounded-md font-normal"
+                                                        >
+                                                            {item}
+                                                        </Badge>
+                                                    ),
+                                                )}
                                             </div>
                                         </TableCell>
                                         <TableCell>
-                                             <div className="flex flex-wrap gap-1.5">
-                                                {rule.consequents.map(item => <Badge key={item} variant="outline" className="rounded-md font-normal">{item}</Badge>)}
+                                            <div className="flex flex-wrap gap-1.5">
+                                                {rule.consequents.map(
+                                                    (item) => (
+                                                        <Badge
+                                                            key={item}
+                                                            variant="outline"
+                                                            className="rounded-md font-normal"
+                                                        >
+                                                            {item}
+                                                        </Badge>
+                                                    ),
+                                                )}
                                             </div>
                                         </TableCell>
-                                        <TableCell className="text-right font-mono text-sm">{rule.confidence.toFixed(4)}</TableCell>
-                                        <TableCell className="text-right font-mono text-sm">{rule.lift.toFixed(4)}</TableCell>
+                                        <TableCell className="text-right font-mono text-sm">
+                                            {rule.confidence.toFixed(4)}
+                                        </TableCell>
+                                        <TableCell className="text-right font-mono text-sm">
+                                            {rule.lift.toFixed(4)}
+                                        </TableCell>
                                     </TableRow>
                                 ))}
                             </TableBody>
@@ -91,22 +145,30 @@ export default function BundlesTable() {
                         <div className="absolute top-0 left-0 w-36 h-36 bg-gradient-to-br from-accent/[0.06] to-transparent rounded-full -translate-y-1/3 -translate-x-1/4" />
                         <div className="absolute bottom-0 right-0 w-28 h-28 bg-gradient-to-tl from-primary/[0.05] to-transparent rounded-full translate-y-1/3 translate-x-1/4" />
 
-                        {selectedDataset ? (
+                        {selectedDataset &&
+                        selectedDataset.status !== "Completed" ? (
                             <div className="relative z-10">
                                 <div className="flex items-center justify-center h-16 w-16 rounded-2xl bg-accent/10 mb-4 mx-auto">
                                     <Loader2 className="h-8 w-8 text-accent animate-spin" />
                                 </div>
-                                <p className="text-muted-foreground text-sm font-medium">Analyzing product bundles...</p>
-                                <p className="text-muted-foreground/60 text-xs mt-1">Running market basket analysis</p>
+                                <p className="text-muted-foreground text-sm font-medium">
+                                    Analyzing product bundles...
+                                </p>
+                                <p className="text-muted-foreground/60 text-xs mt-1">
+                                    Running market basket analysis
+                                </p>
                             </div>
                         ) : (
                             <div className="relative z-10">
                                 <div className="flex items-center justify-center h-16 w-16 rounded-2xl bg-muted/80 mb-4 mx-auto border border-border/50">
                                     <ShoppingBasket className="h-7 w-7 text-muted-foreground" />
                                 </div>
-                                <p className="text-muted-foreground font-medium text-sm">No bundle data yet</p>
+                                <p className="text-muted-foreground font-medium text-sm">
+                                    No bundle data yet
+                                </p>
                                 <p className="text-muted-foreground/60 text-xs mt-1 max-w-xs">
-                                    Select a processed dataset to discover which products are frequently bought together.
+                                    Select a processed dataset to discover which
+                                    products are frequently bought together.
                                 </p>
                             </div>
                         )}

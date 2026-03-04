@@ -1,7 +1,15 @@
-'use client';
+"use client";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { KpiData } from "@/lib/data";
-import { DollarSign, Users, CreditCard, ShoppingBasket, Inbox, Loader2, ArrowUpRight } from 'lucide-react';
+import {
+    DollarSign,
+    Users,
+    CreditCard,
+    ShoppingBasket,
+    Inbox,
+    Loader2,
+    ArrowUpRight,
+} from "lucide-react";
 import { useDataset } from "@/contexts/dataset-context";
 
 const iconMap = {
@@ -33,7 +41,10 @@ export default function OverviewTab() {
         <div className="space-y-6">
             {selectedDataset ? (
                 <p className="text-sm text-muted-foreground">
-                    Showing KPIs for <span className="font-semibold text-foreground">{selectedDataset?.filename}</span>
+                    Showing KPIs for{" "}
+                    <span className="font-semibold text-foreground">
+                        {selectedDataset?.filename}
+                    </span>
                 </p>
             ) : (
                 <p className="text-sm text-muted-foreground">
@@ -44,27 +55,43 @@ export default function OverviewTab() {
             {kpiData && kpiData.length > 0 ? (
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                     {kpiData.map((kpi, index) => {
-                        const Icon = iconMap[kpi.icon as keyof typeof iconMap] || DollarSign;
-                        const iconStyle = iconBgMap[kpi.icon as string] || "bg-primary/10 text-primary";
-                        const gradient = cardGradients[index % cardGradients.length];
+                        const Icon =
+                            iconMap[kpi.icon as keyof typeof iconMap] ||
+                            DollarSign;
+                        const iconStyle =
+                            iconBgMap[kpi.icon as string] ||
+                            "bg-primary/10 text-primary";
+                        const gradient =
+                            cardGradients[index % cardGradients.length];
                         return (
-                            <Card key={index} className="relative overflow-hidden group hover:shadow-md transition-all duration-300 shadow-sm">
+                            <Card
+                                key={index}
+                                className="relative overflow-hidden group hover:shadow-md transition-all duration-300 shadow-sm"
+                            >
                                 {/* Gradient background overlay - visible always, stronger on hover */}
-                                <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-60 group-hover:opacity-100 transition-opacity duration-300`} />
+                                <div
+                                    className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-60 group-hover:opacity-100 transition-opacity duration-300`}
+                                />
                                 <div className="absolute inset-0 bg-grid-pattern-subtle opacity-15 group-hover:opacity-30 transition-opacity duration-300" />
                                 <div className="geo-shape geo-ring w-[60px] h-[60px] -top-4 -right-4 opacity-20 group-hover:opacity-40 transition-opacity" />
                                 <div className="geo-shape geo-circle-filled w-[10px] h-[10px] bottom-3 left-4 opacity-30" />
                                 <CardHeader className="relative flex flex-row items-center justify-between space-y-0 pb-2">
-                                    <CardTitle className="text-sm font-medium text-muted-foreground">{kpi.title}</CardTitle>
-                                    <div className={`flex items-center justify-center h-9 w-9 rounded-xl ${iconStyle} transition-transform group-hover:scale-110`}>
+                                    <CardTitle className="text-sm font-medium text-muted-foreground">
+                                        {kpi.title}
+                                    </CardTitle>
+                                    <div
+                                        className={`flex items-center justify-center h-9 w-9 rounded-xl ${iconStyle} transition-transform group-hover:scale-110`}
+                                    >
                                         <Icon className="h-4 w-4" />
                                     </div>
                                 </CardHeader>
                                 <CardContent className="relative">
-                                    <div className="text-2xl font-bold tracking-tight">{kpi.value}</div>
+                                    <div className="text-2xl font-bold tracking-tight">
+                                        {kpi.value}
+                                    </div>
                                     {kpi.description && (
                                         <p className="text-xs text-muted-foreground mt-1">
-                                           {kpi.description}
+                                            {kpi.description}
                                         </p>
                                     )}
                                 </CardContent>
@@ -80,23 +107,32 @@ export default function OverviewTab() {
                     <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-accent/5 to-transparent rounded-full translate-y-1/2 -translate-x-1/4" />
 
                     <CardContent className="relative h-72 flex flex-col items-center justify-center text-center">
-                        {selectedDataset ? (
+                        {selectedDataset &&
+                        selectedDataset.status !== "Completed" ? (
                             <>
                                 <div className="relative">
                                     <div className="absolute inset-0 bg-primary/10 rounded-full blur-xl" />
                                     <Loader2 className="relative h-12 w-12 text-primary animate-spin" />
                                 </div>
-                                <p className="text-muted-foreground mt-6 text-sm font-medium">Processing your data...</p>
-                                <p className="text-muted-foreground mt-1 text-xs">Generating KPIs from your dataset</p>
+                                <p className="text-muted-foreground mt-6 text-sm font-medium">
+                                    Processing your data...
+                                </p>
+                                <p className="text-muted-foreground mt-1 text-xs">
+                                    Generating KPIs from your dataset
+                                </p>
                             </>
                         ) : (
                             <>
                                 <div className="flex items-center justify-center h-16 w-16 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 mb-5">
                                     <Inbox className="h-8 w-8 text-muted-foreground" />
                                 </div>
-                                <p className="text-foreground font-medium text-sm">No dataset selected</p>
+                                <p className="text-foreground font-medium text-sm">
+                                    No dataset selected
+                                </p>
                                 <p className="text-muted-foreground text-sm max-w-sm mt-1">
-                                    Key Performance Indicators will appear here once you select a processed dataset from the Uploads tab.
+                                    Key Performance Indicators will appear here
+                                    once you select a processed dataset from the
+                                    Uploads tab.
                                 </p>
                                 <div className="flex items-center gap-1.5 mt-4 text-xs text-primary font-medium">
                                     <ArrowUpRight className="h-3.5 w-3.5" />
