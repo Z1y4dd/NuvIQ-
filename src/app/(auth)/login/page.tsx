@@ -30,7 +30,7 @@ export default function LoginPage() {
     const [resetError, setResetError] = useState("");
     const [resetLoading, setResetLoading] = useState(false);
 
-    const { signIn, resetPassword } = useAuth();
+    const { signIn, signInWithGoogle, resetPassword } = useAuth();
     const router = useRouter();
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -59,6 +59,19 @@ export default function LoginPage() {
             setResetError(err.message || "Failed to send reset email");
         } finally {
             setResetLoading(false);
+        }
+    };
+
+    const handleGoogleSignIn = async () => {
+        setError("");
+        setLoading(true);
+        try {
+            await signInWithGoogle();
+            router.push("/dashboard");
+        } catch (err: any) {
+            setError(err.message || "Failed to sign in with Google");
+        } finally {
+            setLoading(false);
         }
     };
 

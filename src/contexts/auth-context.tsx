@@ -8,6 +8,8 @@ import {
     signOut as firebaseSignOut,
     onAuthStateChanged,
     sendPasswordResetEmail,
+    GoogleAuthProvider,
+    signInWithPopup,
 } from "firebase/auth";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { auth, db } from "@/lib/firebase";
@@ -17,6 +19,7 @@ interface AuthContextType {
     loading: boolean;
     signUp: (email: string, password: string, name: string) => Promise<void>;
     signIn: (email: string, password: string) => Promise<void>;
+    signInWithGoogle: () => Promise<void>;
     signOut: () => Promise<void>;
     resetPassword: (email: string) => Promise<void>;
 }
@@ -26,6 +29,7 @@ const AuthContext = createContext<AuthContextType>({
     loading: true,
     signUp: async () => {},
     signIn: async () => {},
+    signInWithGoogle: async () => {},
     signOut: async () => {},
     resetPassword: async () => {},
 });
@@ -76,6 +80,24 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         await signInWithEmailAndPassword(auth, email, password);
     };
 
+    const signInWithGoogle = async () => {
+        if (!auth) throw new Error("Firebase is not initialized");
+        const provider = new GoogleAuthProvider();
+        const credential = await signInWithPopup(auth, provider);
+        // Create/update user doc in Firestore if it doesn't exist
+        if (db) {
+            const userRef = doc(db, "users", credential.user.uid);
+            const snap = await getDoc(userRef);
+            if (!snap.exists()) {
+                await setDoc(userRef, {
+                    email: credential.user.email,
+                    name: credential.user.displayName || "",
+                    createdAt: new Date().toISOString(),
+                });
+            }
+        }
+    };
+
     const signOut = async () => {
         if (!auth) {
             throw new Error("Firebase is not initialized");
@@ -95,6 +117,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         loading,
         signUp,
         signIn,
+        signInWithGoogle,
         signOut,
         resetPassword,
     };
