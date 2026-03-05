@@ -67,6 +67,7 @@ import { useAuth } from "@/contexts/auth-context";
 import { cn } from "@/lib/utils";
 import { createDataset, updateDataset, deleteDataset } from "@/lib/firestore";
 import { parseCSV as parseCSVFile } from "@/lib/storage";
+import { extractCsvSample } from "@/lib/dataset-utils";
 
 const statusConfig = {
     Completed: {
@@ -153,16 +154,30 @@ export default function UploadsTable() {
 
         let failedCount = 0;
 
+        // Get auth token for API requests
+        const idToken = await user.getIdToken();
+        const authHeaders = {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${idToken}`,
+        };
+
         await updateDataset(upload.id, { status: "Processing", headerMap });
+
+        // Extract CSV sample to send to AI endpoints
+        const csvData = extractCsvSample(upload.content, headerMap);
 
         try {
             const response = await fetch("/api/ai/generate-kpis", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ datasetId: upload.id }),
+                headers: authHeaders,
+                body: JSON.stringify({ datasetId: upload.id, csvData }),
             });
-            if (!response.ok)
-                throw new Error(`KPI API failed: ${response.statusText}`);
+            if (!response.ok) {
+                const errBody = await response.json().catch(() => ({}));
+                throw new Error(
+                    `KPI API failed: ${errBody?.error || response.statusText}`,
+                );
+            }
             const kpiResult = await response.json();
             const kpisWithChange = kpiResult.kpis.map((k: any) => ({
                 ...k,
@@ -179,22 +194,33 @@ export default function UploadsTable() {
             failedCount++;
         }
 
+        // Delay between AI calls to stay within Gemini free-tier rate limits (30s)
+        await new Promise((r) => setTimeout(r, 30000));
+
         try {
             const response = await fetch("/api/ai/generate-forecast", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: authHeaders,
                 body: JSON.stringify({
                     datasetId: upload.id,
                     forecastDays: [7],
+                    csvData,
                 }),
             });
-            if (!response.ok)
-                throw new Error(`Forecast API failed: ${response.statusText}`);
+            if (!response.ok) {
+                const errBody = await response.json().catch(() => ({}));
+                throw new Error(
+                    `Forecast API failed: ${errBody?.error || response.statusText}`,
+                );
+            }
             const forecastResult = await response.json();
-            const sevenDayForecast = forecastResult.forecasts.find(
-                (f: any) => f.forecastDays === 7,
-            );
-            if (sevenDayForecast) {
+            // Find the 7-day forecast — AI may return forecastDays as number or string,
+            // so coerce to number. Fall back to first entry if only one period was requested.
+            const sevenDayForecast =
+                forecastResult.forecasts?.find(
+                    (f: any) => Number(f.forecastDays) === 7,
+                ) ?? forecastResult.forecasts?.[0];
+            if (sevenDayForecast?.results?.length) {
                 const forecastData =
                     sevenDayForecast.results.map((f: any) => ({
                         date: f.date,
@@ -217,14 +243,21 @@ export default function UploadsTable() {
             failedCount++;
         }
 
+        // Delay between AI calls to stay within Gemini free-tier rate limits (30s)
+        await new Promise((r) => setTimeout(r, 30000));
+
         try {
             const response = await fetch("/api/ai/analyze-bundles", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ datasetId: upload.id }),
+                headers: authHeaders,
+                body: JSON.stringify({ datasetId: upload.id, csvData }),
             });
-            if (!response.ok)
-                throw new Error(`Bundles API failed: ${response.statusText}`);
+            if (!response.ok) {
+                const errBody = await response.json().catch(() => ({}));
+                throw new Error(
+                    `Bundles API failed: ${errBody?.error || response.statusText}`,
+                );
+            }
             const bundlesResult = await response.json();
             await updateDataset(upload.id, {
                 bundles: bundlesResult.associationRules,
@@ -240,16 +273,21 @@ export default function UploadsTable() {
         }
 
         if (headerMap["category"] !== undefined) {
+            // Delay between AI calls to stay within Gemini free-tier rate limits (30s)
+            await new Promise((r) => setTimeout(r, 30000));
+
             try {
                 const response = await fetch("/api/ai/analyze-categories", {
                     method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ datasetId: upload.id }),
+                    headers: authHeaders,
+                    body: JSON.stringify({ datasetId: upload.id, csvData }),
                 });
-                if (!response.ok)
+                if (!response.ok) {
+                    const errBody = await response.json().catch(() => ({}));
                     throw new Error(
-                        `Categories API failed: ${response.statusText}`,
+                        `Categories API failed: ${errBody?.error || response.statusText}`,
                     );
+                }
                 const categoriesResult = await response.json();
                 await updateDataset(upload.id, {
                     categories: categoriesResult.categories,

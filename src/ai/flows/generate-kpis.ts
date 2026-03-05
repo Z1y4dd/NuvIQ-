@@ -12,6 +12,11 @@ import { z } from "zod";
 
 const GenerateKpisInputSchema = z.object({
     datasetId: z.string().describe("The ID of the dataset to analyze."),
+    csvData: z
+        .string()
+        .describe(
+            "A CSV sample of the dataset including headers and up to 200 rows.",
+        ),
 });
 export type GenerateKpisInput = z.infer<typeof GenerateKpisInputSchema>;
 
@@ -49,20 +54,24 @@ const generateKpisPrompt = ai.definePrompt({
     config: {
         responseMimeType: "application/json",
     },
-    prompt: `You are an expert retail analyst acting as a data simulation engine.
+    prompt: `You are an expert retail data analyst.
 
-  Your task is to generate a realistic but synthetic set of 4 Key Performance Indicators (KPIs) for a given dataset.
-  The KPIs should be:
-  1. Total Revenue (icon: 'DollarSign')
-  2. Total Transactions (icon: 'CreditCard')
-  3. Unique Customers (icon: 'Users')
-  4. Avg. Items per Order (icon: 'ShoppingBasket')
+Your task is to compute 4 Key Performance Indicators (KPIs) from the CSV sales data provided below.
+The KPIs should be:
+1. Total Revenue (icon: 'DollarSign') — sum of the "total revenue" column.
+2. Total Transactions (icon: 'CreditCard') — count of unique invoice IDs.
+3. Unique Customers (icon: 'Users') — if a customer column exists, count distinct values; otherwise estimate from the data.
+4. Avg. Items per Order (icon: 'ShoppingBasket') — average number of line items per unique invoice.
 
-  Based on the dataset ID, create realistic values for these KPIs.
+Analyze this real data carefully. If the sample below represents a subset, note that in descriptions.
 
-  Dataset ID: {{{datasetId}}}
+Dataset ID: {{{datasetId}}}
 
-  Return the 4 KPIs in the specified JSON format.`,
+--- BEGIN CSV DATA ---
+{{{csvData}}}
+--- END CSV DATA ---
+
+Return the 4 KPIs in the specified JSON format.`,
 });
 
 const generateKpisFlow = ai.defineFlow(

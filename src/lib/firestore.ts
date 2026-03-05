@@ -138,14 +138,22 @@ export function subscribeToUserDatasets(
         orderBy("createdAt", "desc"),
     );
 
-    return onSnapshot(q, (snapshot) => {
-        const datasets = snapshot.docs.map(
-            (doc) =>
-                deserializeFromFirestore({
-                    id: doc.id,
-                    ...doc.data(),
-                }) as Upload,
-        );
-        callback(datasets);
-    });
+    return onSnapshot(
+        q,
+        (snapshot) => {
+            const datasets = snapshot.docs.map(
+                (doc) =>
+                    deserializeFromFirestore({
+                        id: doc.id,
+                        ...doc.data(),
+                    }) as Upload,
+            );
+            callback(datasets);
+        },
+        (error) => {
+            console.error("Firestore subscription error:", error.message);
+            // Still invoke callback with empty list so the UI isn't stuck loading
+            callback([]);
+        },
+    );
 }

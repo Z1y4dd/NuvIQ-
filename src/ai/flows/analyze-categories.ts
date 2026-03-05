@@ -12,6 +12,11 @@ import { z } from "zod";
 
 const AnalyzeCategoriesInputSchema = z.object({
     datasetId: z.string().describe("The ID of the dataset to analyze."),
+    csvData: z
+        .string()
+        .describe(
+            "A CSV sample of the dataset including headers and up to 200 rows.",
+        ),
 });
 export type AnalyzeCategoriesInput = z.infer<
     typeof AnalyzeCategoriesInputSchema
@@ -60,13 +65,19 @@ const analyzeCategoriesPrompt = ai.definePrompt({
     config: {
         responseMimeType: "application/json",
     },
-    prompt: `You are an expert retail analyst acting as a data simulation engine.
+    prompt: `You are an expert retail analyst.
 
-  Your task is to simulate running a category performance analysis on a dataset.
-  Based on the dataset ID, generate a realistic but synthetic set of category data, including total revenue, total units sold, top product, and growth rate.
+Your task is to analyze the real sales data below and compute category performance metrics.
+Use the "category" column to group products, and calculate total revenue, total units sold, the top-selling product, and growth rate for each category.
+If there is no explicit growth data, estimate growth rate based on date trends in the data.
 
-  Return the top 5-10 categories in the specified JSON format.
-  Dataset ID: {{{datasetId}}}`,
+Dataset ID: {{{datasetId}}}
+
+--- BEGIN CSV DATA ---
+{{{csvData}}}
+--- END CSV DATA ---
+
+Return the top 5-10 categories in the specified JSON format.`,
 });
 
 const analyzeCategoriesFlow = ai.defineFlow(

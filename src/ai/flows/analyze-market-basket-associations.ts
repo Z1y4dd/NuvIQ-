@@ -12,6 +12,11 @@ import { z } from "zod";
 
 const AnalyzeMarketBasketAssociationsInputSchema = z.object({
     datasetId: z.string().describe("The ID of the dataset to analyze."),
+    csvData: z
+        .string()
+        .describe(
+            "A CSV sample of the dataset including headers and up to 200 rows.",
+        ),
 });
 export type AnalyzeMarketBasketAssociationsInput = z.infer<
     typeof AnalyzeMarketBasketAssociationsInputSchema
@@ -68,13 +73,19 @@ const analyzeMarketBasketAssociationsPrompt = ai.definePrompt({
     config: {
         responseMimeType: "application/json",
     },
-    prompt: `You are an expert in market basket analysis acting as a data simulation engine.
+    prompt: `You are an expert in market basket analysis.
 
-  Your task is to simulate running the Apriori algorithm on a dataset to find product associations.
-  Based on the dataset ID, generate a realistic but synthetic set of association rules, including support, confidence, and lift.
+Your task is to analyze the real transaction data below and find product associations using market basket analysis (Apriori-style).
+Group items by "invoiceid" to build transaction baskets, then use the "product name" column to find which products are frequently purchased together.
+Calculate support, confidence, and lift for each rule.
 
-  Return the top 10-15 association rules in the specified JSON format.
-  Dataset ID: {{{datasetId}}}`,
+Dataset ID: {{{datasetId}}}
+
+--- BEGIN CSV DATA ---
+{{{csvData}}}
+--- END CSV DATA ---
+
+Return the top 10-15 association rules in the specified JSON format.`,
 });
 
 const analyzeMarketBasketAssociationsFlow = ai.defineFlow(

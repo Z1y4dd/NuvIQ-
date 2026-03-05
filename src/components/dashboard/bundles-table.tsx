@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import {
     Card,
     CardHeader,
@@ -15,13 +16,20 @@ import {
     TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import { Download, Loader2, ShoppingBasket } from "lucide-react";
+import { Download, Loader2, RefreshCw, ShoppingBasket } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { useDataset } from "@/contexts/dataset-context";
+import { useAuth } from "@/contexts/auth-context";
+import { useToast } from "@/hooks/use-toast";
+import { extractCsvSample } from "@/lib/dataset-utils";
+import { updateDataset } from "@/lib/firestore";
 import { BundleData } from "@/lib/data";
 
 export default function BundlesTable() {
     const { selectedDataset } = useDataset();
+    const { user } = useAuth();
+    const { toast } = useToast();
+    const [retrying, setRetrying] = useState(false);
     const bundlesData = selectedDataset?.bundles;
 
     const handleDownload = () => {
@@ -38,6 +46,53 @@ export default function BundlesTable() {
         document.body.appendChild(downloadAnchorNode);
         downloadAnchorNode.click();
         downloadAnchorNode.remove();
+    };
+
+    const handleRetryBundles = async () => {
+        if (!selectedDataset || !user || !selectedDataset.headerMap) return;
+        setRetrying(true);
+        try {
+            const idToken = await user.getIdToken();
+            const csvData = extractCsvSample(
+                selectedDataset.content,
+                selectedDataset.headerMap,
+            );
+            const response = await fetch("/api/ai/analyze-bundles", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${idToken}`,
+                },
+                body: JSON.stringify({
+                    datasetId: selectedDataset.id,
+                    csvData,
+                }),
+            });
+            if (!response.ok) {
+                const errBody = await response.json().catch(() => ({}));
+                throw new Error(errBody?.error || response.statusText);
+            }
+            const bundlesResult = await response.json();
+            await updateDataset(selectedDataset.id, {
+                bundles: bundlesResult.associationRules,
+            });
+            toast({
+                title: "Bundles Generated",
+                description:
+                    "Product bundle recommendations are now available.",
+            });
+        } catch (error: any) {
+            console.error("Retry bundles failed:", error);
+            toast({
+                title: "Bundle Retry Failed",
+                description:
+                    error.message ||
+                    "Could not generate bundles. Try again later.",
+                variant: "destructive",
+            });
+        } finally {
+            setRetrying(false);
+        }
     };
 
     return (
@@ -164,12 +219,34 @@ export default function BundlesTable() {
                                     <ShoppingBasket className="h-7 w-7 text-muted-foreground" />
                                 </div>
                                 <p className="text-muted-foreground font-medium text-sm">
-                                    No bundle data yet
+                                    {selectedDataset?.status === "Completed"
+                                        ? "Bundle analysis failed"
+                                        : "No bundle data yet"}
                                 </p>
                                 <p className="text-muted-foreground/60 text-xs mt-1 max-w-xs">
-                                    Select a processed dataset to discover which
-                                    products are frequently bought together.
+                                    {selectedDataset?.status === "Completed"
+                                        ? "The market basket analysis could not be completed. Click retry to try again."
+                                        : "Select a processed dataset to discover which products are frequently bought together."}
                                 </p>
+                                {selectedDataset?.status === "Completed" &&
+                                    selectedDataset?.headerMap && (
+                                        <Button
+                                            variant="outline"
+                                            size="sm"
+                                            className="mt-4"
+                                            onClick={handleRetryBundles}
+                                            disabled={retrying}
+                                        >
+                                            {retrying ? (
+                                                <Loader2 className="mr-1.5 h-3.5 w-3.5 animate-spin" />
+                                            ) : (
+                                                <RefreshCw className="mr-1.5 h-3.5 w-3.5" />
+                                            )}
+                                            {retrying
+                                                ? "Analyzing..."
+                                                : "Retry Bundles"}
+                                        </Button>
+                                    )}
                             </div>
                         )}
                     </div>

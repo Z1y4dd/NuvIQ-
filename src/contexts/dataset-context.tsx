@@ -42,7 +42,8 @@ export function DatasetProvider({ children }: { children: ReactNode }) {
             // and auto-select the first completed dataset if nothing is selected.
             setSelectedDataset((prev) => {
                 if (prev) {
-                    return datasets.find((d) => d.id === prev.id) ?? prev;
+                    const fresh = datasets.find((d) => d.id === prev.id);
+                    return fresh ?? prev;
                 }
                 return datasets.find((d) => d.status === "Completed") ?? null;
             });

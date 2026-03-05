@@ -19,6 +19,11 @@ const GenerateTimeSeriesForecastInputSchema = z.object({
         .describe(
             "Array of integers representing the number of days to forecast (e.g., [7, 30, 90]).",
         ),
+    csvData: z
+        .string()
+        .describe(
+            "A CSV sample of the dataset including headers and up to 200 rows.",
+        ),
 });
 export type GenerateTimeSeriesForecastInput = z.infer<
     typeof GenerateTimeSeriesForecastInputSchema
@@ -70,17 +75,19 @@ const generateTimeSeriesForecastPrompt = ai.definePrompt({
     config: {
         responseMimeType: "application/json",
     },
-    prompt: `You are an expert in time series analysis acting as a data simulation engine.
+    prompt: `You are an expert in time series analysis.
 
-  Your task is to generate a realistic but synthetic sales forecast.
-  You need to simulate trends and seasonality to produce a convincing forecast for each period specified in forecastDays.
+Your task is to analyze the real sales data below and produce a sales forecast for each period specified in forecastDays.
+Use the "date" and "total revenue" columns to identify trends, seasonality, and patterns, then extrapolate future values.
 
-  The forecast should be based on the provided dataset ID.
+Dataset ID: {{{datasetId}}}
+Forecast for the following periods: {{#each forecastDays}}{{{this}}} days{{#unless @last}}, {{/unless}}{{/each}}.
 
-  Dataset ID: {{{datasetId}}}
-  Forecast for the following periods: {{#each forecastDays}}{{{this}}} days{{#unless @last}}, {{/unless}}{{/each}}.
+--- BEGIN CSV DATA ---
+{{{csvData}}}
+--- END CSV DATA ---
 
-  Return a valid JSON object that adheres to the output schema, creating one entry in the 'forecasts' array for each value in the input 'forecastDays'.`,
+Return a valid JSON object that adheres to the output schema, creating one entry in the 'forecasts' array for each value in the input 'forecastDays'.`,
 });
 
 const generateTimeSeriesForecastFlow = ai.defineFlow(

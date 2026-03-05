@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import {
     Card,
     CardHeader,
@@ -12,19 +13,45 @@ import {
     ChartTooltip,
     ChartTooltipContent,
 } from "@/components/ui/chart";
-import { AreaChart, CartesianGrid, XAxis, Area, Tooltip } from "recharts";
+import {
+    AreaChart,
+    CartesianGrid,
+    XAxis,
+    YAxis,
+    Area,
+    Tooltip,
+} from "recharts";
 import { Button } from "@/components/ui/button";
-import { Download, Loader2, TrendingUp } from "lucide-react";
+import { Download, Loader2, RefreshCw, TrendingUp } from "lucide-react";
 import { useDataset } from "@/contexts/dataset-context";
+import { useAuth } from "@/contexts/auth-context";
+import { useToast } from "@/hooks/use-toast";
+import { extractCsvSample } from "@/lib/dataset-utils";
+import { updateDataset } from "@/lib/firestore";
 import { ForecastData } from "@/lib/data";
 
 export default function ForecastChart() {
     const { selectedDataset } = useDataset();
+    const { user } = useAuth();
+    const { toast } = useToast();
+    const [retrying, setRetrying] = useState(false);
     const forecastData = selectedDataset?.forecast;
+
+    // Transform data for proper confidence band rendering:
+    // Recharts needs a [lower, upper] range for the band area.
+    const chartData = (forecastData ?? []).map((d) => ({
+        ...d,
+        confidenceBand:
+            d.lower != null && d.upper != null ? [d.lower, d.upper] : null,
+    }));
 
     const chartConfig = {
         predicted: {
-            label: "Predicted",
+            label: "Predicted Sales",
+            color: "hsl(var(--chart-1))",
+        },
+        confidenceBand: {
+            label: "Confidence Interval",
             color: "hsl(var(--chart-1))",
         },
     };
@@ -43,6 +70,70 @@ export default function ForecastChart() {
         document.body.appendChild(downloadAnchorNode);
         downloadAnchorNode.click();
         downloadAnchorNode.remove();
+    };
+
+    const handleRetryForecast = async () => {
+        if (!selectedDataset || !user || !selectedDataset.headerMap) return;
+        setRetrying(true);
+        try {
+            const idToken = await user.getIdToken();
+            const csvData = extractCsvSample(
+                selectedDataset.content,
+                selectedDataset.headerMap,
+            );
+            const response = await fetch("/api/ai/generate-forecast", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${idToken}`,
+                },
+                body: JSON.stringify({
+                    datasetId: selectedDataset.id,
+                    forecastDays: [7],
+                    csvData,
+                }),
+            });
+            if (!response.ok) {
+                const errBody = await response.json().catch(() => ({}));
+                throw new Error(errBody?.error || response.statusText);
+            }
+            const forecastResult = await response.json();
+            const sevenDayForecast =
+                forecastResult.forecasts?.find(
+                    (f: any) => Number(f.forecastDays) === 7,
+                ) ?? forecastResult.forecasts?.[0];
+            if (sevenDayForecast?.results?.length) {
+                const forecastMapped = sevenDayForecast.results.map(
+                    (f: any) => ({
+                        date: f.date,
+                        sales: null,
+                        predicted: f.predictedSales,
+                        lower: f.confidenceIntervalLower,
+                        upper: f.confidenceIntervalUpper,
+                    }),
+                );
+                await updateDataset(selectedDataset.id, {
+                    forecast: forecastMapped,
+                });
+                toast({
+                    title: "Forecast Generated",
+                    description: "Sales forecast is now available.",
+                });
+            } else {
+                throw new Error("No forecast data in AI response.");
+            }
+        } catch (error: any) {
+            console.error("Retry forecast failed:", error);
+            toast({
+                title: "Forecast Retry Failed",
+                description:
+                    error.message ||
+                    "Could not generate forecast. Try again later.",
+                variant: "destructive",
+            });
+        } finally {
+            setRetrying(false);
+        }
     };
 
     return (
@@ -85,7 +176,7 @@ export default function ForecastChart() {
                         config={chartConfig}
                         className="h-[350px] w-full"
                     >
-                        <AreaChart data={forecastData}>
+                        <AreaChart data={chartData}>
                             <defs>
                                 <linearGradient
                                     id="colorPredicted"
@@ -124,32 +215,30 @@ export default function ForecastChart() {
                                 }
                                 className="text-xs"
                             />
+                            <YAxis
+                                tickLine={false}
+                                axisLine={false}
+                                tickMargin={4}
+                                className="text-xs"
+                                domain={["auto", "auto"]}
+                            />
                             <Tooltip
                                 cursor={false}
                                 content={
                                     <ChartTooltipContent indicator="dot" />
                                 }
                             />
+                            {/* Confidence band as a range area [lower, upper] */}
                             <Area
-                                dataKey="upper"
+                                dataKey="confidenceBand"
                                 type="monotone"
-                                stroke="hsl(var(--chart-1))"
-                                strokeWidth={0}
+                                stroke="none"
                                 fill="hsl(var(--chart-1))"
                                 fillOpacity={0.1}
-                                stackId="confidence"
-                                name="Confidence Upper"
+                                name="Confidence Interval"
+                                isAnimationActive={false}
                             />
-                            <Area
-                                dataKey="lower"
-                                type="monotone"
-                                stroke="hsl(var(--chart-1))"
-                                strokeWidth={0}
-                                fill="hsl(var(--background))"
-                                fillOpacity={1}
-                                stackId="confidence"
-                                name="Confidence Lower"
-                            />
+                            {/* Predicted line on top */}
                             <Area
                                 dataKey="predicted"
                                 type="monotone"
@@ -186,12 +275,34 @@ export default function ForecastChart() {
                                     <TrendingUp className="h-7 w-7 text-muted-foreground" />
                                 </div>
                                 <p className="text-muted-foreground font-medium text-sm">
-                                    No forecast data yet
+                                    {selectedDataset?.status === "Completed"
+                                        ? "Forecast analysis failed"
+                                        : "No forecast data yet"}
                                 </p>
                                 <p className="text-muted-foreground/60 text-xs mt-1 max-w-xs">
-                                    Select a processed dataset from the Uploads
-                                    tab to view AI-powered sales predictions.
+                                    {selectedDataset?.status === "Completed"
+                                        ? "The forecast could not be generated. Click retry to try again."
+                                        : "Select a processed dataset from the Uploads tab to view AI-powered sales predictions."}
                                 </p>
+                                {selectedDataset?.status === "Completed" &&
+                                    selectedDataset?.headerMap && (
+                                        <Button
+                                            variant="outline"
+                                            size="sm"
+                                            className="mt-4"
+                                            onClick={handleRetryForecast}
+                                            disabled={retrying}
+                                        >
+                                            {retrying ? (
+                                                <Loader2 className="mr-1.5 h-3.5 w-3.5 animate-spin" />
+                                            ) : (
+                                                <RefreshCw className="mr-1.5 h-3.5 w-3.5" />
+                                            )}
+                                            {retrying
+                                                ? "Generating..."
+                                                : "Retry Forecast"}
+                                        </Button>
+                                    )}
                             </div>
                         )}
                     </div>
