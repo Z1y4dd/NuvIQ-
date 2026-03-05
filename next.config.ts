@@ -3,6 +3,8 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
     output: "standalone",
     serverExternalPackages: [
+        "firebase-admin",
+        "@google-cloud/firestore",
         "genkit",
         "@genkit-ai/google-genai",
         "@genkit-ai/core",
