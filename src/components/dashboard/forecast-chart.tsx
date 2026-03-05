@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import {
     Card,
     CardHeader,
@@ -21,6 +21,13 @@ import {
     Area,
     Tooltip,
 } from "recharts";
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Download, Loader2, RefreshCw, TrendingUp } from "lucide-react";
 import { useDataset } from "@/contexts/dataset-context";
@@ -35,7 +42,37 @@ export default function ForecastChart() {
     const { user } = useAuth();
     const { toast } = useToast();
     const [retrying, setRetrying] = useState(false);
-    const forecastData = selectedDataset?.forecast;
+    const [selectedPeriod, setSelectedPeriod] = useState<string>("7");
+
+    const PERIODS = [
+        { value: "7", label: "7 days" },
+        { value: "30", label: "30 days" },
+        { value: "90", label: "90 days" },
+    ];
+
+    // Resolve available periods from new `forecasts` record or legacy `forecast` field
+    const availablePeriods = useMemo(() => {
+        if (selectedDataset?.forecasts) {
+            return Object.keys(selectedDataset.forecasts).map(Number);
+        }
+        if (selectedDataset?.forecast?.length) {
+            return [7]; // legacy data only has 7-day
+        }
+        return [];
+    }, [selectedDataset?.forecasts, selectedDataset?.forecast]);
+
+    // Get forecast data for the currently selected period
+    const forecastData = useMemo<ForecastData[] | undefined>(() => {
+        const period = Number(selectedPeriod);
+        if (selectedDataset?.forecasts?.[period]) {
+            return selectedDataset.forecasts[period];
+        }
+        // Fallback to legacy flat forecast field (treated as 7-day)
+        if (period === 7 && selectedDataset?.forecast?.length) {
+            return selectedDataset.forecast;
+        }
+        return undefined;
+    }, [selectedDataset?.forecasts, selectedDataset?.forecast, selectedPeriod]);
 
     // Transform data for proper confidence band rendering:
     // Recharts needs a [lower, upper] range for the band area.
@@ -89,7 +126,7 @@ export default function ForecastChart() {
                 },
                 body: JSON.stringify({
                     datasetId: selectedDataset.id,
-                    forecastDays: [7],
+                    forecastDays: [7, 30, 90],
                     csvData,
                 }),
             });
@@ -98,26 +135,30 @@ export default function ForecastChart() {
                 throw new Error(errBody?.error || response.statusText);
             }
             const forecastResult = await response.json();
-            const sevenDayForecast =
-                forecastResult.forecasts?.find(
-                    (f: any) => Number(f.forecastDays) === 7,
-                ) ?? forecastResult.forecasts?.[0];
-            if (sevenDayForecast?.results?.length) {
-                const forecastMapped = sevenDayForecast.results.map(
-                    (f: any) => ({
-                        date: f.date,
+            const forecastsByPeriod: Record<number, ForecastData[]> = {};
+            for (const f of forecastResult.forecasts ?? []) {
+                const days = Number(f.forecastDays);
+                if (f.results?.length) {
+                    forecastsByPeriod[days] = f.results.map((r: any) => ({
+                        date: r.date,
                         sales: null,
-                        predicted: f.predictedSales,
-                        lower: f.confidenceIntervalLower,
-                        upper: f.confidenceIntervalUpper,
-                    }),
-                );
+                        predicted: r.predictedSales,
+                        lower: r.confidenceIntervalLower,
+                        upper: r.confidenceIntervalUpper,
+                    }));
+                }
+            }
+            if (Object.keys(forecastsByPeriod).length > 0) {
                 await updateDataset(selectedDataset.id, {
-                    forecast: forecastMapped,
+                    forecasts: forecastsByPeriod,
+                    forecast:
+                        forecastsByPeriod[7] ??
+                        Object.values(forecastsByPeriod)[0],
                 });
                 toast({
                     title: "Forecast Generated",
-                    description: "Sales forecast is now available.",
+                    description:
+                        "Sales forecasts are now available for all periods.",
                 });
             } else {
                 throw new Error("No forecast data in AI response.");
@@ -155,20 +196,47 @@ export default function ForecastChart() {
                     </div>
                     <CardDescription>
                         {selectedDataset
-                            ? `7-day sales forecast for ${selectedDataset.filename}`
+                            ? `${selectedPeriod}-day sales forecast for ${selectedDataset.filename}`
                             : "Select a dataset to view its forecast."}
                     </CardDescription>
                 </div>
-                <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={handleDownload}
-                    disabled={!forecastData || forecastData.length === 0}
-                    className="rounded-lg"
-                >
-                    <Download className="mr-1.5 h-3.5 w-3.5" />
-                    Export
-                </Button>
+                <div className="flex items-center gap-2">
+                    {selectedDataset && availablePeriods.length > 0 && (
+                        <Select
+                            value={selectedPeriod}
+                            onValueChange={setSelectedPeriod}
+                        >
+                            <SelectTrigger className="w-[120px] h-9 rounded-lg">
+                                <SelectValue placeholder="Period" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                {PERIODS.map((p) => (
+                                    <SelectItem
+                                        key={p.value}
+                                        value={p.value}
+                                        disabled={
+                                            !availablePeriods.includes(
+                                                Number(p.value),
+                                            )
+                                        }
+                                    >
+                                        {p.label}
+                                    </SelectItem>
+                                ))}
+                            </SelectContent>
+                        </Select>
+                    )}
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={handleDownload}
+                        disabled={!forecastData || forecastData.length === 0}
+                        className="rounded-lg"
+                    >
+                        <Download className="mr-1.5 h-3.5 w-3.5" />
+                        Export
+                    </Button>
+                </div>
             </CardHeader>
             <CardContent>
                 {forecastData && forecastData.length > 0 ? (

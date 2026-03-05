@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import {
     Card,
@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/table";
 import { Upload } from "@/lib/data";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
     UploadCloud,
     MoreHorizontal,
@@ -27,6 +28,11 @@ import {
     Inbox,
     Map,
     Plus,
+    Search,
+    ArrowUpDown,
+    ArrowUp,
+    ArrowDown,
+    X,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -68,6 +74,9 @@ import { cn } from "@/lib/utils";
 import { createDataset, updateDataset, deleteDataset } from "@/lib/firestore";
 import { parseCSV as parseCSVFile } from "@/lib/storage";
 import { extractCsvSample } from "@/lib/dataset-utils";
+
+type SortField = "date" | "filename" | "records";
+type SortDirection = "asc" | "desc";
 
 const statusConfig = {
     Completed: {
@@ -140,11 +149,80 @@ export default function UploadsTable() {
         Record<string, string>
     >({});
 
+    // Filter & sort state
+    const [searchQuery, setSearchQuery] = useState("");
+    const [statusFilter, setStatusFilter] = useState<string>("all");
+    const [sortField, setSortField] = useState<SortField>("date");
+    const [sortDirection, setSortDirection] = useState<SortDirection>("desc");
+
     const fileInputRef = useRef<HTMLInputElement>(null);
     const initializedMappingIdRef = useRef<string | null>(null);
     const { toast } = useToast();
     const { selectedDataset, setSelectedDataset, uploads } = useDataset();
     const { user } = useAuth();
+
+    // Derived filtered & sorted uploads
+    const filteredUploads = useMemo(() => {
+        let result = uploads;
+
+        // Search filter
+        if (searchQuery.trim()) {
+            const q = searchQuery.toLowerCase();
+            result = result.filter((u) => u.filename.toLowerCase().includes(q));
+        }
+
+        // Status filter
+        if (statusFilter !== "all") {
+            result = result.filter((u) => u.status === statusFilter);
+        }
+
+        // Sort
+        result = [...result].sort((a, b) => {
+            let cmp = 0;
+            switch (sortField) {
+                case "date":
+                    cmp = a.date.localeCompare(b.date);
+                    break;
+                case "filename":
+                    cmp = a.filename.localeCompare(b.filename);
+                    break;
+                case "records":
+                    cmp = a.recordCount - b.recordCount;
+                    break;
+            }
+            return sortDirection === "asc" ? cmp : -cmp;
+        });
+
+        return result;
+    }, [uploads, searchQuery, statusFilter, sortField, sortDirection]);
+
+    const toggleSort = (field: SortField) => {
+        if (sortField === field) {
+            setSortDirection((d) => (d === "asc" ? "desc" : "asc"));
+        } else {
+            setSortField(field);
+            setSortDirection("asc");
+        }
+    };
+
+    const getSortIcon = (field: SortField) => {
+        if (sortField !== field)
+            return (
+                <ArrowUpDown className="h-3.5 w-3.5 ml-1 text-muted-foreground/50" />
+            );
+        return sortDirection === "asc" ? (
+            <ArrowUp className="h-3.5 w-3.5 ml-1 text-primary" />
+        ) : (
+            <ArrowDown className="h-3.5 w-3.5 ml-1 text-primary" />
+        );
+    };
+
+    const hasActiveFilters =
+        searchQuery.trim() !== "" || statusFilter !== "all";
+    const clearFilters = () => {
+        setSearchQuery("");
+        setStatusFilter("all");
+    };
 
     const processUpload = async (
         upload: Upload,
@@ -203,7 +281,7 @@ export default function UploadsTable() {
                 headers: authHeaders,
                 body: JSON.stringify({
                     datasetId: upload.id,
-                    forecastDays: [7],
+                    forecastDays: [7, 30, 90],
                     csvData,
                 }),
             });
@@ -214,24 +292,33 @@ export default function UploadsTable() {
                 );
             }
             const forecastResult = await response.json();
-            // Find the 7-day forecast — AI may return forecastDays as number or string,
-            // so coerce to number. Fall back to first entry if only one period was requested.
-            const sevenDayForecast =
-                forecastResult.forecasts?.find(
-                    (f: any) => Number(f.forecastDays) === 7,
-                ) ?? forecastResult.forecasts?.[0];
-            if (sevenDayForecast?.results?.length) {
-                const forecastData =
-                    sevenDayForecast.results.map((f: any) => ({
-                        date: f.date,
+            // Build a record keyed by period from all returned forecasts
+            const forecastsByPeriod: Record<
+                number,
+                import("@/lib/data").ForecastData[]
+            > = {};
+            for (const f of forecastResult.forecasts ?? []) {
+                const days = Number(f.forecastDays);
+                if (f.results?.length) {
+                    forecastsByPeriod[days] = f.results.map((r: any) => ({
+                        date: r.date,
                         sales: null,
-                        predicted: f.predictedSales,
-                        lower: f.confidenceIntervalLower,
-                        upper: f.confidenceIntervalUpper,
-                    })) || [];
-                await updateDataset(upload.id, { forecast: forecastData });
+                        predicted: r.predictedSales,
+                        lower: r.confidenceIntervalLower,
+                        upper: r.confidenceIntervalUpper,
+                    }));
+                }
+            }
+            if (Object.keys(forecastsByPeriod).length > 0) {
+                // Save multi-period forecasts and keep legacy forecast field (7-day) for backward compat
+                await updateDataset(upload.id, {
+                    forecasts: forecastsByPeriod,
+                    forecast:
+                        forecastsByPeriod[7] ??
+                        Object.values(forecastsByPeriod)[0],
+                });
             } else {
-                throw new Error("7-day forecast not found in AI response.");
+                throw new Error("No forecast data found in AI response.");
             }
         } catch (error: any) {
             console.error("Forecast generation failed:", error);
@@ -478,19 +565,82 @@ export default function UploadsTable() {
                     />
                 </CardHeader>
                 <CardContent>
+                    {/* Search & Filter Bar */}
+                    <div className="flex flex-col sm:flex-row gap-2 mb-4">
+                        <div className="relative flex-1">
+                            <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                            <Input
+                                placeholder="Search files..."
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                className="pl-9 h-9"
+                            />
+                        </div>
+                        <Select
+                            value={statusFilter}
+                            onValueChange={setStatusFilter}
+                        >
+                            <SelectTrigger className="w-full sm:w-[160px] h-9">
+                                <SelectValue placeholder="All Statuses" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="all">
+                                    All Statuses
+                                </SelectItem>
+                                <SelectItem value="Completed">
+                                    Completed
+                                </SelectItem>
+                                <SelectItem value="Processing">
+                                    Processing
+                                </SelectItem>
+                                <SelectItem value="Failed">Failed</SelectItem>
+                                <SelectItem value="Mapping">Mapping</SelectItem>
+                            </SelectContent>
+                        </Select>
+                        {hasActiveFilters && (
+                            <Button
+                                variant="ghost"
+                                size="sm"
+                                onClick={clearFilters}
+                                className="h-9 px-2.5"
+                            >
+                                <X className="h-3.5 w-3.5 mr-1" />
+                                Clear
+                            </Button>
+                        )}
+                    </div>
+
                     <div className="rounded-lg border overflow-hidden">
                         <Table>
                             <TableHeader>
                                 <TableRow className="bg-muted/50">
                                     <TableHead className="w-12"></TableHead>
-                                    <TableHead className="font-semibold">
-                                        Filename
+                                    <TableHead
+                                        className="font-semibold cursor-pointer select-none"
+                                        onClick={() => toggleSort("filename")}
+                                    >
+                                        <span className="inline-flex items-center">
+                                            Filename
+                                            {getSortIcon("filename")}
+                                        </span>
                                     </TableHead>
-                                    <TableHead className="font-semibold">
-                                        Date Uploaded
+                                    <TableHead
+                                        className="font-semibold cursor-pointer select-none"
+                                        onClick={() => toggleSort("date")}
+                                    >
+                                        <span className="inline-flex items-center">
+                                            Date Uploaded
+                                            {getSortIcon("date")}
+                                        </span>
                                     </TableHead>
-                                    <TableHead className="font-semibold">
-                                        Records
+                                    <TableHead
+                                        className="font-semibold cursor-pointer select-none"
+                                        onClick={() => toggleSort("records")}
+                                    >
+                                        <span className="inline-flex items-center">
+                                            Records
+                                            {getSortIcon("records")}
+                                        </span>
                                     </TableHead>
                                     <TableHead className="font-semibold">
                                         Status
@@ -523,8 +673,38 @@ export default function UploadsTable() {
                                             </div>
                                         </TableCell>
                                     </TableRow>
+                                ) : filteredUploads.length === 0 ? (
+                                    <TableRow>
+                                        <TableCell
+                                            colSpan={6}
+                                            className="h-40 text-center"
+                                        >
+                                            <div className="flex flex-col items-center gap-3 text-muted-foreground">
+                                                <div className="flex items-center justify-center h-12 w-12 rounded-2xl bg-muted">
+                                                    <Search className="h-6 w-6" />
+                                                </div>
+                                                <div>
+                                                    <p className="font-medium text-foreground text-sm">
+                                                        No matching datasets
+                                                    </p>
+                                                    <p className="text-xs mt-0.5">
+                                                        Try adjusting your
+                                                        search or filters
+                                                    </p>
+                                                </div>
+                                                <Button
+                                                    variant="outline"
+                                                    size="sm"
+                                                    onClick={clearFilters}
+                                                    className="mt-1"
+                                                >
+                                                    Clear Filters
+                                                </Button>
+                                            </div>
+                                        </TableCell>
+                                    </TableRow>
                                 ) : (
-                                    uploads.map((upload) => (
+                                    filteredUploads.map((upload) => (
                                         <TableRow
                                             key={upload.id}
                                             className={cn(

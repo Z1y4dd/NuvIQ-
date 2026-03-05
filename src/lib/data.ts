@@ -7,6 +7,7 @@ export interface Upload {
     content: string[][]; // Store parsed CSV content
     kpis?: KpiData[];
     forecast?: ForecastData[];
+    forecasts?: Record<number, ForecastData[]>;
     bundles?: BundleData[];
     categories?: CategoryData[];
     headerMap?: Record<string, number>;

@@ -128,6 +128,27 @@ export async function saveBundles(
     await updateDataset(datasetId, { bundles });
 }
 
+export async function getUserProfile(
+    uid: string,
+): Promise<{ email?: string; name?: string; createdAt?: string } | null> {
+    const docRef = doc(getDB(), "users", uid);
+    const docSnap = await getDoc(docRef);
+    if (!docSnap.exists()) return null;
+    return docSnap.data() as {
+        email?: string;
+        name?: string;
+        createdAt?: string;
+    };
+}
+
+export async function updateUserProfile(
+    uid: string,
+    data: Partial<{ name: string; email: string }>,
+): Promise<void> {
+    const docRef = doc(getDB(), "users", uid);
+    await updateDoc(docRef, data);
+}
+
 export function subscribeToUserDatasets(
     userId: string,
     callback: (datasets: Upload[]) => void,
