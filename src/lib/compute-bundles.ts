@@ -4,8 +4,10 @@ import type { BundleData } from "./data";
  * Computes product association rules (market basket analysis) using the
  * Apriori algorithm. No AI — runs deterministically over all rows.
  *
- * Groups by invoice ID first. If most invoices contain only one product,
- * falls back to grouping by customer ID to find cross-purchase patterns.
+ * Grouping strategy (first that produces multi-item baskets wins):
+ * 1. Invoice ID — classic per-transaction basket
+ * 2. Customer ID — cross-purchase patterns per customer
+ * 3. Date — products sold on the same day (daily co-occurrence)
  *
  * @param content   Full parsed CSV (string[][]) with headers at index 0.
  * @param headerMap Map of column-name → column-index.
@@ -18,6 +20,7 @@ export function computeBundles(
     const invoiceIdx = headerMap["invoiceid"];
     const productIdx = headerMap["product name"];
     const customerIdx = headerMap["customer id"];
+    const dateIdx = headerMap["date"];
 
     if (invoiceIdx === undefined || productIdx === undefined) {
         return [];
@@ -25,29 +28,24 @@ export function computeBundles(
 
     const dataRows = content.slice(1);
 
-    // Step 1: Group rows into baskets keyed by invoice ID
-    const invoiceBaskets = buildBaskets(dataRows, invoiceIdx, productIdx);
-
-    // Check if invoices have multi-product baskets
-    let multiItemBaskets = 0;
-    for (const basket of invoiceBaskets.values()) {
-        if (basket.size > 1) multiItemBaskets++;
+    // Try grouping strategies in order of specificity
+    const strategies: { idx: number; label: string }[] = [
+        { idx: invoiceIdx, label: "invoice" },
+    ];
+    if (customerIdx !== undefined) {
+        strategies.push({ idx: customerIdx, label: "customer" });
+    }
+    if (dateIdx !== undefined) {
+        strategies.push({ idx: dateIdx, label: "date" });
     }
 
-    let baskets: Map<string, Set<string>>;
-
-    if (multiItemBaskets >= 2) {
-        // Enough multi-product invoices — use invoice-level baskets
-        baskets = invoiceBaskets;
-    } else if (customerIdx !== undefined) {
-        // Fall back to customer-level baskets (cross-purchase analysis)
-        baskets = buildBaskets(dataRows, customerIdx, productIdx);
-    } else {
-        // No customer ID column — still use invoice baskets (may return few/no rules)
-        baskets = invoiceBaskets;
+    for (const { idx } of strategies) {
+        const baskets = buildBaskets(dataRows, idx, productIdx);
+        const rules = apriori(baskets);
+        if (rules.length > 0) return rules;
     }
 
-    return apriori(baskets);
+    return [];
 }
 
 /** Group rows into baskets keyed by a grouping column. */
