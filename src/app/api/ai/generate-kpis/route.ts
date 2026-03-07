@@ -3,6 +3,8 @@ import {
     generateKpis,
     type GenerateKpisOutput,
 } from "@/ai/flows/generate-kpis";
+
+export const maxDuration = 60;
 import { verifyAuthToken } from "@/lib/auth-api";
 
 export async function POST(req: NextRequest) {

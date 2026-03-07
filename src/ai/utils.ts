@@ -29,8 +29,8 @@ function parseRetryAfter(message: string): number | null {
  */
 export async function withRetries<T>(
     fn: () => Promise<T>,
-    retries = 5,
-    baseDelay = 10000,
+    retries = 2,
+    baseDelay = 5000,
 ): Promise<T> {
     let lastError: Error | undefined;
     for (let i = 0; i < retries; i++) {

@@ -3,6 +3,8 @@ import {
     analyzeMarketBasketAssociations,
     type AnalyzeMarketBasketAssociationsOutput,
 } from "@/ai/flows/analyze-market-basket-associations";
+
+export const maxDuration = 60;
 import { verifyAuthToken } from "@/lib/auth-api";
 
 export async function POST(req: NextRequest) {
