@@ -1,5 +1,7 @@
 "use client";
+import { useState } from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { KpiData } from "@/lib/data";
 import {
     DollarSign,
@@ -9,8 +11,13 @@ import {
     Inbox,
     Loader2,
     ArrowUpRight,
+    XCircle,
+    RefreshCw,
 } from "lucide-react";
 import { useDataset } from "@/contexts/dataset-context";
+import { useToast } from "@/hooks/use-toast";
+import { updateDataset } from "@/lib/firestore";
+import { computeKpis } from "@/lib/compute-kpis";
 
 const iconMap = {
     DollarSign,
@@ -35,7 +42,36 @@ const cardGradients: string[] = [
 
 export default function OverviewTab() {
     const { selectedDataset } = useDataset();
+    const { toast } = useToast();
+    const [retrying, setRetrying] = useState(false);
     const kpiData = selectedDataset?.kpis;
+
+    const handleRetryKpis = async () => {
+        if (!selectedDataset || !selectedDataset.headerMap) return;
+        setRetrying(true);
+        try {
+            const kpis = computeKpis(
+                selectedDataset.content,
+                selectedDataset.headerMap,
+            );
+            await updateDataset(selectedDataset.id, { kpis });
+            toast({
+                title: "KPIs Generated",
+                description: `KPIs are now available for ${selectedDataset.filename}.`,
+            });
+        } catch (error: any) {
+            console.error("KPI retry failed:", error);
+            toast({
+                title: "KPI Generation Failed",
+                description:
+                    error?.message ||
+                    "Could not generate KPIs. Please try again.",
+                variant: "destructive",
+            });
+        } finally {
+            setRetrying(false);
+        }
+    };
 
     return (
         <div className="space-y-6">
@@ -120,6 +156,41 @@ export default function OverviewTab() {
                                 <p className="text-muted-foreground mt-1 text-xs">
                                     Generating KPIs from your dataset
                                 </p>
+                            </>
+                        ) : selectedDataset &&
+                          selectedDataset.status === "Completed" ? (
+                            <>
+                                <div className="flex items-center justify-center h-16 w-16 rounded-2xl bg-gradient-to-br from-orange-500/10 to-red-500/10 mb-5">
+                                    <XCircle className="h-8 w-8 text-orange-400" />
+                                </div>
+                                <p className="text-foreground font-medium text-sm">
+                                    KPI generation failed
+                                </p>
+                                <p className="text-muted-foreground text-sm max-w-sm mt-1">
+                                    Could not generate KPIs for{" "}
+                                    <span className="font-semibold text-foreground">
+                                        {selectedDataset.filename}
+                                    </span>
+                                    . You can retry generating them below.
+                                </p>
+                                {selectedDataset.headerMap && (
+                                    <Button
+                                        variant="outline"
+                                        size="sm"
+                                        className="mt-4"
+                                        onClick={handleRetryKpis}
+                                        disabled={retrying}
+                                    >
+                                        {retrying ? (
+                                            <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                                        ) : (
+                                            <RefreshCw className="h-4 w-4 mr-2" />
+                                        )}
+                                        {retrying
+                                            ? "Generating KPIs..."
+                                            : "Retry KPI Generation"}
+                                    </Button>
+                                )}
                             </>
                         ) : (
                             <>

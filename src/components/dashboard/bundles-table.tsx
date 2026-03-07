@@ -19,15 +19,13 @@ import { Button } from "@/components/ui/button";
 import { Download, Loader2, RefreshCw, ShoppingBasket } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { useDataset } from "@/contexts/dataset-context";
-import { useAuth } from "@/contexts/auth-context";
 import { useToast } from "@/hooks/use-toast";
-import { extractCsvSample } from "@/lib/dataset-utils";
 import { updateDataset } from "@/lib/firestore";
+import { computeBundles } from "@/lib/compute-bundles";
 import { BundleData } from "@/lib/data";
 
 export default function BundlesTable() {
     const { selectedDataset } = useDataset();
-    const { user } = useAuth();
     const { toast } = useToast();
     const [retrying, setRetrying] = useState(false);
     const bundlesData = selectedDataset?.bundles;
@@ -49,33 +47,14 @@ export default function BundlesTable() {
     };
 
     const handleRetryBundles = async () => {
-        if (!selectedDataset || !user || !selectedDataset.headerMap) return;
+        if (!selectedDataset || !selectedDataset.headerMap) return;
         setRetrying(true);
         try {
-            const idToken = await user.getIdToken();
-            const csvData = extractCsvSample(
+            const bundles = computeBundles(
                 selectedDataset.content,
                 selectedDataset.headerMap,
             );
-            const response = await fetch("/api/ai/analyze-bundles", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${idToken}`,
-                },
-                body: JSON.stringify({
-                    datasetId: selectedDataset.id,
-                    csvData,
-                }),
-            });
-            if (!response.ok) {
-                const errBody = await response.json().catch(() => ({}));
-                throw new Error(errBody?.error || response.statusText);
-            }
-            const bundlesResult = await response.json();
-            await updateDataset(selectedDataset.id, {
-                bundles: bundlesResult.associationRules,
-            });
+            await updateDataset(selectedDataset.id, { bundles });
             toast({
                 title: "Bundles Generated",
                 description:

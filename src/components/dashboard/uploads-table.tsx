@@ -74,6 +74,8 @@ import { cn } from "@/lib/utils";
 import { createDataset, updateDataset, deleteDataset } from "@/lib/firestore";
 import { parseCSV as parseCSVFile } from "@/lib/storage";
 import { extractCsvSample } from "@/lib/dataset-utils";
+import { computeKpis } from "@/lib/compute-kpis";
+import { computeBundles } from "@/lib/compute-bundles";
 
 type SortField = "date" | "filename" | "records";
 type SortDirection = "asc" | "desc";
@@ -245,23 +247,8 @@ export default function UploadsTable() {
         const csvData = extractCsvSample(upload.content, headerMap);
 
         try {
-            const response = await fetch("/api/ai/generate-kpis", {
-                method: "POST",
-                headers: authHeaders,
-                body: JSON.stringify({ datasetId: upload.id, csvData }),
-            });
-            if (!response.ok) {
-                const errBody = await response.json().catch(() => ({}));
-                throw new Error(
-                    `KPI API failed: ${errBody?.error || response.statusText}`,
-                );
-            }
-            const kpiResult = await response.json();
-            const kpisWithChange = kpiResult.kpis.map((k: any) => ({
-                ...k,
-                change: "",
-            }));
-            await updateDataset(upload.id, { kpis: kpisWithChange });
+            const kpis = computeKpis(upload.content, headerMap);
+            await updateDataset(upload.id, { kpis });
         } catch (error: any) {
             console.error("KPI generation failed:", error);
             toast({
@@ -328,21 +315,8 @@ export default function UploadsTable() {
         }
 
         try {
-            const response = await fetch("/api/ai/analyze-bundles", {
-                method: "POST",
-                headers: authHeaders,
-                body: JSON.stringify({ datasetId: upload.id, csvData }),
-            });
-            if (!response.ok) {
-                const errBody = await response.json().catch(() => ({}));
-                throw new Error(
-                    `Bundles API failed: ${errBody?.error || response.statusText}`,
-                );
-            }
-            const bundlesResult = await response.json();
-            await updateDataset(upload.id, {
-                bundles: bundlesResult.associationRules,
-            });
+            const bundles = computeBundles(upload.content, headerMap);
+            await updateDataset(upload.id, { bundles });
         } catch (error: any) {
             console.error("Market basket analysis failed:", error);
             toast({
