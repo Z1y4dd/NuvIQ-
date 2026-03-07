@@ -272,9 +272,6 @@ export default function UploadsTable() {
             failedCount++;
         }
 
-        // Delay between AI calls to stay within Gemini free-tier rate limits (30s)
-        await new Promise((r) => setTimeout(r, 30000));
-
         try {
             const response = await fetch("/api/ai/generate-forecast", {
                 method: "POST",
@@ -330,9 +327,6 @@ export default function UploadsTable() {
             failedCount++;
         }
 
-        // Delay between AI calls to stay within Gemini free-tier rate limits (30s)
-        await new Promise((r) => setTimeout(r, 30000));
-
         try {
             const response = await fetch("/api/ai/analyze-bundles", {
                 method: "POST",
@@ -360,9 +354,6 @@ export default function UploadsTable() {
         }
 
         if (headerMap["category"] !== undefined) {
-            // Delay between AI calls to stay within Gemini free-tier rate limits (30s)
-            await new Promise((r) => setTimeout(r, 30000));
-
             try {
                 const response = await fetch("/api/ai/analyze-categories", {
                     method: "POST",
