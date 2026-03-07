@@ -79,7 +79,7 @@ function apriori(baskets: Map<string, Set<string>>): BundleData[] {
     }
 
     const totalTransactions = multiBaskets.length;
-    if (totalTransactions < 2) return [];
+    if (totalTransactions < 1) return [];
 
     // Count individual product frequencies within multi-item baskets
     const productCount = new Map<string, number>();
@@ -89,16 +89,8 @@ function apriori(baskets: Map<string, Set<string>>): BundleData[] {
         }
     }
 
-    // Minimum support: at least 2 co-occurrences
-    const minSupportCount = 2;
-
-    // Keep items that appear in at least minSupportCount baskets
-    const frequentItems: string[] = [];
-    for (const [product, count] of productCount) {
-        if (count >= minSupportCount) {
-            frequentItems.push(product);
-        }
-    }
+    // All products that appear at least once are candidates
+    const frequentItems = [...productCount.keys()];
 
     // Count pairwise co-occurrences
     const pairCount = new Map<string, number>();
@@ -112,10 +104,9 @@ function apriori(baskets: Map<string, Set<string>>): BundleData[] {
         }
     }
 
-    // Generate association rules from pairs that co-occur at least twice
+    // Generate association rules from all co-occurring pairs
     const rules: BundleData[] = [];
     for (const [key, coCount] of pairCount) {
-        if (coCount < minSupportCount) continue;
 
         const [a, b] = key.split("\0");
         const countA = productCount.get(a) || 1;
