@@ -115,6 +115,10 @@ const requiredColumns = {
         optional: false,
     },
     quantity: { aliases: ["quantity", "qty"], optional: true },
+    "customer id": {
+        aliases: ["customer id", "customerid", "customer", "client id"],
+        optional: true,
+    },
     category: {
         aliases: ["category", "product category", "department"],
         optional: true,
@@ -290,6 +294,11 @@ export default function UploadsTable() {
 
         try {
             const bundles = computeBundles(upload.content, headerMap);
+            if (bundles.length === 0) {
+                throw new Error(
+                    "Not enough multi-product transactions to find bundles.",
+                );
+            }
             await updateDataset(upload.id, { bundles });
         } catch (error: any) {
             console.error("Market basket analysis failed:", error);

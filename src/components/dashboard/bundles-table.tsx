@@ -54,6 +54,11 @@ export default function BundlesTable() {
                 selectedDataset.content,
                 selectedDataset.headerMap,
             );
+            if (bundles.length === 0) {
+                throw new Error(
+                    "Not enough multi-product transactions found to generate bundle recommendations.",
+                );
+            }
             await updateDataset(selectedDataset.id, { bundles });
             toast({
                 title: "Bundles Generated",
