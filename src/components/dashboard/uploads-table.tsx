@@ -76,6 +76,7 @@ import { parseCSV as parseCSVFile } from "@/lib/storage";
 import { extractCsvSample } from "@/lib/dataset-utils";
 import { computeKpis } from "@/lib/compute-kpis";
 import { computeBundles } from "@/lib/compute-bundles";
+import { computeForecast } from "@/lib/compute-forecast";
 
 type SortField = "date" | "filename" | "records";
 type SortDirection = "asc" | "desc";
@@ -260,41 +261,12 @@ export default function UploadsTable() {
         }
 
         try {
-            const response = await fetch("/api/ai/generate-forecast", {
-                method: "POST",
-                headers: authHeaders,
-                body: JSON.stringify({
-                    datasetId: upload.id,
-                    forecastDays: [7, 30, 90],
-                    csvData,
-                }),
-            });
-            if (!response.ok) {
-                const errBody = await response.json().catch(() => ({}));
-                throw new Error(
-                    `Forecast API failed: ${errBody?.error || response.statusText}`,
-                );
-            }
-            const forecastResult = await response.json();
-            // Build a record keyed by period from all returned forecasts
-            const forecastsByPeriod: Record<
-                number,
-                import("@/lib/data").ForecastData[]
-            > = {};
-            for (const f of forecastResult.forecasts ?? []) {
-                const days = Number(f.forecastDays);
-                if (f.results?.length) {
-                    forecastsByPeriod[days] = f.results.map((r: any) => ({
-                        date: r.date,
-                        sales: null,
-                        predicted: r.predictedSales,
-                        lower: r.confidenceIntervalLower,
-                        upper: r.confidenceIntervalUpper,
-                    }));
-                }
-            }
+            const forecastsByPeriod = computeForecast(
+                upload.content,
+                headerMap,
+                [7, 30, 90],
+            );
             if (Object.keys(forecastsByPeriod).length > 0) {
-                // Save multi-period forecasts and keep legacy forecast field (7-day) for backward compat
                 await updateDataset(upload.id, {
                     forecasts: forecastsByPeriod,
                     forecast:
@@ -302,7 +274,9 @@ export default function UploadsTable() {
                         Object.values(forecastsByPeriod)[0],
                 });
             } else {
-                throw new Error("No forecast data found in AI response.");
+                throw new Error(
+                    "Could not compute forecast — missing date or revenue data.",
+                );
             }
         } catch (error: any) {
             console.error("Forecast generation failed:", error);
