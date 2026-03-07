@@ -107,7 +107,6 @@ function apriori(baskets: Map<string, Set<string>>): BundleData[] {
     // Generate association rules from all co-occurring pairs
     const rules: BundleData[] = [];
     for (const [key, coCount] of pairCount) {
-
         const [a, b] = key.split("\0");
         const countA = productCount.get(a) || 1;
         const countB = productCount.get(b) || 1;
