@@ -95,37 +95,45 @@ export function computeCategories(
             }
         }
 
-        // Growth rate: aggregate revenue by month, then compare the average
-        // monthly revenue in the earlier months vs the later months.
-        // This normalises for transaction count and gives a time-based rate.
+        // Growth rate: aggregate revenue by month, then compare the most
+        // recent complete month against the earliest month.
         let growthRate = 0;
         if (acc.datedRevenues.length >= 2) {
             // Aggregate into monthly buckets
             const monthlyRevenue = new Map<string, number>();
+            const monthlyCount = new Map<string, number>();
             for (const { date, revenue } of acc.datedRevenues) {
                 const month = date.slice(0, 7); // "YYYY-MM"
                 monthlyRevenue.set(
                     month,
                     (monthlyRevenue.get(month) || 0) + revenue,
                 );
+                monthlyCount.set(month, (monthlyCount.get(month) || 0) + 1);
             }
             const sortedMonths = [...monthlyRevenue.entries()].sort((a, b) =>
                 a[0].localeCompare(b[0]),
             );
 
             if (sortedMonths.length >= 2) {
-                const mid = Math.floor(sortedMonths.length / 2);
-                const firstMonths = sortedMonths.slice(0, mid);
-                const secondMonths = sortedMonths.slice(mid);
-                const avgFirst =
-                    firstMonths.reduce((s, [, r]) => s + r, 0) /
-                    firstMonths.length;
-                const avgSecond =
-                    secondMonths.reduce((s, [, r]) => s + r, 0) /
-                    secondMonths.length;
-                if (avgFirst > 0) {
-                    growthRate = ((avgSecond - avgFirst) / avgFirst) * 100;
-                } else if (avgSecond > 0) {
+                // Drop the last month if it looks incomplete (has significantly
+                // fewer transactions than the median month).
+                const counts = sortedMonths.map(
+                    ([m]) => monthlyCount.get(m) ?? 0,
+                );
+                const sortedCounts = [...counts].sort((a, b) => a - b);
+                const median =
+                    sortedCounts[Math.floor(sortedCounts.length / 2)];
+
+                let endIdx = sortedMonths.length - 1;
+                if (counts[endIdx] < median * 0.5 && sortedMonths.length >= 3) {
+                    endIdx--; // skip incomplete last month
+                }
+
+                const firstRev = sortedMonths[0][1];
+                const lastRev = sortedMonths[endIdx][1];
+                if (firstRev > 0) {
+                    growthRate = ((lastRev - firstRev) / firstRev) * 100;
+                } else if (lastRev > 0) {
                     growthRate = 100;
                 }
             }
