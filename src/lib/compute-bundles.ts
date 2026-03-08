@@ -45,6 +45,20 @@ export function computeBundles(
         if (rules.length > 0) return rules;
     }
 
+    // Broader time-based fallbacks: group by week, then by month
+    if (dateIdx !== undefined) {
+        for (const truncate of [truncateToWeek, truncateToMonth]) {
+            const baskets = buildBasketsWithDateTransform(
+                dataRows,
+                dateIdx,
+                productIdx,
+                truncate,
+            );
+            const rules = apriori(baskets);
+            if (rules.length > 0) return rules;
+        }
+    }
+
     return [];
 }
 
@@ -71,6 +85,65 @@ function buildBaskets(
         basket.add(product);
     }
     return baskets;
+}
+
+/** Build baskets by parsing dates and transforming them (e.g. to week/month). */
+function buildBasketsWithDateTransform(
+    dataRows: string[][],
+    dateIdx: number,
+    productIdx: number,
+    transform: (dateStr: string) => string | null,
+): Map<string, Set<string>> {
+    const baskets = new Map<string, Set<string>>();
+    for (const row of dataRows) {
+        const rawDate = row[dateIdx]?.trim();
+        const product = row[productIdx]?.trim();
+        if (!rawDate || !product) continue;
+
+        const groupKey = transform(rawDate);
+        if (!groupKey) continue;
+
+        let basket = baskets.get(groupKey);
+        if (!basket) {
+            basket = new Set<string>();
+            baskets.set(groupKey, basket);
+        }
+        basket.add(product);
+    }
+    return baskets;
+}
+
+/** Parse a raw date string to a Date object. */
+function parseDate(raw: string): Date | null {
+    // ISO: 2024-01-15
+    const isoMatch = raw.match(/^(\d{4})[\/-](\d{1,2})[\/-](\d{1,2})/);
+    if (isoMatch) return new Date(+isoMatch[1], +isoMatch[2] - 1, +isoMatch[3]);
+    // US: MM/DD/YYYY
+    const usMatch = raw.match(/^(\d{1,2})[\/-](\d{1,2})[\/-](\d{4})/);
+    if (usMatch) return new Date(+usMatch[3], +usMatch[1] - 1, +usMatch[2]);
+    const d = new Date(raw);
+    return isNaN(d.getTime()) ? null : d;
+}
+
+/** Truncate a date string to its ISO week (YYYY-Www). */
+function truncateToWeek(raw: string): string | null {
+    const d = parseDate(raw);
+    if (!d) return null;
+    // ISO week: find the Thursday of this week, then get the week number
+    const tmp = new Date(d.getTime());
+    tmp.setDate(tmp.getDate() + 3 - ((tmp.getDay() + 6) % 7));
+    const yearStart = new Date(tmp.getFullYear(), 0, 4);
+    const weekNo = Math.ceil(
+        ((tmp.getTime() - yearStart.getTime()) / 86400000 + 1) / 7,
+    );
+    return `${tmp.getFullYear()}-W${String(weekNo).padStart(2, "0")}`;
+}
+
+/** Truncate a date string to its month (YYYY-MM). */
+function truncateToMonth(raw: string): string | null {
+    const d = parseDate(raw);
+    if (!d) return null;
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
 }
 
 /** Strip time portion from date-like strings so same-day rows group together. */
