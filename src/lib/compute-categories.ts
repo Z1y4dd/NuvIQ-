@@ -95,40 +95,69 @@ export function computeCategories(
             }
         }
 
-        // Growth rate: use linear regression on monthly revenue to find
-        // a robust trend that isn't dominated by single-month outliers.
+        // Growth rate: Theil-Sen estimator on individual transactions.
+        // Uses the median of all pairwise slopes so a handful of
+        // high-value items (e.g. a $3,899 camera) can't skew the result.
         let growthRate = 0;
-        if (acc.datedRevenues.length >= 2) {
-            const monthlyRevenue = new Map<string, number>();
-            for (const { date, revenue } of acc.datedRevenues) {
-                const month = date.slice(0, 7); // "YYYY-MM"
-                monthlyRevenue.set(
-                    month,
-                    (monthlyRevenue.get(month) || 0) + revenue,
-                );
-            }
-            const sortedMonths = [...monthlyRevenue.entries()].sort((a, b) =>
-                a[0].localeCompare(b[0]),
-            );
+        if (acc.datedRevenues.length >= 6) {
+            const points = acc.datedRevenues
+                .map(({ date, revenue }) => ({
+                    t: new Date(date).getTime(),
+                    r: revenue,
+                }))
+                .filter(({ t }) => !isNaN(t));
 
-            if (sortedMonths.length >= 2) {
-                // Linear regression: y = revenue, x = month index (0, 1, 2…)
-                const n = sortedMonths.length;
-                const revenues = sortedMonths.map(([, r]) => r);
-                const meanX = (n - 1) / 2;
-                const meanY = revenues.reduce((s, r) => s + r, 0) / n;
+            if (points.length >= 6) {
+                const minT = Math.min(...points.map((p) => p.t));
+                const maxT = Math.max(...points.map((p) => p.t));
+                const span = maxT - minT;
 
-                let num = 0;
-                let den = 0;
-                for (let i = 0; i < n; i++) {
-                    num += (i - meanX) * (revenues[i] - meanY);
-                    den += (i - meanX) * (i - meanX);
-                }
+                if (span > 0) {
+                    // Normalise time to [0, 1]
+                    const norm = points.map((p) => ({
+                        x: (p.t - minT) / span,
+                        y: p.r,
+                    }));
 
-                if (den > 0 && meanY > 0) {
-                    const slope = num / den; // revenue change per month
-                    // Express as % change over the full span relative to mean
-                    growthRate = ((slope * (n - 1)) / meanY) * 100;
+                    // For large datasets, sample pairs to keep it fast
+                    const slopes: number[] = [];
+                    const maxPairs = 2000;
+                    const allPairs = (norm.length * (norm.length - 1)) / 2;
+
+                    if (allPairs <= maxPairs) {
+                        for (let i = 0; i < norm.length; i++) {
+                            for (let j = i + 1; j < norm.length; j++) {
+                                const dx = norm[j].x - norm[i].x;
+                                if (Math.abs(dx) > 1e-9) {
+                                    slopes.push((norm[j].y - norm[i].y) / dx);
+                                }
+                            }
+                        }
+                    } else {
+                        // Random sampling for larger datasets
+                        for (let s = 0; s < maxPairs; s++) {
+                            const i = Math.floor(Math.random() * norm.length);
+                            let j = Math.floor(
+                                Math.random() * (norm.length - 1),
+                            );
+                            if (j >= i) j++;
+                            const dx = norm[j].x - norm[i].x;
+                            if (Math.abs(dx) > 1e-9) {
+                                slopes.push((norm[j].y - norm[i].y) / dx);
+                            }
+                        }
+                    }
+
+                    if (slopes.length > 0) {
+                        slopes.sort((a, b) => a - b);
+                        const medianSlope =
+                            slopes[Math.floor(slopes.length / 2)];
+                        const meanRev =
+                            norm.reduce((s, p) => s + p.y, 0) / norm.length;
+                        if (meanRev > 0) {
+                            growthRate = (medianSlope / meanRev) * 100;
+                        }
+                    }
                 }
             }
         }
