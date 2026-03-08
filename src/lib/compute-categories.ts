@@ -95,23 +95,39 @@ export function computeCategories(
             }
         }
 
-        // Growth rate: split THIS category's rows chronologically at the
-        // midpoint index so each half has the same number of rows, avoiding
-        // the bias that a global median-date split introduces.
+        // Growth rate: aggregate revenue by month, then compare the average
+        // monthly revenue in the earlier months vs the later months.
+        // This normalises for transaction count and gives a time-based rate.
         let growthRate = 0;
         if (acc.datedRevenues.length >= 2) {
-            acc.datedRevenues.sort((a, b) => a.date.localeCompare(b.date));
-            const mid = Math.floor(acc.datedRevenues.length / 2);
-            const firstHalf = acc.datedRevenues
-                .slice(0, mid)
-                .reduce((s, e) => s + e.revenue, 0);
-            const secondHalf = acc.datedRevenues
-                .slice(mid)
-                .reduce((s, e) => s + e.revenue, 0);
-            if (firstHalf > 0) {
-                growthRate = ((secondHalf - firstHalf) / firstHalf) * 100;
-            } else if (secondHalf > 0) {
-                growthRate = 100;
+            // Aggregate into monthly buckets
+            const monthlyRevenue = new Map<string, number>();
+            for (const { date, revenue } of acc.datedRevenues) {
+                const month = date.slice(0, 7); // "YYYY-MM"
+                monthlyRevenue.set(
+                    month,
+                    (monthlyRevenue.get(month) || 0) + revenue,
+                );
+            }
+            const sortedMonths = [...monthlyRevenue.entries()].sort((a, b) =>
+                a[0].localeCompare(b[0]),
+            );
+
+            if (sortedMonths.length >= 2) {
+                const mid = Math.floor(sortedMonths.length / 2);
+                const firstMonths = sortedMonths.slice(0, mid);
+                const secondMonths = sortedMonths.slice(mid);
+                const avgFirst =
+                    firstMonths.reduce((s, [, r]) => s + r, 0) /
+                    firstMonths.length;
+                const avgSecond =
+                    secondMonths.reduce((s, [, r]) => s + r, 0) /
+                    secondMonths.length;
+                if (avgFirst > 0) {
+                    growthRate = ((avgSecond - avgFirst) / avgFirst) * 100;
+                } else if (avgSecond > 0) {
+                    growthRate = 100;
+                }
             }
         }
 
