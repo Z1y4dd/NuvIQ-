@@ -109,8 +109,7 @@ export function computeCategories(
                 .slice(mid)
                 .reduce((s, e) => s + e.revenue, 0);
             if (firstHalf > 0) {
-                growthRate =
-                    ((secondHalf - firstHalf) / firstHalf) * 100;
+                growthRate = ((secondHalf - firstHalf) / firstHalf) * 100;
             } else if (secondHalf > 0) {
                 growthRate = 100;
             }
