@@ -22,25 +22,12 @@ export function computeCategories(
 
     const dataRows = content.slice(1);
 
-    // Step 1: Parse all dates to find the midpoint for growth calculation
-    const dates: string[] = [];
-    if (dateIdx !== undefined) {
-        for (const row of dataRows) {
-            const d = normalizeDate(row[dateIdx]?.trim());
-            if (d) dates.push(d);
-        }
-    }
-    dates.sort();
-    const midDate =
-        dates.length > 0 ? dates[Math.floor(dates.length / 2)] : null;
-
-    // Step 2: Accumulate per-category stats
+    // Accumulate per-category stats
     interface CategoryAccum {
         totalRevenue: number;
         totalUnits: number;
-        firstHalfRevenue: number;
-        secondHalfRevenue: number;
         productRevenue: Map<string, number>;
+        datedRevenues: { date: string; revenue: number }[];
     }
 
     const categories = new Map<string, CategoryAccum>();
@@ -54,9 +41,8 @@ export function computeCategories(
             acc = {
                 totalRevenue: 0,
                 totalUnits: 0,
-                firstHalfRevenue: 0,
-                secondHalfRevenue: 0,
                 productRevenue: new Map(),
+                datedRevenues: [],
             };
             categories.set(cat, acc);
         }
@@ -87,20 +73,16 @@ export function computeCategories(
             }
         }
 
-        // Growth: first half vs second half
-        if (dateIdx !== undefined && midDate && !isNaN(revenue)) {
+        // Track dated revenues for per-category growth calculation
+        if (dateIdx !== undefined && !isNaN(revenue)) {
             const d = normalizeDate(row[dateIdx]?.trim());
             if (d) {
-                if (d <= midDate) {
-                    acc.firstHalfRevenue += revenue;
-                } else {
-                    acc.secondHalfRevenue += revenue;
-                }
+                acc.datedRevenues.push({ date: d, revenue });
             }
         }
     }
 
-    // Step 3: Build CategoryData results
+    // Build CategoryData results
     const results: CategoryData[] = [];
     for (const [name, acc] of categories) {
         // Find top product
@@ -113,15 +95,25 @@ export function computeCategories(
             }
         }
 
-        // Growth rate: (secondHalf - firstHalf) / firstHalf * 100
+        // Growth rate: split THIS category's rows chronologically at the
+        // midpoint index so each half has the same number of rows, avoiding
+        // the bias that a global median-date split introduces.
         let growthRate = 0;
-        if (acc.firstHalfRevenue > 0) {
-            growthRate =
-                ((acc.secondHalfRevenue - acc.firstHalfRevenue) /
-                    acc.firstHalfRevenue) *
-                100;
-        } else if (acc.secondHalfRevenue > 0) {
-            growthRate = 100; // went from 0 to something
+        if (acc.datedRevenues.length >= 2) {
+            acc.datedRevenues.sort((a, b) => a.date.localeCompare(b.date));
+            const mid = Math.floor(acc.datedRevenues.length / 2);
+            const firstHalf = acc.datedRevenues
+                .slice(0, mid)
+                .reduce((s, e) => s + e.revenue, 0);
+            const secondHalf = acc.datedRevenues
+                .slice(mid)
+                .reduce((s, e) => s + e.revenue, 0);
+            if (firstHalf > 0) {
+                growthRate =
+                    ((secondHalf - firstHalf) / firstHalf) * 100;
+            } else if (secondHalf > 0) {
+                growthRate = 100;
+            }
         }
 
         results.push({
