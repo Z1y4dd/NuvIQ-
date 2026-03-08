@@ -101,14 +101,23 @@ const statusConfig = {
 };
 
 const requiredColumns = {
-    date: { aliases: ["date"], optional: false },
+    date: {
+        aliases: ["date", "transaction date", "order date", "invoicedate"],
+        optional: false,
+    },
     "total revenue": {
         aliases: ["total revenue", "revenue", "price", "sales"],
         optional: false,
     },
     invoiceid: {
-        aliases: ["invoiceid", "invoice no", "invoice", "transaction id"],
-        optional: false,
+        aliases: [
+            "invoiceid",
+            "invoice no",
+            "invoice",
+            "transaction id",
+            "order id",
+        ],
+        optional: true,
     },
     "product name": {
         aliases: ["product name", "product", "item", "description"],

@@ -169,27 +169,36 @@ export default function CategoriesTable() {
                                             {category.topProduct}
                                         </TableCell>
                                         <TableCell className="text-right">
-                                            <div
-                                                className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium ${
-                                                    category.growthRate > 0
-                                                        ? "bg-green-500/10 text-green-600"
-                                                        : category.growthRate <
-                                                            0
-                                                          ? "bg-red-500/10 text-red-600"
-                                                          : "bg-muted text-muted-foreground"
-                                                }`}
-                                            >
-                                                {category.growthRate > 0 ? (
-                                                    <TrendingUp className="h-3 w-3" />
-                                                ) : category.growthRate < 0 ? (
-                                                    <TrendingDown className="h-3 w-3" />
-                                                ) : null}
-                                                {category.growthRate > 0
-                                                    ? "+"
-                                                    : ""}
-                                                {category.growthRate.toFixed(1)}
-                                                %
-                                            </div>
+                                            {category.growthRate != null ? (
+                                                <div
+                                                    className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium ${
+                                                        category.growthRate > 0
+                                                            ? "bg-green-500/10 text-green-600"
+                                                            : category.growthRate <
+                                                                0
+                                                              ? "bg-red-500/10 text-red-600"
+                                                              : "bg-muted text-muted-foreground"
+                                                    }`}
+                                                >
+                                                    {category.growthRate > 0 ? (
+                                                        <TrendingUp className="h-3 w-3" />
+                                                    ) : category.growthRate <
+                                                      0 ? (
+                                                        <TrendingDown className="h-3 w-3" />
+                                                    ) : null}
+                                                    {category.growthRate > 0
+                                                        ? "+"
+                                                        : ""}
+                                                    {category.growthRate.toFixed(
+                                                        1,
+                                                    )}
+                                                    %
+                                                </div>
+                                            ) : (
+                                                <span className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-muted text-muted-foreground">
+                                                    Insufficient data
+                                                </span>
+                                            )}
                                         </TableCell>
                                     </TableRow>
                                 ))}

@@ -95,68 +95,60 @@ export function computeCategories(
             }
         }
 
-        // Growth rate: Theil-Sen estimator on individual transactions.
-        // Uses the median of all pairwise slopes so a handful of
-        // high-value items (e.g. a $3,899 camera) can't skew the result.
-        let growthRate = 0;
+        // Growth rate: linear regression on monthly revenue totals.
+        // Only reported when there are enough months with enough data
+        // AND the trend explains a meaningful share of variance (R² ≥ 0.4).
+        let growthRate: number | null = null;
         if (acc.datedRevenues.length >= 6) {
-            const points = acc.datedRevenues
-                .map(({ date, revenue }) => ({
-                    t: new Date(date).getTime(),
-                    r: revenue,
-                }))
-                .filter(({ t }) => !isNaN(t));
+            const monthlyRevenue = new Map<string, number>();
+            const monthlyCount = new Map<string, number>();
+            for (const { date, revenue } of acc.datedRevenues) {
+                const month = date.slice(0, 7); // "YYYY-MM"
+                monthlyRevenue.set(
+                    month,
+                    (monthlyRevenue.get(month) || 0) + revenue,
+                );
+                monthlyCount.set(month, (monthlyCount.get(month) || 0) + 1);
+            }
 
-            if (points.length >= 6) {
-                const minT = Math.min(...points.map((p) => p.t));
-                const maxT = Math.max(...points.map((p) => p.t));
-                const span = maxT - minT;
+            // Only consider months with at least 3 transactions
+            const qualifiedMonths = [...monthlyRevenue.entries()]
+                .filter(([m]) => (monthlyCount.get(m) ?? 0) >= 3)
+                .sort((a, b) => a[0].localeCompare(b[0]));
 
-                if (span > 0) {
-                    // Normalise time to [0, 1]
-                    const norm = points.map((p) => ({
-                        x: (p.t - minT) / span,
-                        y: p.r,
-                    }));
+            if (qualifiedMonths.length >= 3) {
+                const n = qualifiedMonths.length;
+                const revenues = qualifiedMonths.map(([, r]) => r);
+                const meanX = (n - 1) / 2;
+                const meanY = revenues.reduce((s, r) => s + r, 0) / n;
 
-                    // For large datasets, sample pairs to keep it fast
-                    const slopes: number[] = [];
-                    const maxPairs = 2000;
-                    const allPairs = (norm.length * (norm.length - 1)) / 2;
+                let num = 0;
+                let den = 0;
+                for (let i = 0; i < n; i++) {
+                    num += (i - meanX) * (revenues[i] - meanY);
+                    den += (i - meanX) * (i - meanX);
+                }
 
-                    if (allPairs <= maxPairs) {
-                        for (let i = 0; i < norm.length; i++) {
-                            for (let j = i + 1; j < norm.length; j++) {
-                                const dx = norm[j].x - norm[i].x;
-                                if (Math.abs(dx) > 1e-9) {
-                                    slopes.push((norm[j].y - norm[i].y) / dx);
-                                }
-                            }
-                        }
-                    } else {
-                        // Random sampling for larger datasets
-                        for (let s = 0; s < maxPairs; s++) {
-                            const i = Math.floor(Math.random() * norm.length);
-                            let j = Math.floor(
-                                Math.random() * (norm.length - 1),
-                            );
-                            if (j >= i) j++;
-                            const dx = norm[j].x - norm[i].x;
-                            if (Math.abs(dx) > 1e-9) {
-                                slopes.push((norm[j].y - norm[i].y) / dx);
-                            }
-                        }
-                    }
+                if (den > 0 && meanY > 0) {
+                    const slope = num / den;
+                    const predicted = revenues.map(
+                        (_, i) => meanY + slope * (i - meanX),
+                    );
 
-                    if (slopes.length > 0) {
-                        slopes.sort((a, b) => a - b);
-                        const medianSlope =
-                            slopes[Math.floor(slopes.length / 2)];
-                        const meanRev =
-                            norm.reduce((s, p) => s + p.y, 0) / norm.length;
-                        if (meanRev > 0) {
-                            growthRate = (medianSlope / meanRev) * 100;
-                        }
+                    // R²: how much of the variance does the trend explain?
+                    const ssRes = revenues.reduce(
+                        (s, y, i) => s + (y - predicted[i]) ** 2,
+                        0,
+                    );
+                    const ssTot = revenues.reduce(
+                        (s, y) => s + (y - meanY) ** 2,
+                        0,
+                    );
+                    const rSquared = ssTot > 0 ? 1 - ssRes / ssTot : 0;
+
+                    // Only show growth when the trend is meaningful
+                    if (rSquared >= 0.4) {
+                        growthRate = round1(((slope * (n - 1)) / meanY) * 100);
                     }
                 }
             }
@@ -167,7 +159,7 @@ export function computeCategories(
             totalRevenue: round2(acc.totalRevenue),
             totalUnitsSold: Math.round(acc.totalUnits),
             topProduct,
-            growthRate: round1(growthRate),
+            growthRate,
         });
     }
 

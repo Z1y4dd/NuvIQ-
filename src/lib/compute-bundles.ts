@@ -22,16 +22,17 @@ export function computeBundles(
     const customerIdx = headerMap["customer id"];
     const dateIdx = headerMap["date"];
 
-    if (invoiceIdx === undefined || productIdx === undefined) {
+    if (productIdx === undefined) {
         return [];
     }
 
     const dataRows = content.slice(1);
 
     // Try grouping strategies in order of specificity
-    const strategies: { idx: number; label: string }[] = [
-        { idx: invoiceIdx, label: "invoice" },
-    ];
+    const strategies: { idx: number; label: string }[] = [];
+    if (invoiceIdx !== undefined) {
+        strategies.push({ idx: invoiceIdx, label: "invoice" });
+    }
     if (customerIdx !== undefined) {
         strategies.push({ idx: customerIdx, label: "customer" });
     }
