@@ -95,46 +95,40 @@ export function computeCategories(
             }
         }
 
-        // Growth rate: aggregate revenue by month, then compare the most
-        // recent complete month against the earliest month.
+        // Growth rate: use linear regression on monthly revenue to find
+        // a robust trend that isn't dominated by single-month outliers.
         let growthRate = 0;
         if (acc.datedRevenues.length >= 2) {
-            // Aggregate into monthly buckets
             const monthlyRevenue = new Map<string, number>();
-            const monthlyCount = new Map<string, number>();
             for (const { date, revenue } of acc.datedRevenues) {
                 const month = date.slice(0, 7); // "YYYY-MM"
                 monthlyRevenue.set(
                     month,
                     (monthlyRevenue.get(month) || 0) + revenue,
                 );
-                monthlyCount.set(month, (monthlyCount.get(month) || 0) + 1);
             }
             const sortedMonths = [...monthlyRevenue.entries()].sort((a, b) =>
                 a[0].localeCompare(b[0]),
             );
 
             if (sortedMonths.length >= 2) {
-                // Drop the last month if it looks incomplete (has significantly
-                // fewer transactions than the median month).
-                const counts = sortedMonths.map(
-                    ([m]) => monthlyCount.get(m) ?? 0,
-                );
-                const sortedCounts = [...counts].sort((a, b) => a - b);
-                const median =
-                    sortedCounts[Math.floor(sortedCounts.length / 2)];
+                // Linear regression: y = revenue, x = month index (0, 1, 2…)
+                const n = sortedMonths.length;
+                const revenues = sortedMonths.map(([, r]) => r);
+                const meanX = (n - 1) / 2;
+                const meanY = revenues.reduce((s, r) => s + r, 0) / n;
 
-                let endIdx = sortedMonths.length - 1;
-                if (counts[endIdx] < median * 0.5 && sortedMonths.length >= 3) {
-                    endIdx--; // skip incomplete last month
+                let num = 0;
+                let den = 0;
+                for (let i = 0; i < n; i++) {
+                    num += (i - meanX) * (revenues[i] - meanY);
+                    den += (i - meanX) * (i - meanX);
                 }
 
-                const firstRev = sortedMonths[0][1];
-                const lastRev = sortedMonths[endIdx][1];
-                if (firstRev > 0) {
-                    growthRate = ((lastRev - firstRev) / firstRev) * 100;
-                } else if (lastRev > 0) {
-                    growthRate = 100;
+                if (den > 0 && meanY > 0) {
+                    const slope = num / den; // revenue change per month
+                    // Express as % change over the full span relative to mean
+                    growthRate = ((slope * (n - 1)) / meanY) * 100;
                 }
             }
         }
