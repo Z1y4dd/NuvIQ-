@@ -54,17 +54,20 @@ export default function BundlesTable() {
                 selectedDataset.content,
                 selectedDataset.headerMap,
             );
-            if (bundles.length === 0) {
-                throw new Error(
-                    "Not enough multi-product transactions found to generate bundle recommendations.",
-                );
-            }
             await updateDataset(selectedDataset.id, { bundles });
-            toast({
-                title: "Bundles Generated",
-                description:
-                    "Product bundle recommendations are now available.",
-            });
+            if (bundles.length === 0) {
+                toast({
+                    title: "No Bundles Found",
+                    description:
+                        "The dataset doesn't have enough multi-product transactions to find product associations.",
+                });
+            } else {
+                toast({
+                    title: "Bundles Generated",
+                    description:
+                        "Product bundle recommendations are now available.",
+                });
+            }
         } catch (error: any) {
             console.error("Retry bundles failed:", error);
             toast({
@@ -203,14 +206,22 @@ export default function BundlesTable() {
                                     <ShoppingBasket className="h-7 w-7 text-muted-foreground" />
                                 </div>
                                 <p className="text-muted-foreground font-medium text-sm">
-                                    {selectedDataset?.status === "Completed"
-                                        ? "Bundle analysis failed"
-                                        : "No bundle data yet"}
+                                    {selectedDataset?.status === "Completed" &&
+                                    selectedDataset?.bundles !== undefined
+                                        ? "No product associations found"
+                                        : selectedDataset?.status ===
+                                            "Completed"
+                                          ? "Bundle analysis failed"
+                                          : "No bundle data yet"}
                                 </p>
                                 <p className="text-muted-foreground/60 text-xs mt-1 max-w-xs">
-                                    {selectedDataset?.status === "Completed"
-                                        ? "The market basket analysis could not be completed. Click retry to try again."
-                                        : "Select a processed dataset to discover which products are frequently bought together."}
+                                    {selectedDataset?.status === "Completed" &&
+                                    selectedDataset?.bundles !== undefined
+                                        ? "This dataset doesn't have enough multi-product transactions to identify product associations."
+                                        : selectedDataset?.status ===
+                                            "Completed"
+                                          ? "The market basket analysis could not be completed. Click retry to try again."
+                                          : "Select a processed dataset to discover which products are frequently bought together."}
                                 </p>
                                 {selectedDataset?.status === "Completed" &&
                                     selectedDataset?.headerMap && (

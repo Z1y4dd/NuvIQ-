@@ -68,15 +68,15 @@ import {
 } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { useDataset } from "@/contexts/dataset-context";
 import { useAuth } from "@/contexts/auth-context";
+import { useDataset } from "@/contexts/dataset-context";
 import { cn } from "@/lib/utils";
 import { createDataset, updateDataset, deleteDataset } from "@/lib/firestore";
 import { parseCSV as parseCSVFile } from "@/lib/storage";
-import { extractCsvSample } from "@/lib/dataset-utils";
 import { computeKpis } from "@/lib/compute-kpis";
 import { computeBundles } from "@/lib/compute-bundles";
 import { computeForecast } from "@/lib/compute-forecast";
+import { computeCategories } from "@/lib/compute-categories";
 
 type SortField = "date" | "filename" | "records";
 type SortDirection = "asc" | "desc";
@@ -165,8 +165,8 @@ export default function UploadsTable() {
     const fileInputRef = useRef<HTMLInputElement>(null);
     const initializedMappingIdRef = useRef<string | null>(null);
     const { toast } = useToast();
-    const { selectedDataset, setSelectedDataset, uploads } = useDataset();
     const { user } = useAuth();
+    const { selectedDataset, setSelectedDataset, uploads } = useDataset();
 
     // Derived filtered & sorted uploads
     const filteredUploads = useMemo(() => {
@@ -239,17 +239,7 @@ export default function UploadsTable() {
 
         let failedCount = 0;
 
-        // Get auth token for API requests
-        const idToken = await user.getIdToken();
-        const authHeaders = {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${idToken}`,
-        };
-
         await updateDataset(upload.id, { status: "Processing", headerMap });
-
-        // Extract CSV sample to send to AI endpoints
-        const csvData = extractCsvSample(upload.content, headerMap);
 
         try {
             const kpis = computeKpis(upload.content, headerMap);
@@ -294,11 +284,6 @@ export default function UploadsTable() {
 
         try {
             const bundles = computeBundles(upload.content, headerMap);
-            if (bundles.length === 0) {
-                throw new Error(
-                    "Not enough multi-product transactions to find bundles.",
-                );
-            }
             await updateDataset(upload.id, { bundles });
         } catch (error: any) {
             console.error("Market basket analysis failed:", error);
@@ -312,21 +297,8 @@ export default function UploadsTable() {
 
         if (headerMap["category"] !== undefined) {
             try {
-                const response = await fetch("/api/ai/analyze-categories", {
-                    method: "POST",
-                    headers: authHeaders,
-                    body: JSON.stringify({ datasetId: upload.id, csvData }),
-                });
-                if (!response.ok) {
-                    const errBody = await response.json().catch(() => ({}));
-                    throw new Error(
-                        `Categories API failed: ${errBody?.error || response.statusText}`,
-                    );
-                }
-                const categoriesResult = await response.json();
-                await updateDataset(upload.id, {
-                    categories: categoriesResult.categories,
-                });
+                const categories = computeCategories(upload.content, headerMap);
+                await updateDataset(upload.id, { categories });
             } catch (error: any) {
                 console.error("Category analysis failed:", error);
                 toast({

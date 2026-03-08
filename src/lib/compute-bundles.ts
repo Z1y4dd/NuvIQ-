@@ -56,9 +56,12 @@ function buildBaskets(
 ): Map<string, Set<string>> {
     const baskets = new Map<string, Set<string>>();
     for (const row of dataRows) {
-        const groupKey = row[groupIdx]?.trim();
+        let groupKey = row[groupIdx]?.trim();
         const product = row[productIdx]?.trim();
         if (!groupKey || !product) continue;
+
+        // Normalize date-like keys to YYYY-MM-DD (strip time portions)
+        groupKey = normalizeDateKey(groupKey);
 
         let basket = baskets.get(groupKey);
         if (!basket) {
@@ -68,6 +71,17 @@ function buildBaskets(
         basket.add(product);
     }
     return baskets;
+}
+
+/** Strip time portion from date-like strings so same-day rows group together. */
+function normalizeDateKey(key: string): string {
+    // ISO datetime: "2024-01-15T10:30:00" or "2024-01-15 10:30:00"
+    const isoMatch = key.match(/^(\d{4}[\/-]\d{1,2}[\/-]\d{1,2})/);
+    if (isoMatch) return isoMatch[1];
+    // US/EU date with time: "01/15/2024 10:30"
+    const slashMatch = key.match(/^(\d{1,2}[\/-]\d{1,2}[\/-]\d{2,4})/);
+    if (slashMatch) return slashMatch[1];
+    return key;
 }
 
 /** Run Apriori on pre-built baskets and return top association rules. */
