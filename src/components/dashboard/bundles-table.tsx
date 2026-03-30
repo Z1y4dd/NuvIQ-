@@ -19,15 +19,13 @@ import { Button } from "@/components/ui/button";
 import { Download, Loader2, RefreshCw, ShoppingBasket } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { useDataset } from "@/contexts/dataset-context";
-import { useAuth } from "@/contexts/auth-context";
 import { useToast } from "@/hooks/use-toast";
-import { extractCsvSample } from "@/lib/dataset-utils";
 import { updateDataset } from "@/lib/firestore";
+import { computeBundles } from "@/lib/compute-bundles";
 import { BundleData } from "@/lib/data";
 
 export default function BundlesTable() {
     const { selectedDataset } = useDataset();
-    const { user } = useAuth();
     const { toast } = useToast();
     const [retrying, setRetrying] = useState(false);
     const bundlesData = selectedDataset?.bundles;
@@ -49,38 +47,27 @@ export default function BundlesTable() {
     };
 
     const handleRetryBundles = async () => {
-        if (!selectedDataset || !user || !selectedDataset.headerMap) return;
+        if (!selectedDataset || !selectedDataset.headerMap) return;
         setRetrying(true);
         try {
-            const idToken = await user.getIdToken();
-            const csvData = extractCsvSample(
+            const bundles = computeBundles(
                 selectedDataset.content,
                 selectedDataset.headerMap,
             );
-            const response = await fetch("/api/ai/analyze-bundles", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${idToken}`,
-                },
-                body: JSON.stringify({
-                    datasetId: selectedDataset.id,
-                    csvData,
-                }),
-            });
-            if (!response.ok) {
-                const errBody = await response.json().catch(() => ({}));
-                throw new Error(errBody?.error || response.statusText);
+            await updateDataset(selectedDataset.id, { bundles });
+            if (bundles.length === 0) {
+                toast({
+                    title: "No Bundles Found",
+                    description:
+                        "The dataset doesn't have enough multi-product transactions to find product associations.",
+                });
+            } else {
+                toast({
+                    title: "Bundles Generated",
+                    description:
+                        "Product bundle recommendations are now available.",
+                });
             }
-            const bundlesResult = await response.json();
-            await updateDataset(selectedDataset.id, {
-                bundles: bundlesResult.associationRules,
-            });
-            toast({
-                title: "Bundles Generated",
-                description:
-                    "Product bundle recommendations are now available.",
-            });
         } catch (error: any) {
             console.error("Retry bundles failed:", error);
             toast({
@@ -219,14 +206,22 @@ export default function BundlesTable() {
                                     <ShoppingBasket className="h-7 w-7 text-muted-foreground" />
                                 </div>
                                 <p className="text-muted-foreground font-medium text-sm">
-                                    {selectedDataset?.status === "Completed"
-                                        ? "Bundle analysis failed"
-                                        : "No bundle data yet"}
+                                    {selectedDataset?.status === "Completed" &&
+                                    selectedDataset?.bundles !== undefined
+                                        ? "No product associations found"
+                                        : selectedDataset?.status ===
+                                            "Completed"
+                                          ? "Bundle analysis failed"
+                                          : "No bundle data yet"}
                                 </p>
                                 <p className="text-muted-foreground/60 text-xs mt-1 max-w-xs">
-                                    {selectedDataset?.status === "Completed"
-                                        ? "The market basket analysis could not be completed. Click retry to try again."
-                                        : "Select a processed dataset to discover which products are frequently bought together."}
+                                    {selectedDataset?.status === "Completed" &&
+                                    selectedDataset?.bundles !== undefined
+                                        ? "This dataset doesn't have enough multi-product transactions to identify product associations."
+                                        : selectedDataset?.status ===
+                                            "Completed"
+                                          ? "The market basket analysis could not be completed. Click retry to try again."
+                                          : "Select a processed dataset to discover which products are frequently bought together."}
                                 </p>
                                 {selectedDataset?.status === "Completed" &&
                                     selectedDataset?.headerMap && (

@@ -68,12 +68,15 @@ import {
 } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { useDataset } from "@/contexts/dataset-context";
 import { useAuth } from "@/contexts/auth-context";
+import { useDataset } from "@/contexts/dataset-context";
 import { cn } from "@/lib/utils";
 import { createDataset, updateDataset, deleteDataset } from "@/lib/firestore";
 import { parseCSV as parseCSVFile } from "@/lib/storage";
-import { extractCsvSample } from "@/lib/dataset-utils";
+import { computeKpis } from "@/lib/compute-kpis";
+import { computeBundles } from "@/lib/compute-bundles";
+import { computeForecast } from "@/lib/compute-forecast";
+import { computeCategories } from "@/lib/compute-categories";
 
 type SortField = "date" | "filename" | "records";
 type SortDirection = "asc" | "desc";
@@ -98,20 +101,33 @@ const statusConfig = {
 };
 
 const requiredColumns = {
-    date: { aliases: ["date"], optional: false },
+    date: {
+        aliases: ["date", "transaction date", "order date", "invoicedate"],
+        optional: false,
+    },
     "total revenue": {
         aliases: ["total revenue", "revenue", "price", "sales"],
         optional: false,
     },
     invoiceid: {
-        aliases: ["invoiceid", "invoice no", "invoice", "transaction id"],
-        optional: false,
+        aliases: [
+            "invoiceid",
+            "invoice no",
+            "invoice",
+            "transaction id",
+            "order id",
+        ],
+        optional: true,
     },
     "product name": {
         aliases: ["product name", "product", "item", "description"],
         optional: false,
     },
     quantity: { aliases: ["quantity", "qty"], optional: true },
+    "customer id": {
+        aliases: ["customer id", "customerid", "customer", "client id"],
+        optional: true,
+    },
     category: {
         aliases: ["category", "product category", "department"],
         optional: true,
@@ -158,8 +174,8 @@ export default function UploadsTable() {
     const fileInputRef = useRef<HTMLInputElement>(null);
     const initializedMappingIdRef = useRef<string | null>(null);
     const { toast } = useToast();
-    const { selectedDataset, setSelectedDataset, uploads } = useDataset();
     const { user } = useAuth();
+    const { selectedDataset, setSelectedDataset, uploads } = useDataset();
 
     // Derived filtered & sorted uploads
     const filteredUploads = useMemo(() => {
@@ -232,36 +248,11 @@ export default function UploadsTable() {
 
         let failedCount = 0;
 
-        // Get auth token for API requests
-        const idToken = await user.getIdToken();
-        const authHeaders = {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${idToken}`,
-        };
-
         await updateDataset(upload.id, { status: "Processing", headerMap });
 
-        // Extract CSV sample to send to AI endpoints
-        const csvData = extractCsvSample(upload.content, headerMap);
-
         try {
-            const response = await fetch("/api/ai/generate-kpis", {
-                method: "POST",
-                headers: authHeaders,
-                body: JSON.stringify({ datasetId: upload.id, csvData }),
-            });
-            if (!response.ok) {
-                const errBody = await response.json().catch(() => ({}));
-                throw new Error(
-                    `KPI API failed: ${errBody?.error || response.statusText}`,
-                );
-            }
-            const kpiResult = await response.json();
-            const kpisWithChange = kpiResult.kpis.map((k: any) => ({
-                ...k,
-                change: "",
-            }));
-            await updateDataset(upload.id, { kpis: kpisWithChange });
+            const kpis = computeKpis(upload.content, headerMap);
+            await updateDataset(upload.id, { kpis });
         } catch (error: any) {
             console.error("KPI generation failed:", error);
             toast({
@@ -273,41 +264,12 @@ export default function UploadsTable() {
         }
 
         try {
-            const response = await fetch("/api/ai/generate-forecast", {
-                method: "POST",
-                headers: authHeaders,
-                body: JSON.stringify({
-                    datasetId: upload.id,
-                    forecastDays: [7, 30, 90],
-                    csvData,
-                }),
-            });
-            if (!response.ok) {
-                const errBody = await response.json().catch(() => ({}));
-                throw new Error(
-                    `Forecast API failed: ${errBody?.error || response.statusText}`,
-                );
-            }
-            const forecastResult = await response.json();
-            // Build a record keyed by period from all returned forecasts
-            const forecastsByPeriod: Record<
-                number,
-                import("@/lib/data").ForecastData[]
-            > = {};
-            for (const f of forecastResult.forecasts ?? []) {
-                const days = Number(f.forecastDays);
-                if (f.results?.length) {
-                    forecastsByPeriod[days] = f.results.map((r: any) => ({
-                        date: r.date,
-                        sales: null,
-                        predicted: r.predictedSales,
-                        lower: r.confidenceIntervalLower,
-                        upper: r.confidenceIntervalUpper,
-                    }));
-                }
-            }
+            const forecastsByPeriod = computeForecast(
+                upload.content,
+                headerMap,
+                [7, 30, 90],
+            );
             if (Object.keys(forecastsByPeriod).length > 0) {
-                // Save multi-period forecasts and keep legacy forecast field (7-day) for backward compat
                 await updateDataset(upload.id, {
                     forecasts: forecastsByPeriod,
                     forecast:
@@ -315,7 +277,9 @@ export default function UploadsTable() {
                         Object.values(forecastsByPeriod)[0],
                 });
             } else {
-                throw new Error("No forecast data found in AI response.");
+                throw new Error(
+                    "Could not compute forecast — missing date or revenue data.",
+                );
             }
         } catch (error: any) {
             console.error("Forecast generation failed:", error);
@@ -328,21 +292,8 @@ export default function UploadsTable() {
         }
 
         try {
-            const response = await fetch("/api/ai/analyze-bundles", {
-                method: "POST",
-                headers: authHeaders,
-                body: JSON.stringify({ datasetId: upload.id, csvData }),
-            });
-            if (!response.ok) {
-                const errBody = await response.json().catch(() => ({}));
-                throw new Error(
-                    `Bundles API failed: ${errBody?.error || response.statusText}`,
-                );
-            }
-            const bundlesResult = await response.json();
-            await updateDataset(upload.id, {
-                bundles: bundlesResult.associationRules,
-            });
+            const bundles = computeBundles(upload.content, headerMap);
+            await updateDataset(upload.id, { bundles });
         } catch (error: any) {
             console.error("Market basket analysis failed:", error);
             toast({
@@ -355,21 +306,8 @@ export default function UploadsTable() {
 
         if (headerMap["category"] !== undefined) {
             try {
-                const response = await fetch("/api/ai/analyze-categories", {
-                    method: "POST",
-                    headers: authHeaders,
-                    body: JSON.stringify({ datasetId: upload.id, csvData }),
-                });
-                if (!response.ok) {
-                    const errBody = await response.json().catch(() => ({}));
-                    throw new Error(
-                        `Categories API failed: ${errBody?.error || response.statusText}`,
-                    );
-                }
-                const categoriesResult = await response.json();
-                await updateDataset(upload.id, {
-                    categories: categoriesResult.categories,
-                });
+                const categories = computeCategories(upload.content, headerMap);
+                await updateDataset(upload.id, { categories });
             } catch (error: any) {
                 console.error("Category analysis failed:", error);
                 toast({

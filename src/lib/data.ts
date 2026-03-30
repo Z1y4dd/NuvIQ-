@@ -18,7 +18,7 @@ export interface CategoryData {
     totalRevenue: number;
     totalUnitsSold: number;
     topProduct: string;
-    growthRate: number;
+    growthRate: number | null;
 }
 
 export interface KpiData {

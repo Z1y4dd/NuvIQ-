@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import {
     Card,
     CardHeader,
@@ -21,11 +22,17 @@ import {
     TrendingDown,
     Tags,
     Loader2,
+    RefreshCw,
 } from "lucide-react";
 import { useDataset } from "@/contexts/dataset-context";
+import { useToast } from "@/hooks/use-toast";
+import { updateDataset } from "@/lib/firestore";
+import { computeCategories } from "@/lib/compute-categories";
 
 export default function CategoriesTable() {
     const { selectedDataset } = useDataset();
+    const { toast } = useToast();
+    const [retrying, setRetrying] = useState(false);
     const categoriesData = selectedDataset?.categories;
 
     const handleDownload = () => {
@@ -42,6 +49,41 @@ export default function CategoriesTable() {
         document.body.appendChild(downloadAnchorNode);
         downloadAnchorNode.click();
         downloadAnchorNode.remove();
+    };
+
+    const handleRetryCategories = async () => {
+        if (!selectedDataset || !selectedDataset.headerMap) return;
+        setRetrying(true);
+        try {
+            const categories = computeCategories(
+                selectedDataset.content,
+                selectedDataset.headerMap,
+            );
+            await updateDataset(selectedDataset.id, { categories });
+            if (categories.length === 0) {
+                toast({
+                    title: "No Categories Found",
+                    description:
+                        "The dataset doesn't have enough category data to analyze.",
+                });
+            } else {
+                toast({
+                    title: "Categories Generated",
+                    description: "Category performance data is now available.",
+                });
+            }
+        } catch (error: any) {
+            console.error("Retry categories failed:", error);
+            toast({
+                title: "Category Retry Failed",
+                description:
+                    error.message ||
+                    "Could not generate categories. Try again later.",
+                variant: "destructive",
+            });
+        } finally {
+            setRetrying(false);
+        }
     };
 
     return (
@@ -127,27 +169,36 @@ export default function CategoriesTable() {
                                             {category.topProduct}
                                         </TableCell>
                                         <TableCell className="text-right">
-                                            <div
-                                                className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium ${
-                                                    category.growthRate > 0
-                                                        ? "bg-green-500/10 text-green-600"
-                                                        : category.growthRate <
-                                                            0
-                                                          ? "bg-red-500/10 text-red-600"
-                                                          : "bg-muted text-muted-foreground"
-                                                }`}
-                                            >
-                                                {category.growthRate > 0 ? (
-                                                    <TrendingUp className="h-3 w-3" />
-                                                ) : category.growthRate < 0 ? (
-                                                    <TrendingDown className="h-3 w-3" />
-                                                ) : null}
-                                                {category.growthRate > 0
-                                                    ? "+"
-                                                    : ""}
-                                                {category.growthRate.toFixed(1)}
-                                                %
-                                            </div>
+                                            {category.growthRate != null ? (
+                                                <div
+                                                    className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium ${
+                                                        category.growthRate > 0
+                                                            ? "bg-green-500/10 text-green-600"
+                                                            : category.growthRate <
+                                                                0
+                                                              ? "bg-red-500/10 text-red-600"
+                                                              : "bg-muted text-muted-foreground"
+                                                    }`}
+                                                >
+                                                    {category.growthRate > 0 ? (
+                                                        <TrendingUp className="h-3 w-3" />
+                                                    ) : category.growthRate <
+                                                      0 ? (
+                                                        <TrendingDown className="h-3 w-3" />
+                                                    ) : null}
+                                                    {category.growthRate > 0
+                                                        ? "+"
+                                                        : ""}
+                                                    {category.growthRate.toFixed(
+                                                        1,
+                                                    )}
+                                                    %
+                                                </div>
+                                            ) : (
+                                                <span className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-muted text-muted-foreground">
+                                                    Insufficient data
+                                                </span>
+                                            )}
                                         </TableCell>
                                     </TableRow>
                                 ))}
@@ -162,8 +213,8 @@ export default function CategoriesTable() {
                         <div className="absolute bottom-0 left-0 w-28 h-28 bg-gradient-to-tr from-purple-500/[0.04] to-transparent rounded-full translate-y-1/3 -translate-x-1/4" />
 
                         {selectedDataset ? (
-                            selectedDataset.headerMap?.category === undefined ||
-                            selectedDataset.status === "Completed" ? (
+                            selectedDataset.headerMap?.category ===
+                            undefined ? (
                                 <div className="relative z-10">
                                     <div className="flex items-center justify-center h-16 w-16 rounded-2xl bg-muted/80 mb-4 mx-auto border border-border/50">
                                         <Tags className="h-7 w-7 text-muted-foreground" />
@@ -176,7 +227,7 @@ export default function CategoriesTable() {
                                         upload for this dataset.
                                     </p>
                                 </div>
-                            ) : (
+                            ) : selectedDataset.status !== "Completed" ? (
                                 <div className="relative z-10">
                                     <div className="flex items-center justify-center h-16 w-16 rounded-2xl bg-blue-500/10 mb-4 mx-auto">
                                         <Loader2 className="h-8 w-8 text-blue-500 animate-spin" />
@@ -187,6 +238,35 @@ export default function CategoriesTable() {
                                     <p className="text-muted-foreground/60 text-xs mt-1">
                                         Crunching the numbers
                                     </p>
+                                </div>
+                            ) : (
+                                <div className="relative z-10">
+                                    <div className="flex items-center justify-center h-16 w-16 rounded-2xl bg-muted/80 mb-4 mx-auto border border-border/50">
+                                        <Tags className="h-7 w-7 text-muted-foreground" />
+                                    </div>
+                                    <p className="text-muted-foreground font-medium text-sm">
+                                        Category analysis failed
+                                    </p>
+                                    <p className="text-muted-foreground/60 text-xs mt-1 max-w-xs">
+                                        Could not generate category performance.
+                                        Click retry to try again.
+                                    </p>
+                                    <Button
+                                        variant="outline"
+                                        size="sm"
+                                        className="mt-4"
+                                        onClick={handleRetryCategories}
+                                        disabled={retrying}
+                                    >
+                                        {retrying ? (
+                                            <Loader2 className="mr-1.5 h-3.5 w-3.5 animate-spin" />
+                                        ) : (
+                                            <RefreshCw className="mr-1.5 h-3.5 w-3.5" />
+                                        )}
+                                        {retrying
+                                            ? "Analyzing..."
+                                            : "Retry Categories"}
+                                    </Button>
                                 </div>
                             )
                         ) : (

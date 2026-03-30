@@ -15,10 +15,16 @@ import {
     RefreshCw,
 } from "lucide-react";
 import { useDataset } from "@/contexts/dataset-context";
+<<<<<<< HEAD
 import { useAuth } from "@/contexts/auth-context";
 import { useToast } from "@/hooks/use-toast";
 import { updateDataset } from "@/lib/firestore";
 import { extractCsvSample } from "@/lib/dataset-utils";
+=======
+import { useToast } from "@/hooks/use-toast";
+import { updateDataset } from "@/lib/firestore";
+import { computeKpis } from "@/lib/compute-kpis";
+>>>>>>> feature/no-ai
 
 const iconMap = {
     DollarSign,
@@ -43,12 +49,16 @@ const cardGradients: string[] = [
 
 export default function OverviewTab() {
     const { selectedDataset } = useDataset();
+<<<<<<< HEAD
     const { user } = useAuth();
+=======
+>>>>>>> feature/no-ai
     const { toast } = useToast();
     const [retrying, setRetrying] = useState(false);
     const kpiData = selectedDataset?.kpis;
 
     const handleRetryKpis = async () => {
+<<<<<<< HEAD
         if (!selectedDataset || !user || !selectedDataset.headerMap) return;
         setRetrying(true);
         try {
@@ -78,6 +88,16 @@ export default function OverviewTab() {
                 change: "",
             }));
             await updateDataset(selectedDataset.id, { kpis: kpisWithChange });
+=======
+        if (!selectedDataset || !selectedDataset.headerMap) return;
+        setRetrying(true);
+        try {
+            const kpis = computeKpis(
+                selectedDataset.content,
+                selectedDataset.headerMap,
+            );
+            await updateDataset(selectedDataset.id, { kpis });
+>>>>>>> feature/no-ai
             toast({
                 title: "KPIs Generated",
                 description: `KPIs are now available for ${selectedDataset.filename}.`,

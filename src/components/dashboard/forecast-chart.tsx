@@ -31,15 +31,13 @@ import {
 import { Button } from "@/components/ui/button";
 import { Download, Loader2, RefreshCw, TrendingUp } from "lucide-react";
 import { useDataset } from "@/contexts/dataset-context";
-import { useAuth } from "@/contexts/auth-context";
 import { useToast } from "@/hooks/use-toast";
-import { extractCsvSample } from "@/lib/dataset-utils";
 import { updateDataset } from "@/lib/firestore";
+import { computeForecast } from "@/lib/compute-forecast";
 import { ForecastData } from "@/lib/data";
 
 export default function ForecastChart() {
     const { selectedDataset } = useDataset();
-    const { user } = useAuth();
     const { toast } = useToast();
     const [retrying, setRetrying] = useState(false);
     const [selectedPeriod, setSelectedPeriod] = useState<string>("7");
@@ -110,44 +108,14 @@ export default function ForecastChart() {
     };
 
     const handleRetryForecast = async () => {
-        if (!selectedDataset || !user || !selectedDataset.headerMap) return;
+        if (!selectedDataset || !selectedDataset.headerMap) return;
         setRetrying(true);
         try {
-            const idToken = await user.getIdToken();
-            const csvData = extractCsvSample(
+            const forecastsByPeriod = computeForecast(
                 selectedDataset.content,
                 selectedDataset.headerMap,
+                [7, 30, 90],
             );
-            const response = await fetch("/api/ai/generate-forecast", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${idToken}`,
-                },
-                body: JSON.stringify({
-                    datasetId: selectedDataset.id,
-                    forecastDays: [7, 30, 90],
-                    csvData,
-                }),
-            });
-            if (!response.ok) {
-                const errBody = await response.json().catch(() => ({}));
-                throw new Error(errBody?.error || response.statusText);
-            }
-            const forecastResult = await response.json();
-            const forecastsByPeriod: Record<number, ForecastData[]> = {};
-            for (const f of forecastResult.forecasts ?? []) {
-                const days = Number(f.forecastDays);
-                if (f.results?.length) {
-                    forecastsByPeriod[days] = f.results.map((r: any) => ({
-                        date: r.date,
-                        sales: null,
-                        predicted: r.predictedSales,
-                        lower: r.confidenceIntervalLower,
-                        upper: r.confidenceIntervalUpper,
-                    }));
-                }
-            }
             if (Object.keys(forecastsByPeriod).length > 0) {
                 await updateDataset(selectedDataset.id, {
                     forecasts: forecastsByPeriod,
@@ -161,7 +129,7 @@ export default function ForecastChart() {
                         "Sales forecasts are now available for all periods.",
                 });
             } else {
-                throw new Error("No forecast data in AI response.");
+                throw new Error("Missing date or revenue data for forecast.");
             }
         } catch (error: any) {
             console.error("Retry forecast failed:", error);
