@@ -15,16 +15,9 @@ import {
     RefreshCw,
 } from "lucide-react";
 import { useDataset } from "@/contexts/dataset-context";
-<<<<<<< HEAD
-import { useAuth } from "@/contexts/auth-context";
-import { useToast } from "@/hooks/use-toast";
-import { updateDataset } from "@/lib/firestore";
-import { extractCsvSample } from "@/lib/dataset-utils";
-=======
 import { useToast } from "@/hooks/use-toast";
 import { updateDataset } from "@/lib/firestore";
 import { computeKpis } from "@/lib/compute-kpis";
->>>>>>> feature/no-ai
 
 const iconMap = {
     DollarSign,
@@ -49,46 +42,11 @@ const cardGradients: string[] = [
 
 export default function OverviewTab() {
     const { selectedDataset } = useDataset();
-<<<<<<< HEAD
-    const { user } = useAuth();
-=======
->>>>>>> feature/no-ai
     const { toast } = useToast();
     const [retrying, setRetrying] = useState(false);
     const kpiData = selectedDataset?.kpis;
 
     const handleRetryKpis = async () => {
-<<<<<<< HEAD
-        if (!selectedDataset || !user || !selectedDataset.headerMap) return;
-        setRetrying(true);
-        try {
-            const csvData = extractCsvSample(
-                selectedDataset.content,
-                selectedDataset.headerMap,
-            );
-            const idToken = await user.getIdToken();
-            const response = await fetch("/api/ai/generate-kpis", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${idToken}`,
-                },
-                body: JSON.stringify({
-                    datasetId: selectedDataset.id,
-                    csvData,
-                }),
-            });
-            if (!response.ok) {
-                const errBody = await response.json().catch(() => ({}));
-                throw new Error(errBody?.error || response.statusText);
-            }
-            const kpiResult = await response.json();
-            const kpisWithChange = kpiResult.kpis.map((k: any) => ({
-                ...k,
-                change: "",
-            }));
-            await updateDataset(selectedDataset.id, { kpis: kpisWithChange });
-=======
         if (!selectedDataset || !selectedDataset.headerMap) return;
         setRetrying(true);
         try {
@@ -97,7 +55,6 @@ export default function OverviewTab() {
                 selectedDataset.headerMap,
             );
             await updateDataset(selectedDataset.id, { kpis });
->>>>>>> feature/no-ai
             toast({
                 title: "KPIs Generated",
                 description: `KPIs are now available for ${selectedDataset.filename}.`,
