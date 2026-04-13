@@ -33,6 +33,7 @@ import {
     ArrowUp,
     ArrowDown,
     X,
+    Sparkles,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -77,6 +78,7 @@ import { computeKpis } from "@/lib/compute-kpis";
 import { computeBundles } from "@/lib/compute-bundles";
 import { computeForecast } from "@/lib/compute-forecast";
 import { computeCategories } from "@/lib/compute-categories";
+import { extractCsvSample } from "@/lib/dataset-utils";
 
 type SortField = "date" | "filename" | "records";
 type SortDirection = "asc" | "desc";
@@ -319,7 +321,36 @@ export default function UploadsTable() {
             }
         }
 
-        const totalTasks = 3 + (headerMap["category"] !== undefined ? 1 : 0);
+        try {
+            const csvData = extractCsvSample(upload.content, headerMap);
+            const availableColumns = Object.keys(headerMap);
+            const token = await user.getIdToken();
+            const res = await fetch("/api/ai/generate-suggestions", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
+                },
+                body: JSON.stringify({
+                    datasetId: upload.id,
+                    csvData,
+                    availableColumns,
+                }),
+            });
+            if (!res.ok) {
+                throw new Error(`HTTP ${res.status}`);
+            }
+        } catch (error: any) {
+            console.error("AI suggestions failed:", error);
+            toast({
+                title: "AI Suggestions Failed",
+                description: `Could not generate AI suggestions for ${upload.filename}.`,
+                variant: "destructive",
+            });
+            failedCount++;
+        }
+
+        const totalTasks = 4 + (headerMap["category"] !== undefined ? 1 : 0);
         const finalStatus: Upload["status"] =
             failedCount === totalTasks ? "Failed" : "Completed";
         await updateDataset(upload.id, { status: finalStatus });
@@ -448,6 +479,40 @@ export default function UploadsTable() {
     const handleCancelMapping = () => {
         if (mappingCandidate) handleDelete(mappingCandidate);
         setMappingCandidate(null);
+    };
+
+    const regenerateSuggestions = async (upload: Upload) => {
+        if (!user || !upload.headerMap) return;
+        try {
+            const csvData = extractCsvSample(upload.content, upload.headerMap);
+            const availableColumns = Object.keys(upload.headerMap);
+            const token = await user.getIdToken();
+            const res = await fetch("/api/ai/generate-suggestions", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
+                },
+                body: JSON.stringify({
+                    datasetId: upload.id,
+                    csvData,
+                    availableColumns,
+                }),
+            });
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            toast({
+                title: "Suggestions Updated",
+                description: `AI suggestions refreshed for ${upload.filename}.`,
+            });
+        } catch (error: any) {
+            console.error("Regenerate suggestions failed:", error);
+            toast({
+                title: "Regeneration Failed",
+                description:
+                    error?.message || "Could not regenerate suggestions.",
+                variant: "destructive",
+            });
+        }
     };
 
     const getLinkPath = (uploadId: string) => `/dashboard/datasets/${uploadId}`;
@@ -750,6 +815,21 @@ export default function UploadsTable() {
                                                                 Re-process
                                                             </DropdownMenuItem>
                                                         )}
+                                                        {upload.status ===
+                                                            "Completed" &&
+                                                            upload.headerMap && (
+                                                                <DropdownMenuItem
+                                                                    onClick={() =>
+                                                                        regenerateSuggestions(
+                                                                            upload,
+                                                                        )
+                                                                    }
+                                                                >
+                                                                    <Sparkles className="mr-2 h-3.5 w-3.5" />
+                                                                    Regenerate
+                                                                    Suggestions
+                                                                </DropdownMenuItem>
+                                                            )}
                                                         <DropdownMenuItem
                                                             className="text-destructive focus:text-destructive"
                                                             onClick={() =>

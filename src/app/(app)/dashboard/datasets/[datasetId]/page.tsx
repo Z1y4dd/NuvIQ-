@@ -17,10 +17,22 @@ import {
     TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Calendar, Database, FileText, CheckCircle2, Loader2, XCircle } from "lucide-react";
+import {
+    ArrowLeft,
+    Calendar,
+    Database,
+    FileText,
+    CheckCircle2,
+    Loader2,
+    XCircle,
+} from "lucide-react";
 import Link from "next/link";
+import SuggestionsPanel from "@/components/dashboard/suggestions-panel";
 
-const statusConfig: Record<string, { icon: React.ReactNode; className: string }> = {
+const statusConfig: Record<
+    string,
+    { icon: React.ReactNode; className: string }
+> = {
     Completed: {
         icon: <CheckCircle2 className="h-3.5 w-3.5" />,
         className: "bg-green-500/10 text-green-600 border-green-200",
@@ -47,7 +59,12 @@ export default function DatasetDetailsPage({
     if (!dataset) {
         return (
             <div className="space-y-4">
-                <Button variant="ghost" size="sm" asChild className="rounded-lg">
+                <Button
+                    variant="ghost"
+                    size="sm"
+                    asChild
+                    className="rounded-lg"
+                >
                     <Link href="/dashboard">
                         <ArrowLeft className="mr-1.5 h-3.5 w-3.5" />
                         Back to Dashboard
@@ -76,14 +93,23 @@ export default function DatasetDetailsPage({
         <div className="space-y-6">
             <div className="flex items-center justify-between">
                 <div className="space-y-1">
-                    <Button variant="ghost" size="sm" asChild className="rounded-lg -ml-3 mb-1">
+                    <Button
+                        variant="ghost"
+                        size="sm"
+                        asChild
+                        className="rounded-lg -ml-3 mb-1"
+                    >
                         <Link href="/dashboard">
                             <ArrowLeft className="mr-1.5 h-3.5 w-3.5" />
                             Back to Dashboard
                         </Link>
                     </Button>
-                    <h1 className="text-2xl font-bold tracking-tight font-headline">{dataset.filename}</h1>
-                    <p className="text-sm text-muted-foreground">Dataset details and data preview</p>
+                    <h1 className="text-2xl font-bold tracking-tight font-headline">
+                        {dataset.filename}
+                    </h1>
+                    <p className="text-sm text-muted-foreground">
+                        Dataset details and data preview
+                    </p>
                 </div>
             </div>
 
@@ -95,14 +121,20 @@ export default function DatasetDetailsPage({
                             <FileText className="h-5 w-5" />
                         </div>
                         <div>
-                            <p className="text-xs text-muted-foreground font-medium">Status</p>
+                            <p className="text-xs text-muted-foreground font-medium">
+                                Status
+                            </p>
                             {config ? (
-                                <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium border mt-0.5 ${config.className}`}>
+                                <span
+                                    className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium border mt-0.5 ${config.className}`}
+                                >
                                     {config.icon}
                                     {dataset.status}
                                 </span>
                             ) : (
-                                <p className="text-sm font-medium">{dataset.status}</p>
+                                <p className="text-sm font-medium">
+                                    {dataset.status}
+                                </p>
                             )}
                         </div>
                     </CardContent>
@@ -113,9 +145,18 @@ export default function DatasetDetailsPage({
                             <Calendar className="h-5 w-5" />
                         </div>
                         <div>
-                            <p className="text-xs text-muted-foreground font-medium">Date Uploaded</p>
+                            <p className="text-xs text-muted-foreground font-medium">
+                                Date Uploaded
+                            </p>
                             <p className="text-sm font-semibold mt-0.5">
-                                {new Date(dataset.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                                {new Date(dataset.date).toLocaleDateString(
+                                    "en-US",
+                                    {
+                                        month: "short",
+                                        day: "numeric",
+                                        year: "numeric",
+                                    },
+                                )}
                             </p>
                         </div>
                     </CardContent>
@@ -126,7 +167,9 @@ export default function DatasetDetailsPage({
                             <Database className="h-5 w-5" />
                         </div>
                         <div>
-                            <p className="text-xs text-muted-foreground font-medium">Record Count</p>
+                            <p className="text-xs text-muted-foreground font-medium">
+                                Record Count
+                            </p>
                             <p className="text-sm font-semibold mt-0.5">
                                 {dataset.recordCount.toLocaleString()} rows
                             </p>
@@ -149,7 +192,10 @@ export default function DatasetDetailsPage({
                             <TableHeader>
                                 <TableRow className="bg-muted/50">
                                     {headers.map((header, index) => (
-                                        <TableHead key={index} className="font-semibold">
+                                        <TableHead
+                                            key={index}
+                                            className="font-semibold"
+                                        >
                                             {header}
                                         </TableHead>
                                     ))}
@@ -173,6 +219,9 @@ export default function DatasetDetailsPage({
                     </div>
                 </CardContent>
             </Card>
+
+            {/* AI Suggestions */}
+            <SuggestionsPanel dataset={dataset} />
         </div>
     );
 }

@@ -1,3 +1,15 @@
+export interface AiSuggestion {
+    area: "sales_revenue" | "inventory" | "marketing" | "customer_retention";
+    title: string;
+    narrative: string;
+    priority: "high" | "medium" | "low";
+}
+
+export interface SuggestionsData {
+    suggestions: AiSuggestion[];
+    generatedAt: string;
+}
+
 export interface Upload {
     id: string;
     filename: string;
@@ -10,6 +22,7 @@ export interface Upload {
     forecasts?: Record<number, ForecastData[]>;
     bundles?: BundleData[];
     categories?: CategoryData[];
+    suggestions?: SuggestionsData;
     headerMap?: Record<string, number>;
 }
 

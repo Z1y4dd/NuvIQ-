@@ -4,9 +4,12 @@ import ForecastChart from "@/components/dashboard/forecast-chart";
 import BundlesTable from "@/components/dashboard/bundles-table";
 import CategoriesTable from "@/components/dashboard/categories-table";
 import UploadsTable from "@/components/dashboard/uploads-table";
+import SuggestionsPanel from "@/components/dashboard/suggestions-panel";
 import { BarChart3, Sparkles } from "lucide-react";
+import { useDataset } from "@/contexts/dataset-context";
 
 export default function DashboardPage() {
+    const { selectedDataset } = useDataset();
     return (
         <div className="space-y-6">
             {/* Dashboard header with gradient banner */}
@@ -31,8 +34,13 @@ export default function DashboardPage() {
                             <Sparkles className="mr-1.5 h-3 w-3" />
                             Analytics Dashboard
                         </div>
-                        <h1 className="text-2xl font-bold tracking-tight font-headline">Welcome to your Dashboard</h1>
-                        <p className="text-muted-foreground mt-1">Monitor your sales analytics, forecasts, and product insights</p>
+                        <h1 className="text-2xl font-bold tracking-tight font-headline">
+                            Welcome to your Dashboard
+                        </h1>
+                        <p className="text-muted-foreground mt-1">
+                            Monitor your sales analytics, forecasts, and product
+                            insights
+                        </p>
                     </div>
                     {/* Decorative chart icon */}
                     <div className="hidden md:flex items-center justify-center h-16 w-16 rounded-2xl bg-gradient-to-br from-primary/15 to-purple-500/10 text-primary border border-primary/10">
@@ -55,6 +63,9 @@ export default function DashboardPage() {
 
             {/* Bundles Section */}
             <BundlesTable />
+
+            {/* AI Suggestions Section */}
+            <SuggestionsPanel dataset={selectedDataset} />
         </div>
     );
 }
