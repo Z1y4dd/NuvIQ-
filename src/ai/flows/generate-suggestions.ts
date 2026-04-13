@@ -10,9 +10,9 @@ const GenerateSuggestionsInputSchema = z.object({
             "A CSV sample of the dataset including headers and up to 200 rows.",
         ),
     availableColumns: z
-        .array(z.string())
+        .string()
         .describe(
-            "List of column names that are mapped and available in the dataset.",
+            "Comma-separated list of column names that are mapped and available in the dataset.",
         ),
 });
 export type GenerateSuggestionsInput = z.infer<

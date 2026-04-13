@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
         const result: GenerateSuggestionsOutput = await generateSuggestions({
             datasetId,
             csvData,
-            availableColumns,
+            availableColumns: availableColumns.join(", "),
         });
 
         return NextResponse.json(result, { status: 200 });
