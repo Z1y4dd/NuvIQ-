@@ -3,7 +3,6 @@ import {
     generateSuggestions,
     type GenerateSuggestionsOutput,
 } from "@/ai/flows/generate-suggestions";
-import { updateDataset } from "@/lib/firestore";
 
 export const maxDuration = 60;
 import { verifyAuthToken } from "@/lib/auth-api";
@@ -46,14 +45,6 @@ export async function POST(req: NextRequest) {
             datasetId,
             csvData,
             availableColumns,
-        });
-
-        // 4. Persist results to Firestore
-        await updateDataset(datasetId, {
-            suggestions: {
-                suggestions: result.suggestions,
-                generatedAt: new Date().toISOString(),
-            },
         });
 
         return NextResponse.json(result, { status: 200 });

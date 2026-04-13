@@ -25,6 +25,7 @@ import { Upload } from "@/lib/data";
 import { useAuth } from "@/contexts/auth-context";
 import { useToast } from "@/hooks/use-toast";
 import { extractCsvSample } from "@/lib/dataset-utils";
+import { updateDataset } from "@/lib/firestore";
 import { formatDistanceToNow } from "date-fns";
 
 const areaConfig = {
@@ -104,6 +105,13 @@ export default function SuggestionsPanel({ dataset }: SuggestionsPanelProps) {
                 }),
             });
             if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const suggestionResult = await res.json();
+            await updateDataset(dataset.id, {
+                suggestions: {
+                    suggestions: suggestionResult.suggestions,
+                    generatedAt: new Date().toISOString(),
+                },
+            });
             toast({
                 title: "Suggestions Ready",
                 description: "AI suggestions have been generated.",

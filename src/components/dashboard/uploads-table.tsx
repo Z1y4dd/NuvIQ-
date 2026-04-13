@@ -340,6 +340,13 @@ export default function UploadsTable() {
             if (!res.ok) {
                 throw new Error(`HTTP ${res.status}`);
             }
+            const suggestionResult = await res.json();
+            await updateDataset(upload.id, {
+                suggestions: {
+                    suggestions: suggestionResult.suggestions,
+                    generatedAt: new Date().toISOString(),
+                },
+            });
         } catch (error: any) {
             console.error("AI suggestions failed:", error);
             toast({
@@ -500,6 +507,13 @@ export default function UploadsTable() {
                 }),
             });
             if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const suggestionResult = await res.json();
+            await updateDataset(upload.id, {
+                suggestions: {
+                    suggestions: suggestionResult.suggestions,
+                    generatedAt: new Date().toISOString(),
+                },
+            });
             toast({
                 title: "Suggestions Updated",
                 description: `AI suggestions refreshed for ${upload.filename}.`,
