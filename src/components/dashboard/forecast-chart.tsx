@@ -41,11 +41,18 @@ export default function ForecastChart() {
     const { toast } = useToast();
     const [retrying, setRetrying] = useState(false);
     const [selectedPeriod, setSelectedPeriod] = useState<string>("7");
+    const [confidenceLevel, setConfidenceLevel] = useState<string>("0.95");
 
     const PERIODS = [
         { value: "7", label: "7 days" },
         { value: "30", label: "30 days" },
         { value: "90", label: "90 days" },
+    ];
+
+    const CONFIDENCE_LEVELS = [
+        { value: "0.90", label: "90% CI" },
+        { value: "0.95", label: "95% CI" },
+        { value: "0.99", label: "99% CI" },
     ];
 
     // Resolve available periods from new `forecasts` record or legacy `forecast` field
@@ -59,18 +66,41 @@ export default function ForecastChart() {
         return [];
     }, [selectedDataset?.forecasts, selectedDataset?.forecast]);
 
-    // Get forecast data for the currently selected period
+    // Get forecast data for the currently selected period, recomputed with
+    // the chosen confidence level so the band updates instantly.
     const forecastData = useMemo<ForecastData[] | undefined>(() => {
         const period = Number(selectedPeriod);
+        const cl = Number(confidenceLevel);
+
+        // If the dataset has raw content + headerMap we can recompute on the
+        // fly for any confidence level, giving instant visual feedback.
+        if (selectedDataset?.content && selectedDataset?.headerMap) {
+            const recomputed = computeForecast(
+                selectedDataset.content,
+                selectedDataset.headerMap,
+                [period],
+                cl,
+            );
+            if (recomputed[period]?.length) return recomputed[period];
+        }
+
+        // Fallback: use stored forecasts (these were computed at 95% CI)
         if (selectedDataset?.forecasts?.[period]) {
             return selectedDataset.forecasts[period];
         }
-        // Fallback to legacy flat forecast field (treated as 7-day)
+        // Legacy flat forecast field (treated as 7-day)
         if (period === 7 && selectedDataset?.forecast?.length) {
             return selectedDataset.forecast;
         }
         return undefined;
-    }, [selectedDataset?.forecasts, selectedDataset?.forecast, selectedPeriod]);
+    }, [
+        selectedDataset?.content,
+        selectedDataset?.headerMap,
+        selectedDataset?.forecasts,
+        selectedDataset?.forecast,
+        selectedPeriod,
+        confidenceLevel,
+    ]);
 
     // Transform data for proper confidence band rendering:
     // Recharts needs a [lower, upper] range for the band area.
@@ -115,6 +145,7 @@ export default function ForecastChart() {
                 selectedDataset.content,
                 selectedDataset.headerMap,
                 [7, 30, 90],
+                Number(confidenceLevel),
             );
             if (Object.keys(forecastsByPeriod).length > 0) {
                 await updateDataset(selectedDataset.id, {
@@ -170,29 +201,49 @@ export default function ForecastChart() {
                 </div>
                 <div className="flex items-center gap-2">
                     {selectedDataset && availablePeriods.length > 0 && (
-                        <Select
-                            value={selectedPeriod}
-                            onValueChange={setSelectedPeriod}
-                        >
-                            <SelectTrigger className="w-[120px] h-9 rounded-lg">
-                                <SelectValue placeholder="Period" />
-                            </SelectTrigger>
-                            <SelectContent>
-                                {PERIODS.map((p) => (
-                                    <SelectItem
-                                        key={p.value}
-                                        value={p.value}
-                                        disabled={
-                                            !availablePeriods.includes(
-                                                Number(p.value),
-                                            )
-                                        }
-                                    >
-                                        {p.label}
-                                    </SelectItem>
-                                ))}
-                            </SelectContent>
-                        </Select>
+                        <>
+                            <Select
+                                value={confidenceLevel}
+                                onValueChange={setConfidenceLevel}
+                            >
+                                <SelectTrigger className="w-[110px] h-9 rounded-lg">
+                                    <SelectValue placeholder="Confidence" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    {CONFIDENCE_LEVELS.map((c) => (
+                                        <SelectItem
+                                            key={c.value}
+                                            value={c.value}
+                                        >
+                                            {c.label}
+                                        </SelectItem>
+                                    ))}
+                                </SelectContent>
+                            </Select>
+                            <Select
+                                value={selectedPeriod}
+                                onValueChange={setSelectedPeriod}
+                            >
+                                <SelectTrigger className="w-[120px] h-9 rounded-lg">
+                                    <SelectValue placeholder="Period" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    {PERIODS.map((p) => (
+                                        <SelectItem
+                                            key={p.value}
+                                            value={p.value}
+                                            disabled={
+                                                !availablePeriods.includes(
+                                                    Number(p.value),
+                                                )
+                                            }
+                                        >
+                                            {p.label}
+                                        </SelectItem>
+                                    ))}
+                                </SelectContent>
+                            </Select>
+                        </>
                     )}
                     <Button
                         variant="outline"

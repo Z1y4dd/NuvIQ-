@@ -4,15 +4,17 @@ import type { ForecastData } from "./data";
  * Generates a deterministic sales forecast using linear regression with
  * seasonal adjustments. No AI — runs purely over the dataset.
  *
- * @param content   Full parsed CSV (string[][]) with headers at index 0.
- * @param headerMap Map of column-name → column-index.
- * @param periods   Array of forecast horizons in days (e.g. [7, 30, 90]).
+ * @param content          Full parsed CSV (string[][]) with headers at index 0.
+ * @param headerMap        Map of column-name → column-index.
+ * @param periods          Array of forecast horizons in days (e.g. [7, 30, 90]).
+ * @param confidenceLevel  Confidence level for prediction intervals (0.90, 0.95, or 0.99).
  * @returns Record keyed by period (days) → ForecastData[].
  */
 export function computeForecast(
     content: string[][],
     headerMap: Record<string, number>,
     periods: number[] = [7, 30, 90],
+    confidenceLevel: number = 0.95,
 ): Record<number, ForecastData[]> {
     const dateIdx = headerMap["date"];
     const revenueIdx = headerMap["total revenue"];
@@ -112,7 +114,8 @@ export function computeForecast(
             predicted = Math.max(0, predicted);
 
             // Confidence interval widens with distance
-            const ciWidth = 1.96 * residualStd * Math.sqrt(1 + d / n);
+            const zScore = getZScore(confidenceLevel);
+            const ciWidth = zScore * residualStd * Math.sqrt(1 + d / n);
             const lower = Math.max(0, predicted - ciWidth);
             const upper = predicted + ciWidth;
 
@@ -129,6 +132,14 @@ export function computeForecast(
     }
 
     return result;
+}
+
+/** Map a confidence level (0–1) to its z-score for prediction intervals. */
+function getZScore(confidenceLevel: number): number {
+    if (confidenceLevel >= 0.99) return 2.576;
+    if (confidenceLevel >= 0.95) return 1.96;
+    if (confidenceLevel >= 0.9) return 1.645;
+    return 1.96; // default 95%
 }
 
 /** Try to normalise various date formats to YYYY-MM-DD */
