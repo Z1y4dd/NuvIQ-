@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import {
     Card,
     CardHeader,
@@ -18,6 +18,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Download, Loader2, RefreshCw, ShoppingBasket } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Slider } from "@/components/ui/slider";
 import { useDataset } from "@/contexts/dataset-context";
 import { useToast } from "@/hooks/use-toast";
 import { updateDataset } from "@/lib/firestore";
@@ -28,7 +29,21 @@ export default function BundlesTable() {
     const { selectedDataset } = useDataset();
     const { toast } = useToast();
     const [retrying, setRetrying] = useState(false);
+    const [minConfidence, setMinConfidence] = useState(0);
+    const [minLift, setMinLift] = useState(0);
     const bundlesData = selectedDataset?.bundles;
+
+    const filteredBundles = useMemo(() => {
+        if (!bundlesData) return [];
+        return bundlesData.filter(
+            (rule) => rule.confidence >= minConfidence && rule.lift >= minLift,
+        );
+    }, [bundlesData, minConfidence, minLift]);
+
+    const maxLift = useMemo(() => {
+        if (!bundlesData || bundlesData.length === 0) return 5;
+        return Math.ceil(Math.max(...bundlesData.map((r) => r.lift)));
+    }, [bundlesData]);
 
     const handleDownload = () => {
         if (!bundlesData) return;
@@ -118,68 +133,121 @@ export default function BundlesTable() {
             </CardHeader>
             <CardContent>
                 {bundlesData && bundlesData.length > 0 ? (
-                    <div className="rounded-lg border overflow-hidden">
-                        <Table>
-                            <TableHeader>
-                                <TableRow className="bg-muted/50">
-                                    <TableHead className="font-semibold">
-                                        Bought Together
-                                    </TableHead>
-                                    <TableHead className="font-semibold">
-                                        Also Bought
-                                    </TableHead>
-                                    <TableHead className="text-right font-semibold">
-                                        Confidence
-                                    </TableHead>
-                                    <TableHead className="text-right font-semibold">
-                                        Lift
-                                    </TableHead>
-                                </TableRow>
-                            </TableHeader>
-                            <TableBody>
-                                {bundlesData.map((rule, index) => (
-                                    <TableRow key={index}>
-                                        <TableCell className="font-medium">
-                                            <div className="flex flex-wrap gap-1.5">
-                                                {rule.antecedents.map(
-                                                    (item) => (
-                                                        <Badge
-                                                            key={item}
-                                                            variant="secondary"
-                                                            className="rounded-md font-normal"
-                                                        >
-                                                            {item}
-                                                        </Badge>
-                                                    ),
-                                                )}
-                                            </div>
-                                        </TableCell>
-                                        <TableCell>
-                                            <div className="flex flex-wrap gap-1.5">
-                                                {rule.consequents.map(
-                                                    (item) => (
-                                                        <Badge
-                                                            key={item}
-                                                            variant="outline"
-                                                            className="rounded-md font-normal"
-                                                        >
-                                                            {item}
-                                                        </Badge>
-                                                    ),
-                                                )}
-                                            </div>
-                                        </TableCell>
-                                        <TableCell className="text-right font-mono text-sm">
-                                            {rule.confidence.toFixed(4)}
-                                        </TableCell>
-                                        <TableCell className="text-right font-mono text-sm">
-                                            {rule.lift.toFixed(4)}
-                                        </TableCell>
-                                    </TableRow>
-                                ))}
-                            </TableBody>
-                        </Table>
-                    </div>
+                    <>
+                        <div className="flex flex-wrap items-end gap-6 mb-4">
+                            <div className="flex-1 min-w-[180px] space-y-2">
+                                <div className="flex items-center justify-between">
+                                    <span className="text-xs font-medium text-muted-foreground">
+                                        Min Confidence
+                                    </span>
+                                    <span className="text-xs font-mono tabular-nums text-foreground">
+                                        {(minConfidence * 100).toFixed(0)}%
+                                    </span>
+                                </div>
+                                <Slider
+                                    value={[minConfidence]}
+                                    onValueChange={([v]) => setMinConfidence(v)}
+                                    min={0}
+                                    max={1}
+                                    step={0.05}
+                                    className="w-full"
+                                />
+                            </div>
+                            <div className="flex-1 min-w-[180px] space-y-2">
+                                <div className="flex items-center justify-between">
+                                    <span className="text-xs font-medium text-muted-foreground">
+                                        Min Lift
+                                    </span>
+                                    <span className="text-xs font-mono tabular-nums text-foreground">
+                                        {minLift.toFixed(1)}
+                                    </span>
+                                </div>
+                                <Slider
+                                    value={[minLift]}
+                                    onValueChange={([v]) => setMinLift(v)}
+                                    min={0}
+                                    max={maxLift}
+                                    step={0.1}
+                                    className="w-full"
+                                />
+                            </div>
+                            <span className="text-xs text-muted-foreground/70 pb-0.5">
+                                {filteredBundles.length} of {bundlesData.length}{" "}
+                                rules
+                            </span>
+                        </div>
+                        {filteredBundles.length > 0 ? (
+                            <div className="rounded-lg border overflow-hidden">
+                                <Table>
+                                    <TableHeader>
+                                        <TableRow className="bg-muted/50">
+                                            <TableHead className="font-semibold">
+                                                Bought Together
+                                            </TableHead>
+                                            <TableHead className="font-semibold">
+                                                Also Bought
+                                            </TableHead>
+                                            <TableHead className="text-right font-semibold">
+                                                Confidence
+                                            </TableHead>
+                                            <TableHead className="text-right font-semibold">
+                                                Lift
+                                            </TableHead>
+                                        </TableRow>
+                                    </TableHeader>
+                                    <TableBody>
+                                        {filteredBundles.map((rule, index) => (
+                                            <TableRow key={index}>
+                                                <TableCell className="font-medium">
+                                                    <div className="flex flex-wrap gap-1.5">
+                                                        {rule.antecedents.map(
+                                                            (item) => (
+                                                                <Badge
+                                                                    key={item}
+                                                                    variant="secondary"
+                                                                    className="rounded-md font-normal"
+                                                                >
+                                                                    {item}
+                                                                </Badge>
+                                                            ),
+                                                        )}
+                                                    </div>
+                                                </TableCell>
+                                                <TableCell>
+                                                    <div className="flex flex-wrap gap-1.5">
+                                                        {rule.consequents.map(
+                                                            (item) => (
+                                                                <Badge
+                                                                    key={item}
+                                                                    variant="outline"
+                                                                    className="rounded-md font-normal"
+                                                                >
+                                                                    {item}
+                                                                </Badge>
+                                                            ),
+                                                        )}
+                                                    </div>
+                                                </TableCell>
+                                                <TableCell className="text-right font-mono text-sm">
+                                                    {rule.confidence.toFixed(4)}
+                                                </TableCell>
+                                                <TableCell className="text-right font-mono text-sm">
+                                                    {rule.lift.toFixed(4)}
+                                                </TableCell>
+                                            </TableRow>
+                                        ))}
+                                    </TableBody>
+                                </Table>
+                            </div>
+                        ) : (
+                            <div className="h-32 flex items-center justify-center text-center rounded-xl border border-dashed">
+                                <p className="text-muted-foreground text-sm">
+                                    No rules match the current filters. Lower
+                                    the thresholds to see results.
+                                </p>
+                            </div>
+                        )}
+                    </>
                 ) : (
                     <div className="h-60 flex flex-col items-center justify-center text-center relative overflow-hidden rounded-xl">
                         {/* Background decoration */}
