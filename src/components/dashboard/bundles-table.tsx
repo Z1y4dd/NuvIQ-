@@ -16,7 +16,19 @@ import {
     TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import { Download, Loader2, RefreshCw, ShoppingBasket } from "lucide-react";
+import {
+    Download,
+    Info,
+    Loader2,
+    RefreshCw,
+    ShoppingBasket,
+} from "lucide-react";
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { Badge } from "@/components/ui/badge";
 import { Slider } from "@/components/ui/slider";
 import { useDataset } from "@/contexts/dataset-context";
@@ -134,12 +146,41 @@ export default function BundlesTable() {
             <CardContent>
                 {bundlesData && bundlesData.length > 0 ? (
                     <>
+                        <div className="rounded-lg border border-dashed border-border/60 bg-muted/30 px-3 py-2.5 mb-4">
+                            <div className="flex items-start gap-2">
+                                <Info className="h-3.5 w-3.5 text-muted-foreground/70 mt-0.5 shrink-0" />
+                                <p className="text-xs text-muted-foreground/80 leading-relaxed">
+                                    <span className="font-medium text-muted-foreground">
+                                        Market Basket Analysis
+                                    </span>{" "}
+                                    discovers products frequently bought
+                                    together. Use the filters below to find the
+                                    most meaningful associations.
+                                </p>
+                            </div>
+                        </div>
                         <div className="flex flex-wrap items-end gap-6 mb-4">
                             <div className="flex-1 min-w-[180px] space-y-2">
                                 <div className="flex items-center justify-between">
-                                    <span className="text-xs font-medium text-muted-foreground">
-                                        Min Confidence
-                                    </span>
+                                    <TooltipProvider>
+                                        <Tooltip>
+                                            <TooltipTrigger asChild>
+                                                <span className="text-xs font-medium text-muted-foreground inline-flex items-center gap-1 cursor-help">
+                                                    Min Confidence
+                                                    <Info className="h-3 w-3" />
+                                                </span>
+                                            </TooltipTrigger>
+                                            <TooltipContent
+                                                side="top"
+                                                className="max-w-[240px] text-xs"
+                                            >
+                                                Of all baskets containing
+                                                Product A, what percentage also
+                                                contain Product B. Higher = more
+                                                reliable rule.
+                                            </TooltipContent>
+                                        </Tooltip>
+                                    </TooltipProvider>
                                     <span className="text-xs font-mono tabular-nums text-foreground">
                                         {(minConfidence * 100).toFixed(0)}%
                                     </span>
@@ -155,9 +196,26 @@ export default function BundlesTable() {
                             </div>
                             <div className="flex-1 min-w-[180px] space-y-2">
                                 <div className="flex items-center justify-between">
-                                    <span className="text-xs font-medium text-muted-foreground">
-                                        Min Lift
-                                    </span>
+                                    <TooltipProvider>
+                                        <Tooltip>
+                                            <TooltipTrigger asChild>
+                                                <span className="text-xs font-medium text-muted-foreground inline-flex items-center gap-1 cursor-help">
+                                                    Min Lift
+                                                    <Info className="h-3 w-3" />
+                                                </span>
+                                            </TooltipTrigger>
+                                            <TooltipContent
+                                                side="top"
+                                                className="max-w-[240px] text-xs"
+                                            >
+                                                How much more likely products
+                                                are bought together vs.
+                                                independently. Lift &gt; 1 =
+                                                positive association, Lift = 1 =
+                                                no relationship.
+                                            </TooltipContent>
+                                        </Tooltip>
+                                    </TooltipProvider>
                                     <span className="text-xs font-mono tabular-nums text-foreground">
                                         {minLift.toFixed(1)}
                                     </span>
@@ -188,10 +246,48 @@ export default function BundlesTable() {
                                                 Also Bought
                                             </TableHead>
                                             <TableHead className="text-right font-semibold">
-                                                Confidence
+                                                <TooltipProvider>
+                                                    <Tooltip>
+                                                        <TooltipTrigger asChild>
+                                                            <span className="inline-flex items-center gap-1 cursor-help">
+                                                                Confidence
+                                                                <Info className="h-3 w-3 text-muted-foreground" />
+                                                            </span>
+                                                        </TooltipTrigger>
+                                                        <TooltipContent
+                                                            side="top"
+                                                            className="max-w-[220px] text-xs"
+                                                        >
+                                                            Probability that
+                                                            Product B is bought
+                                                            when Product A is in
+                                                            the basket (0–1
+                                                            scale).
+                                                        </TooltipContent>
+                                                    </Tooltip>
+                                                </TooltipProvider>
                                             </TableHead>
                                             <TableHead className="text-right font-semibold">
-                                                Lift
+                                                <TooltipProvider>
+                                                    <Tooltip>
+                                                        <TooltipTrigger asChild>
+                                                            <span className="inline-flex items-center gap-1 cursor-help">
+                                                                Lift
+                                                                <Info className="h-3 w-3 text-muted-foreground" />
+                                                            </span>
+                                                        </TooltipTrigger>
+                                                        <TooltipContent
+                                                            side="top"
+                                                            className="max-w-[220px] text-xs"
+                                                        >
+                                                            Values above 1 mean
+                                                            the products are
+                                                            bought together more
+                                                            often than expected
+                                                            by chance.
+                                                        </TooltipContent>
+                                                    </Tooltip>
+                                                </TooltipProvider>
                                             </TableHead>
                                         </TableRow>
                                     </TableHeader>
