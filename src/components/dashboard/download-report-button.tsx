@@ -10,7 +10,7 @@ import ReportDocument from "@/components/dashboard/report-document";
 import type { Upload } from "@/lib/data";
 
 interface DownloadReportButtonProps {
-    dataset: Upload;
+    dataset: Upload | null;
 }
 
 export default function DownloadReportButton({
@@ -19,6 +19,7 @@ export default function DownloadReportButton({
     const [isGenerating, setIsGenerating] = useState(false);
 
     async function handleDownload() {
+        if (!dataset) return;
         setIsGenerating(true);
         try {
             const element = (
@@ -42,10 +43,9 @@ export default function DownloadReportButton({
     return (
         <Button
             onClick={handleDownload}
-            disabled={isGenerating}
+            disabled={!dataset || isGenerating}
             variant="outline"
             size="sm"
-            className="bg-white/10 border-white/20 text-white hover:bg-white/20 hover:text-white backdrop-blur-sm"
         >
             {isGenerating ? (
                 <>

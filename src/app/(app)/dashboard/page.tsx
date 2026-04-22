@@ -5,6 +5,7 @@ import BundlesTable from "@/components/dashboard/bundles-table";
 import CategoriesTable from "@/components/dashboard/categories-table";
 import UploadsTable from "@/components/dashboard/uploads-table";
 import SuggestionsPanel from "@/components/dashboard/suggestions-panel";
+import DownloadReportButton from "@/components/dashboard/download-report-button";
 import { BarChart3, Sparkles } from "lucide-react";
 import { useDataset } from "@/contexts/dataset-context";
 
@@ -41,6 +42,13 @@ export default function DashboardPage() {
                             Monitor your sales analytics, forecasts, and product
                             insights
                         </p>
+                        {selectedDataset?.status === "Completed" && (
+                            <div className="mt-4">
+                                <DownloadReportButton
+                                    dataset={selectedDataset}
+                                />
+                            </div>
+                        )}
                     </div>
                     {/* Decorative chart icon */}
                     <div className="hidden md:flex items-center justify-center h-16 w-16 rounded-2xl bg-gradient-to-br from-primary/15 to-purple-500/10 text-primary border border-primary/10">
