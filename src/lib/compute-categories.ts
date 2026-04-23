@@ -147,7 +147,7 @@ export function computeCategories(
                     const rSquared = ssTot > 0 ? 1 - ssRes / ssTot : 0;
 
                     // Only show growth when the trend is meaningful
-                    if (rSquared >= 0.4) {
+                    if (rSquared >= 0.2) {
                         growthRate = round1(((slope * (n - 1)) / meanY) * 100);
                     }
                 }

@@ -1,0 +1,2001 @@
+invoiceid,date,product name,category,quantity,total revenue,customer id
+INV10346,2024-01-01,Sport Shorts,Clothing,1,26.55,CUST0081
+INV10369,2024-01-01,Bamboo Toothbrush 4pk,Beauty & Health,4,35.84,CUST0183
+INV10682,2024-01-01,Smart Plug WiFi,Electronics,2,38.52,CUST0190
+INV10855,2024-01-01,Classic Cotton T-Shirt,Clothing,1,18.07,CUST0029
+INV11624,2024-01-01,Digital Kitchen Scale,Home & Kitchen,2,34.56,CUST0113
+INV11701,2024-01-01,Facial Sunscreen SPF50,Beauty & Health,1,15.48,CUST0057
+INV11767,2024-01-01,Desk Organizer Bamboo,Office Supplies,1,23.65,CUST0161
+INV10903,2024-01-02,Bluetooth Speaker Mini,Electronics,2,77.76,CUST0102
+INV11059,2024-01-02,Scissors Stainless Steel,Office Supplies,2,15.22,CUST0010
+INV11336,2024-01-02,Hooded Sweatshirt,Clothing,2,85.84,CUST0113
+INV11926,2024-01-02,Canvas Sneakers,Clothing,1,65.4,CUST0206
+INV11993,2024-01-02,Facial Sunscreen SPF50,Beauty & Health,1,15.81,CUST0183
+INV10241,2024-01-03,Zip-Up Fleece Jacket,Clothing,1,78.28,CUST0115
+INV10253,2024-01-03,Sport Shorts,Clothing,1,23.35,CUST0250
+INV10430,2024-01-03,Zip-Up Fleece Jacket,Clothing,3,235.56,CUST0196
+INV10568,2024-01-03,Hooded Sweatshirt,Clothing,1,48.17,CUST0268
+INV10581,2024-01-03,Digital Kitchen Scale,Home & Kitchen,1,20.29,CUST0101
+INV10782,2024-01-03,Webcam 1080p HD,Electronics,1,54.93,CUST0087
+INV11079,2024-01-03,Glass Storage Containers 5pk,Home & Kitchen,1,27.92,CUST0040
+INV11476,2024-01-03,Facial Sunscreen SPF50,Beauty & Health,1,16.6,CUST0281
+INV11741,2024-01-03,Portable Charger 20000mAh,Electronics,2,59.28,CUST0122
+INV11810,2024-01-03,Lip Balm SPF15 3pk,Beauty & Health,2,17.58,CUST0263
+INV11837,2024-01-03,Slim Fit Chinos,Clothing,1,47.84,CUST0023
+INV11883,2024-01-03,Natural Face Moisturizer,Beauty & Health,10,197.9,CUST0032
+INV10858,2024-01-04,Reusable Cotton Pads 20pk,Beauty & Health,1,11.22,CUST0188
+INV10999,2024-01-04,Mechanical Keyboard TKL,Electronics,1,87.32,CUST0043
+INV11784,2024-01-04,Natural Face Moisturizer,Beauty & Health,1,18.39,CUST0020
+INV10336,2024-01-05,Essential Oil Diffuser,Beauty & Health,5,156.15,CUST0176
+INV10688,2024-01-05,Non-Stick Frying Pan 28cm,Home & Kitchen,4,153.36,CUST0275
+INV11147,2024-01-05,Slim Fit Chinos,Clothing,1,49.28,CUST0001
+INV11401,2024-01-05,Sport Shorts,Clothing,1,25.13,CUST0298
+INV11759,2024-01-05,Whiteboard Markers 8pk,Office Supplies,2,20.68,CUST0012
+INV10157,2024-01-06,Sticky Notes Pack 12,Office Supplies,1,8.4,CUST0101
+INV10342,2024-01-07,Running Socks 6pk,Clothing,1,15.98,CUST0098
+INV10654,2024-01-07,Ballpoint Pens 50pk,Office Supplies,1,12.06,CUST0254
+INV10807,2024-01-07,Bamboo Cutting Board,Home & Kitchen,5,108.95,CUST0093
+INV11044,2024-01-07,Sticky Notes Pack 12,Office Supplies,1,8.28,CUST0109
+INV11210,2024-01-07,Essential Oil Diffuser,Beauty & Health,4,124.96,CUST0018
+INV10418,2024-01-08,Ceramic Coffee Mug,Home & Kitchen,1,13.84,CUST0134
+INV10441,2024-01-08,Ceramic Coffee Mug,Home & Kitchen,1,12.67,CUST0122
+INV10489,2024-01-08,Bamboo Cutting Board,Home & Kitchen,2,40.18,CUST0042
+INV11267,2024-01-08,Running Socks 6pk,Clothing,2,28.3,CUST0179
+INV11575,2024-01-08,Non-Stick Frying Pan 28cm,Home & Kitchen,2,66.26,CUST0053
+INV11632,2024-01-08,Smart Plug WiFi,Electronics,5,93.4,CUST0296
+INV11927,2024-01-08,Wool Beanie Hat,Clothing,2,39.2,CUST0233
+INV10455,2024-01-09,Stapler Heavy Duty,Office Supplies,2,31.66,CUST0002
+INV11057,2024-01-09,Slim Fit Chinos,Clothing,3,157.47,CUST0184
+INV11120,2024-01-09,Non-Stick Frying Pan 28cm,Home & Kitchen,1,37.64,CUST0014
+INV11196,2024-01-09,French Press Coffee Maker,Home & Kitchen,2,60.48,CUST0094
+INV11389,2024-01-09,Lip Balm SPF15 3pk,Beauty & Health,2,14.54,CUST0018
+INV11529,2024-01-09,Whiteboard Markers 8pk,Office Supplies,5,60.9,CUST0031
+INV11698,2024-01-09,Ballpoint Pens 50pk,Office Supplies,2,23.9,CUST0233
+INV10328,2024-01-10,Hooded Sweatshirt,Clothing,2,83.74,CUST0217
+INV10416,2024-01-10,Facial Sunscreen SPF50,Beauty & Health,1,18.03,CUST0155
+INV10477,2024-01-10,Stapler Heavy Duty,Office Supplies,1,15.55,CUST0285
+INV10837,2024-01-10,Wireless Earbuds Pro,Electronics,3,155.94,CUST0277
+INV11400,2024-01-10,Digital Kitchen Scale,Home & Kitchen,1,17.68,CUST0153
+INV11607,2024-01-10,Slim Fit Chinos,Clothing,2,106.32,CUST0222
+INV10238,2024-01-11,Bamboo Toothbrush 4pk,Beauty & Health,1,8.15,CUST0241
+INV11321,2024-01-11,Digital Kitchen Scale,Home & Kitchen,1,18.24,CUST0189
+INV11550,2024-01-11,LED Desk Lamp Smart,Electronics,1,46.75,CUST0157
+INV11875,2024-01-11,A4 Printer Paper 500sh,Office Supplies,1,10.27,CUST0100
+INV10769,2024-01-12,Classic Cotton T-Shirt,Clothing,2,43.88,CUST0238
+INV11497,2024-01-12,Zip-Up Fleece Jacket,Clothing,2,144.4,CUST0103
+INV10473,2024-01-13,Classic Cotton T-Shirt,Clothing,2,38.32,CUST0293
+INV11663,2024-01-13,Wireless Earbuds Pro,Electronics,2,91.64,CUST0209
+INV11878,2024-01-13,Webcam 1080p HD,Electronics,1,64.61,CUST0054
+INV11955,2024-01-13,Bamboo Toothbrush 4pk,Beauty & Health,3,25.83,CUST0225
+INV10224,2024-01-14,Portable Charger 20000mAh,Electronics,2,55.4,CUST0212
+INV10407,2024-01-14,Stainless Steel Water Bottle,Home & Kitchen,1,23.49,CUST0001
+INV11022,2024-01-14,Wireless Earbuds Pro,Electronics,1,48.78,CUST0294
+INV11449,2024-01-14,Ceramic Coffee Mug,Home & Kitchen,3,37.65,CUST0250
+INV10026,2024-01-15,Silicone Spatula Set 3pk,Home & Kitchen,2,20.94,CUST0129
+INV10124,2024-01-15,Portable Charger 20000mAh,Electronics,1,32.28,CUST0218
+INV10244,2024-01-15,Running Socks 6pk,Clothing,2,30.64,CUST0105
+INV10299,2024-01-15,Hooded Sweatshirt,Clothing,1,41.79,CUST0278
+INV10894,2024-01-15,USB-C Hub 7-in-1,Electronics,5,170.25,CUST0175
+INV11308,2024-01-15,Lip Balm SPF15 3pk,Beauty & Health,1,7.23,CUST0286
+INV11345,2024-01-15,A4 Printer Paper 500sh,Office Supplies,1,10.26,CUST0155
+INV11394,2024-01-15,Non-Stick Frying Pan 28cm,Home & Kitchen,4,149.4,CUST0033
+INV10130,2024-01-16,Glass Storage Containers 5pk,Home & Kitchen,1,29.76,CUST0110
+INV10486,2024-01-16,USB-C Hub 7-in-1,Electronics,1,35.11,CUST0162
+INV10501,2024-01-16,French Press Coffee Maker,Home & Kitchen,1,29.03,CUST0280
+INV10672,2024-01-16,Hooded Sweatshirt,Clothing,5,241.75,CUST0287
+INV11212,2024-01-16,Mechanical Keyboard TKL,Electronics,1,83.6,CUST0127
+INV11641,2024-01-16,Reusable Cotton Pads 20pk,Beauty & Health,1,10.63,CUST0223
+INV10017,2024-01-17,Webcam 1080p HD,Electronics,2,110.42,CUST0162
+INV10618,2024-01-17,Desk Organizer Bamboo,Office Supplies,1,24.89,CUST0217
+INV10963,2024-01-17,Ceramic Coffee Mug,Home & Kitchen,1,11.89,CUST0027
+INV10986,2024-01-17,A4 Printer Paper 500sh,Office Supplies,1,10.47,CUST0254
+INV11019,2024-01-17,A4 Printer Paper 500sh,Office Supplies,3,30.6,CUST0263
+INV10236,2024-01-18,Digital Kitchen Scale,Home & Kitchen,3,56.91,CUST0138
+INV10695,2024-01-18,Bluetooth Speaker Mini,Electronics,3,113.4,CUST0070
+INV11028,2024-01-18,Bluetooth Speaker Mini,Electronics,1,38.54,CUST0194
+INV11463,2024-01-18,Wireless Earbuds Pro,Electronics,4,198.68,CUST0180
+INV10028,2024-01-19,Smart Plug WiFi,Electronics,2,43.94,CUST0247
+INV10475,2024-01-19,Ballpoint Pens 50pk,Office Supplies,2,24.32,CUST0012
+INV10864,2024-01-19,Glass Storage Containers 5pk,Home & Kitchen,4,107.24,CUST0175
+INV10892,2024-01-19,Lip Balm SPF15 3pk,Beauty & Health,1,7.57,CUST0227
+INV10070,2024-01-20,Bluetooth Speaker Mini,Electronics,10,374.8,CUST0208
+INV10195,2024-01-20,Canvas Sneakers,Clothing,1,56.98,CUST0116
+INV10481,2024-01-20,Hooded Sweatshirt,Clothing,3,123.93,CUST0115
+INV10796,2024-01-20,Bamboo Cutting Board,Home & Kitchen,1,22.62,CUST0132
+INV10861,2024-01-20,Bluetooth Speaker Mini,Electronics,2,79.44,CUST0270
+INV10866,2024-01-20,Canvas Sneakers,Clothing,2,124.92,CUST0223
+INV10868,2024-01-20,Vitamin C Serum 30ml,Beauty & Health,1,24.39,CUST0278
+INV11383,2024-01-20,Slim Fit Chinos,Clothing,1,52.79,CUST0212
+INV11651,2024-01-20,Vitamin C Serum 30ml,Beauty & Health,1,24.4,CUST0087
+INV10027,2024-01-21,A4 Printer Paper 500sh,Office Supplies,2,21.28,CUST0123
+INV10395,2024-01-21,Sport Shorts,Clothing,2,53.28,CUST0297
+INV11582,2024-01-21,Digital Kitchen Scale,Home & Kitchen,1,18.7,CUST0064
+INV11947,2024-01-21,Essential Oil Diffuser,Beauty & Health,3,97.26,CUST0029
+INV10356,2024-01-22,Hooded Sweatshirt,Clothing,1,47.74,CUST0250
+INV10991,2024-01-22,Portable Charger 20000mAh,Electronics,2,61.06,CUST0207
+INV11570,2024-01-22,Wool Beanie Hat,Clothing,2,35.72,CUST0077
+INV11639,2024-01-22,Essential Oil Diffuser,Beauty & Health,5,160.4,CUST0149
+INV11819,2024-01-22,Natural Face Moisturizer,Beauty & Health,1,19.86,CUST0093
+INV11918,2024-01-22,Digital Kitchen Scale,Home & Kitchen,1,19.79,CUST0102
+INV11096,2024-01-23,Wool Beanie Hat,Clothing,2,33.34,CUST0140
+INV11280,2024-01-23,Sport Shorts,Clothing,1,24.02,CUST0107
+INV10120,2024-01-24,Classic Cotton T-Shirt,Clothing,2,37.26,CUST0034
+INV10375,2024-01-24,Natural Face Moisturizer,Beauty & Health,1,20.98,CUST0078
+INV10398,2024-01-24,Mechanical Keyboard TKL,Electronics,3,286.2,CUST0024
+INV10603,2024-01-24,Webcam 1080p HD,Electronics,2,118.78,CUST0174
+INV11869,2024-01-24,Non-Stick Frying Pan 28cm,Home & Kitchen,1,32.78,CUST0122
+INV10422,2024-01-25,Slim Fit Chinos,Clothing,1,46.62,CUST0160
+INV10715,2024-01-25,Wireless Earbuds Pro,Electronics,1,47.2,CUST0154
+INV10778,2024-01-25,Facial Sunscreen SPF50,Beauty & Health,4,62.72,CUST0130
+INV11041,2024-01-25,Zip-Up Fleece Jacket,Clothing,4,317.56,CUST0189
+INV11772,2024-01-25,Reusable Cotton Pads 20pk,Beauty & Health,1,10.45,CUST0167
+INV11928,2024-01-25,Reusable Cotton Pads 20pk,Beauty & Health,2,24.64,CUST0070
+INV10559,2024-01-26,Sport Shorts,Clothing,4,101.96,CUST0037
+INV10561,2024-01-26,Ballpoint Pens 50pk,Office Supplies,2,27.1,CUST0167
+INV10948,2024-01-26,Smart Plug WiFi,Electronics,1,21.28,CUST0251
+INV10973,2024-01-26,Facial Sunscreen SPF50,Beauty & Health,2,31.76,CUST0222
+INV11047,2024-01-26,Lip Balm SPF15 3pk,Beauty & Health,2,16.28,CUST0165
+INV11117,2024-01-27,Bamboo Cutting Board,Home & Kitchen,5,118.35,CUST0064
+INV11238,2024-01-27,Facial Sunscreen SPF50,Beauty & Health,1,16.36,CUST0254
+INV11289,2024-01-27,File Folders 100pk,Office Supplies,3,55.08,CUST0159
+INV11399,2024-01-27,Classic Cotton T-Shirt,Clothing,3,60.27,CUST0154
+INV11473,2024-01-27,Whiteboard Markers 8pk,Office Supplies,5,57.7,CUST0274
+INV11510,2024-01-27,Running Socks 6pk,Clothing,1,16.12,CUST0063
+INV11847,2024-01-27,Sport Shorts,Clothing,2,50.56,CUST0216
+INV10627,2024-01-28,Sport Shorts,Clothing,1,26.8,CUST0264
+INV10740,2024-01-28,Essential Oil Diffuser,Beauty & Health,1,34.76,CUST0126
+INV10978,2024-01-28,LED Desk Lamp Smart,Electronics,1,46.91,CUST0030
+INV11439,2024-01-28,Non-Stick Frying Pan 28cm,Home & Kitchen,2,72.28,CUST0006
+INV11453,2024-01-28,Stainless Steel Water Bottle,Home & Kitchen,1,22.33,CUST0158
+INV10373,2024-01-29,Non-Stick Frying Pan 28cm,Home & Kitchen,1,33.75,CUST0161
+INV10585,2024-01-29,Sticky Notes Pack 12,Office Supplies,3,27.81,CUST0033
+INV10876,2024-01-29,Stainless Steel Water Bottle,Home & Kitchen,2,48.04,CUST0246
+INV11071,2024-01-29,Sport Shorts,Clothing,1,22.54,CUST0250
+INV11086,2024-01-29,Ballpoint Pens 50pk,Office Supplies,1,12.17,CUST0153
+INV10065,2024-01-30,Stainless Steel Water Bottle,Home & Kitchen,2,41.66,CUST0206
+INV11030,2024-01-30,Ceramic Coffee Mug,Home & Kitchen,4,52.28,CUST0284
+INV11769,2024-01-30,Scissors Stainless Steel,Office Supplies,1,7.83,CUST0111
+INV11901,2024-01-30,Sport Shorts,Clothing,1,25.71,CUST0055
+INV10015,2024-01-31,Classic Cotton T-Shirt,Clothing,5,92.4,CUST0076
+INV10650,2024-01-31,Stapler Heavy Duty,Office Supplies,2,36.28,CUST0168
+INV10751,2024-01-31,Webcam 1080p HD,Electronics,1,65.36,CUST0067
+INV11917,2024-01-31,Mechanical Keyboard TKL,Electronics,1,88.91,CUST0149
+INV10036,2024-02-01,Wireless Earbuds Pro,Electronics,1,54.11,CUST0069
+INV10734,2024-02-01,Hooded Sweatshirt,Clothing,1,41.65,CUST0242
+INV10839,2024-02-01,Essential Oil Diffuser,Beauty & Health,1,34.89,CUST0122
+INV10971,2024-02-01,Vitamin D3 Supplements,Beauty & Health,2,28.82,CUST0117
+INV11125,2024-02-01,Stainless Steel Water Bottle,Home & Kitchen,1,21.73,CUST0021
+INV11501,2024-02-01,Webcam 1080p HD,Electronics,4,225.36,CUST0153
+INV11572,2024-02-01,Essential Oil Diffuser,Beauty & Health,3,107.52,CUST0253
+INV10117,2024-02-02,Sticky Notes Pack 12,Office Supplies,3,24.39,CUST0112
+INV10491,2024-02-02,Glass Storage Containers 5pk,Home & Kitchen,1,25.25,CUST0263
+INV10875,2024-02-02,Bamboo Toothbrush 4pk,Beauty & Health,2,17.9,CUST0073
+INV11070,2024-02-02,Glass Storage Containers 5pk,Home & Kitchen,1,25.46,CUST0134
+INV11246,2024-02-02,A4 Printer Paper 500sh,Office Supplies,3,29.88,CUST0073
+INV10393,2024-02-03,Mechanical Keyboard TKL,Electronics,1,89.01,CUST0048
+INV10607,2024-02-03,Non-Stick Frying Pan 28cm,Home & Kitchen,2,76.74,CUST0249
+INV10771,2024-02-03,Bamboo Toothbrush 4pk,Beauty & Health,1,9.7,CUST0040
+INV10317,2024-02-04,Bamboo Toothbrush 4pk,Beauty & Health,2,18.4,CUST0150
+INV10704,2024-02-04,Mechanical Keyboard TKL,Electronics,1,88.88,CUST0088
+INV10806,2024-02-04,Ballpoint Pens 50pk,Office Supplies,1,12.06,CUST0211
+INV10857,2024-02-04,Essential Oil Diffuser,Beauty & Health,1,29.88,CUST0051
+INV11292,2024-02-04,Classic Cotton T-Shirt,Clothing,1,21.2,CUST0052
+INV11413,2024-02-04,Bamboo Cutting Board,Home & Kitchen,2,40.92,CUST0053
+INV11920,2024-02-04,Wireless Earbuds Pro,Electronics,1,46.42,CUST0297
+INV11136,2024-02-05,Silicone Spatula Set 3pk,Home & Kitchen,1,10.49,CUST0297
+INV11540,2024-02-05,Stapler Heavy Duty,Office Supplies,1,16.49,CUST0095
+INV10035,2024-02-06,LED Desk Lamp Smart,Electronics,1,42.47,CUST0179
+INV10076,2024-02-06,Non-Stick Frying Pan 28cm,Home & Kitchen,1,34.84,CUST0231
+INV10470,2024-02-06,Glass Storage Containers 5pk,Home & Kitchen,1,30.08,CUST0047
+INV11304,2024-02-06,Vitamin C Serum 30ml,Beauty & Health,1,26.0,CUST0285
+INV11543,2024-02-06,Canvas Sneakers,Clothing,1,59.94,CUST0270
+INV10492,2024-02-07,Bluetooth Speaker Mini,Electronics,1,38.14,CUST0022
+INV10516,2024-02-07,Vitamin C Serum 30ml,Beauty & Health,1,26.73,CUST0135
+INV10827,2024-02-07,Natural Face Moisturizer,Beauty & Health,1,21.1,CUST0145
+INV10844,2024-02-07,Smart Plug WiFi,Electronics,1,19.34,CUST0068
+INV10949,2024-02-07,Desk Organizer Bamboo,Office Supplies,2,49.42,CUST0025
+INV11155,2024-02-07,Whiteboard Markers 8pk,Office Supplies,3,37.89,CUST0238
+INV11472,2024-02-07,Natural Face Moisturizer,Beauty & Health,2,41.18,CUST0233
+INV11636,2024-02-07,A4 Printer Paper 500sh,Office Supplies,1,10.67,CUST0231
+INV11838,2024-02-07,Wireless Earbuds Pro,Electronics,3,143.43,CUST0070
+INV10300,2024-02-08,Zip-Up Fleece Jacket,Clothing,2,156.08,CUST0099
+INV10468,2024-02-08,Non-Stick Frying Pan 28cm,Home & Kitchen,2,74.1,CUST0100
+INV10941,2024-02-08,Classic Cotton T-Shirt,Clothing,1,19.87,CUST0177
+INV11298,2024-02-08,Whiteboard Markers 8pk,Office Supplies,5,61.35,CUST0004
+INV11334,2024-02-08,Stainless Steel Water Bottle,Home & Kitchen,3,69.69,CUST0063
+INV11807,2024-02-08,Natural Face Moisturizer,Beauty & Health,1,18.38,CUST0027
+INV11864,2024-02-08,Non-Stick Frying Pan 28cm,Home & Kitchen,2,68.0,CUST0187
+INV11867,2024-02-08,Silicone Spatula Set 3pk,Home & Kitchen,2,21.58,CUST0090
+INV10368,2024-02-09,Essential Oil Diffuser,Beauty & Health,10,306.6,CUST0129
+INV10634,2024-02-09,Glass Storage Containers 5pk,Home & Kitchen,2,58.44,CUST0282
+INV10671,2024-02-09,Facial Sunscreen SPF50,Beauty & Health,1,15.73,CUST0082
+INV10871,2024-02-09,Silicone Spatula Set 3pk,Home & Kitchen,1,9.91,CUST0277
+INV11048,2024-02-09,Non-Stick Frying Pan 28cm,Home & Kitchen,2,67.72,CUST0192
+INV11085,2024-02-09,Canvas Sneakers,Clothing,2,129.48,CUST0239
+INV10214,2024-02-10,Wireless Earbuds Pro,Electronics,1,46.85,CUST0221
+INV10411,2024-02-10,Wireless Earbuds Pro,Electronics,1,47.72,CUST0181
+INV10413,2024-02-10,Stainless Steel Water Bottle,Home & Kitchen,2,50.04,CUST0140
+INV11077,2024-02-10,Whiteboard Markers 8pk,Office Supplies,3,32.67,CUST0124
+INV11638,2024-02-10,Bamboo Cutting Board,Home & Kitchen,2,46.86,CUST0132
+INV11801,2024-02-10,Bamboo Toothbrush 4pk,Beauty & Health,1,9.26,CUST0142
+INV10252,2024-02-11,Scissors Stainless Steel,Office Supplies,1,7.25,CUST0291
+INV11973,2024-02-11,Bamboo Cutting Board,Home & Kitchen,1,20.55,CUST0051
+INV10662,2024-02-12,A4 Printer Paper 500sh,Office Supplies,1,10.25,CUST0279
+INV11004,2024-02-12,Running Socks 6pk,Clothing,1,16.33,CUST0109
+INV11291,2024-02-12,Portable Charger 20000mAh,Electronics,2,55.24,CUST0234
+INV11427,2024-02-12,Bamboo Toothbrush 4pk,Beauty & Health,1,8.39,CUST0231
+INV11541,2024-02-12,Slim Fit Chinos,Clothing,1,52.34,CUST0236
+INV11688,2024-02-12,Facial Sunscreen SPF50,Beauty & Health,1,17.42,CUST0209
+INV10432,2024-02-13,Running Socks 6pk,Clothing,1,16.42,CUST0180
+INV11032,2024-02-13,USB-C Hub 7-in-1,Electronics,1,38.41,CUST0053
+INV11584,2024-02-13,Desk Organizer Bamboo,Office Supplies,2,50.7,CUST0099
+INV11605,2024-02-13,Reusable Cotton Pads 20pk,Beauty & Health,1,12.2,CUST0231
+INV11357,2024-02-14,Silicone Spatula Set 3pk,Home & Kitchen,2,21.1,CUST0199
+INV11517,2024-02-14,Bamboo Cutting Board,Home & Kitchen,3,69.24,CUST0049
+INV10779,2024-02-15,Running Socks 6pk,Clothing,1,14.17,CUST0145
+INV10993,2024-02-15,Mechanical Keyboard TKL,Electronics,3,255.39,CUST0154
+INV11118,2024-02-16,USB-C Hub 7-in-1,Electronics,4,132.16,CUST0281
+INV11214,2024-02-16,Zip-Up Fleece Jacket,Clothing,2,144.16,CUST0127
+INV11263,2024-02-16,Bamboo Cutting Board,Home & Kitchen,2,45.28,CUST0020
+INV11631,2024-02-16,Vitamin C Serum 30ml,Beauty & Health,10,227.4,CUST0062
+INV11722,2024-02-16,Canvas Sneakers,Clothing,1,57.05,CUST0178
+INV11956,2024-02-16,Canvas Sneakers,Clothing,5,328.7,CUST0095
+INV11272,2024-02-17,French Press Coffee Maker,Home & Kitchen,2,62.32,CUST0034
+INV11314,2024-02-17,A4 Printer Paper 500sh,Office Supplies,4,43.0,CUST0117
+INV11797,2024-02-17,Vitamin C Serum 30ml,Beauty & Health,1,25.71,CUST0112
+INV10155,2024-02-18,LED Desk Lamp Smart,Electronics,2,94.76,CUST0054
+INV11432,2024-02-18,USB-C Hub 7-in-1,Electronics,2,73.3,CUST0195
+INV10293,2024-02-19,Lip Balm SPF15 3pk,Beauty & Health,1,7.68,CUST0198
+INV10467,2024-02-19,Ceramic Coffee Mug,Home & Kitchen,1,14.08,CUST0260
+INV10813,2024-02-19,Wool Beanie Hat,Clothing,1,17.58,CUST0092
+INV11798,2024-02-19,Ballpoint Pens 50pk,Office Supplies,2,27.1,CUST0109
+INV11980,2024-02-19,Stainless Steel Water Bottle,Home & Kitchen,2,49.2,CUST0244
+INV10163,2024-02-20,French Press Coffee Maker,Home & Kitchen,5,157.55,CUST0007
+INV10344,2024-02-20,Bamboo Cutting Board,Home & Kitchen,1,22.41,CUST0233
+INV10570,2024-02-20,Vitamin C Serum 30ml,Beauty & Health,1,27.01,CUST0095
+INV10912,2024-02-20,Silicone Spatula Set 3pk,Home & Kitchen,1,10.03,CUST0293
+INV11522,2024-02-20,Desk Organizer Bamboo,Office Supplies,1,25.54,CUST0095
+INV11551,2024-02-20,Reusable Cotton Pads 20pk,Beauty & Health,3,33.96,CUST0201
+INV10143,2024-02-21,Webcam 1080p HD,Electronics,1,60.2,CUST0138
+INV10221,2024-02-21,Canvas Sneakers,Clothing,1,61.48,CUST0236
+INV10566,2024-02-21,Bamboo Cutting Board,Home & Kitchen,1,20.6,CUST0006
+INV10622,2024-02-21,French Press Coffee Maker,Home & Kitchen,1,28.4,CUST0060
+INV10974,2024-02-21,Lip Balm SPF15 3pk,Beauty & Health,1,8.78,CUST0193
+INV11700,2024-02-21,Stapler Heavy Duty,Office Supplies,1,17.98,CUST0040
+INV10105,2024-02-22,Wireless Earbuds Pro,Electronics,2,90.04,CUST0078
+INV10254,2024-02-22,Bamboo Toothbrush 4pk,Beauty & Health,1,9.38,CUST0035
+INV10471,2024-02-22,Running Socks 6pk,Clothing,3,46.32,CUST0031
+INV10562,2024-02-22,Slim Fit Chinos,Clothing,3,161.31,CUST0275
+INV10589,2024-02-22,Reusable Cotton Pads 20pk,Beauty & Health,3,37.86,CUST0072
+INV11009,2024-02-22,Canvas Sneakers,Clothing,2,120.16,CUST0114
+INV11561,2024-02-22,Zip-Up Fleece Jacket,Clothing,1,73.68,CUST0276
+INV10217,2024-02-23,Sport Shorts,Clothing,1,26.33,CUST0298
+INV11531,2024-02-23,Portable Charger 20000mAh,Electronics,1,29.5,CUST0155
+INV11758,2024-02-23,Webcam 1080p HD,Electronics,1,59.65,CUST0079
+INV10677,2024-02-24,Silicone Spatula Set 3pk,Home & Kitchen,1,9.97,CUST0300
+INV11677,2024-02-24,Canvas Sneakers,Clothing,2,110.72,CUST0128
+INV10197,2024-02-25,Lip Balm SPF15 3pk,Beauty & Health,2,15.52,CUST0014
+INV10805,2024-02-25,French Press Coffee Maker,Home & Kitchen,4,109.72,CUST0010
+INV10852,2024-02-25,Stapler Heavy Duty,Office Supplies,2,30.74,CUST0087
+INV10896,2024-02-25,Bamboo Toothbrush 4pk,Beauty & Health,2,16.46,CUST0189
+INV11185,2024-02-25,Mechanical Keyboard TKL,Electronics,1,82.57,CUST0106
+INV11197,2024-02-25,French Press Coffee Maker,Home & Kitchen,1,30.2,CUST0218
+INV11232,2024-02-25,Essential Oil Diffuser,Beauty & Health,1,30.54,CUST0127
+INV11240,2024-02-25,Natural Face Moisturizer,Beauty & Health,2,42.26,CUST0285
+INV11717,2024-02-25,Silicone Spatula Set 3pk,Home & Kitchen,1,9.8,CUST0024
+INV11756,2024-02-25,Webcam 1080p HD,Electronics,1,60.38,CUST0265
+INV11824,2024-02-25,Webcam 1080p HD,Electronics,1,57.83,CUST0032
+INV10161,2024-02-26,Lip Balm SPF15 3pk,Beauty & Health,2,14.66,CUST0068
+INV10401,2024-02-26,File Folders 100pk,Office Supplies,2,41.46,CUST0249
+INV10810,2024-02-26,Hooded Sweatshirt,Clothing,1,41.08,CUST0173
+INV11142,2024-02-26,Wireless Earbuds Pro,Electronics,1,53.93,CUST0096
+INV11618,2024-02-26,Running Socks 6pk,Clothing,2,29.94,CUST0078
+INV10113,2024-02-27,Vitamin D3 Supplements,Beauty & Health,1,14.09,CUST0088
+INV11739,2024-02-27,Stainless Steel Water Bottle,Home & Kitchen,1,24.09,CUST0248
+INV10212,2024-02-28,Whiteboard Markers 8pk,Office Supplies,3,34.53,CUST0223
+INV11083,2024-02-28,Bamboo Toothbrush 4pk,Beauty & Health,1,9.62,CUST0265
+INV11490,2024-02-28,Bamboo Toothbrush 4pk,Beauty & Health,1,8.34,CUST0088
+INV11935,2024-02-28,Mechanical Keyboard TKL,Electronics,10,863.2,CUST0205
+INV10074,2024-02-29,Silicone Spatula Set 3pk,Home & Kitchen,2,19.3,CUST0273
+INV10176,2024-02-29,French Press Coffee Maker,Home & Kitchen,1,32.31,CUST0052
+INV10459,2024-02-29,Bamboo Toothbrush 4pk,Beauty & Health,2,17.88,CUST0223
+INV10563,2024-02-29,Sticky Notes Pack 12,Office Supplies,1,8.52,CUST0281
+INV10889,2024-02-29,Wireless Earbuds Pro,Electronics,1,52.81,CUST0021
+INV11576,2024-02-29,Bluetooth Speaker Mini,Electronics,2,77.1,CUST0043
+INV11580,2024-02-29,Stainless Steel Water Bottle,Home & Kitchen,2,50.44,CUST0071
+INV11625,2024-02-29,Silicone Spatula Set 3pk,Home & Kitchen,5,52.25,CUST0273
+INV11795,2024-02-29,French Press Coffee Maker,Home & Kitchen,5,143.35,CUST0286
+INV11942,2024-02-29,Ballpoint Pens 50pk,Office Supplies,1,11.4,CUST0141
+INV10744,2024-03-01,Essential Oil Diffuser,Beauty & Health,1,34.53,CUST0155
+INV11438,2024-03-01,Classic Cotton T-Shirt,Clothing,3,64.95,CUST0137
+INV11765,2024-03-01,USB-C Hub 7-in-1,Electronics,1,33.58,CUST0055
+INV11149,2024-03-02,USB-C Hub 7-in-1,Electronics,1,32.09,CUST0126
+INV11183,2024-03-02,Whiteboard Markers 8pk,Office Supplies,2,25.24,CUST0191
+INV11896,2024-03-02,USB-C Hub 7-in-1,Electronics,1,36.47,CUST0194
+INV10209,2024-03-03,Facial Sunscreen SPF50,Beauty & Health,2,34.14,CUST0285
+INV10292,2024-03-03,Zip-Up Fleece Jacket,Clothing,4,292.0,CUST0211
+INV11006,2024-03-03,Essential Oil Diffuser,Beauty & Health,1,34.21,CUST0080
+INV11198,2024-03-03,Hooded Sweatshirt,Clothing,4,169.04,CUST0180
+INV11237,2024-03-03,Reusable Cotton Pads 20pk,Beauty & Health,1,11.48,CUST0190
+INV11324,2024-03-03,Portable Charger 20000mAh,Electronics,3,86.25,CUST0288
+INV10122,2024-03-04,Silicone Spatula Set 3pk,Home & Kitchen,3,32.85,CUST0038
+INV10186,2024-03-04,Natural Face Moisturizer,Beauty & Health,1,19.73,CUST0257
+INV10412,2024-03-04,Digital Kitchen Scale,Home & Kitchen,1,20.03,CUST0234
+INV10708,2024-03-04,Webcam 1080p HD,Electronics,4,256.68,CUST0235
+INV10907,2024-03-04,Desk Organizer Bamboo,Office Supplies,1,26.41,CUST0075
+INV10305,2024-03-05,Facial Sunscreen SPF50,Beauty & Health,1,17.97,CUST0169
+INV11339,2024-03-05,Slim Fit Chinos,Clothing,2,107.48,CUST0160
+INV11403,2024-03-05,Webcam 1080p HD,Electronics,1,64.98,CUST0247
+INV11405,2024-03-05,Stapler Heavy Duty,Office Supplies,3,49.83,CUST0083
+INV11687,2024-03-05,Reusable Cotton Pads 20pk,Beauty & Health,10,113.9,CUST0288
+INV11760,2024-03-05,Essential Oil Diffuser,Beauty & Health,4,129.32,CUST0017
+INV11852,2024-03-05,Reusable Cotton Pads 20pk,Beauty & Health,1,11.25,CUST0145
+INV11916,2024-03-05,Natural Face Moisturizer,Beauty & Health,1,21.65,CUST0291
+INV10147,2024-03-06,Running Socks 6pk,Clothing,1,16.24,CUST0066
+INV10937,2024-03-06,Vitamin C Serum 30ml,Beauty & Health,3,75.54,CUST0029
+INV11528,2024-03-06,A4 Printer Paper 500sh,Office Supplies,1,10.03,CUST0292
+INV11725,2024-03-06,Bamboo Cutting Board,Home & Kitchen,1,20.04,CUST0058
+INV10042,2024-03-07,Running Socks 6pk,Clothing,1,15.96,CUST0109
+INV10320,2024-03-07,Mechanical Keyboard TKL,Electronics,1,93.73,CUST0162
+INV11182,2024-03-07,USB-C Hub 7-in-1,Electronics,1,33.43,CUST0079
+INV11359,2024-03-07,Natural Face Moisturizer,Beauty & Health,1,19.59,CUST0056
+INV11373,2024-03-07,Mechanical Keyboard TKL,Electronics,2,192.14,CUST0083
+INV11425,2024-03-07,Ballpoint Pens 50pk,Office Supplies,4,48.0,CUST0188
+INV11793,2024-03-07,Wool Beanie Hat,Clothing,1,19.32,CUST0095
+INV10573,2024-03-08,Zip-Up Fleece Jacket,Clothing,1,76.23,CUST0177
+INV10799,2024-03-08,A4 Printer Paper 500sh,Office Supplies,1,10.31,CUST0256
+INV10040,2024-03-09,Smart Plug WiFi,Electronics,1,20.54,CUST0196
+INV10478,2024-03-09,Glass Storage Containers 5pk,Home & Kitchen,1,27.76,CUST0130
+INV10567,2024-03-09,Silicone Spatula Set 3pk,Home & Kitchen,1,9.76,CUST0123
+INV11007,2024-03-09,Silicone Spatula Set 3pk,Home & Kitchen,1,10.84,CUST0175
+INV10306,2024-03-10,Bluetooth Speaker Mini,Electronics,2,73.86,CUST0151
+INV10428,2024-03-10,Wool Beanie Hat,Clothing,1,19.02,CUST0292
+INV10539,2024-03-10,Mechanical Keyboard TKL,Electronics,1,97.27,CUST0120
+INV10977,2024-03-10,Sticky Notes Pack 12,Office Supplies,1,9.65,CUST0091
+INV11027,2024-03-10,Stainless Steel Water Bottle,Home & Kitchen,1,21.1,CUST0129
+INV11090,2024-03-10,Canvas Sneakers,Clothing,1,65.09,CUST0106
+INV11128,2024-03-10,USB-C Hub 7-in-1,Electronics,1,35.18,CUST0138
+INV11193,2024-03-10,Wireless Earbuds Pro,Electronics,3,155.73,CUST0061
+INV11583,2024-03-10,Wool Beanie Hat,Clothing,1,18.18,CUST0268
+INV11959,2024-03-10,Natural Face Moisturizer,Beauty & Health,2,39.64,CUST0143
+INV10043,2024-03-11,Wool Beanie Hat,Clothing,1,18.42,CUST0210
+INV10461,2024-03-11,Silicone Spatula Set 3pk,Home & Kitchen,2,20.82,CUST0018
+INV10465,2024-03-11,Scissors Stainless Steel,Office Supplies,1,6.74,CUST0288
+INV11480,2024-03-11,Hooded Sweatshirt,Clothing,1,46.65,CUST0027
+INV11485,2024-03-11,Whiteboard Markers 8pk,Office Supplies,5,52.5,CUST0067
+INV11931,2024-03-11,Silicone Spatula Set 3pk,Home & Kitchen,1,10.23,CUST0175
+INV10104,2024-03-12,Lip Balm SPF15 3pk,Beauty & Health,1,7.55,CUST0160
+INV10111,2024-03-12,Sport Shorts,Clothing,10,248.0,CUST0076
+INV10139,2024-03-12,Essential Oil Diffuser,Beauty & Health,1,31.89,CUST0207
+INV10944,2024-03-12,Canvas Sneakers,Clothing,2,118.5,CUST0094
+INV11362,2024-03-12,File Folders 100pk,Office Supplies,3,58.02,CUST0166
+INV11450,2024-03-12,Whiteboard Markers 8pk,Office Supplies,1,11.86,CUST0125
+INV11489,2024-03-12,Wool Beanie Hat,Clothing,2,35.66,CUST0085
+INV11823,2024-03-12,Non-Stick Frying Pan 28cm,Home & Kitchen,1,33.87,CUST0176
+INV11912,2024-03-12,Stainless Steel Water Bottle,Home & Kitchen,1,21.52,CUST0295
+INV10298,2024-03-13,File Folders 100pk,Office Supplies,3,53.19,CUST0273
+INV10333,2024-03-13,Lip Balm SPF15 3pk,Beauty & Health,3,22.23,CUST0203
+INV10737,2024-03-13,Stainless Steel Water Bottle,Home & Kitchen,1,23.64,CUST0246
+INV11567,2024-03-13,Classic Cotton T-Shirt,Clothing,1,19.09,CUST0120
+INV11934,2024-03-13,USB-C Hub 7-in-1,Electronics,1,33.71,CUST0299
+INV11936,2024-03-13,Whiteboard Markers 8pk,Office Supplies,3,37.23,CUST0047
+INV11945,2024-03-13,LED Desk Lamp Smart,Electronics,1,48.33,CUST0003
+INV11974,2024-03-13,Wireless Earbuds Pro,Electronics,1,54.36,CUST0169
+INV10021,2024-03-14,Wireless Earbuds Pro,Electronics,1,54.58,CUST0059
+INV10196,2024-03-14,Hooded Sweatshirt,Clothing,1,44.49,CUST0089
+INV11011,2024-03-14,Portable Charger 20000mAh,Electronics,1,30.64,CUST0295
+INV11411,2024-03-14,Sticky Notes Pack 12,Office Supplies,1,8.33,CUST0241
+INV10752,2024-03-15,French Press Coffee Maker,Home & Kitchen,1,27.64,CUST0141
+INV11081,2024-03-15,Bamboo Cutting Board,Home & Kitchen,1,22.37,CUST0135
+INV11312,2024-03-15,Whiteboard Markers 8pk,Office Supplies,1,10.61,CUST0093
+INV11734,2024-03-15,Sport Shorts,Clothing,1,25.14,CUST0008
+INV11954,2024-03-15,LED Desk Lamp Smart,Electronics,1,42.13,CUST0196
+INV10966,2024-03-16,Facial Sunscreen SPF50,Beauty & Health,1,15.9,CUST0111
+INV10997,2024-03-16,A4 Printer Paper 500sh,Office Supplies,2,21.5,CUST0113
+INV11320,2024-03-16,Digital Kitchen Scale,Home & Kitchen,5,94.6,CUST0276
+INV11591,2024-03-16,Natural Face Moisturizer,Beauty & Health,1,19.17,CUST0039
+INV11763,2024-03-16,Wool Beanie Hat,Clothing,3,51.27,CUST0191
+INV11921,2024-03-16,Vitamin C Serum 30ml,Beauty & Health,1,26.46,CUST0087
+INV10137,2024-03-17,Smart Plug WiFi,Electronics,1,20.78,CUST0185
+INV10458,2024-03-17,Facial Sunscreen SPF50,Beauty & Health,1,15.91,CUST0204
+INV10495,2024-03-17,Facial Sunscreen SPF50,Beauty & Health,2,35.54,CUST0277
+INV10784,2024-03-17,Smart Plug WiFi,Electronics,2,38.94,CUST0101
+INV11058,2024-03-17,Desk Organizer Bamboo,Office Supplies,1,24.0,CUST0216
+INV11148,2024-03-17,Lip Balm SPF15 3pk,Beauty & Health,1,7.29,CUST0157
+INV11227,2024-03-17,Lip Balm SPF15 3pk,Beauty & Health,5,43.1,CUST0299
+INV11349,2024-03-17,Scissors Stainless Steel,Office Supplies,1,6.97,CUST0282
+INV11518,2024-03-17,Bamboo Toothbrush 4pk,Beauty & Health,2,16.98,CUST0018
+INV10066,2024-03-18,Ceramic Coffee Mug,Home & Kitchen,1,11.95,CUST0206
+INV10531,2024-03-18,Desk Organizer Bamboo,Office Supplies,10,235.4,CUST0023
+INV10899,2024-03-18,Silicone Spatula Set 3pk,Home & Kitchen,2,21.32,CUST0127
+INV11421,2024-03-18,Reusable Cotton Pads 20pk,Beauty & Health,1,10.63,CUST0132
+INV10134,2024-03-19,Lip Balm SPF15 3pk,Beauty & Health,3,23.43,CUST0179
+INV10200,2024-03-19,Natural Face Moisturizer,Beauty & Health,3,55.11,CUST0261
+INV10235,2024-03-19,Stainless Steel Water Bottle,Home & Kitchen,2,41.5,CUST0042
+INV10438,2024-03-19,Hooded Sweatshirt,Clothing,3,142.53,CUST0070
+INV10670,2024-03-19,Silicone Spatula Set 3pk,Home & Kitchen,1,9.28,CUST0120
+INV11135,2024-03-19,LED Desk Lamp Smart,Electronics,1,45.12,CUST0122
+INV10110,2024-03-20,Mechanical Keyboard TKL,Electronics,2,174.1,CUST0100
+INV10409,2024-03-20,Bluetooth Speaker Mini,Electronics,1,36.99,CUST0218
+INV10446,2024-03-20,USB-C Hub 7-in-1,Electronics,4,141.64,CUST0061
+INV10637,2024-03-20,Vitamin C Serum 30ml,Beauty & Health,1,26.67,CUST0138
+INV10890,2024-03-20,Stapler Heavy Duty,Office Supplies,1,18.6,CUST0027
+INV10190,2024-03-21,Slim Fit Chinos,Clothing,1,46.25,CUST0286
+INV10402,2024-03-21,Bamboo Cutting Board,Home & Kitchen,1,21.36,CUST0043
+INV10674,2024-03-21,Silicone Spatula Set 3pk,Home & Kitchen,2,19.08,CUST0013
+INV10689,2024-03-21,Scissors Stainless Steel,Office Supplies,2,15.68,CUST0292
+INV10860,2024-03-21,Vitamin C Serum 30ml,Beauty & Health,1,26.69,CUST0139
+INV11423,2024-03-21,Sport Shorts,Clothing,2,46.4,CUST0174
+INV10077,2024-03-22,Reusable Cotton Pads 20pk,Beauty & Health,2,23.7,CUST0154
+INV10078,2024-03-22,Zip-Up Fleece Jacket,Clothing,1,76.95,CUST0276
+INV10705,2024-03-22,Glass Storage Containers 5pk,Home & Kitchen,1,29.56,CUST0026
+INV10925,2024-03-22,Ceramic Coffee Mug,Home & Kitchen,1,13.67,CUST0183
+INV11033,2024-03-22,Classic Cotton T-Shirt,Clothing,3,60.0,CUST0143
+INV11475,2024-03-22,Canvas Sneakers,Clothing,1,54.67,CUST0283
+INV11736,2024-03-22,Sticky Notes Pack 12,Office Supplies,1,8.79,CUST0182
+INV10824,2024-03-23,Reusable Cotton Pads 20pk,Beauty & Health,1,10.83,CUST0119
+INV10849,2024-03-23,Ballpoint Pens 50pk,Office Supplies,1,13.57,CUST0145
+INV10945,2024-03-23,Natural Face Moisturizer,Beauty & Health,1,20.98,CUST0171
+INV10952,2024-03-23,Slim Fit Chinos,Clothing,1,48.23,CUST0220
+INV11056,2024-03-23,USB-C Hub 7-in-1,Electronics,3,111.3,CUST0178
+INV11382,2024-03-23,Desk Organizer Bamboo,Office Supplies,1,25.99,CUST0160
+INV11709,2024-03-23,Desk Organizer Bamboo,Office Supplies,3,74.13,CUST0248
+INV11991,2024-03-23,USB-C Hub 7-in-1,Electronics,1,32.45,CUST0228
+INV10213,2024-03-24,Vitamin C Serum 30ml,Beauty & Health,1,24.08,CUST0157
+INV10377,2024-03-24,Hooded Sweatshirt,Clothing,3,135.3,CUST0225
+INV10521,2024-03-24,Lip Balm SPF15 3pk,Beauty & Health,1,8.49,CUST0162
+INV11025,2024-03-24,Stainless Steel Water Bottle,Home & Kitchen,5,117.75,CUST0031
+INV11854,2024-03-24,Stapler Heavy Duty,Office Supplies,2,31.86,CUST0036
+INV10281,2024-03-25,Lip Balm SPF15 3pk,Beauty & Health,1,7.62,CUST0180
+INV10984,2024-03-25,Reusable Cotton Pads 20pk,Beauty & Health,1,12.05,CUST0189
+INV10287,2024-03-26,Smart Plug WiFi,Electronics,2,41.36,CUST0143
+INV10881,2024-03-26,Reusable Cotton Pads 20pk,Beauty & Health,1,10.35,CUST0072
+INV11050,2024-03-26,Zip-Up Fleece Jacket,Clothing,1,79.83,CUST0062
+INV11509,2024-03-26,Glass Storage Containers 5pk,Home & Kitchen,1,29.27,CUST0101
+INV11537,2024-03-26,French Press Coffee Maker,Home & Kitchen,1,31.52,CUST0110
+INV11752,2024-03-26,Essential Oil Diffuser,Beauty & Health,2,66.86,CUST0221
+INV11904,2024-03-26,USB-C Hub 7-in-1,Electronics,2,71.86,CUST0190
+INV10218,2024-03-27,Mechanical Keyboard TKL,Electronics,3,266.43,CUST0039
+INV10388,2024-03-27,Non-Stick Frying Pan 28cm,Home & Kitchen,1,38.42,CUST0067
+INV10466,2024-03-27,Smart Plug WiFi,Electronics,1,21.0,CUST0242
+INV11965,2024-03-27,Webcam 1080p HD,Electronics,1,63.57,CUST0281
+INV10229,2024-03-28,Facial Sunscreen SPF50,Beauty & Health,2,36.98,CUST0130
+INV11228,2024-03-28,Stainless Steel Water Bottle,Home & Kitchen,1,23.09,CUST0232
+INV11270,2024-03-28,Stapler Heavy Duty,Office Supplies,2,34.44,CUST0189
+INV11328,2024-03-28,Mechanical Keyboard TKL,Electronics,1,95.62,CUST0194
+INV11619,2024-03-28,Glass Storage Containers 5pk,Home & Kitchen,5,141.0,CUST0299
+INV11029,2024-03-29,Stainless Steel Water Bottle,Home & Kitchen,1,22.16,CUST0211
+INV11173,2024-03-29,Stapler Heavy Duty,Office Supplies,4,61.8,CUST0238
+INV11832,2024-03-29,Smart Plug WiFi,Electronics,1,18.52,CUST0155
+INV11845,2024-03-29,Glass Storage Containers 5pk,Home & Kitchen,1,27.77,CUST0121
+INV10023,2024-03-30,Slim Fit Chinos,Clothing,1,52.97,CUST0236
+INV10504,2024-03-30,Vitamin C Serum 30ml,Beauty & Health,1,25.01,CUST0266
+INV11621,2024-03-30,Sticky Notes Pack 12,Office Supplies,1,8.11,CUST0066
+INV10318,2024-03-31,Non-Stick Frying Pan 28cm,Home & Kitchen,1,34.76,CUST0143
+INV10862,2024-03-31,Facial Sunscreen SPF50,Beauty & Health,2,33.42,CUST0052
+INV11443,2024-03-31,Sticky Notes Pack 12,Office Supplies,2,19.62,CUST0209
+INV11602,2024-03-31,Reusable Cotton Pads 20pk,Beauty & Health,2,22.3,CUST0210
+INV10257,2024-04-01,Lip Balm SPF15 3pk,Beauty & Health,1,8.37,CUST0276
+INV10436,2024-04-01,Slim Fit Chinos,Clothing,3,152.52,CUST0256
+INV10538,2024-04-01,A4 Printer Paper 500sh,Office Supplies,3,27.45,CUST0213
+INV10558,2024-04-01,Bluetooth Speaker Mini,Electronics,3,125.76,CUST0006
+INV10687,2024-04-01,Running Socks 6pk,Clothing,1,15.64,CUST0206
+INV10696,2024-04-01,Classic Cotton T-Shirt,Clothing,10,217.5,CUST0275
+INV10732,2024-04-01,Canvas Sneakers,Clothing,10,551.5,CUST0162
+INV11265,2024-04-01,Stainless Steel Water Bottle,Home & Kitchen,1,21.47,CUST0197
+INV11344,2024-04-01,USB-C Hub 7-in-1,Electronics,1,32.98,CUST0216
+INV11388,2024-04-01,Classic Cotton T-Shirt,Clothing,2,37.38,CUST0294
+INV11420,2024-04-01,Facial Sunscreen SPF50,Beauty & Health,1,16.08,CUST0116
+INV11527,2024-04-01,A4 Printer Paper 500sh,Office Supplies,5,49.3,CUST0207
+INV11882,2024-04-01,Non-Stick Frying Pan 28cm,Home & Kitchen,1,33.92,CUST0166
+INV10045,2024-04-02,Bamboo Cutting Board,Home & Kitchen,3,69.84,CUST0123
+INV10088,2024-04-02,Lip Balm SPF15 3pk,Beauty & Health,2,16.52,CUST0051
+INV10313,2024-04-02,Silicone Spatula Set 3pk,Home & Kitchen,3,31.47,CUST0064
+INV10680,2024-04-02,Ceramic Coffee Mug,Home & Kitchen,1,12.15,CUST0170
+INV10762,2024-04-02,Natural Face Moisturizer,Beauty & Health,2,41.54,CUST0144
+INV11274,2024-04-02,Running Socks 6pk,Clothing,1,14.26,CUST0204
+INV10511,2024-04-03,Wool Beanie Hat,Clothing,1,19.66,CUST0112
+INV10841,2024-04-03,Portable Charger 20000mAh,Electronics,1,27.04,CUST0267
+INV11035,2024-04-03,Ballpoint Pens 50pk,Office Supplies,3,37.56,CUST0114
+INV11808,2024-04-03,File Folders 100pk,Office Supplies,2,34.48,CUST0137
+INV11860,2024-04-03,Lip Balm SPF15 3pk,Beauty & Health,1,8.79,CUST0022
+INV11988,2024-04-03,Stainless Steel Water Bottle,Home & Kitchen,1,20.93,CUST0296
+INV10397,2024-04-04,Scissors Stainless Steel,Office Supplies,2,13.66,CUST0139
+INV11017,2024-04-04,Bamboo Toothbrush 4pk,Beauty & Health,1,9.65,CUST0141
+INV11073,2024-04-04,Mechanical Keyboard TKL,Electronics,2,167.78,CUST0143
+INV11097,2024-04-04,Bluetooth Speaker Mini,Electronics,1,40.94,CUST0149
+INV11953,2024-04-04,Essential Oil Diffuser,Beauty & Health,5,168.4,CUST0102
+INV10639,2024-04-05,LED Desk Lamp Smart,Electronics,1,47.92,CUST0049
+INV11380,2024-04-05,Ballpoint Pens 50pk,Office Supplies,1,13.33,CUST0228
+INV11613,2024-04-05,Whiteboard Markers 8pk,Office Supplies,1,10.9,CUST0087
+INV10034,2024-04-06,Essential Oil Diffuser,Beauty & Health,2,64.18,CUST0286
+INV10132,2024-04-06,Classic Cotton T-Shirt,Clothing,4,84.6,CUST0035
+INV10227,2024-04-06,Sticky Notes Pack 12,Office Supplies,1,9.41,CUST0190
+INV11218,2024-04-06,Vitamin C Serum 30ml,Beauty & Health,1,22.79,CUST0250
+INV11986,2024-04-06,Desk Organizer Bamboo,Office Supplies,3,69.81,CUST0088
+INV10225,2024-04-07,Sticky Notes Pack 12,Office Supplies,2,17.68,CUST0191
+INV10549,2024-04-07,Portable Charger 20000mAh,Electronics,1,32.31,CUST0073
+INV10463,2024-04-08,Natural Face Moisturizer,Beauty & Health,1,21.63,CUST0143
+INV10500,2024-04-08,Lip Balm SPF15 3pk,Beauty & Health,2,15.64,CUST0214
+INV10606,2024-04-08,Wireless Earbuds Pro,Electronics,2,105.92,CUST0294
+INV11833,2024-04-08,Whiteboard Markers 8pk,Office Supplies,1,10.69,CUST0129
+INV11961,2024-04-08,Whiteboard Markers 8pk,Office Supplies,1,12.0,CUST0214
+INV10392,2024-04-09,Wireless Earbuds Pro,Electronics,5,226.0,CUST0025
+INV10809,2024-04-09,Slim Fit Chinos,Clothing,2,95.22,CUST0101
+INV10812,2024-04-09,Stainless Steel Water Bottle,Home & Kitchen,1,22.02,CUST0006
+INV10955,2024-04-09,Ceramic Coffee Mug,Home & Kitchen,1,13.98,CUST0157
+INV11592,2024-04-09,Lip Balm SPF15 3pk,Beauty & Health,2,15.56,CUST0019
+INV11733,2024-04-09,Running Socks 6pk,Clothing,2,32.02,CUST0277
+INV10314,2024-04-10,Running Socks 6pk,Clothing,1,14.64,CUST0070
+INV11647,2024-04-10,Scissors Stainless Steel,Office Supplies,5,39.25,CUST0158
+INV10918,2024-04-11,Wireless Earbuds Pro,Electronics,1,51.81,CUST0300
+INV11286,2024-04-11,Wool Beanie Hat,Clothing,2,39.34,CUST0286
+INV11346,2024-04-11,Ceramic Coffee Mug,Home & Kitchen,3,42.3,CUST0092
+INV11471,2024-04-11,USB-C Hub 7-in-1,Electronics,2,70.76,CUST0285
+INV11474,2024-04-11,Running Socks 6pk,Clothing,2,31.14,CUST0221
+INV11905,2024-04-11,Portable Charger 20000mAh,Electronics,1,28.06,CUST0294
+INV10001,2024-04-12,Essential Oil Diffuser,Beauty & Health,2,66.5,CUST0168
+INV11188,2024-04-12,French Press Coffee Maker,Home & Kitchen,2,55.6,CUST0046
+INV11236,2024-04-12,Reusable Cotton Pads 20pk,Beauty & Health,1,12.27,CUST0078
+INV11290,2024-04-12,Sticky Notes Pack 12,Office Supplies,2,19.22,CUST0292
+INV11365,2024-04-12,Stainless Steel Water Bottle,Home & Kitchen,1,21.27,CUST0154
+INV11422,2024-04-12,Digital Kitchen Scale,Home & Kitchen,1,18.77,CUST0045
+INV11614,2024-04-12,Natural Face Moisturizer,Beauty & Health,1,18.26,CUST0062
+INV10041,2024-04-13,Zip-Up Fleece Jacket,Clothing,1,82.01,CUST0117
+INV10168,2024-04-13,Scissors Stainless Steel,Office Supplies,1,8.1,CUST0168
+INV10726,2024-04-13,Portable Charger 20000mAh,Electronics,2,58.04,CUST0287
+INV10895,2024-04-13,A4 Printer Paper 500sh,Office Supplies,1,10.14,CUST0290
+INV11296,2024-04-13,Classic Cotton T-Shirt,Clothing,1,21.4,CUST0160
+INV11300,2024-04-13,Wool Beanie Hat,Clothing,1,17.66,CUST0026
+INV11665,2024-04-13,Canvas Sneakers,Clothing,1,61.48,CUST0081
+INV11902,2024-04-13,Running Socks 6pk,Clothing,1,15.94,CUST0166
+INV10445,2024-04-14,Stainless Steel Water Bottle,Home & Kitchen,1,24.62,CUST0225
+INV10484,2024-04-14,Stapler Heavy Duty,Office Supplies,1,16.14,CUST0171
+INV10653,2024-04-14,Hooded Sweatshirt,Clothing,1,48.93,CUST0195
+INV11092,2024-04-14,File Folders 100pk,Office Supplies,1,19.64,CUST0013
+INV11180,2024-04-14,Running Socks 6pk,Clothing,1,14.81,CUST0153
+INV11748,2024-04-14,Lip Balm SPF15 3pk,Beauty & Health,3,25.35,CUST0230
+INV11825,2024-04-14,Ceramic Coffee Mug,Home & Kitchen,1,13.96,CUST0059
+INV10322,2024-04-15,USB-C Hub 7-in-1,Electronics,1,34.39,CUST0098
+INV10332,2024-04-15,Canvas Sneakers,Clothing,2,111.56,CUST0278
+INV10469,2024-04-15,Stapler Heavy Duty,Office Supplies,3,51.69,CUST0167
+INV10560,2024-04-15,Vitamin C Serum 30ml,Beauty & Health,1,25.49,CUST0094
+INV10591,2024-04-15,Bamboo Cutting Board,Home & Kitchen,1,22.55,CUST0182
+INV10635,2024-04-15,Vitamin C Serum 30ml,Beauty & Health,2,52.62,CUST0274
+INV10640,2024-04-15,Wool Beanie Hat,Clothing,1,16.95,CUST0070
+INV10728,2024-04-15,File Folders 100pk,Office Supplies,1,19.33,CUST0114
+INV11172,2024-04-15,Essential Oil Diffuser,Beauty & Health,2,60.02,CUST0300
+INV11363,2024-04-15,Sport Shorts,Clothing,1,25.23,CUST0267
+INV11532,2024-04-15,Vitamin D3 Supplements,Beauty & Health,1,15.39,CUST0159
+INV11538,2024-04-15,A4 Printer Paper 500sh,Office Supplies,2,21.56,CUST0174
+INV10706,2024-04-16,Bamboo Toothbrush 4pk,Beauty & Health,3,29.31,CUST0115
+INV11144,2024-04-16,Webcam 1080p HD,Electronics,2,129.04,CUST0152
+INV11821,2024-04-16,Digital Kitchen Scale,Home & Kitchen,1,19.02,CUST0105
+INV10048,2024-04-17,Vitamin C Serum 30ml,Beauty & Health,4,102.44,CUST0298
+INV10523,2024-04-17,Running Socks 6pk,Clothing,3,46.5,CUST0276
+INV10644,2024-04-17,Stapler Heavy Duty,Office Supplies,1,17.36,CUST0050
+INV10901,2024-04-17,Zip-Up Fleece Jacket,Clothing,1,74.83,CUST0258
+INV10951,2024-04-17,Facial Sunscreen SPF50,Beauty & Health,1,18.1,CUST0213
+INV11654,2024-04-17,Scissors Stainless Steel,Office Supplies,5,36.25,CUST0096
+INV11467,2024-04-18,USB-C Hub 7-in-1,Electronics,1,37.44,CUST0081
+INV11999,2024-04-18,Ballpoint Pens 50pk,Office Supplies,1,12.27,CUST0179
+INV10083,2024-04-19,Stapler Heavy Duty,Office Supplies,1,18.66,CUST0043
+INV10928,2024-04-19,Vitamin D3 Supplements,Beauty & Health,1,13.8,CUST0169
+INV11843,2024-04-19,Wireless Earbuds Pro,Electronics,1,51.36,CUST0216
+INV10128,2024-04-20,Digital Kitchen Scale,Home & Kitchen,1,19.61,CUST0214
+INV10958,2024-04-20,Bluetooth Speaker Mini,Electronics,3,122.82,CUST0223
+INV11146,2024-04-20,Wireless Earbuds Pro,Electronics,2,107.68,CUST0133
+INV11385,2024-04-20,Lip Balm SPF15 3pk,Beauty & Health,1,7.97,CUST0275
+INV11697,2024-04-20,LED Desk Lamp Smart,Electronics,2,97.34,CUST0007
+INV10164,2024-04-21,Smart Plug WiFi,Electronics,2,40.38,CUST0096
+INV10279,2024-04-21,Reusable Cotton Pads 20pk,Beauty & Health,1,12.39,CUST0217
+INV10620,2024-04-21,Vitamin D3 Supplements,Beauty & Health,2,27.0,CUST0108
+INV10693,2024-04-21,Stainless Steel Water Bottle,Home & Kitchen,1,24.36,CUST0126
+INV10885,2024-04-21,USB-C Hub 7-in-1,Electronics,2,73.96,CUST0041
+INV11648,2024-04-21,Wool Beanie Hat,Clothing,1,19.02,CUST0157
+INV10031,2024-04-23,Scissors Stainless Steel,Office Supplies,1,7.63,CUST0136
+INV10795,2024-04-23,Sticky Notes Pack 12,Office Supplies,4,34.92,CUST0205
+INV11224,2024-04-23,Hooded Sweatshirt,Clothing,1,49.11,CUST0295
+INV11519,2024-04-23,Essential Oil Diffuser,Beauty & Health,1,35.06,CUST0220
+INV11552,2024-04-23,Classic Cotton T-Shirt,Clothing,1,20.71,CUST0131
+INV10783,2024-04-24,Running Socks 6pk,Clothing,1,15.75,CUST0074
+INV10938,2024-04-24,Webcam 1080p HD,Electronics,1,65.18,CUST0175
+INV11444,2024-04-24,French Press Coffee Maker,Home & Kitchen,1,29.29,CUST0046
+INV11715,2024-04-24,Non-Stick Frying Pan 28cm,Home & Kitchen,1,37.12,CUST0082
+INV11844,2024-04-24,Desk Organizer Bamboo,Office Supplies,5,135.0,CUST0226
+INV10127,2024-04-25,Smart Plug WiFi,Electronics,3,62.61,CUST0059
+INV10532,2024-04-25,French Press Coffee Maker,Home & Kitchen,1,28.45,CUST0108
+INV10652,2024-04-25,Digital Kitchen Scale,Home & Kitchen,2,34.76,CUST0248
+INV10730,2024-04-25,Portable Charger 20000mAh,Electronics,5,146.9,CUST0106
+INV10735,2024-04-25,Non-Stick Frying Pan 28cm,Home & Kitchen,1,36.37,CUST0285
+INV10990,2024-04-25,Desk Organizer Bamboo,Office Supplies,1,25.34,CUST0262
+INV11323,2024-04-25,File Folders 100pk,Office Supplies,3,58.26,CUST0269
+INV11437,2024-04-25,Digital Kitchen Scale,Home & Kitchen,1,17.75,CUST0291
+INV10009,2024-04-26,Essential Oil Diffuser,Beauty & Health,2,62.44,CUST0005
+INV10069,2024-04-26,Vitamin C Serum 30ml,Beauty & Health,4,93.2,CUST0136
+INV10183,2024-04-26,Non-Stick Frying Pan 28cm,Home & Kitchen,4,150.68,CUST0170
+INV10231,2024-04-26,Bamboo Cutting Board,Home & Kitchen,1,19.8,CUST0097
+INV10408,2024-04-26,Bluetooth Speaker Mini,Electronics,1,39.79,CUST0076
+INV10505,2024-04-26,LED Desk Lamp Smart,Electronics,1,45.15,CUST0294
+INV10979,2024-04-26,Whiteboard Markers 8pk,Office Supplies,5,60.2,CUST0237
+INV11848,2024-04-26,Bamboo Cutting Board,Home & Kitchen,4,95.24,CUST0109
+INV10576,2024-04-27,Bamboo Cutting Board,Home & Kitchen,1,21.99,CUST0062
+INV11023,2024-04-27,French Press Coffee Maker,Home & Kitchen,1,30.69,CUST0102
+INV11181,2024-04-27,Digital Kitchen Scale,Home & Kitchen,1,20.87,CUST0050
+INV11877,2024-04-27,Sport Shorts,Clothing,1,26.91,CUST0043
+INV10345,2024-04-28,LED Desk Lamp Smart,Electronics,2,85.82,CUST0231
+INV11375,2024-04-28,Webcam 1080p HD,Electronics,1,58.97,CUST0205
+INV11390,2024-04-28,USB-C Hub 7-in-1,Electronics,3,110.64,CUST0107
+INV11391,2024-04-28,Classic Cotton T-Shirt,Clothing,1,19.17,CUST0246
+INV11859,2024-04-28,Natural Face Moisturizer,Beauty & Health,2,43.7,CUST0046
+INV11967,2024-04-28,Slim Fit Chinos,Clothing,3,152.85,CUST0209
+INV10628,2024-04-29,Smart Plug WiFi,Electronics,1,19.06,CUST0189
+INV10753,2024-04-29,Facial Sunscreen SPF50,Beauty & Health,1,16.5,CUST0267
+INV11273,2024-04-29,Digital Kitchen Scale,Home & Kitchen,1,17.74,CUST0223
+INV11686,2024-04-29,Vitamin C Serum 30ml,Beauty & Health,1,25.24,CUST0098
+INV10716,2024-04-30,Webcam 1080p HD,Electronics,2,125.44,CUST0276
+INV10833,2024-04-30,File Folders 100pk,Office Supplies,5,96.6,CUST0192
+INV10929,2024-04-30,Whiteboard Markers 8pk,Office Supplies,1,10.48,CUST0231
+INV11318,2024-04-30,Vitamin C Serum 30ml,Beauty & Health,1,22.69,CUST0280
+INV11987,2024-04-30,Whiteboard Markers 8pk,Office Supplies,1,12.4,CUST0260
+INV10621,2024-05-01,Reusable Cotton Pads 20pk,Beauty & Health,1,11.63,CUST0123
+INV10863,2024-05-01,File Folders 100pk,Office Supplies,2,38.04,CUST0220
+INV11702,2024-05-01,Bluetooth Speaker Mini,Electronics,2,83.54,CUST0021
+INV10488,2024-05-02,USB-C Hub 7-in-1,Electronics,1,34.28,CUST0293
+INV10711,2024-05-02,Stapler Heavy Duty,Office Supplies,3,54.42,CUST0189
+INV11915,2024-05-02,Lip Balm SPF15 3pk,Beauty & Health,1,8.12,CUST0298
+INV10829,2024-05-03,Vitamin D3 Supplements,Beauty & Health,1,15.33,CUST0008
+INV11429,2024-05-03,Silicone Spatula Set 3pk,Home & Kitchen,2,19.2,CUST0124
+INV11692,2024-05-03,Smart Plug WiFi,Electronics,1,19.74,CUST0164
+INV10480,2024-05-04,Reusable Cotton Pads 20pk,Beauty & Health,1,11.68,CUST0011
+INV10700,2024-05-04,Webcam 1080p HD,Electronics,1,53.99,CUST0197
+INV10932,2024-05-04,Wireless Earbuds Pro,Electronics,1,47.43,CUST0138
+INV11223,2024-05-04,Portable Charger 20000mAh,Electronics,3,91.44,CUST0265
+INV11729,2024-05-04,A4 Printer Paper 500sh,Office Supplies,3,29.16,CUST0283
+INV11866,2024-05-04,Stainless Steel Water Bottle,Home & Kitchen,2,47.9,CUST0202
+INV10166,2024-05-05,Wool Beanie Hat,Clothing,4,69.6,CUST0155
+INV10246,2024-05-05,Sport Shorts,Clothing,1,26.42,CUST0271
+INV10362,2024-05-05,Digital Kitchen Scale,Home & Kitchen,1,18.63,CUST0230
+INV10946,2024-05-05,Sport Shorts,Clothing,1,25.46,CUST0185
+INV11322,2024-05-05,Vitamin D3 Supplements,Beauty & Health,1,13.54,CUST0250
+INV11460,2024-05-05,Portable Charger 20000mAh,Electronics,2,61.68,CUST0267
+INV10843,2024-05-06,Glass Storage Containers 5pk,Home & Kitchen,1,26.59,CUST0207
+INV11140,2024-05-06,A4 Printer Paper 500sh,Office Supplies,1,9.16,CUST0106
+INV11211,2024-05-06,Classic Cotton T-Shirt,Clothing,4,75.64,CUST0137
+INV11626,2024-05-06,Reusable Cotton Pads 20pk,Beauty & Health,2,21.26,CUST0264
+INV11766,2024-05-06,Wool Beanie Hat,Clothing,3,50.16,CUST0028
+INV11794,2024-05-06,Stapler Heavy Duty,Office Supplies,4,72.84,CUST0294
+INV11802,2024-05-06,French Press Coffee Maker,Home & Kitchen,1,28.04,CUST0054
+INV11849,2024-05-06,Vitamin C Serum 30ml,Beauty & Health,2,47.26,CUST0137
+INV11892,2024-05-06,Wireless Earbuds Pro,Electronics,2,100.28,CUST0217
+INV10136,2024-05-07,Hooded Sweatshirt,Clothing,1,45.29,CUST0221
+INV10543,2024-05-07,Essential Oil Diffuser,Beauty & Health,5,158.4,CUST0295
+INV11721,2024-05-07,Canvas Sneakers,Clothing,1,57.8,CUST0094
+INV10198,2024-05-08,Desk Organizer Bamboo,Office Supplies,4,101.28,CUST0269
+INV10420,2024-05-08,Facial Sunscreen SPF50,Beauty & Health,2,31.8,CUST0154
+INV10823,2024-05-08,Bluetooth Speaker Mini,Electronics,2,75.18,CUST0296
+INV11500,2024-05-08,Natural Face Moisturizer,Beauty & Health,1,20.46,CUST0267
+INV11811,2024-05-08,Desk Organizer Bamboo,Office Supplies,1,26.46,CUST0047
+INV10194,2024-05-09,Canvas Sneakers,Clothing,1,55.4,CUST0079
+INV10800,2024-05-09,Essential Oil Diffuser,Beauty & Health,2,59.58,CUST0070
+INV10914,2024-05-09,Ballpoint Pens 50pk,Office Supplies,1,12.06,CUST0080
+INV11778,2024-05-09,Glass Storage Containers 5pk,Home & Kitchen,2,52.68,CUST0033
+INV10203,2024-05-10,Ceramic Coffee Mug,Home & Kitchen,3,35.46,CUST0264
+INV10294,2024-05-10,File Folders 100pk,Office Supplies,4,77.4,CUST0103
+INV11068,2024-05-10,Bamboo Cutting Board,Home & Kitchen,3,63.9,CUST0124
+INV11209,2024-05-10,Classic Cotton T-Shirt,Clothing,1,18.92,CUST0242
+INV11879,2024-05-10,Canvas Sneakers,Clothing,1,63.67,CUST0125
+INV10308,2024-05-11,Scissors Stainless Steel,Office Supplies,2,15.88,CUST0242
+INV10396,2024-05-11,Stainless Steel Water Bottle,Home & Kitchen,2,46.72,CUST0216
+INV11192,2024-05-11,Sticky Notes Pack 12,Office Supplies,1,8.37,CUST0145
+INV11415,2024-05-11,Vitamin C Serum 30ml,Beauty & Health,1,26.77,CUST0106
+INV11461,2024-05-11,Natural Face Moisturizer,Beauty & Health,3,57.24,CUST0245
+INV11897,2024-05-11,Smart Plug WiFi,Electronics,1,18.06,CUST0151
+INV10487,2024-05-12,Glass Storage Containers 5pk,Home & Kitchen,10,253.6,CUST0219
+INV10917,2024-05-12,Digital Kitchen Scale,Home & Kitchen,1,17.59,CUST0265
+INV11036,2024-05-12,Canvas Sneakers,Clothing,3,166.26,CUST0093
+INV11590,2024-05-12,Digital Kitchen Scale,Home & Kitchen,4,83.0,CUST0058
+INV11093,2024-05-13,Desk Organizer Bamboo,Office Supplies,2,45.44,CUST0288
+INV11436,2024-05-13,Glass Storage Containers 5pk,Home & Kitchen,2,54.84,CUST0080
+INV11505,2024-05-13,French Press Coffee Maker,Home & Kitchen,2,59.82,CUST0241
+INV10273,2024-05-14,Stainless Steel Water Bottle,Home & Kitchen,1,20.98,CUST0275
+INV10815,2024-05-14,Wireless Earbuds Pro,Electronics,1,49.81,CUST0078
+INV10961,2024-05-14,Bluetooth Speaker Mini,Electronics,1,41.7,CUST0235
+INV11492,2024-05-14,Running Socks 6pk,Clothing,1,14.96,CUST0247
+INV11881,2024-05-14,Vitamin C Serum 30ml,Beauty & Health,4,96.16,CUST0023
+INV10033,2024-05-15,Whiteboard Markers 8pk,Office Supplies,4,44.76,CUST0205
+INV10145,2024-05-15,Scissors Stainless Steel,Office Supplies,2,14.04,CUST0019
+INV10348,2024-05-15,Vitamin C Serum 30ml,Beauty & Health,10,256.0,CUST0105
+INV11611,2024-05-15,Facial Sunscreen SPF50,Beauty & Health,1,18.28,CUST0117
+INV10092,2024-05-16,Zip-Up Fleece Jacket,Clothing,3,212.4,CUST0183
+INV10414,2024-05-16,File Folders 100pk,Office Supplies,1,17.4,CUST0300
+INV10712,2024-05-16,Smart Plug WiFi,Electronics,3,63.36,CUST0033
+INV11281,2024-05-16,LED Desk Lamp Smart,Electronics,1,43.81,CUST0243
+INV11539,2024-05-16,Lip Balm SPF15 3pk,Beauty & Health,5,42.5,CUST0249
+INV10736,2024-05-17,Facial Sunscreen SPF50,Beauty & Health,2,30.94,CUST0273
+INV10923,2024-05-17,Bluetooth Speaker Mini,Electronics,1,43.14,CUST0193
+INV11557,2024-05-17,Wool Beanie Hat,Clothing,1,16.27,CUST0184
+INV11640,2024-05-17,Lip Balm SPF15 3pk,Beauty & Health,4,32.72,CUST0214
+INV11818,2024-05-17,Wireless Earbuds Pro,Electronics,5,244.05,CUST0026
+INV10743,2024-05-18,LED Desk Lamp Smart,Electronics,3,135.84,CUST0034
+INV11606,2024-05-18,Mechanical Keyboard TKL,Electronics,1,95.83,CUST0240
+INV11645,2024-05-18,Stainless Steel Water Bottle,Home & Kitchen,3,70.05,CUST0052
+INV11749,2024-05-18,Reusable Cotton Pads 20pk,Beauty & Health,1,10.62,CUST0260
+INV10047,2024-05-19,USB-C Hub 7-in-1,Electronics,3,94.95,CUST0107
+INV10325,2024-05-19,Sport Shorts,Clothing,1,27.33,CUST0228
+INV10462,2024-05-19,Silicone Spatula Set 3pk,Home & Kitchen,1,9.29,CUST0144
+INV11150,2024-05-19,Ceramic Coffee Mug,Home & Kitchen,2,25.52,CUST0154
+INV11587,2024-05-19,Zip-Up Fleece Jacket,Clothing,1,73.71,CUST0189
+INV10049,2024-05-20,Silicone Spatula Set 3pk,Home & Kitchen,1,10.97,CUST0178
+INV10219,2024-05-20,Lip Balm SPF15 3pk,Beauty & Health,3,21.84,CUST0248
+INV10545,2024-05-20,Wool Beanie Hat,Clothing,1,18.99,CUST0123
+INV11064,2024-05-20,Running Socks 6pk,Clothing,2,27.42,CUST0233
+INV11177,2024-05-20,Wool Beanie Hat,Clothing,4,66.2,CUST0245
+INV11406,2024-05-20,Stainless Steel Water Bottle,Home & Kitchen,3,74.58,CUST0210
+INV11814,2024-05-20,Sport Shorts,Clothing,1,22.99,CUST0288
+INV10101,2024-05-21,Sport Shorts,Clothing,2,50.3,CUST0013
+INV10547,2024-05-21,French Press Coffee Maker,Home & Kitchen,1,28.32,CUST0285
+INV10830,2024-05-21,Zip-Up Fleece Jacket,Clothing,1,72.33,CUST0056
+INV10933,2024-05-21,Natural Face Moisturizer,Beauty & Health,1,18.03,CUST0163
+INV11015,2024-05-21,File Folders 100pk,Office Supplies,3,54.96,CUST0174
+INV11233,2024-05-21,Bamboo Toothbrush 4pk,Beauty & Health,2,18.34,CUST0248
+INV11482,2024-05-21,Non-Stick Frying Pan 28cm,Home & Kitchen,1,31.84,CUST0137
+INV11673,2024-05-21,Facial Sunscreen SPF50,Beauty & Health,2,35.54,CUST0019
+INV11969,2024-05-21,A4 Printer Paper 500sh,Office Supplies,1,10.71,CUST0035
+INV10181,2024-05-22,Bamboo Cutting Board,Home & Kitchen,3,63.78,CUST0162
+INV10452,2024-05-22,Glass Storage Containers 5pk,Home & Kitchen,3,80.7,CUST0065
+INV10786,2024-05-22,Running Socks 6pk,Clothing,4,59.48,CUST0034
+INV10327,2024-05-23,Vitamin D3 Supplements,Beauty & Health,1,14.01,CUST0234
+INV10772,2024-05-23,Silicone Spatula Set 3pk,Home & Kitchen,2,19.1,CUST0162
+INV11054,2024-05-23,Webcam 1080p HD,Electronics,1,54.29,CUST0118
+INV11588,2024-05-23,Bamboo Toothbrush 4pk,Beauty & Health,1,9.81,CUST0276
+INV11908,2024-05-23,File Folders 100pk,Office Supplies,1,20.21,CUST0225
+INV10722,2024-05-24,Glass Storage Containers 5pk,Home & Kitchen,2,57.02,CUST0110
+INV10994,2024-05-24,Classic Cotton T-Shirt,Clothing,4,87.04,CUST0070
+INV11061,2024-05-24,Classic Cotton T-Shirt,Clothing,1,20.98,CUST0261
+INV11145,2024-05-24,Silicone Spatula Set 3pk,Home & Kitchen,1,10.32,CUST0001
+INV11376,2024-05-24,Facial Sunscreen SPF50,Beauty & Health,1,17.76,CUST0067
+INV11603,2024-05-25,Wireless Earbuds Pro,Electronics,1,53.29,CUST0226
+INV11853,2024-05-25,Canvas Sneakers,Clothing,1,58.82,CUST0142
+INV10226,2024-05-26,Whiteboard Markers 8pk,Office Supplies,2,24.92,CUST0257
+INV10698,2024-05-26,Sticky Notes Pack 12,Office Supplies,1,9.74,CUST0191
+INV10022,2024-05-27,Vitamin C Serum 30ml,Beauty & Health,1,26.21,CUST0058
+INV10192,2024-05-27,Non-Stick Frying Pan 28cm,Home & Kitchen,1,32.31,CUST0246
+INV10817,2024-05-27,Stainless Steel Water Bottle,Home & Kitchen,4,95.48,CUST0182
+INV11488,2024-05-27,Vitamin D3 Supplements,Beauty & Health,5,70.35,CUST0139
+INV10383,2024-05-28,Natural Face Moisturizer,Beauty & Health,1,19.5,CUST0245
+INV10540,2024-05-28,Ceramic Coffee Mug,Home & Kitchen,1,12.79,CUST0124
+INV10594,2024-05-28,Portable Charger 20000mAh,Electronics,2,56.96,CUST0210
+INV11452,2024-05-28,Hooded Sweatshirt,Clothing,1,40.63,CUST0100
+INV11968,2024-05-28,Bamboo Cutting Board,Home & Kitchen,1,19.85,CUST0234
+INV10068,2024-05-29,Portable Charger 20000mAh,Electronics,2,59.76,CUST0217
+INV10165,2024-05-29,USB-C Hub 7-in-1,Electronics,3,101.97,CUST0236
+INV10271,2024-05-29,Reusable Cotton Pads 20pk,Beauty & Health,3,34.71,CUST0156
+INV10330,2024-05-29,Bluetooth Speaker Mini,Electronics,1,43.03,CUST0036
+INV11078,2024-05-29,Canvas Sneakers,Clothing,1,59.08,CUST0081
+INV11099,2024-05-29,Bamboo Cutting Board,Home & Kitchen,4,81.56,CUST0225
+INV11102,2024-05-29,Ceramic Coffee Mug,Home & Kitchen,2,24.32,CUST0137
+INV11190,2024-05-29,Wool Beanie Hat,Clothing,3,55.77,CUST0269
+INV11230,2024-05-29,Webcam 1080p HD,Electronics,5,327.55,CUST0098
+INV11255,2024-05-29,LED Desk Lamp Smart,Electronics,1,43.88,CUST0152
+INV10106,2024-05-30,Desk Organizer Bamboo,Office Supplies,2,47.54,CUST0155
+INV10319,2024-05-30,Stainless Steel Water Bottle,Home & Kitchen,3,73.35,CUST0269
+INV10541,2024-05-30,Running Socks 6pk,Clothing,4,64.24,CUST0276
+INV11266,2024-05-30,Classic Cotton T-Shirt,Clothing,1,19.37,CUST0036
+INV11456,2024-05-30,Facial Sunscreen SPF50,Beauty & Health,1,17.39,CUST0040
+INV11503,2024-05-30,Bluetooth Speaker Mini,Electronics,4,149.84,CUST0065
+INV11595,2024-05-30,Hooded Sweatshirt,Clothing,3,138.51,CUST0238
+INV11712,2024-05-30,Vitamin C Serum 30ml,Beauty & Health,1,26.98,CUST0186
+INV10828,2024-05-31,Classic Cotton T-Shirt,Clothing,3,63.81,CUST0080
+INV10831,2024-05-31,Scissors Stainless Steel,Office Supplies,2,13.64,CUST0059
+INV11331,2024-05-31,Sticky Notes Pack 12,Office Supplies,4,37.76,CUST0085
+INV11494,2024-05-31,Natural Face Moisturizer,Beauty & Health,1,21.74,CUST0244
+INV11922,2024-05-31,Ballpoint Pens 50pk,Office Supplies,2,25.86,CUST0292
+INV10280,2024-06-01,Vitamin C Serum 30ml,Beauty & Health,2,45.98,CUST0101
+INV11053,2024-06-01,Scissors Stainless Steel,Office Supplies,3,21.96,CUST0041
+INV11657,2024-06-01,Bamboo Toothbrush 4pk,Beauty & Health,1,9.4,CUST0189
+INV10431,2024-06-02,Zip-Up Fleece Jacket,Clothing,4,319.36,CUST0242
+INV10766,2024-06-02,Vitamin D3 Supplements,Beauty & Health,1,14.27,CUST0218
+INV10998,2024-06-02,Smart Plug WiFi,Electronics,2,41.42,CUST0149
+INV11018,2024-06-02,Classic Cotton T-Shirt,Clothing,1,21.55,CUST0127
+INV11137,2024-06-02,Bluetooth Speaker Mini,Electronics,1,38.17,CUST0152
+INV11163,2024-06-02,A4 Printer Paper 500sh,Office Supplies,1,10.23,CUST0170
+INV11311,2024-06-02,Silicone Spatula Set 3pk,Home & Kitchen,2,20.3,CUST0129
+INV11723,2024-06-02,Sticky Notes Pack 12,Office Supplies,2,18.7,CUST0023
+INV11932,2024-06-02,Wool Beanie Hat,Clothing,5,85.0,CUST0057
+INV11938,2024-06-02,Bamboo Toothbrush 4pk,Beauty & Health,3,26.22,CUST0142
+INV10366,2024-06-03,Wireless Earbuds Pro,Electronics,2,108.9,CUST0127
+INV10793,2024-06-03,Essential Oil Diffuser,Beauty & Health,5,181.4,CUST0015
+INV10920,2024-06-03,Canvas Sneakers,Clothing,3,176.7,CUST0194
+INV11276,2024-06-03,Lip Balm SPF15 3pk,Beauty & Health,2,14.9,CUST0189
+INV11491,2024-06-03,Scissors Stainless Steel,Office Supplies,1,6.79,CUST0275
+INV11634,2024-06-03,Hooded Sweatshirt,Clothing,1,42.17,CUST0170
+INV11914,2024-06-03,Essential Oil Diffuser,Beauty & Health,3,94.62,CUST0274
+INV10141,2024-06-04,Glass Storage Containers 5pk,Home & Kitchen,1,27.59,CUST0173
+INV10242,2024-06-04,Facial Sunscreen SPF50,Beauty & Health,1,17.13,CUST0187
+INV11049,2024-06-04,French Press Coffee Maker,Home & Kitchen,1,31.97,CUST0105
+INV11984,2024-06-04,Vitamin C Serum 30ml,Beauty & Health,3,73.29,CUST0177
+INV10037,2024-06-05,Glass Storage Containers 5pk,Home & Kitchen,5,126.65,CUST0198
+INV10415,2024-06-05,Wireless Earbuds Pro,Electronics,2,109.64,CUST0287
+INV10508,2024-06-05,Vitamin D3 Supplements,Beauty & Health,2,25.48,CUST0191
+INV10094,2024-06-06,Natural Face Moisturizer,Beauty & Health,5,92.45,CUST0193
+INV10604,2024-06-06,Hooded Sweatshirt,Clothing,2,86.72,CUST0137
+INV11170,2024-06-06,Digital Kitchen Scale,Home & Kitchen,1,19.32,CUST0099
+INV11507,2024-06-06,Digital Kitchen Scale,Home & Kitchen,1,17.88,CUST0288
+INV11710,2024-06-06,Lip Balm SPF15 3pk,Beauty & Health,1,8.73,CUST0212
+INV11813,2024-06-06,LED Desk Lamp Smart,Electronics,2,97.14,CUST0293
+INV11850,2024-06-06,Stapler Heavy Duty,Office Supplies,5,82.3,CUST0201
+INV11891,2024-06-06,Sticky Notes Pack 12,Office Supplies,1,9.27,CUST0019
+INV10019,2024-06-07,Hooded Sweatshirt,Clothing,2,86.2,CUST0063
+INV11115,2024-06-07,Wireless Earbuds Pro,Electronics,2,109.68,CUST0173
+INV11253,2024-06-07,Mechanical Keyboard TKL,Electronics,2,172.18,CUST0190
+INV11635,2024-06-07,Smart Plug WiFi,Electronics,1,20.96,CUST0138
+INV11695,2024-06-07,Bamboo Cutting Board,Home & Kitchen,3,63.66,CUST0163
+INV10179,2024-06-08,Canvas Sneakers,Clothing,3,186.18,CUST0109
+INV10406,2024-06-08,File Folders 100pk,Office Supplies,4,75.68,CUST0272
+INV10584,2024-06-08,French Press Coffee Maker,Home & Kitchen,4,127.68,CUST0020
+INV10703,2024-06-08,Scissors Stainless Steel,Office Supplies,1,8.12,CUST0058
+INV11037,2024-06-08,Ceramic Coffee Mug,Home & Kitchen,1,14.0,CUST0115
+INV11110,2024-06-08,Vitamin D3 Supplements,Beauty & Health,3,43.56,CUST0232
+INV11828,2024-06-08,Zip-Up Fleece Jacket,Clothing,2,148.52,CUST0287
+INV11242,2024-06-09,Glass Storage Containers 5pk,Home & Kitchen,1,26.14,CUST0197
+INV11364,2024-06-09,Canvas Sneakers,Clothing,1,59.99,CUST0102
+INV11424,2024-06-09,LED Desk Lamp Smart,Electronics,2,91.72,CUST0297
+INV11628,2024-06-09,Bamboo Toothbrush 4pk,Beauty & Health,1,9.78,CUST0003
+INV11764,2024-06-09,Classic Cotton T-Shirt,Clothing,1,18.45,CUST0092
+INV11890,2024-06-09,Classic Cotton T-Shirt,Clothing,2,43.94,CUST0225
+INV10064,2024-06-10,Bluetooth Speaker Mini,Electronics,1,38.21,CUST0161
+INV10337,2024-06-10,Running Socks 6pk,Clothing,3,44.1,CUST0138
+INV11153,2024-06-10,LED Desk Lamp Smart,Electronics,2,86.86,CUST0262
+INV11937,2024-06-10,Canvas Sneakers,Clothing,1,64.59,CUST0019
+INV10520,2024-06-11,Classic Cotton T-Shirt,Clothing,2,38.74,CUST0007
+INV10533,2024-06-11,Vitamin C Serum 30ml,Beauty & Health,1,24.04,CUST0002
+INV10774,2024-06-11,Natural Face Moisturizer,Beauty & Health,2,36.94,CUST0283
+INV10816,2024-06-11,Essential Oil Diffuser,Beauty & Health,2,71.14,CUST0001
+INV10982,2024-06-11,Lip Balm SPF15 3pk,Beauty & Health,4,29.32,CUST0104
+INV11139,2024-06-11,Silicone Spatula Set 3pk,Home & Kitchen,1,9.26,CUST0217
+INV11213,2024-06-11,Webcam 1080p HD,Electronics,1,55.27,CUST0105
+INV11351,2024-06-11,Stapler Heavy Duty,Office Supplies,1,17.66,CUST0042
+INV11989,2024-06-11,Stapler Heavy Duty,Office Supplies,2,36.94,CUST0214
+INV10079,2024-06-12,File Folders 100pk,Office Supplies,2,39.22,CUST0052
+INV11256,2024-06-12,Stapler Heavy Duty,Office Supplies,3,47.46,CUST0183
+INV11757,2024-06-12,Classic Cotton T-Shirt,Clothing,2,43.92,CUST0170
+INV10284,2024-06-13,Vitamin D3 Supplements,Beauty & Health,1,15.19,CUST0017
+INV10304,2024-06-13,Ballpoint Pens 50pk,Office Supplies,1,13.26,CUST0005
+INV10633,2024-06-13,Ballpoint Pens 50pk,Office Supplies,1,12.45,CUST0218
+INV10668,2024-06-13,Smart Plug WiFi,Electronics,1,19.45,CUST0221
+INV11098,2024-06-13,Natural Face Moisturizer,Beauty & Health,1,20.51,CUST0112
+INV11352,2024-06-13,Wool Beanie Hat,Clothing,1,16.58,CUST0174
+INV11678,2024-06-13,Canvas Sneakers,Clothing,1,59.1,CUST0196
+INV10350,2024-06-14,Canvas Sneakers,Clothing,1,54.47,CUST0156
+INV11119,2024-06-14,Silicone Spatula Set 3pk,Home & Kitchen,2,21.8,CUST0160
+INV11379,2024-06-14,Facial Sunscreen SPF50,Beauty & Health,1,17.77,CUST0103
+INV11598,2024-06-14,Sport Shorts,Clothing,1,23.18,CUST0128
+INV11435,2024-06-15,Ceramic Coffee Mug,Home & Kitchen,2,24.5,CUST0265
+INV11564,2024-06-15,Vitamin D3 Supplements,Beauty & Health,1,13.4,CUST0266
+INV10133,2024-06-16,Lip Balm SPF15 3pk,Beauty & Health,1,7.72,CUST0122
+INV10389,2024-06-16,Scissors Stainless Steel,Office Supplies,1,7.16,CUST0241
+INV10490,2024-06-16,Silicone Spatula Set 3pk,Home & Kitchen,3,30.81,CUST0263
+INV10617,2024-06-16,Wireless Earbuds Pro,Electronics,1,47.48,CUST0071
+INV11156,2024-06-16,Bluetooth Speaker Mini,Electronics,5,217.75,CUST0123
+INV11258,2024-06-16,File Folders 100pk,Office Supplies,1,17.68,CUST0003
+INV11305,2024-06-16,Sticky Notes Pack 12,Office Supplies,2,16.7,CUST0157
+INV11337,2024-06-16,Vitamin D3 Supplements,Beauty & Health,1,13.15,CUST0120
+INV11231,2024-06-17,Wool Beanie Hat,Clothing,1,19.73,CUST0230
+INV11451,2024-06-17,Bluetooth Speaker Mini,Electronics,1,37.5,CUST0215
+INV11462,2024-06-17,Glass Storage Containers 5pk,Home & Kitchen,4,115.36,CUST0030
+INV11080,2024-06-18,Smart Plug WiFi,Electronics,1,19.37,CUST0168
+INV11743,2024-06-18,Vitamin C Serum 30ml,Beauty & Health,1,23.52,CUST0091
+INV11826,2024-06-18,Stainless Steel Water Bottle,Home & Kitchen,1,25.26,CUST0007
+INV10976,2024-06-19,Vitamin C Serum 30ml,Beauty & Health,2,54.2,CUST0042
+INV11329,2024-06-19,Canvas Sneakers,Clothing,1,54.4,CUST0129
+INV11370,2024-06-19,Hooded Sweatshirt,Clothing,1,41.48,CUST0284
+INV11524,2024-06-19,Wool Beanie Hat,Clothing,3,51.27,CUST0205
+INV11805,2024-06-19,A4 Printer Paper 500sh,Office Supplies,3,28.86,CUST0215
+INV10207,2024-06-20,Ballpoint Pens 50pk,Office Supplies,1,13.49,CUST0013
+INV10518,2024-06-20,Digital Kitchen Scale,Home & Kitchen,1,19.3,CUST0065
+INV10610,2024-06-20,Whiteboard Markers 8pk,Office Supplies,1,11.17,CUST0036
+INV11123,2024-06-20,Vitamin D3 Supplements,Beauty & Health,2,28.54,CUST0157
+INV11398,2024-06-20,Lip Balm SPF15 3pk,Beauty & Health,1,8.03,CUST0027
+INV11735,2024-06-20,Scissors Stainless Steel,Office Supplies,1,7.74,CUST0253
+INV10834,2024-06-21,Bamboo Cutting Board,Home & Kitchen,10,210.9,CUST0129
+INV10848,2024-06-21,Wool Beanie Hat,Clothing,1,19.37,CUST0151
+INV10964,2024-06-21,File Folders 100pk,Office Supplies,2,36.88,CUST0178
+INV11160,2024-06-21,Running Socks 6pk,Clothing,2,30.02,CUST0137
+INV11783,2024-06-21,Hooded Sweatshirt,Clothing,2,87.18,CUST0058
+INV11874,2024-06-21,Whiteboard Markers 8pk,Office Supplies,10,114.2,CUST0117
+INV11972,2024-06-21,Wool Beanie Hat,Clothing,1,19.78,CUST0037
+INV10160,2024-06-22,Hooded Sweatshirt,Clothing,1,44.06,CUST0141
+INV10184,2024-06-22,Ceramic Coffee Mug,Home & Kitchen,3,42.03,CUST0240
+INV10530,2024-06-22,Portable Charger 20000mAh,Electronics,2,62.78,CUST0297
+INV10614,2024-06-22,Digital Kitchen Scale,Home & Kitchen,3,62.07,CUST0081
+INV10788,2024-06-22,Classic Cotton T-Shirt,Clothing,2,39.24,CUST0144
+INV10905,2024-06-22,Ceramic Coffee Mug,Home & Kitchen,1,14.17,CUST0209
+INV11109,2024-06-22,Zip-Up Fleece Jacket,Clothing,2,150.16,CUST0218
+INV11225,2024-06-22,Wool Beanie Hat,Clothing,1,18.4,CUST0287
+INV11325,2024-06-22,Bamboo Toothbrush 4pk,Beauty & Health,1,8.82,CUST0242
+INV11455,2024-06-22,Running Socks 6pk,Clothing,1,16.05,CUST0164
+INV11827,2024-06-22,Stainless Steel Water Bottle,Home & Kitchen,2,47.82,CUST0139
+INV10290,2024-06-23,Natural Face Moisturizer,Beauty & Health,1,20.12,CUST0024
+INV10595,2024-06-23,Stapler Heavy Duty,Office Supplies,2,37.08,CUST0230
+INV11355,2024-06-23,Vitamin D3 Supplements,Beauty & Health,1,14.64,CUST0240
+INV11434,2024-06-23,A4 Printer Paper 500sh,Office Supplies,1,10.81,CUST0285
+INV11668,2024-06-23,Bluetooth Speaker Mini,Electronics,1,40.74,CUST0285
+INV11994,2024-06-23,Natural Face Moisturizer,Beauty & Health,1,18.7,CUST0227
+INV10302,2024-06-24,Non-Stick Frying Pan 28cm,Home & Kitchen,3,100.02,CUST0144
+INV10551,2024-06-24,Wireless Earbuds Pro,Electronics,3,139.11,CUST0119
+INV10845,2024-06-24,Stapler Heavy Duty,Office Supplies,2,31.48,CUST0026
+INV11095,2024-06-24,USB-C Hub 7-in-1,Electronics,2,68.0,CUST0180
+INV11835,2024-06-24,Facial Sunscreen SPF50,Beauty & Health,2,36.32,CUST0254
+INV10061,2024-06-25,Reusable Cotton Pads 20pk,Beauty & Health,1,11.46,CUST0217
+INV10878,2024-06-25,Bamboo Cutting Board,Home & Kitchen,1,21.77,CUST0011
+INV11547,2024-06-25,Slim Fit Chinos,Clothing,3,144.48,CUST0189
+INV11574,2024-06-25,Bluetooth Speaker Mini,Electronics,1,38.81,CUST0216
+INV11637,2024-06-25,Portable Charger 20000mAh,Electronics,4,117.4,CUST0167
+INV11787,2024-06-25,Silicone Spatula Set 3pk,Home & Kitchen,1,10.6,CUST0220
+INV10265,2024-06-26,USB-C Hub 7-in-1,Electronics,2,70.2,CUST0032
+INV10335,2024-06-26,Portable Charger 20000mAh,Electronics,4,128.72,CUST0065
+INV10351,2024-06-26,Ballpoint Pens 50pk,Office Supplies,1,12.38,CUST0074
+INV10453,2024-06-26,Essential Oil Diffuser,Beauty & Health,1,35.1,CUST0105
+INV10691,2024-06-26,Glass Storage Containers 5pk,Home & Kitchen,1,28.33,CUST0145
+INV10699,2024-06-26,Bamboo Toothbrush 4pk,Beauty & Health,2,17.9,CUST0266
+INV11542,2024-06-26,Classic Cotton T-Shirt,Clothing,2,36.4,CUST0008
+INV11791,2024-06-26,Vitamin D3 Supplements,Beauty & Health,2,28.22,CUST0077
+INV10215,2024-06-27,Slim Fit Chinos,Clothing,2,92.24,CUST0142
+INV10536,2024-06-27,Stainless Steel Water Bottle,Home & Kitchen,1,23.9,CUST0063
+INV11124,2024-06-27,Natural Face Moisturizer,Beauty & Health,1,19.38,CUST0285
+INV11208,2024-06-27,Desk Organizer Bamboo,Office Supplies,2,49.26,CUST0245
+INV11775,2024-06-27,Canvas Sneakers,Clothing,1,56.07,CUST0202
+INV11836,2024-06-27,Essential Oil Diffuser,Beauty & Health,2,64.8,CUST0257
+INV10582,2024-06-28,Wool Beanie Hat,Clothing,3,49.17,CUST0022
+INV10086,2024-06-29,Hooded Sweatshirt,Clothing,2,97.8,CUST0228
+INV10400,2024-06-29,Webcam 1080p HD,Electronics,2,116.36,CUST0217
+INV11511,2024-06-29,Wool Beanie Hat,Clothing,3,51.93,CUST0194
+INV11565,2024-06-29,Stainless Steel Water Bottle,Home & Kitchen,4,94.24,CUST0237
+INV11706,2024-06-30,Sticky Notes Pack 12,Office Supplies,1,8.96,CUST0241
+INV11773,2024-06-30,Desk Organizer Bamboo,Office Supplies,3,73.8,CUST0267
+INV10129,2024-07-01,File Folders 100pk,Office Supplies,1,17.85,CUST0170
+INV11165,2024-07-01,File Folders 100pk,Office Supplies,1,18.81,CUST0221
+INV11315,2024-07-01,Wireless Earbuds Pro,Electronics,2,109.82,CUST0177
+INV11940,2024-07-01,Wool Beanie Hat,Clothing,1,16.99,CUST0068
+INV10376,2024-07-02,Bluetooth Speaker Mini,Electronics,3,128.01,CUST0222
+INV10789,2024-07-02,Vitamin C Serum 30ml,Beauty & Health,1,25.06,CUST0004
+INV11667,2024-07-02,LED Desk Lamp Smart,Electronics,1,46.18,CUST0034
+INV11685,2024-07-02,Stapler Heavy Duty,Office Supplies,4,66.6,CUST0258
+INV10701,2024-07-03,Smart Plug WiFi,Electronics,5,104.0,CUST0246
+INV10761,2024-07-03,Reusable Cotton Pads 20pk,Beauty & Health,3,31.41,CUST0236
+INV11257,2024-07-03,Non-Stick Frying Pan 28cm,Home & Kitchen,1,34.4,CUST0029
+INV11655,2024-07-03,Reusable Cotton Pads 20pk,Beauty & Health,2,24.46,CUST0012
+INV10443,2024-07-04,Desk Organizer Bamboo,Office Supplies,1,26.9,CUST0219
+INV11219,2024-07-04,Scissors Stainless Steel,Office Supplies,1,7.61,CUST0193
+INV10232,2024-07-05,Sport Shorts,Clothing,1,26.89,CUST0207
+INV10802,2024-07-05,Non-Stick Frying Pan 28cm,Home & Kitchen,2,71.12,CUST0008
+INV11616,2024-07-05,Wool Beanie Hat,Clothing,1,17.29,CUST0117
+INV11809,2024-07-05,Bamboo Toothbrush 4pk,Beauty & Health,1,8.1,CUST0061
+INV10014,2024-07-06,LED Desk Lamp Smart,Electronics,1,41.66,CUST0101
+INV10363,2024-07-06,Sport Shorts,Clothing,1,24.81,CUST0172
+INV10449,2024-07-06,Scissors Stainless Steel,Office Supplies,1,7.41,CUST0101
+INV10651,2024-07-06,French Press Coffee Maker,Home & Kitchen,1,31.09,CUST0030
+INV10082,2024-07-07,Stapler Heavy Duty,Office Supplies,2,33.96,CUST0183
+INV10565,2024-07-07,Sport Shorts,Clothing,2,50.58,CUST0273
+INV10592,2024-07-07,French Press Coffee Maker,Home & Kitchen,1,29.42,CUST0212
+INV10647,2024-07-07,LED Desk Lamp Smart,Electronics,1,46.94,CUST0057
+INV11282,2024-07-07,Bluetooth Speaker Mini,Electronics,2,84.44,CUST0250
+INV11563,2024-07-07,Reusable Cotton Pads 20pk,Beauty & Health,1,12.14,CUST0128
+INV10172,2024-07-08,Essential Oil Diffuser,Beauty & Health,1,35.42,CUST0156
+INV10686,2024-07-08,Sticky Notes Pack 12,Office Supplies,1,9.67,CUST0117
+INV11789,2024-07-08,Glass Storage Containers 5pk,Home & Kitchen,4,116.92,CUST0087
+INV11831,2024-07-08,Stapler Heavy Duty,Office Supplies,2,34.12,CUST0048
+INV10372,2024-07-09,Wireless Earbuds Pro,Electronics,1,49.58,CUST0051
+INV10626,2024-07-09,Sport Shorts,Clothing,1,24.18,CUST0234
+INV11234,2024-07-09,Classic Cotton T-Shirt,Clothing,4,86.72,CUST0097
+INV11260,2024-07-09,Natural Face Moisturizer,Beauty & Health,2,37.08,CUST0075
+INV11369,2024-07-09,Classic Cotton T-Shirt,Clothing,2,38.7,CUST0096
+INV11414,2024-07-09,Classic Cotton T-Shirt,Clothing,1,19.18,CUST0260
+INV10075,2024-07-10,Vitamin C Serum 30ml,Beauty & Health,2,47.48,CUST0156
+INV10138,2024-07-10,Sport Shorts,Clothing,1,25.6,CUST0053
+INV10264,2024-07-10,Canvas Sneakers,Clothing,1,65.08,CUST0058
+INV10513,2024-07-10,Stapler Heavy Duty,Office Supplies,3,48.15,CUST0168
+INV10611,2024-07-10,Scissors Stainless Steel,Office Supplies,2,15.5,CUST0138
+INV10721,2024-07-10,Desk Organizer Bamboo,Office Supplies,1,22.61,CUST0010
+INV10749,2024-07-10,Ballpoint Pens 50pk,Office Supplies,2,26.08,CUST0002
+INV11910,2024-07-10,Mechanical Keyboard TKL,Electronics,1,84.17,CUST0252
+INV10934,2024-07-11,Scissors Stainless Steel,Office Supplies,2,13.58,CUST0165
+INV11074,2024-07-11,Natural Face Moisturizer,Beauty & Health,1,19.69,CUST0256
+INV11111,2024-07-11,Wireless Earbuds Pro,Electronics,5,238.65,CUST0187
+INV11217,2024-07-11,A4 Printer Paper 500sh,Office Supplies,1,9.76,CUST0080
+INV11960,2024-07-11,Slim Fit Chinos,Clothing,1,47.87,CUST0282
+INV10447,2024-07-12,Ceramic Coffee Mug,Home & Kitchen,1,12.94,CUST0193
+INV10457,2024-07-12,Silicone Spatula Set 3pk,Home & Kitchen,1,9.59,CUST0170
+INV10557,2024-07-12,Glass Storage Containers 5pk,Home & Kitchen,1,29.27,CUST0237
+INV10959,2024-07-12,Mechanical Keyboard TKL,Electronics,1,84.55,CUST0135
+INV11229,2024-07-12,Whiteboard Markers 8pk,Office Supplies,4,48.68,CUST0099
+INV11371,2024-07-12,USB-C Hub 7-in-1,Electronics,4,144.12,CUST0125
+INV11555,2024-07-12,Non-Stick Frying Pan 28cm,Home & Kitchen,3,107.64,CUST0278
+INV11730,2024-07-12,Stapler Heavy Duty,Office Supplies,1,15.59,CUST0239
+INV11786,2024-07-12,Classic Cotton T-Shirt,Clothing,1,21.75,CUST0287
+INV10270,2024-07-13,A4 Printer Paper 500sh,Office Supplies,1,10.31,CUST0090
+INV10433,2024-07-13,Webcam 1080p HD,Electronics,2,124.12,CUST0293
+INV10548,2024-07-13,LED Desk Lamp Smart,Electronics,1,48.86,CUST0083
+INV10787,2024-07-13,Stapler Heavy Duty,Office Supplies,2,31.0,CUST0035
+INV10448,2024-07-14,Digital Kitchen Scale,Home & Kitchen,1,18.5,CUST0119
+INV10972,2024-07-14,Reusable Cotton Pads 20pk,Beauty & Health,1,11.23,CUST0010
+INV10980,2024-07-14,Vitamin D3 Supplements,Beauty & Health,1,12.66,CUST0104
+INV11499,2024-07-14,Lip Balm SPF15 3pk,Beauty & Health,1,8.39,CUST0125
+INV11569,2024-07-14,Stainless Steel Water Bottle,Home & Kitchen,1,22.77,CUST0234
+INV11642,2024-07-14,Desk Organizer Bamboo,Office Supplies,4,92.88,CUST0026
+INV11804,2024-07-14,Scissors Stainless Steel,Office Supplies,2,15.08,CUST0204
+INV11951,2024-07-14,Bamboo Toothbrush 4pk,Beauty & Health,1,8.46,CUST0294
+INV10296,2024-07-15,Ceramic Coffee Mug,Home & Kitchen,2,27.94,CUST0086
+INV11129,2024-07-15,Ballpoint Pens 50pk,Office Supplies,3,37.68,CUST0197
+INV10240,2024-07-16,Bamboo Cutting Board,Home & Kitchen,2,44.82,CUST0069
+INV11600,2024-07-16,Natural Face Moisturizer,Beauty & Health,2,41.58,CUST0233
+INV10109,2024-07-17,French Press Coffee Maker,Home & Kitchen,1,30.1,CUST0053
+INV10370,2024-07-17,Bluetooth Speaker Mini,Electronics,1,42.03,CUST0212
+INV10851,2024-07-17,Bamboo Toothbrush 4pk,Beauty & Health,1,9.23,CUST0075
+INV11297,2024-07-17,Webcam 1080p HD,Electronics,1,60.46,CUST0170
+INV10757,2024-07-18,French Press Coffee Maker,Home & Kitchen,1,30.06,CUST0003
+INV11220,2024-07-18,Ceramic Coffee Mug,Home & Kitchen,3,40.35,CUST0031
+INV11268,2024-07-18,Glass Storage Containers 5pk,Home & Kitchen,1,25.34,CUST0104
+INV11269,2024-07-18,Smart Plug WiFi,Electronics,3,55.11,CUST0163
+INV11520,2024-07-18,Ballpoint Pens 50pk,Office Supplies,1,11.7,CUST0021
+INV11661,2024-07-18,Portable Charger 20000mAh,Electronics,3,90.09,CUST0007
+INV11708,2024-07-18,Classic Cotton T-Shirt,Clothing,10,206.2,CUST0146
+INV10256,2024-07-19,Digital Kitchen Scale,Home & Kitchen,2,39.26,CUST0067
+INV10261,2024-07-19,Digital Kitchen Scale,Home & Kitchen,2,38.96,CUST0225
+INV10524,2024-07-19,Webcam 1080p HD,Electronics,3,174.0,CUST0127
+INV10599,2024-07-19,Classic Cotton T-Shirt,Clothing,10,182.4,CUST0238
+INV10791,2024-07-19,Smart Plug WiFi,Electronics,1,20.67,CUST0233
+INV11013,2024-07-19,Glass Storage Containers 5pk,Home & Kitchen,3,89.4,CUST0087
+INV11728,2024-07-19,LED Desk Lamp Smart,Electronics,5,217.7,CUST0148
+INV11898,2024-07-19,Stainless Steel Water Bottle,Home & Kitchen,1,22.48,CUST0125
+INV11899,2024-07-19,Silicone Spatula Set 3pk,Home & Kitchen,2,18.76,CUST0260
+INV10180,2024-07-20,Bamboo Toothbrush 4pk,Beauty & Health,1,8.87,CUST0059
+INV10285,2024-07-20,Vitamin D3 Supplements,Beauty & Health,1,13.59,CUST0057
+INV10760,2024-07-20,Natural Face Moisturizer,Beauty & Health,4,76.24,CUST0181
+INV11152,2024-07-20,Portable Charger 20000mAh,Electronics,1,29.31,CUST0250
+INV11662,2024-07-20,Mechanical Keyboard TKL,Electronics,1,95.99,CUST0297
+INV10018,2024-07-21,Wireless Earbuds Pro,Electronics,3,156.84,CUST0234
+INV10052,2024-07-21,Ceramic Coffee Mug,Home & Kitchen,3,37.23,CUST0096
+INV10056,2024-07-21,Vitamin D3 Supplements,Beauty & Health,1,13.31,CUST0283
+INV10060,2024-07-21,Lip Balm SPF15 3pk,Beauty & Health,1,8.7,CUST0134
+INV10661,2024-07-21,Bamboo Cutting Board,Home & Kitchen,2,46.3,CUST0266
+INV11189,2024-07-21,Bamboo Cutting Board,Home & Kitchen,1,23.13,CUST0294
+INV11457,2024-07-21,Stapler Heavy Duty,Office Supplies,2,35.2,CUST0178
+INV11548,2024-07-21,Classic Cotton T-Shirt,Clothing,1,21.84,CUST0046
+INV11948,2024-07-21,Bamboo Cutting Board,Home & Kitchen,2,42.14,CUST0161
+INV10222,2024-07-22,Natural Face Moisturizer,Beauty & Health,2,42.22,CUST0245
+INV10748,2024-07-22,USB-C Hub 7-in-1,Electronics,1,31.72,CUST0144
+INV10847,2024-07-22,Essential Oil Diffuser,Beauty & Health,1,35.18,CUST0196
+INV10915,2024-07-22,Classic Cotton T-Shirt,Clothing,1,19.74,CUST0063
+INV11133,2024-07-22,Vitamin D3 Supplements,Beauty & Health,3,41.61,CUST0058
+INV11418,2024-07-22,Hooded Sweatshirt,Clothing,1,44.73,CUST0028
+INV11484,2024-07-22,French Press Coffee Maker,Home & Kitchen,2,64.18,CUST0077
+INV10303,2024-07-23,Natural Face Moisturizer,Beauty & Health,4,73.32,CUST0080
+INV11326,2024-07-23,Smart Plug WiFi,Electronics,4,76.8,CUST0081
+INV11975,2024-07-23,Facial Sunscreen SPF50,Beauty & Health,3,55.65,CUST0126
+INV10323,2024-07-24,LED Desk Lamp Smart,Electronics,1,48.52,CUST0121
+INV11088,2024-07-24,Scissors Stainless Steel,Office Supplies,3,22.23,CUST0087
+INV11287,2024-07-24,Scissors Stainless Steel,Office Supplies,4,29.08,CUST0275
+INV11558,2024-07-24,Natural Face Moisturizer,Beauty & Health,1,20.6,CUST0047
+INV10204,2024-07-25,Smart Plug WiFi,Electronics,1,19.3,CUST0099
+INV10309,2024-07-25,Silicone Spatula Set 3pk,Home & Kitchen,1,9.07,CUST0085
+INV10528,2024-07-25,Digital Kitchen Scale,Home & Kitchen,1,20.36,CUST0165
+INV11169,2024-07-25,Lip Balm SPF15 3pk,Beauty & Health,5,37.4,CUST0067
+INV11293,2024-07-25,Digital Kitchen Scale,Home & Kitchen,1,18.1,CUST0189
+INV10024,2024-07-26,Classic Cotton T-Shirt,Clothing,1,18.71,CUST0217
+INV10087,2024-07-26,Glass Storage Containers 5pk,Home & Kitchen,1,28.25,CUST0085
+INV10202,2024-07-26,Bluetooth Speaker Mini,Electronics,1,39.52,CUST0043
+INV10286,2024-07-26,Sticky Notes Pack 12,Office Supplies,3,25.77,CUST0258
+INV10850,2024-07-26,LED Desk Lamp Smart,Electronics,2,93.94,CUST0046
+INV10931,2024-07-26,A4 Printer Paper 500sh,Office Supplies,2,19.96,CUST0300
+INV11001,2024-07-26,Digital Kitchen Scale,Home & Kitchen,1,18.74,CUST0093
+INV11670,2024-07-26,Digital Kitchen Scale,Home & Kitchen,3,54.81,CUST0279
+INV11745,2024-07-26,Stainless Steel Water Bottle,Home & Kitchen,1,24.02,CUST0055
+INV10059,2024-07-27,Non-Stick Frying Pan 28cm,Home & Kitchen,1,35.48,CUST0026
+INV10804,2024-07-27,Zip-Up Fleece Jacket,Clothing,2,162.56,CUST0060
+INV10913,2024-07-27,USB-C Hub 7-in-1,Electronics,3,110.49,CUST0147
+INV11340,2024-07-27,Wool Beanie Hat,Clothing,1,17.7,CUST0060
+INV11689,2024-07-27,Wool Beanie Hat,Clothing,1,16.34,CUST0258
+INV10794,2024-07-28,Mechanical Keyboard TKL,Electronics,1,87.0,CUST0165
+INV10798,2024-07-28,Ballpoint Pens 50pk,Office Supplies,1,11.75,CUST0012
+INV10808,2024-07-28,Glass Storage Containers 5pk,Home & Kitchen,3,77.22,CUST0220
+INV11271,2024-07-28,Non-Stick Frying Pan 28cm,Home & Kitchen,2,74.32,CUST0222
+INV11393,2024-07-28,Bamboo Toothbrush 4pk,Beauty & Health,2,18.5,CUST0247
+INV11713,2024-07-28,Digital Kitchen Scale,Home & Kitchen,1,17.15,CUST0219
+INV10005,2024-07-29,Ceramic Coffee Mug,Home & Kitchen,3,40.86,CUST0172
+INV10310,2024-07-29,Canvas Sneakers,Clothing,1,62.84,CUST0126
+INV11515,2024-07-29,Facial Sunscreen SPF50,Beauty & Health,1,15.71,CUST0204
+INV11774,2024-07-29,Mechanical Keyboard TKL,Electronics,2,180.68,CUST0008
+INV11788,2024-07-29,Desk Organizer Bamboo,Office Supplies,2,46.66,CUST0201
+INV10154,2024-07-30,Stapler Heavy Duty,Office Supplies,1,16.77,CUST0178
+INV10326,2024-07-30,Slim Fit Chinos,Clothing,2,106.88,CUST0130
+INV10694,2024-07-30,Vitamin C Serum 30ml,Beauty & Health,1,23.48,CUST0279
+INV11021,2024-07-30,Bamboo Toothbrush 4pk,Beauty & Health,1,9.01,CUST0108
+INV11107,2024-07-30,Scissors Stainless Steel,Office Supplies,2,15.46,CUST0298
+INV11649,2024-07-30,Natural Face Moisturizer,Beauty & Health,3,56.43,CUST0070
+INV11889,2024-07-30,Sport Shorts,Clothing,2,50.84,CUST0181
+INV10608,2024-07-31,Digital Kitchen Scale,Home & Kitchen,1,20.55,CUST0199
+INV11106,2024-07-31,Scissors Stainless Steel,Office Supplies,1,7.35,CUST0134
+INV11426,2024-07-31,Facial Sunscreen SPF50,Beauty & Health,2,32.66,CUST0298
+INV10006,2024-08-01,Bluetooth Speaker Mini,Electronics,2,76.92,CUST0252
+INV10502,2024-08-01,French Press Coffee Maker,Home & Kitchen,2,63.8,CUST0213
+INV10525,2024-08-01,A4 Printer Paper 500sh,Office Supplies,3,32.58,CUST0225
+INV11042,2024-08-01,Slim Fit Chinos,Clothing,1,52.53,CUST0265
+INV11348,2024-08-01,Whiteboard Markers 8pk,Office Supplies,2,22.44,CUST0108
+INV11829,2024-08-01,French Press Coffee Maker,Home & Kitchen,1,27.08,CUST0111
+INV11855,2024-08-01,Stapler Heavy Duty,Office Supplies,1,16.45,CUST0261
+INV10526,2024-08-02,Bamboo Cutting Board,Home & Kitchen,2,46.7,CUST0261
+INV10669,2024-08-02,Silicone Spatula Set 3pk,Home & Kitchen,1,10.8,CUST0175
+INV11157,2024-08-02,Classic Cotton T-Shirt,Clothing,1,21.41,CUST0138
+INV11203,2024-08-02,Mechanical Keyboard TKL,Electronics,3,293.34,CUST0093
+INV11222,2024-08-02,Whiteboard Markers 8pk,Office Supplies,1,10.93,CUST0291
+INV10630,2024-08-03,Wireless Earbuds Pro,Electronics,1,46.54,CUST0274
+INV10770,2024-08-03,Bamboo Cutting Board,Home & Kitchen,5,113.65,CUST0156
+INV11508,2024-08-03,Natural Face Moisturizer,Beauty & Health,2,38.14,CUST0245
+INV11521,2024-08-03,Sticky Notes Pack 12,Office Supplies,2,18.78,CUST0044
+INV11693,2024-08-03,Smart Plug WiFi,Electronics,1,18.97,CUST0252
+INV11777,2024-08-03,Scissors Stainless Steel,Office Supplies,3,24.0,CUST0090
+INV11851,2024-08-03,Ballpoint Pens 50pk,Office Supplies,2,25.36,CUST0236
+INV10546,2024-08-04,Running Socks 6pk,Clothing,2,32.18,CUST0188
+INV11368,2024-08-04,Whiteboard Markers 8pk,Office Supplies,2,25.02,CUST0015
+INV10010,2024-08-05,Slim Fit Chinos,Clothing,4,186.36,CUST0260
+INV10269,2024-08-05,Scissors Stainless Steel,Office Supplies,1,7.97,CUST0281
+INV10886,2024-08-05,Slim Fit Chinos,Clothing,2,108.82,CUST0083
+INV11141,2024-08-05,Sticky Notes Pack 12,Office Supplies,3,28.5,CUST0029
+INV11816,2024-08-05,LED Desk Lamp Smart,Electronics,1,42.02,CUST0291
+INV11887,2024-08-05,Bamboo Toothbrush 4pk,Beauty & Health,1,9.13,CUST0020
+INV11998,2024-08-05,Webcam 1080p HD,Electronics,2,128.24,CUST0159
+INV10050,2024-08-06,Smart Plug WiFi,Electronics,1,21.98,CUST0141
+INV10162,2024-08-06,Wireless Earbuds Pro,Electronics,3,147.0,CUST0151
+INV10321,2024-08-06,Natural Face Moisturizer,Beauty & Health,1,18.44,CUST0096
+INV10367,2024-08-06,Glass Storage Containers 5pk,Home & Kitchen,1,29.11,CUST0171
+INV11016,2024-08-06,Hooded Sweatshirt,Clothing,2,94.14,CUST0147
+INV11466,2024-08-06,Non-Stick Frying Pan 28cm,Home & Kitchen,2,74.9,CUST0209
+INV11535,2024-08-06,Wool Beanie Hat,Clothing,2,39.4,CUST0096
+INV11924,2024-08-06,Vitamin C Serum 30ml,Beauty & Health,1,24.75,CUST0299
+INV11943,2024-08-06,Zip-Up Fleece Jacket,Clothing,1,80.66,CUST0022
+INV10598,2024-08-07,Stapler Heavy Duty,Office Supplies,1,17.78,CUST0152
+INV10835,2024-08-07,Webcam 1080p HD,Electronics,1,57.03,CUST0206
+INV11031,2024-08-07,Whiteboard Markers 8pk,Office Supplies,2,25.26,CUST0099
+INV11067,2024-08-07,Canvas Sneakers,Clothing,4,231.68,CUST0164
+INV10537,2024-08-08,Portable Charger 20000mAh,Electronics,1,30.92,CUST0131
+INV10719,2024-08-08,Stapler Heavy Duty,Office Supplies,1,15.57,CUST0015
+INV10910,2024-08-08,Portable Charger 20000mAh,Electronics,2,62.4,CUST0002
+INV10921,2024-08-08,Sticky Notes Pack 12,Office Supplies,3,28.05,CUST0169
+INV11446,2024-08-08,Running Socks 6pk,Clothing,1,15.46,CUST0083
+INV11536,2024-08-08,Vitamin C Serum 30ml,Beauty & Health,3,67.53,CUST0066
+INV10451,2024-08-09,Glass Storage Containers 5pk,Home & Kitchen,1,26.28,CUST0211
+INV10775,2024-08-09,Mechanical Keyboard TKL,Electronics,3,286.83,CUST0206
+INV11151,2024-08-09,Natural Face Moisturizer,Beauty & Health,1,19.8,CUST0038
+INV11581,2024-08-09,Essential Oil Diffuser,Beauty & Health,2,65.46,CUST0088
+INV10123,2024-08-10,Essential Oil Diffuser,Beauty & Health,2,70.28,CUST0212
+INV10544,2024-08-10,Stainless Steel Water Bottle,Home & Kitchen,2,47.64,CUST0044
+INV10643,2024-08-10,A4 Printer Paper 500sh,Office Supplies,1,10.17,CUST0032
+INV10773,2024-08-10,Hooded Sweatshirt,Clothing,1,42.43,CUST0279
+INV11601,2024-08-10,LED Desk Lamp Smart,Electronics,1,42.86,CUST0050
+INV11659,2024-08-10,Smart Plug WiFi,Electronics,5,100.7,CUST0052
+INV11946,2024-08-10,Portable Charger 20000mAh,Electronics,2,59.86,CUST0010
+INV10381,2024-08-11,Wireless Earbuds Pro,Electronics,1,52.48,CUST0156
+INV10405,2024-08-11,Silicone Spatula Set 3pk,Home & Kitchen,2,19.98,CUST0199
+INV10442,2024-08-11,Sticky Notes Pack 12,Office Supplies,2,17.6,CUST0115
+INV10832,2024-08-11,Scissors Stainless Steel,Office Supplies,1,6.92,CUST0251
+INV11043,2024-08-11,USB-C Hub 7-in-1,Electronics,1,36.09,CUST0286
+INV11076,2024-08-11,Running Socks 6pk,Clothing,2,29.08,CUST0139
+INV11187,2024-08-11,Ballpoint Pens 50pk,Office Supplies,1,11.81,CUST0180
+INV11546,2024-08-11,Classic Cotton T-Shirt,Clothing,1,19.07,CUST0227
+INV11732,2024-08-11,A4 Printer Paper 500sh,Office Supplies,5,45.3,CUST0243
+INV10115,2024-08-12,Wool Beanie Hat,Clothing,2,33.24,CUST0012
+INV10146,2024-08-12,File Folders 100pk,Office Supplies,1,20.17,CUST0288
+INV10353,2024-08-12,Vitamin D3 Supplements,Beauty & Health,1,13.16,CUST0300
+INV10658,2024-08-12,Whiteboard Markers 8pk,Office Supplies,1,10.51,CUST0183
+INV11103,2024-08-12,Reusable Cotton Pads 20pk,Beauty & Health,1,11.91,CUST0038
+INV11372,2024-08-12,Portable Charger 20000mAh,Electronics,3,90.18,CUST0083
+INV10182,2024-08-13,Wireless Earbuds Pro,Electronics,1,50.9,CUST0031
+INV10251,2024-08-13,Wool Beanie Hat,Clothing,1,18.62,CUST0115
+INV10274,2024-08-13,Wireless Earbuds Pro,Electronics,4,200.36,CUST0011
+INV10764,2024-08-13,Lip Balm SPF15 3pk,Beauty & Health,1,7.73,CUST0088
+INV11039,2024-08-13,Bamboo Cutting Board,Home & Kitchen,5,114.6,CUST0271
+INV11335,2024-08-13,Smart Plug WiFi,Electronics,1,21.1,CUST0163
+INV11803,2024-08-13,Reusable Cotton Pads 20pk,Beauty & Health,1,12.01,CUST0071
+INV10051,2024-08-14,Glass Storage Containers 5pk,Home & Kitchen,2,50.54,CUST0109
+INV10702,2024-08-14,Wool Beanie Hat,Clothing,4,69.08,CUST0126
+INV10873,2024-08-14,USB-C Hub 7-in-1,Electronics,2,66.78,CUST0271
+INV10947,2024-08-14,Glass Storage Containers 5pk,Home & Kitchen,1,28.34,CUST0253
+INV11060,2024-08-14,Digital Kitchen Scale,Home & Kitchen,1,18.02,CUST0111
+INV11317,2024-08-14,Digital Kitchen Scale,Home & Kitchen,1,18.84,CUST0221
+INV11384,2024-08-14,Bamboo Toothbrush 4pk,Beauty & Health,1,8.87,CUST0222
+INV11412,2024-08-14,Vitamin C Serum 30ml,Beauty & Health,5,127.7,CUST0124
+INV11755,2024-08-14,Portable Charger 20000mAh,Electronics,3,98.25,CUST0099
+INV10355,2024-08-15,Silicone Spatula Set 3pk,Home & Kitchen,3,28.14,CUST0267
+INV10623,2024-08-15,Slim Fit Chinos,Clothing,1,54.73,CUST0091
+INV10916,2024-08-15,Reusable Cotton Pads 20pk,Beauty & Health,2,24.94,CUST0200
+INV10992,2024-08-15,Mechanical Keyboard TKL,Electronics,2,166.94,CUST0211
+INV11526,2024-08-15,LED Desk Lamp Smart,Electronics,1,40.88,CUST0066
+INV10038,2024-08-16,Zip-Up Fleece Jacket,Clothing,1,77.49,CUST0236
+INV10097,2024-08-16,Smart Plug WiFi,Electronics,1,18.09,CUST0267
+INV10107,2024-08-16,Slim Fit Chinos,Clothing,1,48.98,CUST0071
+INV10535,2024-08-16,Lip Balm SPF15 3pk,Beauty & Health,1,8.48,CUST0275
+INV10583,2024-08-16,Reusable Cotton Pads 20pk,Beauty & Health,1,11.25,CUST0080
+INV10826,2024-08-16,Scissors Stainless Steel,Office Supplies,1,7.65,CUST0011
+INV11226,2024-08-16,Stapler Heavy Duty,Office Supplies,2,37.38,CUST0042
+INV11247,2024-08-16,Natural Face Moisturizer,Beauty & Health,10,197.8,CUST0239
+INV11395,2024-08-16,Natural Face Moisturizer,Beauty & Health,1,18.03,CUST0221
+INV11770,2024-08-16,Webcam 1080p HD,Electronics,3,171.99,CUST0237
+INV11933,2024-08-16,A4 Printer Paper 500sh,Office Supplies,1,10.72,CUST0208
+INV11941,2024-08-16,Digital Kitchen Scale,Home & Kitchen,1,17.46,CUST0215
+INV10126,2024-08-17,Wireless Earbuds Pro,Electronics,2,92.04,CUST0082
+INV10361,2024-08-17,Classic Cotton T-Shirt,Clothing,3,54.06,CUST0238
+INV10629,2024-08-17,Hooded Sweatshirt,Clothing,2,95.92,CUST0031
+INV10697,2024-08-17,Lip Balm SPF15 3pk,Beauty & Health,1,7.42,CUST0154
+INV11386,2024-08-17,Zip-Up Fleece Jacket,Clothing,4,311.68,CUST0114
+INV11995,2024-08-17,Mechanical Keyboard TKL,Electronics,4,361.8,CUST0251
+INV10220,2024-08-18,Digital Kitchen Scale,Home & Kitchen,2,38.32,CUST0013
+INV10482,2024-08-18,Scissors Stainless Steel,Office Supplies,2,16.18,CUST0046
+INV10820,2024-08-18,LED Desk Lamp Smart,Electronics,1,40.76,CUST0257
+INV10846,2024-08-18,USB-C Hub 7-in-1,Electronics,3,103.62,CUST0052
+INV10908,2024-08-18,French Press Coffee Maker,Home & Kitchen,2,64.52,CUST0130
+INV11378,2024-08-18,Silicone Spatula Set 3pk,Home & Kitchen,1,9.89,CUST0134
+INV11514,2024-08-18,Vitamin C Serum 30ml,Beauty & Health,2,49.74,CUST0191
+INV10007,2024-08-19,Bamboo Toothbrush 4pk,Beauty & Health,3,24.87,CUST0088
+INV10989,2024-08-19,Sticky Notes Pack 12,Office Supplies,1,8.62,CUST0057
+INV11116,2024-08-19,Lip Balm SPF15 3pk,Beauty & Health,2,16.1,CUST0285
+INV11158,2024-08-19,Wool Beanie Hat,Clothing,5,86.75,CUST0248
+INV11431,2024-08-19,Ballpoint Pens 50pk,Office Supplies,10,127.1,CUST0105
+INV11906,2024-08-19,Webcam 1080p HD,Electronics,2,108.94,CUST0268
+INV10055,2024-08-20,Mechanical Keyboard TKL,Electronics,1,98.27,CUST0209
+INV10073,2024-08-20,A4 Printer Paper 500sh,Office Supplies,1,10.23,CUST0106
+INV10245,2024-08-20,Mechanical Keyboard TKL,Electronics,3,294.78,CUST0297
+INV10681,2024-08-20,Essential Oil Diffuser,Beauty & Health,2,72.42,CUST0190
+INV11154,2024-08-20,Ballpoint Pens 50pk,Office Supplies,2,26.36,CUST0015
+INV11159,2024-08-20,Hooded Sweatshirt,Clothing,1,48.81,CUST0280
+INV11458,2024-08-20,Bamboo Toothbrush 4pk,Beauty & Health,1,8.55,CUST0298
+INV11568,2024-08-20,Vitamin C Serum 30ml,Beauty & Health,1,26.22,CUST0143
+INV10352,2024-08-21,Sticky Notes Pack 12,Office Supplies,1,8.42,CUST0044
+INV10496,2024-08-21,French Press Coffee Maker,Home & Kitchen,1,28.79,CUST0274
+INV10902,2024-08-21,Classic Cotton T-Shirt,Clothing,2,42.8,CUST0231
+INV10919,2024-08-21,Mechanical Keyboard TKL,Electronics,1,85.35,CUST0239
+INV11907,2024-08-21,Mechanical Keyboard TKL,Electronics,4,356.68,CUST0067
+INV10275,2024-08-22,Zip-Up Fleece Jacket,Clothing,1,72.76,CUST0025
+INV10053,2024-08-23,A4 Printer Paper 500sh,Office Supplies,1,9.17,CUST0060
+INV10112,2024-08-23,Non-Stick Frying Pan 28cm,Home & Kitchen,3,112.77,CUST0017
+INV10347,2024-08-23,French Press Coffee Maker,Home & Kitchen,1,32.61,CUST0013
+INV10450,2024-08-23,Hooded Sweatshirt,Clothing,10,411.8,CUST0095
+INV10884,2024-08-23,Reusable Cotton Pads 20pk,Beauty & Health,3,33.84,CUST0245
+INV11206,2024-08-23,Bluetooth Speaker Mini,Electronics,2,84.96,CUST0185
+INV10364,2024-08-24,Mechanical Keyboard TKL,Electronics,1,95.74,CUST0173
+INV10950,2024-08-24,Hooded Sweatshirt,Clothing,2,94.5,CUST0085
+INV10725,2024-08-25,Zip-Up Fleece Jacket,Clothing,2,154.52,CUST0200
+INV11026,2024-08-25,Bamboo Cutting Board,Home & Kitchen,2,48.06,CUST0113
+INV11586,2024-08-25,Whiteboard Markers 8pk,Office Supplies,1,12.41,CUST0070
+INV11785,2024-08-25,Essential Oil Diffuser,Beauty & Health,1,32.52,CUST0139
+INV10390,2024-08-26,Scissors Stainless Steel,Office Supplies,2,14.34,CUST0225
+INV10641,2024-08-26,Reusable Cotton Pads 20pk,Beauty & Health,2,24.52,CUST0069
+INV10854,2024-08-26,Wool Beanie Hat,Clothing,2,36.76,CUST0135
+INV10940,2024-08-26,Reusable Cotton Pads 20pk,Beauty & Health,5,58.25,CUST0169
+INV11121,2024-08-26,Essential Oil Diffuser,Beauty & Health,4,128.28,CUST0010
+INV11930,2024-08-26,Silicone Spatula Set 3pk,Home & Kitchen,2,21.06,CUST0022
+INV11963,2024-08-26,Vitamin C Serum 30ml,Beauty & Health,2,46.42,CUST0272
+INV10096,2024-08-27,Webcam 1080p HD,Electronics,1,63.35,CUST0074
+INV10552,2024-08-27,Bamboo Cutting Board,Home & Kitchen,3,66.93,CUST0070
+INV10717,2024-08-27,Wireless Earbuds Pro,Electronics,3,159.81,CUST0231
+INV11012,2024-08-27,Bamboo Cutting Board,Home & Kitchen,1,21.02,CUST0115
+INV11496,2024-08-27,File Folders 100pk,Office Supplies,3,54.36,CUST0088
+INV11545,2024-08-27,Natural Face Moisturizer,Beauty & Health,1,19.14,CUST0164
+INV11691,2024-08-27,Smart Plug WiFi,Electronics,1,21.9,CUST0220
+INV10102,2024-08-28,Classic Cotton T-Shirt,Clothing,3,63.3,CUST0014
+INV10171,2024-08-28,Classic Cotton T-Shirt,Clothing,2,36.38,CUST0230
+INV10341,2024-08-28,A4 Printer Paper 500sh,Office Supplies,2,19.24,CUST0206
+INV10602,2024-08-28,Ballpoint Pens 50pk,Office Supplies,2,25.62,CUST0250
+INV11448,2024-08-28,Wireless Earbuds Pro,Electronics,3,139.74,CUST0256
+INV10095,2024-08-29,USB-C Hub 7-in-1,Electronics,1,35.19,CUST0062
+INV10690,2024-08-29,Bluetooth Speaker Mini,Electronics,10,393.0,CUST0249
+INV11201,2024-08-29,Sport Shorts,Clothing,1,26.09,CUST0228
+INV11562,2024-08-29,Smart Plug WiFi,Electronics,1,20.09,CUST0176
+INV10025,2024-08-30,Desk Organizer Bamboo,Office Supplies,2,45.96,CUST0171
+INV11171,2024-08-30,Reusable Cotton Pads 20pk,Beauty & Health,1,11.69,CUST0254
+INV11402,2024-08-30,Stapler Heavy Duty,Office Supplies,3,50.61,CUST0096
+INV11585,2024-08-30,Natural Face Moisturizer,Beauty & Health,1,20.55,CUST0136
+INV11699,2024-08-30,Vitamin C Serum 30ml,Beauty & Health,1,23.16,CUST0274
+INV11873,2024-08-30,File Folders 100pk,Office Supplies,5,96.8,CUST0089
+INV11981,2024-08-30,Whiteboard Markers 8pk,Office Supplies,1,12.29,CUST0106
+INV10260,2024-08-31,Digital Kitchen Scale,Home & Kitchen,3,60.21,CUST0276
+INV10790,2024-08-31,Sport Shorts,Clothing,1,26.99,CUST0159
+INV11533,2024-08-31,Canvas Sneakers,Clothing,2,118.26,CUST0049
+INV11676,2024-08-31,A4 Printer Paper 500sh,Office Supplies,1,10.82,CUST0136
+INV10371,2024-09-01,Non-Stick Frying Pan 28cm,Home & Kitchen,3,95.28,CUST0102
+INV10707,2024-09-01,A4 Printer Paper 500sh,Office Supplies,3,30.21,CUST0253
+INV10836,2024-09-01,Canvas Sneakers,Clothing,1,61.18,CUST0222
+INV11020,2024-09-01,Zip-Up Fleece Jacket,Clothing,1,80.01,CUST0063
+INV11332,2024-09-01,Portable Charger 20000mAh,Electronics,1,32.14,CUST0179
+INV11646,2024-09-01,Wool Beanie Hat,Clothing,1,18.1,CUST0214
+INV10625,2024-09-02,Running Socks 6pk,Clothing,2,32.28,CUST0021
+INV11191,2024-09-02,Wool Beanie Hat,Clothing,1,16.55,CUST0056
+INV10003,2024-09-03,Portable Charger 20000mAh,Electronics,2,58.62,CUST0090
+INV10479,2024-09-03,Desk Organizer Bamboo,Office Supplies,2,48.36,CUST0227
+INV11072,2024-09-03,Bluetooth Speaker Mini,Electronics,3,120.45,CUST0083
+INV11716,2024-09-03,LED Desk Lamp Smart,Electronics,1,40.94,CUST0126
+INV11737,2024-09-03,Webcam 1080p HD,Electronics,1,55.95,CUST0162
+INV11909,2024-09-03,Bluetooth Speaker Mini,Electronics,1,38.09,CUST0246
+INV10282,2024-09-04,Sticky Notes Pack 12,Office Supplies,2,17.14,CUST0226
+INV10297,2024-09-04,Silicone Spatula Set 3pk,Home & Kitchen,2,19.62,CUST0064
+INV10427,2024-09-04,USB-C Hub 7-in-1,Electronics,1,32.82,CUST0139
+INV10911,2024-09-04,Reusable Cotton Pads 20pk,Beauty & Health,1,11.73,CUST0007
+INV11045,2024-09-04,Portable Charger 20000mAh,Electronics,5,150.05,CUST0068
+INV11342,2024-09-04,Stainless Steel Water Bottle,Home & Kitchen,1,24.98,CUST0232
+INV11404,2024-09-04,Smart Plug WiFi,Electronics,1,20.86,CUST0052
+INV10173,2024-09-05,Stainless Steel Water Bottle,Home & Kitchen,3,71.34,CUST0250
+INV10206,2024-09-05,Vitamin D3 Supplements,Beauty & Health,2,29.58,CUST0278
+INV11112,2024-09-05,Non-Stick Frying Pan 28cm,Home & Kitchen,2,70.98,CUST0243
+INV11822,2024-09-05,Sticky Notes Pack 12,Office Supplies,3,25.59,CUST0289
+INV10020,2024-09-06,Silicone Spatula Set 3pk,Home & Kitchen,1,9.99,CUST0119
+INV11288,2024-09-06,File Folders 100pk,Office Supplies,2,38.18,CUST0116
+INV11512,2024-09-06,Sticky Notes Pack 12,Office Supplies,2,18.18,CUST0127
+INV11884,2024-09-06,Ballpoint Pens 50pk,Office Supplies,1,11.39,CUST0266
+INV11900,2024-09-06,Slim Fit Chinos,Clothing,1,50.51,CUST0073
+INV11964,2024-09-06,Sticky Notes Pack 12,Office Supplies,1,9.64,CUST0169
+INV10289,2024-09-07,Natural Face Moisturizer,Beauty & Health,1,20.47,CUST0054
+INV10291,2024-09-07,LED Desk Lamp Smart,Electronics,5,242.1,CUST0032
+INV10384,2024-09-07,USB-C Hub 7-in-1,Electronics,1,38.2,CUST0121
+INV10797,2024-09-07,Desk Organizer Bamboo,Office Supplies,1,22.56,CUST0051
+INV11221,2024-09-07,Mechanical Keyboard TKL,Electronics,1,98.76,CUST0109
+INV11534,2024-09-07,Bluetooth Speaker Mini,Electronics,1,36.1,CUST0010
+INV11958,2024-09-07,Stapler Heavy Duty,Office Supplies,1,15.64,CUST0065
+INV11977,2024-09-07,Reusable Cotton Pads 20pk,Beauty & Health,3,33.06,CUST0118
+INV10081,2024-09-08,Non-Stick Frying Pan 28cm,Home & Kitchen,2,69.8,CUST0075
+INV10148,2024-09-08,Lip Balm SPF15 3pk,Beauty & Health,4,33.2,CUST0002
+INV10942,2024-09-08,Smart Plug WiFi,Electronics,1,20.57,CUST0136
+INV10962,2024-09-08,Bamboo Cutting Board,Home & Kitchen,1,22.62,CUST0299
+INV11175,2024-09-08,Wool Beanie Hat,Clothing,1,16.8,CUST0084
+INV11275,2024-09-08,Wool Beanie Hat,Clothing,2,33.5,CUST0259
+INV11675,2024-09-08,A4 Printer Paper 500sh,Office Supplies,4,40.64,CUST0035
+INV10498,2024-09-09,Sport Shorts,Clothing,5,127.15,CUST0206
+INV10542,2024-09-09,Bamboo Toothbrush 4pk,Beauty & Health,1,9.14,CUST0182
+INV10758,2024-09-09,Stapler Heavy Duty,Office Supplies,3,51.81,CUST0193
+INV11014,2024-09-09,Classic Cotton T-Shirt,Clothing,1,21.32,CUST0142
+INV11744,2024-09-09,Portable Charger 20000mAh,Electronics,1,31.4,CUST0001
+INV10103,2024-09-10,Smart Plug WiFi,Electronics,1,20.01,CUST0015
+INV10135,2024-09-10,Classic Cotton T-Shirt,Clothing,2,41.92,CUST0137
+INV10664,2024-09-10,Bamboo Cutting Board,Home & Kitchen,1,20.2,CUST0237
+INV10739,2024-09-10,Bluetooth Speaker Mini,Electronics,2,80.98,CUST0114
+INV11428,2024-09-10,Whiteboard Markers 8pk,Office Supplies,4,41.84,CUST0281
+INV11620,2024-09-10,Wireless Earbuds Pro,Electronics,2,90.38,CUST0203
+INV11944,2024-09-10,Webcam 1080p HD,Electronics,1,54.61,CUST0100
+INV10472,2024-09-11,File Folders 100pk,Office Supplies,1,17.82,CUST0119
+INV10612,2024-09-11,Stapler Heavy Duty,Office Supplies,3,49.14,CUST0065
+INV11082,2024-09-11,Mechanical Keyboard TKL,Electronics,1,89.85,CUST0043
+INV11100,2024-09-11,Hooded Sweatshirt,Clothing,1,43.35,CUST0196
+INV11703,2024-09-11,Ballpoint Pens 50pk,Office Supplies,1,13.17,CUST0237
+INV11839,2024-09-11,Glass Storage Containers 5pk,Home & Kitchen,4,112.64,CUST0001
+INV10174,2024-09-12,Sport Shorts,Clothing,2,48.14,CUST0102
+INV10248,2024-09-12,Mechanical Keyboard TKL,Electronics,1,85.48,CUST0172
+INV10277,2024-09-12,Natural Face Moisturizer,Beauty & Health,1,18.43,CUST0251
+INV10417,2024-09-12,Portable Charger 20000mAh,Electronics,2,65.5,CUST0080
+INV10434,2024-09-12,Desk Organizer Bamboo,Office Supplies,1,26.7,CUST0163
+INV10636,2024-09-12,Sticky Notes Pack 12,Office Supplies,1,9.7,CUST0146
+INV10648,2024-09-12,Bluetooth Speaker Mini,Electronics,3,119.43,CUST0152
+INV10888,2024-09-12,Reusable Cotton Pads 20pk,Beauty & Health,2,23.48,CUST0012
+INV11408,2024-09-12,Sport Shorts,Clothing,2,46.02,CUST0269
+INV11419,2024-09-12,Whiteboard Markers 8pk,Office Supplies,1,11.6,CUST0188
+INV11459,2024-09-12,French Press Coffee Maker,Home & Kitchen,1,29.7,CUST0158
+INV11664,2024-09-12,Essential Oil Diffuser,Beauty & Health,1,34.21,CUST0172
+INV11694,2024-09-12,Desk Organizer Bamboo,Office Supplies,10,245.5,CUST0173
+INV11747,2024-09-12,Bamboo Cutting Board,Home & Kitchen,3,64.98,CUST0061
+INV10230,2024-09-13,Zip-Up Fleece Jacket,Clothing,1,70.27,CUST0031
+INV10429,2024-09-13,LED Desk Lamp Smart,Electronics,1,44.9,CUST0068
+INV10517,2024-09-13,Smart Plug WiFi,Electronics,2,36.9,CUST0285
+INV10840,2024-09-13,Whiteboard Markers 8pk,Office Supplies,1,10.98,CUST0140
+INV11746,2024-09-13,Essential Oil Diffuser,Beauty & Health,2,70.2,CUST0287
+INV10093,2024-09-14,Essential Oil Diffuser,Beauty & Health,2,70.16,CUST0188
+INV10205,2024-09-14,Vitamin C Serum 30ml,Beauty & Health,10,238.2,CUST0249
+INV10216,2024-09-14,Digital Kitchen Scale,Home & Kitchen,1,20.32,CUST0046
+INV10746,2024-09-14,Wireless Earbuds Pro,Electronics,1,46.34,CUST0285
+INV10792,2024-09-14,Reusable Cotton Pads 20pk,Beauty & Health,1,12.53,CUST0158
+INV11205,2024-09-14,Portable Charger 20000mAh,Electronics,1,31.23,CUST0202
+INV11705,2024-09-14,Smart Plug WiFi,Electronics,1,21.08,CUST0277
+INV11742,2024-09-14,Wool Beanie Hat,Clothing,2,39.34,CUST0072
+INV11796,2024-09-14,French Press Coffee Maker,Home & Kitchen,1,28.39,CUST0045
+INV11923,2024-09-14,Bamboo Toothbrush 4pk,Beauty & Health,1,9.13,CUST0104
+INV11997,2024-09-14,Natural Face Moisturizer,Beauty & Health,1,19.58,CUST0251
+INV10776,2024-09-15,Bluetooth Speaker Mini,Electronics,5,210.4,CUST0133
+INV11008,2024-09-15,Canvas Sneakers,Clothing,2,121.8,CUST0190
+INV11612,2024-09-15,Slim Fit Chinos,Clothing,1,53.28,CUST0178
+INV10151,2024-09-16,Bluetooth Speaker Mini,Electronics,1,38.42,CUST0134
+INV10587,2024-09-16,Portable Charger 20000mAh,Electronics,1,32.59,CUST0271
+INV10090,2024-09-17,Mechanical Keyboard TKL,Electronics,1,90.9,CUST0279
+INV10425,2024-09-17,Essential Oil Diffuser,Beauty & Health,1,33.54,CUST0267
+INV10656,2024-09-17,Ballpoint Pens 50pk,Office Supplies,3,38.43,CUST0075
+INV10969,2024-09-17,Portable Charger 20000mAh,Electronics,2,65.34,CUST0216
+INV10247,2024-09-18,Sport Shorts,Clothing,1,25.86,CUST0142
+INV10419,2024-09-18,Stapler Heavy Duty,Office Supplies,1,15.74,CUST0298
+INV10421,2024-09-18,Digital Kitchen Scale,Home & Kitchen,1,17.88,CUST0210
+INV10609,2024-09-18,Wool Beanie Hat,Clothing,2,36.6,CUST0249
+INV11360,2024-09-18,Vitamin C Serum 30ml,Beauty & Health,2,46.82,CUST0119
+INV11483,2024-09-18,Classic Cotton T-Shirt,Clothing,4,75.32,CUST0077
+INV10121,2024-09-19,Ballpoint Pens 50pk,Office Supplies,2,24.26,CUST0105
+INV10379,2024-09-19,File Folders 100pk,Office Supplies,4,82.52,CUST0269
+INV10387,2024-09-19,Silicone Spatula Set 3pk,Home & Kitchen,3,29.22,CUST0092
+INV11174,2024-09-19,Bluetooth Speaker Mini,Electronics,4,172.8,CUST0299
+INV11445,2024-09-19,Natural Face Moisturizer,Beauty & Health,1,21.1,CUST0223
+INV10228,2024-09-20,Mechanical Keyboard TKL,Electronics,1,87.07,CUST0234
+INV10243,2024-09-20,French Press Coffee Maker,Home & Kitchen,1,31.66,CUST0173
+INV10311,2024-09-20,Ceramic Coffee Mug,Home & Kitchen,4,50.76,CUST0146
+INV10767,2024-09-20,Hooded Sweatshirt,Clothing,1,46.74,CUST0176
+INV10814,2024-09-20,Running Socks 6pk,Clothing,1,16.33,CUST0271
+INV10879,2024-09-20,Stainless Steel Water Bottle,Home & Kitchen,1,24.49,CUST0107
+INV10967,2024-09-20,Sticky Notes Pack 12,Office Supplies,1,9.81,CUST0023
+INV11650,2024-09-20,A4 Printer Paper 500sh,Office Supplies,2,19.72,CUST0029
+INV11971,2024-09-20,Smart Plug WiFi,Electronics,2,41.74,CUST0106
+INV10754,2024-09-21,Desk Organizer Bamboo,Office Supplies,1,26.29,CUST0142
+INV11442,2024-09-21,Mechanical Keyboard TKL,Electronics,5,486.85,CUST0165
+INV11486,2024-09-21,Hooded Sweatshirt,Clothing,1,45.12,CUST0017
+INV11761,2024-09-21,Essential Oil Diffuser,Beauty & Health,1,36.03,CUST0163
+INV11799,2024-09-21,LED Desk Lamp Smart,Electronics,2,93.7,CUST0023
+INV10268,2024-09-22,Whiteboard Markers 8pk,Office Supplies,1,10.65,CUST0020
+INV10288,2024-09-22,Ballpoint Pens 50pk,Office Supplies,5,58.3,CUST0180
+INV10527,2024-09-22,Lip Balm SPF15 3pk,Beauty & Health,1,8.65,CUST0093
+INV10657,2024-09-22,Ballpoint Pens 50pk,Office Supplies,2,23.28,CUST0085
+INV10714,2024-09-22,File Folders 100pk,Office Supplies,1,17.87,CUST0109
+INV11179,2024-09-22,Running Socks 6pk,Clothing,2,32.84,CUST0104
+INV11366,2024-09-22,Stainless Steel Water Bottle,Home & Kitchen,3,70.38,CUST0297
+INV11417,2024-09-22,Non-Stick Frying Pan 28cm,Home & Kitchen,2,73.96,CUST0151
+INV11690,2024-09-22,Facial Sunscreen SPF50,Beauty & Health,1,15.99,CUST0251
+INV11893,2024-09-22,Sticky Notes Pack 12,Office Supplies,2,17.12,CUST0263
+INV10030,2024-09-23,Silicone Spatula Set 3pk,Home & Kitchen,2,20.12,CUST0267
+INV10233,2024-09-23,File Folders 100pk,Office Supplies,5,91.3,CUST0144
+INV10727,2024-09-23,Natural Face Moisturizer,Beauty & Health,1,18.65,CUST0208
+INV10780,2024-09-23,Bamboo Toothbrush 4pk,Beauty & Health,1,9.04,CUST0173
+INV11599,2024-09-23,Desk Organizer Bamboo,Office Supplies,1,26.52,CUST0268
+INV11738,2024-09-23,Slim Fit Chinos,Clothing,2,97.64,CUST0187
+INV11870,2024-09-23,Portable Charger 20000mAh,Electronics,1,31.32,CUST0188
+INV10777,2024-09-24,Essential Oil Diffuser,Beauty & Health,1,34.78,CUST0288
+INV11065,2024-09-24,Running Socks 6pk,Clothing,5,79.2,CUST0127
+INV11295,2024-09-24,Bamboo Toothbrush 4pk,Beauty & Health,1,9.14,CUST0065
+INV11299,2024-09-24,Hooded Sweatshirt,Clothing,2,97.8,CUST0155
+INV11513,2024-09-24,Bluetooth Speaker Mini,Electronics,1,39.44,CUST0247
+INV11544,2024-09-24,Facial Sunscreen SPF50,Beauty & Health,2,36.52,CUST0189
+INV11929,2024-09-24,French Press Coffee Maker,Home & Kitchen,1,30.27,CUST0196
+INV11957,2024-09-24,Facial Sunscreen SPF50,Beauty & Health,1,16.57,CUST0267
+INV10729,2024-09-25,Hooded Sweatshirt,Clothing,1,46.69,CUST0276
+INV10785,2024-09-25,Smart Plug WiFi,Electronics,1,20.6,CUST0183
+INV10865,2024-09-25,Reusable Cotton Pads 20pk,Beauty & Health,4,42.84,CUST0205
+INV10936,2024-09-25,Stapler Heavy Duty,Office Supplies,4,68.8,CUST0131
+INV11127,2024-09-25,Vitamin C Serum 30ml,Beauty & Health,3,79.35,CUST0186
+INV11131,2024-09-25,Zip-Up Fleece Jacket,Clothing,1,69.88,CUST0230
+INV11262,2024-09-25,Bamboo Cutting Board,Home & Kitchen,1,22.19,CUST0101
+INV11465,2024-09-25,Sport Shorts,Clothing,1,23.26,CUST0222
+INV10057,2024-09-26,Hooded Sweatshirt,Clothing,1,45.94,CUST0195
+INV10153,2024-09-26,Stapler Heavy Duty,Office Supplies,10,177.2,CUST0163
+INV10250,2024-09-26,A4 Printer Paper 500sh,Office Supplies,1,10.89,CUST0294
+INV10666,2024-09-26,Silicone Spatula Set 3pk,Home & Kitchen,1,10.93,CUST0115
+INV10968,2024-09-26,Smart Plug WiFi,Electronics,2,38.12,CUST0136
+INV11114,2024-09-26,LED Desk Lamp Smart,Electronics,2,86.24,CUST0144
+INV11525,2024-09-26,Essential Oil Diffuser,Beauty & Health,2,71.38,CUST0011
+INV10084,2024-09-27,USB-C Hub 7-in-1,Electronics,1,38.31,CUST0027
+INV10580,2024-09-27,French Press Coffee Maker,Home & Kitchen,2,62.72,CUST0234
+INV10720,2024-09-27,French Press Coffee Maker,Home & Kitchen,1,27.12,CUST0270
+INV10906,2024-09-27,Hooded Sweatshirt,Clothing,2,94.34,CUST0091
+INV11055,2024-09-27,Whiteboard Markers 8pk,Office Supplies,2,22.94,CUST0089
+INV11377,2024-09-27,Wireless Earbuds Pro,Electronics,1,48.19,CUST0050
+INV10208,2024-09-28,Lip Balm SPF15 3pk,Beauty & Health,1,7.65,CUST0110
+INV10509,2024-09-28,Bamboo Cutting Board,Home & Kitchen,1,21.18,CUST0118
+INV10646,2024-09-28,Smart Plug WiFi,Electronics,1,19.32,CUST0184
+INV10900,2024-09-28,Zip-Up Fleece Jacket,Clothing,2,158.74,CUST0148
+INV10960,2024-09-28,Ballpoint Pens 50pk,Office Supplies,1,13.28,CUST0121
+INV11005,2024-09-28,Facial Sunscreen SPF50,Beauty & Health,2,35.62,CUST0181
+INV11143,2024-09-28,Whiteboard Markers 8pk,Office Supplies,2,23.22,CUST0035
+INV10072,2024-09-29,Classic Cotton T-Shirt,Clothing,1,21.54,CUST0291
+INV10838,2024-09-29,Slim Fit Chinos,Clothing,1,45.26,CUST0197
+INV11105,2024-09-29,Mechanical Keyboard TKL,Electronics,5,466.7,CUST0187
+INV11643,2024-09-29,Classic Cotton T-Shirt,Clothing,4,75.92,CUST0113
+INV11876,2024-09-29,Stapler Heavy Duty,Office Supplies,1,17.96,CUST0135
+INV10067,2024-09-30,Scissors Stainless Steel,Office Supplies,1,6.79,CUST0132
+INV10278,2024-09-30,Sport Shorts,Clothing,2,47.92,CUST0119
+INV10522,2024-09-30,Whiteboard Markers 8pk,Office Supplies,1,12.55,CUST0260
+INV10679,2024-09-30,Ceramic Coffee Mug,Home & Kitchen,1,14.07,CUST0256
+INV10897,2024-09-30,Hooded Sweatshirt,Clothing,1,42.89,CUST0038
+INV11571,2024-09-30,Facial Sunscreen SPF50,Beauty & Health,1,17.81,CUST0223
+INV10062,2024-10-01,Vitamin C Serum 30ml,Beauty & Health,1,27.39,CUST0216
+INV10616,2024-10-01,File Folders 100pk,Office Supplies,2,38.32,CUST0119
+INV10750,2024-10-01,A4 Printer Paper 500sh,Office Supplies,2,21.7,CUST0103
+INV10801,2024-10-01,Whiteboard Markers 8pk,Office Supplies,1,12.0,CUST0022
+INV10985,2024-10-01,Natural Face Moisturizer,Beauty & Health,3,63.15,CUST0194
+INV11134,2024-10-01,Ceramic Coffee Mug,Home & Kitchen,3,35.55,CUST0087
+INV11200,2024-10-01,Mechanical Keyboard TKL,Electronics,10,906.2,CUST0152
+INV11248,2024-10-01,Stapler Heavy Duty,Office Supplies,1,15.31,CUST0016
+INV11627,2024-10-01,Mechanical Keyboard TKL,Electronics,2,183.44,CUST0050
+INV11696,2024-10-01,Running Socks 6pk,Clothing,1,14.37,CUST0149
+INV10307,2024-10-02,Silicone Spatula Set 3pk,Home & Kitchen,2,19.1,CUST0077
+INV10503,2024-10-02,Sticky Notes Pack 12,Office Supplies,5,42.2,CUST0003
+INV10572,2024-10-02,Scissors Stainless Steel,Office Supplies,5,36.9,CUST0105
+INV11207,2024-10-02,LED Desk Lamp Smart,Electronics,3,131.34,CUST0274
+INV11303,2024-10-02,Classic Cotton T-Shirt,Clothing,1,21.56,CUST0270
+INV11720,2024-10-02,Vitamin C Serum 30ml,Beauty & Health,1,26.02,CUST0199
+INV11740,2024-10-02,Vitamin C Serum 30ml,Beauty & Health,1,25.85,CUST0192
+INV11919,2024-10-02,Running Socks 6pk,Clothing,2,29.48,CUST0270
+INV10263,2024-10-03,Non-Stick Frying Pan 28cm,Home & Kitchen,1,36.95,CUST0254
+INV10930,2024-10-03,Webcam 1080p HD,Electronics,1,63.07,CUST0182
+INV11066,2024-10-03,Canvas Sneakers,Clothing,1,60.44,CUST0178
+INV11195,2024-10-03,LED Desk Lamp Smart,Electronics,4,162.96,CUST0080
+INV11683,2024-10-03,Vitamin D3 Supplements,Beauty & Health,2,30.34,CUST0235
+INV11724,2024-10-03,Webcam 1080p HD,Electronics,3,168.63,CUST0146
+INV10276,2024-10-04,Sticky Notes Pack 12,Office Supplies,1,8.85,CUST0254
+INV10803,2024-10-04,Stainless Steel Water Bottle,Home & Kitchen,1,24.24,CUST0061
+INV10939,2024-10-04,Lip Balm SPF15 3pk,Beauty & Health,2,15.42,CUST0176
+INV11063,2024-10-04,LED Desk Lamp Smart,Electronics,5,241.45,CUST0268
+INV11101,2024-10-04,USB-C Hub 7-in-1,Electronics,1,34.29,CUST0067
+INV10571,2024-10-05,Webcam 1080p HD,Electronics,1,59.36,CUST0180
+INV11409,2024-10-05,Webcam 1080p HD,Electronics,2,118.84,CUST0268
+INV11669,2024-10-05,French Press Coffee Maker,Home & Kitchen,2,59.4,CUST0026
+INV11718,2024-10-05,Ceramic Coffee Mug,Home & Kitchen,2,28.52,CUST0293
+INV10032,2024-10-06,Essential Oil Diffuser,Beauty & Health,1,31.62,CUST0081
+INV10177,2024-10-06,Classic Cotton T-Shirt,Clothing,2,37.64,CUST0027
+INV10507,2024-10-06,Essential Oil Diffuser,Beauty & Health,3,105.0,CUST0005
+INV10822,2024-10-06,LED Desk Lamp Smart,Electronics,5,214.1,CUST0274
+INV10825,2024-10-06,Bamboo Toothbrush 4pk,Beauty & Health,2,16.52,CUST0221
+INV10893,2024-10-06,Sticky Notes Pack 12,Office Supplies,1,8.51,CUST0078
+INV10956,2024-10-06,Wool Beanie Hat,Clothing,1,16.56,CUST0247
+INV11075,2024-10-06,Hooded Sweatshirt,Clothing,3,140.88,CUST0011
+INV11316,2024-10-06,Scissors Stainless Steel,Office Supplies,1,6.79,CUST0064
+INV11771,2024-10-06,LED Desk Lamp Smart,Electronics,1,48.26,CUST0242
+INV11792,2024-10-06,USB-C Hub 7-in-1,Electronics,2,72.2,CUST0166
+INV10354,2024-10-07,Sport Shorts,Clothing,1,25.46,CUST0097
+INV10877,2024-10-07,Slim Fit Chinos,Clothing,2,95.62,CUST0190
+INV10926,2024-10-07,Classic Cotton T-Shirt,Clothing,1,21.44,CUST0297
+INV10957,2024-10-07,Non-Stick Frying Pan 28cm,Home & Kitchen,10,364.7,CUST0247
+INV11871,2024-10-07,Wireless Earbuds Pro,Electronics,1,54.26,CUST0011
+INV10718,2024-10-08,Essential Oil Diffuser,Beauty & Health,1,33.74,CUST0090
+INV11579,2024-10-08,File Folders 100pk,Office Supplies,1,17.71,CUST0186
+INV10125,2024-10-09,Lip Balm SPF15 3pk,Beauty & Health,4,33.8,CUST0180
+INV10199,2024-10-09,Classic Cotton T-Shirt,Clothing,1,20.95,CUST0141
+INV10574,2024-10-09,Wool Beanie Hat,Clothing,1,18.18,CUST0275
+INV10593,2024-10-09,Stainless Steel Water Bottle,Home & Kitchen,1,24.01,CUST0240
+INV10781,2024-10-09,Silicone Spatula Set 3pk,Home & Kitchen,2,21.04,CUST0077
+INV11615,2024-10-09,Zip-Up Fleece Jacket,Clothing,2,149.84,CUST0224
+INV11830,2024-10-09,Smart Plug WiFi,Electronics,2,42.72,CUST0064
+INV11863,2024-10-09,Sticky Notes Pack 12,Office Supplies,1,8.99,CUST0144
+INV11680,2024-10-10,Portable Charger 20000mAh,Electronics,5,145.5,CUST0021
+INV10909,2024-10-11,File Folders 100pk,Office Supplies,1,17.42,CUST0004
+INV11010,2024-10-11,Classic Cotton T-Shirt,Clothing,1,19.18,CUST0243
+INV11608,2024-10-11,Bluetooth Speaker Mini,Electronics,1,38.62,CUST0190
+INV10158,2024-10-12,LED Desk Lamp Smart,Electronics,10,494.3,CUST0027
+INV10358,2024-10-12,Bluetooth Speaker Mini,Electronics,1,39.56,CUST0126
+INV11040,2024-10-12,Essential Oil Diffuser,Beauty & Health,1,34.73,CUST0009
+INV10089,2024-10-13,Hooded Sweatshirt,Clothing,3,121.74,CUST0269
+INV10223,2024-10-13,Portable Charger 20000mAh,Electronics,2,64.74,CUST0100
+INV10437,2024-10-13,Smart Plug WiFi,Electronics,5,91.35,CUST0022
+INV10474,2024-10-13,Stapler Heavy Duty,Office Supplies,1,17.09,CUST0181
+INV10554,2024-10-13,Smart Plug WiFi,Electronics,2,43.56,CUST0142
+INV10655,2024-10-13,Portable Charger 20000mAh,Electronics,5,138.7,CUST0017
+INV10882,2024-10-13,Non-Stick Frying Pan 28cm,Home & Kitchen,2,69.04,CUST0233
+INV11361,2024-10-13,Canvas Sneakers,Clothing,2,119.42,CUST0173
+INV11679,2024-10-13,Hooded Sweatshirt,Clothing,2,94.78,CUST0152
+INV11841,2024-10-13,Portable Charger 20000mAh,Electronics,4,108.8,CUST0161
+INV11846,2024-10-13,Classic Cotton T-Shirt,Clothing,3,62.91,CUST0117
+INV10150,2024-10-14,Webcam 1080p HD,Electronics,1,58.58,CUST0027
+INV11084,2024-10-14,Natural Face Moisturizer,Beauty & Health,1,19.14,CUST0119
+INV11199,2024-10-14,USB-C Hub 7-in-1,Electronics,2,70.7,CUST0210
+INV11343,2024-10-14,Essential Oil Diffuser,Beauty & Health,5,163.3,CUST0207
+INV10867,2024-10-15,Reusable Cotton Pads 20pk,Beauty & Health,2,24.2,CUST0204
+INV11407,2024-10-15,Silicone Spatula Set 3pk,Home & Kitchen,1,9.68,CUST0253
+INV11952,2024-10-15,Ceramic Coffee Mug,Home & Kitchen,1,11.94,CUST0104
+INV11990,2024-10-15,French Press Coffee Maker,Home & Kitchen,1,30.67,CUST0245
+INV10266,2024-10-16,Running Socks 6pk,Clothing,1,14.89,CUST0047
+INV10556,2024-10-16,Mechanical Keyboard TKL,Electronics,2,179.04,CUST0086
+INV10678,2024-10-16,Zip-Up Fleece Jacket,Clothing,1,77.58,CUST0221
+INV11202,2024-10-16,Stainless Steel Water Bottle,Home & Kitchen,1,23.9,CUST0010
+INV10624,2024-10-17,Desk Organizer Bamboo,Office Supplies,3,80.22,CUST0217
+INV10685,2024-10-17,Non-Stick Frying Pan 28cm,Home & Kitchen,3,106.14,CUST0236
+INV10724,2024-10-17,File Folders 100pk,Office Supplies,2,40.86,CUST0100
+INV11549,2024-10-17,Stapler Heavy Duty,Office Supplies,1,17.19,CUST0274
+INV11885,2024-10-17,Reusable Cotton Pads 20pk,Beauty & Health,1,11.26,CUST0106
+INV10116,2024-10-18,Ballpoint Pens 50pk,Office Supplies,2,25.5,CUST0121
+INV10768,2024-10-18,USB-C Hub 7-in-1,Electronics,10,361.9,CUST0113
+INV10943,2024-10-18,Bamboo Toothbrush 4pk,Beauty & Health,2,17.7,CUST0058
+INV11306,2024-10-18,Bluetooth Speaker Mini,Electronics,2,84.56,CUST0273
+INV11354,2024-10-18,Desk Organizer Bamboo,Office Supplies,1,26.97,CUST0045
+INV10237,2024-10-19,Hooded Sweatshirt,Clothing,4,192.68,CUST0258
+INV10476,2024-10-19,Sticky Notes Pack 12,Office Supplies,2,17.22,CUST0200
+INV10811,2024-10-19,Vitamin C Serum 30ml,Beauty & Health,1,23.22,CUST0224
+INV11596,2024-10-19,Ceramic Coffee Mug,Home & Kitchen,1,13.15,CUST0011
+INV11781,2024-10-19,Smart Plug WiFi,Electronics,1,21.62,CUST0136
+INV10175,2024-10-20,Digital Kitchen Scale,Home & Kitchen,2,39.94,CUST0237
+INV11653,2024-10-20,Vitamin D3 Supplements,Beauty & Health,1,13.78,CUST0069
+INV11768,2024-10-20,Whiteboard Markers 8pk,Office Supplies,3,37.47,CUST0246
+INV11861,2024-10-20,Bluetooth Speaker Mini,Electronics,3,112.47,CUST0096
+INV10156,2024-10-21,USB-C Hub 7-in-1,Electronics,1,33.22,CUST0006
+INV10191,2024-10-21,Vitamin C Serum 30ml,Beauty & Health,1,24.4,CUST0024
+INV11130,2024-10-21,Whiteboard Markers 8pk,Office Supplies,1,12.06,CUST0192
+INV11138,2024-10-21,Bamboo Cutting Board,Home & Kitchen,1,23.03,CUST0248
+INV11516,2024-10-21,USB-C Hub 7-in-1,Electronics,2,76.22,CUST0092
+INV11806,2024-10-21,Scissors Stainless Steel,Office Supplies,1,7.73,CUST0160
+INV10249,2024-10-22,Portable Charger 20000mAh,Electronics,1,29.4,CUST0299
+INV10423,2024-10-22,Smart Plug WiFi,Electronics,1,21.14,CUST0230
+INV10499,2024-10-22,Bluetooth Speaker Mini,Electronics,1,41.15,CUST0072
+INV10550,2024-10-22,Wireless Earbuds Pro,Electronics,1,52.47,CUST0181
+INV11161,2024-10-22,Stapler Heavy Duty,Office Supplies,2,31.32,CUST0053
+INV11681,2024-10-22,Non-Stick Frying Pan 28cm,Home & Kitchen,2,67.18,CUST0115
+INV11996,2024-10-22,File Folders 100pk,Office Supplies,3,60.6,CUST0164
+INV10114,2024-10-23,Non-Stick Frying Pan 28cm,Home & Kitchen,1,36.01,CUST0063
+INV10142,2024-10-23,Whiteboard Markers 8pk,Office Supplies,1,12.28,CUST0028
+INV11000,2024-10-23,Mechanical Keyboard TKL,Electronics,2,181.62,CUST0014
+INV11216,2024-10-23,Bamboo Toothbrush 4pk,Beauty & Health,2,17.42,CUST0270
+INV11301,2024-10-23,Zip-Up Fleece Jacket,Clothing,1,77.71,CUST0163
+INV11396,2024-10-23,LED Desk Lamp Smart,Electronics,2,91.48,CUST0008
+INV10239,2024-10-24,Facial Sunscreen SPF50,Beauty & Health,4,61.4,CUST0004
+INV10497,2024-10-24,Vitamin D3 Supplements,Beauty & Health,1,14.49,CUST0094
+INV10605,2024-10-24,Bamboo Cutting Board,Home & Kitchen,2,47.2,CUST0021
+INV11002,2024-10-24,USB-C Hub 7-in-1,Electronics,2,71.04,CUST0091
+INV11609,2024-10-24,Webcam 1080p HD,Electronics,5,328.9,CUST0053
+INV10063,2024-10-25,Mechanical Keyboard TKL,Electronics,1,85.64,CUST0195
+INV10601,2024-10-25,Bamboo Cutting Board,Home & Kitchen,1,22.37,CUST0263
+INV11034,2024-10-25,Wireless Earbuds Pro,Electronics,2,91.02,CUST0043
+INV11652,2024-10-25,Facial Sunscreen SPF50,Beauty & Health,4,65.28,CUST0073
+INV11979,2024-10-25,Facial Sunscreen SPF50,Beauty & Health,2,32.58,CUST0047
+INV10874,2024-10-26,Zip-Up Fleece Jacket,Clothing,1,70.57,CUST0011
+INV11244,2024-10-26,Scissors Stainless Steel,Office Supplies,2,16.26,CUST0280
+INV11633,2024-10-26,Vitamin D3 Supplements,Beauty & Health,4,50.92,CUST0008
+INV11834,2024-10-26,Webcam 1080p HD,Electronics,2,115.46,CUST0178
+INV10039,2024-10-27,Desk Organizer Bamboo,Office Supplies,1,27.43,CUST0014
+INV10044,2024-10-27,LED Desk Lamp Smart,Electronics,3,147.96,CUST0092
+INV10211,2024-10-27,File Folders 100pk,Office Supplies,1,20.86,CUST0156
+INV10262,2024-10-27,Whiteboard Markers 8pk,Office Supplies,5,60.55,CUST0091
+INV10360,2024-10-27,File Folders 100pk,Office Supplies,1,18.51,CUST0118
+INV10378,2024-10-27,Bluetooth Speaker Mini,Electronics,3,122.82,CUST0055
+INV10399,2024-10-27,File Folders 100pk,Office Supplies,1,19.92,CUST0257
+INV11108,2024-10-27,Stapler Heavy Duty,Office Supplies,1,17.55,CUST0026
+INV11589,2024-10-27,Bamboo Toothbrush 4pk,Beauty & Health,10,84.1,CUST0030
+INV10187,2024-10-28,Slim Fit Chinos,Clothing,1,53.98,CUST0118
+INV10272,2024-10-28,Portable Charger 20000mAh,Electronics,3,81.72,CUST0130
+INV10315,2024-10-28,Zip-Up Fleece Jacket,Clothing,1,72.41,CUST0203
+INV10359,2024-10-28,Sticky Notes Pack 12,Office Supplies,1,8.44,CUST0253
+INV10374,2024-10-28,File Folders 100pk,Office Supplies,2,37.6,CUST0279
+INV10659,2024-10-28,Stapler Heavy Duty,Office Supplies,2,32.14,CUST0158
+INV11162,2024-10-28,Classic Cotton T-Shirt,Clothing,3,56.37,CUST0111
+INV11176,2024-10-28,Ballpoint Pens 50pk,Office Supplies,1,11.82,CUST0051
+INV11353,2024-10-28,Non-Stick Frying Pan 28cm,Home & Kitchen,2,63.84,CUST0157
+INV10046,2024-10-29,Vitamin C Serum 30ml,Beauty & Health,3,71.55,CUST0296
+INV10054,2024-10-29,Zip-Up Fleece Jacket,Clothing,2,159.0,CUST0115
+INV10167,2024-10-29,Whiteboard Markers 8pk,Office Supplies,1,10.58,CUST0271
+INV11577,2024-10-29,A4 Printer Paper 500sh,Office Supplies,1,10.52,CUST0274
+INV11711,2024-10-29,Ceramic Coffee Mug,Home & Kitchen,2,26.86,CUST0050
+INV11719,2024-10-29,Lip Balm SPF15 3pk,Beauty & Health,1,8.57,CUST0106
+INV10258,2024-10-30,Stapler Heavy Duty,Office Supplies,1,15.63,CUST0079
+INV10577,2024-10-30,Lip Balm SPF15 3pk,Beauty & Health,3,21.99,CUST0029
+INV10578,2024-10-30,Facial Sunscreen SPF50,Beauty & Health,1,15.56,CUST0122
+INV10684,2024-10-30,Vitamin D3 Supplements,Beauty & Health,1,14.87,CUST0280
+INV10880,2024-10-30,Zip-Up Fleece Jacket,Clothing,1,69.62,CUST0034
+INV11046,2024-10-30,Vitamin D3 Supplements,Beauty & Health,2,29.48,CUST0263
+INV11374,2024-10-30,Lip Balm SPF15 3pk,Beauty & Health,1,7.67,CUST0249
+INV11560,2024-10-30,Silicone Spatula Set 3pk,Home & Kitchen,2,19.14,CUST0222
+INV11880,2024-10-30,Ballpoint Pens 50pk,Office Supplies,1,12.41,CUST0235
+INV10340,2024-10-31,Hooded Sweatshirt,Clothing,1,46.43,CUST0239
+INV10464,2024-10-31,Portable Charger 20000mAh,Electronics,2,64.96,CUST0237
+INV11003,2024-10-31,Bluetooth Speaker Mini,Electronics,1,39.91,CUST0085
+INV11243,2024-10-31,Reusable Cotton Pads 20pk,Beauty & Health,1,11.13,CUST0253
+INV10058,2024-11-01,LED Desk Lamp Smart,Electronics,3,145.53,CUST0107
+INV10483,2024-11-01,Wool Beanie Hat,Clothing,1,16.86,CUST0016
+INV11464,2024-11-01,Canvas Sneakers,Clothing,1,62.25,CUST0108
+INV11593,2024-11-01,Stapler Heavy Duty,Office Supplies,4,63.76,CUST0226
+INV11597,2024-11-01,Zip-Up Fleece Jacket,Clothing,1,69.08,CUST0253
+INV11610,2024-11-01,Stainless Steel Water Bottle,Home & Kitchen,2,45.74,CUST0272
+INV11726,2024-11-01,Desk Organizer Bamboo,Office Supplies,2,53.2,CUST0193
+INV11842,2024-11-01,Ballpoint Pens 50pk,Office Supplies,4,51.28,CUST0017
+INV11894,2024-11-01,Hooded Sweatshirt,Clothing,1,46.85,CUST0223
+INV10514,2024-11-02,Wool Beanie Hat,Clothing,1,18.82,CUST0272
+INV10883,2024-11-02,Vitamin C Serum 30ml,Beauty & Health,1,24.29,CUST0068
+INV11052,2024-11-02,A4 Printer Paper 500sh,Office Supplies,1,10.73,CUST0009
+INV11594,2024-11-02,Webcam 1080p HD,Electronics,3,192.93,CUST0266
+INV10870,2024-11-03,Bamboo Toothbrush 4pk,Beauty & Health,1,8.89,CUST0120
+INV11251,2024-11-03,A4 Printer Paper 500sh,Office Supplies,3,30.15,CUST0130
+INV11704,2024-11-03,Bluetooth Speaker Mini,Electronics,5,213.25,CUST0026
+INV11782,2024-11-03,French Press Coffee Maker,Home & Kitchen,3,83.28,CUST0071
+INV11812,2024-11-03,Essential Oil Diffuser,Beauty & Health,2,62.78,CUST0001
+INV10029,2024-11-04,Non-Stick Frying Pan 28cm,Home & Kitchen,3,111.45,CUST0036
+INV10365,2024-11-04,Ballpoint Pens 50pk,Office Supplies,2,23.72,CUST0036
+INV10426,2024-11-04,Reusable Cotton Pads 20pk,Beauty & Health,2,22.04,CUST0015
+INV10631,2024-11-04,Smart Plug WiFi,Electronics,1,21.5,CUST0270
+INV10667,2024-11-04,Stapler Heavy Duty,Office Supplies,1,17.85,CUST0183
+INV11279,2024-11-04,Reusable Cotton Pads 20pk,Beauty & Health,2,23.34,CUST0115
+INV11566,2024-11-04,Whiteboard Markers 8pk,Office Supplies,10,103.6,CUST0270
+INV11762,2024-11-04,Natural Face Moisturizer,Beauty & Health,2,36.32,CUST0027
+INV11925,2024-11-04,Zip-Up Fleece Jacket,Clothing,2,143.6,CUST0177
+INV10312,2024-11-05,Classic Cotton T-Shirt,Clothing,1,20.43,CUST0290
+INV11278,2024-11-05,Slim Fit Chinos,Clothing,1,51.1,CUST0032
+INV11629,2024-11-05,Running Socks 6pk,Clothing,1,16.37,CUST0055
+INV11658,2024-11-05,Non-Stick Frying Pan 28cm,Home & Kitchen,1,34.24,CUST0231
+INV10301,2024-11-06,Portable Charger 20000mAh,Electronics,1,29.34,CUST0041
+INV11024,2024-11-06,Digital Kitchen Scale,Home & Kitchen,1,17.17,CUST0291
+INV11104,2024-11-06,Essential Oil Diffuser,Beauty & Health,2,67.04,CUST0134
+INV11178,2024-11-06,Sport Shorts,Clothing,3,75.24,CUST0023
+INV11250,2024-11-06,File Folders 100pk,Office Supplies,3,51.96,CUST0136
+INV10000,2024-11-07,Wireless Earbuds Pro,Electronics,2,104.02,CUST0039
+INV10011,2024-11-07,Lip Balm SPF15 3pk,Beauty & Health,1,8.23,CUST0272
+INV10118,2024-11-07,Zip-Up Fleece Jacket,Clothing,10,737.6,CUST0148
+INV10403,2024-11-07,Webcam 1080p HD,Electronics,1,59.91,CUST0113
+INV10733,2024-11-07,Digital Kitchen Scale,Home & Kitchen,1,17.88,CUST0044
+INV10924,2024-11-07,Essential Oil Diffuser,Beauty & Health,4,143.04,CUST0130
+INV11087,2024-11-07,Lip Balm SPF15 3pk,Beauty & Health,1,8.59,CUST0195
+INV11674,2024-11-07,Smart Plug WiFi,Electronics,2,38.7,CUST0265
+INV10098,2024-11-08,A4 Printer Paper 500sh,Office Supplies,1,9.58,CUST0031
+INV10349,2024-11-08,Smart Plug WiFi,Electronics,5,98.2,CUST0232
+INV11886,2024-11-08,Ballpoint Pens 50pk,Office Supplies,1,12.13,CUST0147
+INV11985,2024-11-08,Natural Face Moisturizer,Beauty & Health,10,193.2,CUST0083
+INV10512,2024-11-09,Bluetooth Speaker Mini,Electronics,1,40.19,CUST0022
+INV10615,2024-11-09,Essential Oil Diffuser,Beauty & Health,1,35.51,CUST0192
+INV11478,2024-11-09,Desk Organizer Bamboo,Office Supplies,1,25.07,CUST0102
+INV11776,2024-11-09,French Press Coffee Maker,Home & Kitchen,2,57.32,CUST0277
+INV10339,2024-11-10,Vitamin D3 Supplements,Beauty & Health,1,12.91,CUST0287
+INV11341,2024-11-10,Running Socks 6pk,Clothing,3,45.51,CUST0224
+INV11684,2024-11-10,Classic Cotton T-Shirt,Clothing,3,56.85,CUST0234
+INV10091,2024-11-11,Running Socks 6pk,Clothing,4,64.4,CUST0190
+INV10590,2024-11-11,Wool Beanie Hat,Clothing,4,66.04,CUST0002
+INV10975,2024-11-11,Classic Cotton T-Shirt,Clothing,1,21.49,CUST0151
+INV11122,2024-11-11,Wireless Earbuds Pro,Electronics,1,54.13,CUST0086
+INV11204,2024-11-11,Vitamin C Serum 30ml,Beauty & Health,1,27.19,CUST0107
+INV11416,2024-11-11,Sport Shorts,Clothing,2,45.28,CUST0282
+INV11506,2024-11-11,Running Socks 6pk,Clothing,4,55.4,CUST0200
+INV10665,2024-11-12,File Folders 100pk,Office Supplies,1,20.2,CUST0276
+INV10983,2024-11-12,Essential Oil Diffuser,Beauty & Health,1,32.79,CUST0118
+INV11126,2024-11-12,Sport Shorts,Clothing,1,23.04,CUST0012
+INV11259,2024-11-12,Stainless Steel Water Bottle,Home & Kitchen,1,22.62,CUST0194
+INV11330,2024-11-12,Scissors Stainless Steel,Office Supplies,2,16.2,CUST0080
+INV11338,2024-11-12,Digital Kitchen Scale,Home & Kitchen,4,73.4,CUST0033
+INV11493,2024-11-12,Zip-Up Fleece Jacket,Clothing,1,81.92,CUST0179
+INV10234,2024-11-13,Classic Cotton T-Shirt,Clothing,4,76.64,CUST0189
+INV10731,2024-11-13,Ballpoint Pens 50pk,Office Supplies,1,12.2,CUST0146
+INV10898,2024-11-13,Bamboo Toothbrush 4pk,Beauty & Health,2,16.96,CUST0125
+INV11252,2024-11-13,Stapler Heavy Duty,Office Supplies,2,35.54,CUST0027
+INV11358,2024-11-13,Reusable Cotton Pads 20pk,Beauty & Health,1,11.05,CUST0120
+INV11872,2024-11-13,Desk Organizer Bamboo,Office Supplies,3,72.12,CUST0284
+INV11888,2024-11-13,Ceramic Coffee Mug,Home & Kitchen,2,27.4,CUST0106
+INV11950,2024-11-13,Non-Stick Frying Pan 28cm,Home & Kitchen,1,35.3,CUST0235
+INV10071,2024-11-14,Reusable Cotton Pads 20pk,Beauty & Health,4,49.12,CUST0178
+INV10144,2024-11-14,Scissors Stainless Steel,Office Supplies,1,7.02,CUST0237
+INV10193,2024-11-14,French Press Coffee Maker,Home & Kitchen,4,120.48,CUST0052
+INV10506,2024-11-14,Lip Balm SPF15 3pk,Beauty & Health,3,22.83,CUST0181
+INV10887,2024-11-14,Wireless Earbuds Pro,Electronics,1,51.45,CUST0164
+INV11350,2024-11-14,Reusable Cotton Pads 20pk,Beauty & Health,1,11.23,CUST0016
+INV11387,2024-11-14,Wool Beanie Hat,Clothing,3,53.85,CUST0002
+INV11523,2024-11-14,Vitamin C Serum 30ml,Beauty & Health,1,22.82,CUST0281
+INV11644,2024-11-14,Classic Cotton T-Shirt,Clothing,2,36.44,CUST0269
+INV11751,2024-11-14,Webcam 1080p HD,Electronics,1,60.56,CUST0043
+INV11815,2024-11-14,Stapler Heavy Duty,Office Supplies,2,30.6,CUST0203
+INV10386,2024-11-15,Slim Fit Chinos,Clothing,4,208.2,CUST0134
+INV10440,2024-11-15,Bamboo Cutting Board,Home & Kitchen,2,41.56,CUST0122
+INV11469,2024-11-15,Webcam 1080p HD,Electronics,2,131.72,CUST0240
+INV10382,2024-11-16,Running Socks 6pk,Clothing,3,41.94,CUST0253
+INV10394,2024-11-16,Glass Storage Containers 5pk,Home & Kitchen,3,80.55,CUST0029
+INV10987,2024-11-16,File Folders 100pk,Office Supplies,2,38.28,CUST0029
+INV11166,2024-11-16,French Press Coffee Maker,Home & Kitchen,1,32.42,CUST0031
+INV11672,2024-11-16,Lip Balm SPF15 3pk,Beauty & Health,1,8.57,CUST0130
+INV11983,2024-11-16,USB-C Hub 7-in-1,Electronics,1,32.79,CUST0235
+INV10008,2024-11-17,Slim Fit Chinos,Clothing,1,47.93,CUST0221
+INV10013,2024-11-17,Zip-Up Fleece Jacket,Clothing,4,301.64,CUST0220
+INV10152,2024-11-17,Hooded Sweatshirt,Clothing,1,48.99,CUST0220
+INV10331,2024-11-17,Stainless Steel Water Bottle,Home & Kitchen,1,23.88,CUST0133
+INV11094,2024-11-17,Stainless Steel Water Bottle,Home & Kitchen,1,21.41,CUST0223
+INV11840,2024-11-17,French Press Coffee Maker,Home & Kitchen,2,54.22,CUST0039
+INV10597,2024-11-18,A4 Printer Paper 500sh,Office Supplies,2,21.24,CUST0075
+INV11113,2024-11-18,Sticky Notes Pack 12,Office Supplies,1,9.32,CUST0259
+INV11779,2024-11-18,Smart Plug WiFi,Electronics,1,19.42,CUST0178
+INV10267,2024-11-19,Hooded Sweatshirt,Clothing,1,40.77,CUST0269
+INV10444,2024-11-19,Vitamin D3 Supplements,Beauty & Health,2,27.5,CUST0126
+INV11167,2024-11-19,Facial Sunscreen SPF50,Beauty & Health,2,32.34,CUST0026
+INV11283,2024-11-19,Ceramic Coffee Mug,Home & Kitchen,2,23.6,CUST0015
+INV11433,2024-11-19,Desk Organizer Bamboo,Office Supplies,3,78.9,CUST0150
+INV11470,2024-11-19,Reusable Cotton Pads 20pk,Beauty & Health,2,24.68,CUST0249
+INV11487,2024-11-19,Wireless Earbuds Pro,Electronics,1,53.61,CUST0076
+INV11992,2024-11-19,Vitamin D3 Supplements,Beauty & Health,2,28.88,CUST0064
+INV11069,2024-11-20,Hooded Sweatshirt,Clothing,1,41.97,CUST0093
+INV10338,2024-11-21,Running Socks 6pk,Clothing,1,15.12,CUST0195
+INV10357,2024-11-21,Slim Fit Chinos,Clothing,2,90.56,CUST0201
+INV10741,2024-11-21,Sticky Notes Pack 12,Office Supplies,2,17.42,CUST0110
+INV11617,2024-11-21,Vitamin C Serum 30ml,Beauty & Health,1,24.03,CUST0086
+INV11623,2024-11-21,Stainless Steel Water Bottle,Home & Kitchen,1,24.52,CUST0092
+INV11868,2024-11-21,Ballpoint Pens 50pk,Office Supplies,1,13.08,CUST0207
+INV10185,2024-11-22,File Folders 100pk,Office Supplies,2,37.68,CUST0005
+INV11477,2024-11-22,Classic Cotton T-Shirt,Clothing,2,41.16,CUST0254
+INV11554,2024-11-22,Bamboo Cutting Board,Home & Kitchen,1,23.95,CUST0144
+INV10460,2024-11-23,Natural Face Moisturizer,Beauty & Health,4,80.92,CUST0134
+INV11573,2024-11-23,Desk Organizer Bamboo,Office Supplies,1,22.8,CUST0195
+INV11800,2024-11-23,Facial Sunscreen SPF50,Beauty & Health,2,33.96,CUST0035
+INV10510,2024-11-24,Mechanical Keyboard TKL,Electronics,2,168.8,CUST0039
+INV10579,2024-11-24,Glass Storage Containers 5pk,Home & Kitchen,2,57.04,CUST0026
+INV10632,2024-11-24,Lip Balm SPF15 3pk,Beauty & Health,2,15.92,CUST0053
+INV10859,2024-11-24,A4 Printer Paper 500sh,Office Supplies,10,108.8,CUST0254
+INV10988,2024-11-24,Vitamin C Serum 30ml,Beauty & Health,1,24.74,CUST0268
+INV11132,2024-11-24,USB-C Hub 7-in-1,Electronics,1,33.93,CUST0139
+INV11367,2024-11-24,Non-Stick Frying Pan 28cm,Home & Kitchen,1,35.92,CUST0148
+INV11481,2024-11-24,Vitamin D3 Supplements,Beauty & Health,2,29.72,CUST0198
+INV11820,2024-11-24,Bamboo Toothbrush 4pk,Beauty & Health,1,8.56,CUST0038
+INV11862,2024-11-24,Glass Storage Containers 5pk,Home & Kitchen,1,29.87,CUST0101
+INV10723,2024-11-25,Facial Sunscreen SPF50,Beauty & Health,1,15.4,CUST0292
+INV10965,2024-11-25,Hooded Sweatshirt,Clothing,1,42.18,CUST0219
+INV11553,2024-11-25,Webcam 1080p HD,Electronics,2,130.06,CUST0072
+INV10099,2024-11-26,Whiteboard Markers 8pk,Office Supplies,1,10.74,CUST0042
+INV11164,2024-11-26,Bamboo Toothbrush 4pk,Beauty & Health,3,29.31,CUST0251
+INV11556,2024-11-26,Vitamin D3 Supplements,Beauty & Health,3,40.05,CUST0089
+INV11790,2024-11-26,Stainless Steel Water Bottle,Home & Kitchen,2,44.96,CUST0108
+INV10002,2024-11-27,Essential Oil Diffuser,Beauty & Health,2,64.14,CUST0011
+INV10424,2024-11-27,French Press Coffee Maker,Home & Kitchen,3,98.88,CUST0165
+INV10675,2024-11-27,Smart Plug WiFi,Electronics,2,37.0,CUST0192
+INV10709,2024-11-27,Webcam 1080p HD,Electronics,1,65.28,CUST0110
+INV10710,2024-11-27,Scissors Stainless Steel,Office Supplies,4,30.4,CUST0002
+INV10713,2024-11-27,Silicone Spatula Set 3pk,Home & Kitchen,1,10.94,CUST0059
+INV10747,2024-11-27,Sticky Notes Pack 12,Office Supplies,1,8.09,CUST0151
+INV10842,2024-11-27,Zip-Up Fleece Jacket,Clothing,2,158.54,CUST0211
+INV10995,2024-11-27,Zip-Up Fleece Jacket,Clothing,3,205.23,CUST0156
+INV11410,2024-11-27,Slim Fit Chinos,Clothing,2,105.42,CUST0151
+INV10085,2024-11-28,Desk Organizer Bamboo,Office Supplies,1,22.57,CUST0099
+INV11495,2024-11-28,Slim Fit Chinos,Clothing,10,492.5,CUST0069
+INV11666,2024-11-28,Stainless Steel Water Bottle,Home & Kitchen,2,50.46,CUST0274
+INV11707,2024-11-28,Silicone Spatula Set 3pk,Home & Kitchen,1,10.05,CUST0058
+INV11215,2024-11-29,Portable Charger 20000mAh,Electronics,1,27.98,CUST0215
+INV11347,2024-11-29,Natural Face Moisturizer,Beauty & Health,3,59.34,CUST0009
+INV11622,2024-11-29,USB-C Hub 7-in-1,Electronics,1,35.28,CUST0230
+INV10149,2024-11-30,Digital Kitchen Scale,Home & Kitchen,2,36.42,CUST0043
+INV10159,2024-11-30,French Press Coffee Maker,Home & Kitchen,3,86.91,CUST0296
+INV10515,2024-11-30,Ballpoint Pens 50pk,Office Supplies,5,65.75,CUST0105
+INV10981,2024-11-30,Glass Storage Containers 5pk,Home & Kitchen,1,25.33,CUST0292
+INV11392,2024-11-30,Lip Balm SPF15 3pk,Beauty & Health,1,8.75,CUST0008
+INV11857,2024-11-30,Zip-Up Fleece Jacket,Clothing,1,69.61,CUST0010
+INV11660,2024-12-01,Vitamin C Serum 30ml,Beauty & Health,2,45.46,CUST0028
+INV10080,2024-12-02,Ceramic Coffee Mug,Home & Kitchen,4,51.88,CUST0294
+INV10178,2024-12-02,Sticky Notes Pack 12,Office Supplies,1,9.73,CUST0189
+INV10334,2024-12-02,Vitamin C Serum 30ml,Beauty & Health,1,25.87,CUST0204
+INV10456,2024-12-02,Ballpoint Pens 50pk,Office Supplies,2,26.02,CUST0230
+INV10742,2024-12-02,Natural Face Moisturizer,Beauty & Health,2,36.22,CUST0276
+INV11727,2024-12-02,Portable Charger 20000mAh,Electronics,3,88.23,CUST0170
+INV11970,2024-12-02,Ceramic Coffee Mug,Home & Kitchen,3,39.21,CUST0277
+INV10391,2024-12-03,Webcam 1080p HD,Electronics,3,184.56,CUST0025
+INV10853,2024-12-03,Vitamin C Serum 30ml,Beauty & Health,2,53.54,CUST0102
+INV11381,2024-12-03,Digital Kitchen Scale,Home & Kitchen,2,40.06,CUST0289
+INV10904,2024-12-04,Mechanical Keyboard TKL,Electronics,2,195.34,CUST0276
+INV11264,2024-12-04,Vitamin C Serum 30ml,Beauty & Health,1,27.39,CUST0091
+INV11333,2024-12-04,Bluetooth Speaker Mini,Electronics,4,151.32,CUST0237
+INV11913,2024-12-04,Sport Shorts,Clothing,1,27.21,CUST0178
+INV10170,2024-12-05,LED Desk Lamp Smart,Electronics,2,85.58,CUST0037
+INV10435,2024-12-05,Scissors Stainless Steel,Office Supplies,1,8.08,CUST0205
+INV10575,2024-12-05,Mechanical Keyboard TKL,Electronics,2,181.02,CUST0271
+INV10649,2024-12-05,Mechanical Keyboard TKL,Electronics,2,186.12,CUST0260
+INV10660,2024-12-05,Vitamin C Serum 30ml,Beauty & Health,1,24.53,CUST0080
+INV10676,2024-12-05,File Folders 100pk,Office Supplies,2,38.64,CUST0165
+INV11235,2024-12-05,Essential Oil Diffuser,Beauty & Health,2,65.3,CUST0156
+INV11949,2024-12-05,Mechanical Keyboard TKL,Electronics,1,92.04,CUST0069
+INV11978,2024-12-05,Sticky Notes Pack 12,Office Supplies,3,24.96,CUST0036
+INV10131,2024-12-06,Stainless Steel Water Bottle,Home & Kitchen,1,21.94,CUST0270
+INV10683,2024-12-06,Silicone Spatula Set 3pk,Home & Kitchen,3,29.64,CUST0134
+INV10756,2024-12-06,Slim Fit Chinos,Clothing,2,100.0,CUST0007
+INV11939,2024-12-06,Reusable Cotton Pads 20pk,Beauty & Health,1,11.93,CUST0290
+INV10140,2024-12-07,Vitamin D3 Supplements,Beauty & Health,1,13.59,CUST0067
+INV10295,2024-12-07,Portable Charger 20000mAh,Electronics,2,62.78,CUST0127
+INV10588,2024-12-07,Stapler Heavy Duty,Office Supplies,2,35.74,CUST0030
+INV10755,2024-12-07,Bamboo Cutting Board,Home & Kitchen,1,22.8,CUST0161
+INV10856,2024-12-07,Bamboo Toothbrush 4pk,Beauty & Health,1,8.56,CUST0097
+INV11062,2024-12-07,Glass Storage Containers 5pk,Home & Kitchen,1,25.88,CUST0065
+INV11309,2024-12-07,Ballpoint Pens 50pk,Office Supplies,1,11.91,CUST0110
+INV11447,2024-12-07,Stapler Heavy Duty,Office Supplies,2,32.32,CUST0234
+INV11911,2024-12-07,Facial Sunscreen SPF50,Beauty & Health,2,34.98,CUST0107
+INV10189,2024-12-08,Reusable Cotton Pads 20pk,Beauty & Health,2,23.14,CUST0147
+INV10534,2024-12-08,Vitamin C Serum 30ml,Beauty & Health,3,73.86,CUST0193
+INV10553,2024-12-08,Ceramic Coffee Mug,Home & Kitchen,3,41.1,CUST0261
+INV11241,2024-12-08,Bamboo Toothbrush 4pk,Beauty & Health,1,9.82,CUST0113
+INV11559,2024-12-08,Mechanical Keyboard TKL,Electronics,1,83.42,CUST0281
+INV11858,2024-12-08,Vitamin C Serum 30ml,Beauty & Health,1,25.29,CUST0099
+INV10745,2024-12-09,Desk Organizer Bamboo,Office Supplies,4,94.92,CUST0243
+INV10763,2024-12-09,Whiteboard Markers 8pk,Office Supplies,2,22.06,CUST0045
+INV10922,2024-12-09,Reusable Cotton Pads 20pk,Beauty & Health,1,11.15,CUST0120
+INV11285,2024-12-09,Zip-Up Fleece Jacket,Clothing,5,351.9,CUST0281
+INV11397,2024-12-09,Webcam 1080p HD,Electronics,2,120.52,CUST0003
+INV11671,2024-12-09,Stainless Steel Water Bottle,Home & Kitchen,10,232.3,CUST0131
+INV11962,2024-12-09,Stapler Heavy Duty,Office Supplies,4,61.32,CUST0244
+INV10642,2024-12-10,Natural Face Moisturizer,Beauty & Health,1,18.18,CUST0256
+INV11089,2024-12-10,Silicone Spatula Set 3pk,Home & Kitchen,1,9.5,CUST0295
+INV11441,2024-12-10,Wireless Earbuds Pro,Electronics,2,92.64,CUST0176
+INV11731,2024-12-10,LED Desk Lamp Smart,Electronics,1,42.05,CUST0206
+INV11307,2024-12-11,Reusable Cotton Pads 20pk,Beauty & Health,2,23.56,CUST0035
+INV11530,2024-12-11,Whiteboard Markers 8pk,Office Supplies,4,46.56,CUST0168
+INV11682,2024-12-11,Hooded Sweatshirt,Clothing,1,41.17,CUST0267
+INV10316,2024-12-12,File Folders 100pk,Office Supplies,2,38.92,CUST0096
+INV11903,2024-12-12,Bluetooth Speaker Mini,Electronics,4,164.52,CUST0293
+INV10004,2024-12-13,Scissors Stainless Steel,Office Supplies,3,23.04,CUST0274
+INV10255,2024-12-13,Stapler Heavy Duty,Office Supplies,5,89.05,CUST0070
+INV11194,2024-12-13,File Folders 100pk,Office Supplies,2,37.02,CUST0001
+INV11440,2024-12-13,Mechanical Keyboard TKL,Electronics,2,180.08,CUST0249
+INV11817,2024-12-13,Mechanical Keyboard TKL,Electronics,1,87.77,CUST0103
+INV11865,2024-12-13,Glass Storage Containers 5pk,Home & Kitchen,1,28.31,CUST0228
+INV10439,2024-12-14,Bamboo Toothbrush 4pk,Beauty & Health,3,27.78,CUST0046
+INV10935,2024-12-14,Bamboo Cutting Board,Home & Kitchen,3,67.41,CUST0005
+INV11239,2024-12-14,Webcam 1080p HD,Electronics,2,127.58,CUST0086
+INV11261,2024-12-14,Classic Cotton T-Shirt,Clothing,3,54.3,CUST0217
+INV10645,2024-12-15,French Press Coffee Maker,Home & Kitchen,1,31.83,CUST0155
+INV11168,2024-12-15,Classic Cotton T-Shirt,Clothing,1,19.6,CUST0223
+INV11254,2024-12-15,Non-Stick Frying Pan 28cm,Home & Kitchen,1,33.3,CUST0197
+INV11454,2024-12-15,Slim Fit Chinos,Clothing,2,93.0,CUST0070
+INV11504,2024-12-15,Webcam 1080p HD,Electronics,2,121.72,CUST0265
+INV10555,2024-12-16,Digital Kitchen Scale,Home & Kitchen,2,40.8,CUST0080
+INV10485,2024-12-17,Bluetooth Speaker Mini,Electronics,1,38.56,CUST0119
+INV10738,2024-12-17,Bluetooth Speaker Mini,Electronics,1,39.03,CUST0186
+INV10891,2024-12-17,French Press Coffee Maker,Home & Kitchen,1,32.1,CUST0290
+INV10016,2024-12-18,Sport Shorts,Clothing,1,23.64,CUST0124
+INV10586,2024-12-18,Bamboo Toothbrush 4pk,Beauty & Health,1,8.47,CUST0180
+INV10663,2024-12-18,LED Desk Lamp Smart,Electronics,1,43.94,CUST0172
+INV11356,2024-12-18,Running Socks 6pk,Clothing,2,31.54,CUST0030
+INV11976,2024-12-18,Desk Organizer Bamboo,Office Supplies,2,45.04,CUST0010
+INV10529,2024-12-19,Glass Storage Containers 5pk,Home & Kitchen,1,25.52,CUST0045
+INV11313,2024-12-19,Scissors Stainless Steel,Office Supplies,5,35.05,CUST0024
+INV11327,2024-12-19,Ballpoint Pens 50pk,Office Supplies,2,27.02,CUST0179
+INV11604,2024-12-19,Non-Stick Frying Pan 28cm,Home & Kitchen,1,36.02,CUST0280
+INV10169,2024-12-20,Classic Cotton T-Shirt,Clothing,3,59.1,CUST0171
+INV10613,2024-12-20,French Press Coffee Maker,Home & Kitchen,1,29.1,CUST0081
+INV11051,2024-12-20,Ceramic Coffee Mug,Home & Kitchen,1,11.9,CUST0205
+INV11302,2024-12-20,USB-C Hub 7-in-1,Electronics,1,35.51,CUST0272
+INV11310,2024-12-20,Hooded Sweatshirt,Clothing,2,96.26,CUST0117
+INV11895,2024-12-20,Bamboo Cutting Board,Home & Kitchen,2,45.54,CUST0074
+INV10385,2024-12-21,Stapler Heavy Duty,Office Supplies,3,55.02,CUST0066
+INV10927,2024-12-21,Desk Organizer Bamboo,Office Supplies,2,48.44,CUST0190
+INV10996,2024-12-21,Hooded Sweatshirt,Clothing,1,46.44,CUST0094
+INV11245,2024-12-21,Wireless Earbuds Pro,Electronics,2,107.72,CUST0167
+INV11714,2024-12-21,Whiteboard Markers 8pk,Office Supplies,1,11.38,CUST0045
+INV11856,2024-12-21,File Folders 100pk,Office Supplies,2,40.56,CUST0032
+INV10210,2024-12-22,LED Desk Lamp Smart,Electronics,1,42.1,CUST0274
+INV10380,2024-12-22,Bamboo Toothbrush 4pk,Beauty & Health,2,18.9,CUST0181
+INV10619,2024-12-22,Wireless Earbuds Pro,Electronics,2,98.64,CUST0048
+INV10765,2024-12-22,LED Desk Lamp Smart,Electronics,10,423.1,CUST0243
+INV10819,2024-12-22,Scissors Stainless Steel,Office Supplies,1,7.15,CUST0219
+INV11753,2024-12-22,Whiteboard Markers 8pk,Office Supplies,1,11.97,CUST0063
+INV10759,2024-12-23,Lip Balm SPF15 3pk,Beauty & Health,3,22.26,CUST0200
+INV11184,2024-12-23,File Folders 100pk,Office Supplies,3,55.68,CUST0118
+INV10188,2024-12-24,Bamboo Toothbrush 4pk,Beauty & Health,2,18.46,CUST0164
+INV10324,2024-12-24,Sport Shorts,Clothing,1,22.85,CUST0212
+INV10600,2024-12-24,Silicone Spatula Set 3pk,Home & Kitchen,1,10.97,CUST0012
+INV10953,2024-12-24,Ballpoint Pens 50pk,Office Supplies,1,13.15,CUST0293
+INV11249,2024-12-24,Zip-Up Fleece Jacket,Clothing,1,72.8,CUST0103
+INV11498,2024-12-24,Digital Kitchen Scale,Home & Kitchen,2,41.1,CUST0184
+INV10100,2024-12-25,Natural Face Moisturizer,Beauty & Health,3,64.41,CUST0296
+INV10494,2024-12-25,Glass Storage Containers 5pk,Home & Kitchen,1,27.74,CUST0258
+INV10638,2024-12-25,Facial Sunscreen SPF50,Beauty & Health,2,33.64,CUST0281
+INV11186,2024-12-25,Slim Fit Chinos,Clothing,3,139.59,CUST0241
+INV11750,2024-12-25,Desk Organizer Bamboo,Office Supplies,2,52.72,CUST0258
+INV11780,2024-12-25,Slim Fit Chinos,Clothing,1,53.9,CUST0265
+INV11966,2024-12-25,Ceramic Coffee Mug,Home & Kitchen,2,27.16,CUST0254
+INV10259,2024-12-26,Portable Charger 20000mAh,Electronics,2,64.02,CUST0026
+INV10343,2024-12-26,Sticky Notes Pack 12,Office Supplies,1,8.47,CUST0263
+INV10454,2024-12-26,Zip-Up Fleece Jacket,Clothing,2,151.06,CUST0095
+INV10569,2024-12-26,Wireless Earbuds Pro,Electronics,1,50.9,CUST0239
+INV10869,2024-12-26,Vitamin C Serum 30ml,Beauty & Health,2,50.48,CUST0162
+INV11479,2024-12-26,Essential Oil Diffuser,Beauty & Health,3,92.01,CUST0290
+INV11502,2024-12-26,Scissors Stainless Steel,Office Supplies,1,7.94,CUST0293
+INV11630,2024-12-26,Wireless Earbuds Pro,Electronics,2,102.2,CUST0181
+INV10410,2024-12-27,A4 Printer Paper 500sh,Office Supplies,1,10.07,CUST0179
+INV10493,2024-12-27,USB-C Hub 7-in-1,Electronics,2,68.72,CUST0233
+INV10596,2024-12-27,Ballpoint Pens 50pk,Office Supplies,2,25.02,CUST0017
+INV10821,2024-12-27,Bluetooth Speaker Mini,Electronics,1,38.91,CUST0206
+INV11038,2024-12-27,Scissors Stainless Steel,Office Supplies,1,7.36,CUST0223
+INV11284,2024-12-27,Ballpoint Pens 50pk,Office Supplies,1,11.75,CUST0178
+INV11430,2024-12-27,Vitamin C Serum 30ml,Beauty & Health,2,54.24,CUST0097
+INV10012,2024-12-28,Wireless Earbuds Pro,Electronics,1,49.49,CUST0104
+INV10108,2024-12-28,LED Desk Lamp Smart,Electronics,1,42.17,CUST0100
+INV10201,2024-12-28,Stapler Heavy Duty,Office Supplies,2,35.12,CUST0235
+INV10283,2024-12-28,Glass Storage Containers 5pk,Home & Kitchen,1,27.29,CUST0213
+INV10329,2024-12-28,Vitamin D3 Supplements,Beauty & Health,2,29.92,CUST0115
+INV10519,2024-12-28,Stainless Steel Water Bottle,Home & Kitchen,2,43.04,CUST0246
+INV10564,2024-12-28,French Press Coffee Maker,Home & Kitchen,2,55.46,CUST0083
+INV10673,2024-12-28,Stapler Heavy Duty,Office Supplies,1,16.42,CUST0047
+INV10692,2024-12-28,Classic Cotton T-Shirt,Clothing,3,64.2,CUST0102
+INV10818,2024-12-28,Wool Beanie Hat,Clothing,5,93.6,CUST0086
+INV10954,2024-12-28,Sport Shorts,Clothing,1,25.19,CUST0123
+INV10970,2024-12-28,Ballpoint Pens 50pk,Office Supplies,1,12.74,CUST0282
+INV11319,2024-12-28,Stapler Heavy Duty,Office Supplies,1,17.95,CUST0144
+INV11468,2024-12-28,Glass Storage Containers 5pk,Home & Kitchen,2,54.56,CUST0221
+INV11578,2024-12-28,A4 Printer Paper 500sh,Office Supplies,3,27.72,CUST0174
+INV11754,2024-12-28,Webcam 1080p HD,Electronics,1,54.25,CUST0070
+INV11982,2024-12-28,Zip-Up Fleece Jacket,Clothing,1,71.81,CUST0113
+INV10404,2024-12-29,Wool Beanie Hat,Clothing,1,16.62,CUST0269
+INV11091,2024-12-29,Facial Sunscreen SPF50,Beauty & Health,1,15.47,CUST0131
+INV11277,2024-12-29,Glass Storage Containers 5pk,Home & Kitchen,1,25.76,CUST0040
+INV11294,2024-12-29,Smart Plug WiFi,Electronics,4,86.68,CUST0173
+INV10119,2024-12-30,USB-C Hub 7-in-1,Electronics,2,66.46,CUST0060
+INV10872,2024-12-30,Reusable Cotton Pads 20pk,Beauty & Health,1,10.71,CUST0031
+INV11656,2024-12-30,Hooded Sweatshirt,Clothing,1,47.33,CUST0089
