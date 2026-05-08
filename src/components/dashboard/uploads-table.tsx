@@ -34,6 +34,7 @@ import {
     ArrowDown,
     X,
     Sparkles,
+    Download,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -555,15 +556,31 @@ export default function UploadsTable() {
                             activate it for analysis.
                         </CardDescription>
                     </div>
-                    <Button
-                        onClick={handleUploadClick}
-                        disabled={!!mappingCandidate}
-                        size="sm"
-                        className="rounded-lg"
-                    >
-                        <Plus className="mr-1.5 h-3.5 w-3.5" />
-                        Upload Dataset
-                    </Button>
+                    <div className="flex items-center gap-2">
+                        <Button
+                            variant="outline"
+                            size="sm"
+                            className="rounded-lg"
+                            asChild
+                        >
+                            <a
+                                href="/sample_sales.csv"
+                                download="sample_sales.csv"
+                            >
+                                <Download className="mr-1.5 h-3.5 w-3.5" />
+                                Sample Data
+                            </a>
+                        </Button>
+                        <Button
+                            onClick={handleUploadClick}
+                            disabled={!!mappingCandidate}
+                            size="sm"
+                            className="rounded-lg"
+                        >
+                            <Plus className="mr-1.5 h-3.5 w-3.5" />
+                            Upload Dataset
+                        </Button>
+                    </div>
                     <input
                         type="file"
                         ref={fileInputRef}
