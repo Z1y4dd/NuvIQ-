@@ -42,18 +42,14 @@ export default function DashboardPage() {
                             Monitor your sales analytics, forecasts, and product
                             insights
                         </p>
-                    </div>
-                    <div className="flex flex-col items-end gap-3">
-                        <DownloadReportButton
-                            dataset={
-                                selectedDataset?.status === "Completed"
-                                    ? selectedDataset
-                                    : null
-                            }
-                        />
-                        {/* Decorative chart icon */}
-                        <div className="hidden md:flex items-center justify-center h-16 w-16 rounded-2xl bg-gradient-to-br from-primary/15 to-purple-500/10 text-primary border border-primary/10">
-                            <BarChart3 className="h-8 w-8" />
+                        <div className="mt-4">
+                            <DownloadReportButton
+                                dataset={
+                                    selectedDataset?.status === "Completed"
+                                        ? selectedDataset
+                                        : null
+                                }
+                            />
                         </div>
                     </div>
                     {/* Decorative chart icon */}
