@@ -29,7 +29,13 @@ import {
     SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { Download, Loader2, RefreshCw, TrendingUp } from "lucide-react";
+import {
+    CalendarRange,
+    Download,
+    Loader2,
+    RefreshCw,
+    TrendingUp,
+} from "lucide-react";
 import { useDataset } from "@/contexts/dataset-context";
 import { useToast } from "@/hooks/use-toast";
 import { updateDataset } from "@/lib/firestore";
@@ -101,6 +107,28 @@ export default function ForecastChart() {
         selectedPeriod,
         confidenceLevel,
     ]);
+
+    // Compute the visible date range: first historical date → last forecast date
+    const dateRange = useMemo(() => {
+        if (!forecastData || forecastData.length === 0) return null;
+        const fmt = (d: string) =>
+            new Date(d).toLocaleDateString("en-US", {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+            });
+        const first =
+            forecastData.find((d) => d.sales != null) ?? forecastData[0];
+        const last = forecastData[forecastData.length - 1];
+        const forecastStart = forecastData.find(
+            (d) => d.predicted != null && d.sales == null,
+        );
+        return {
+            histStart: fmt(first.date),
+            forecastStart: forecastStart ? fmt(forecastStart.date) : null,
+            end: fmt(last.date),
+        };
+    }, [forecastData]);
 
     // Transform data for proper confidence band rendering:
     // Recharts needs a [lower, upper] range for the band area.
@@ -198,6 +226,27 @@ export default function ForecastChart() {
                             ? `${selectedPeriod}-day sales forecast for ${selectedDataset.filename}`
                             : "Select a dataset to view its forecast."}
                     </CardDescription>
+                    {dateRange && (
+                        <div className="flex items-center gap-1.5 text-xs text-muted-foreground mt-1">
+                            <CalendarRange className="h-3.5 w-3.5 shrink-0" />
+                            <span>
+                                {dateRange.histStart}
+                                {dateRange.forecastStart && (
+                                    <>
+                                        <span className="mx-1 opacity-50">
+                                            ·
+                                        </span>
+                                        <span className="text-primary/80 font-medium">
+                                            Forecast starts{" "}
+                                            {dateRange.forecastStart}
+                                        </span>
+                                    </>
+                                )}
+                                <span className="mx-1 opacity-50">→</span>
+                                {dateRange.end}
+                            </span>
+                        </div>
+                    )}
                 </div>
                 <div className="flex items-center gap-2">
                     {selectedDataset && availablePeriods.length > 0 && (
