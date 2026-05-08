@@ -117,17 +117,23 @@ export default function ForecastChart() {
                 day: "numeric",
                 year: "numeric",
             });
-        const first =
-            forecastData.find((d) => d.sales != null) ?? forecastData[0];
-        const last = forecastData[forecastData.length - 1];
-        const forecastStart = forecastData.find(
+        const historicalRows = forecastData.filter((d) => d.sales != null);
+        const forecastRows = forecastData.filter(
             (d) => d.predicted != null && d.sales == null,
         );
-        return {
-            histStart: fmt(first.date),
-            forecastStart: forecastStart ? fmt(forecastStart.date) : null,
-            end: fmt(last.date),
-        };
+        const histStart = historicalRows.length
+            ? fmt(historicalRows[0].date)
+            : null;
+        const histEnd = historicalRows.length
+            ? fmt(historicalRows[historicalRows.length - 1].date)
+            : null;
+        const forecastStart = forecastRows.length
+            ? fmt(forecastRows[0].date)
+            : null;
+        const forecastEnd = forecastRows.length
+            ? fmt(forecastRows[forecastRows.length - 1].date)
+            : null;
+        return { histStart, histEnd, forecastStart, forecastEnd };
     }, [forecastData]);
 
     // Transform data for proper confidence band rendering:
@@ -227,24 +233,29 @@ export default function ForecastChart() {
                             : "Select a dataset to view its forecast."}
                     </CardDescription>
                     {dateRange && (
-                        <div className="flex items-center gap-1.5 text-xs text-muted-foreground mt-1">
-                            <CalendarRange className="h-3.5 w-3.5 shrink-0" />
-                            <span>
-                                {dateRange.histStart}
-                                {dateRange.forecastStart && (
-                                    <>
-                                        <span className="mx-1 opacity-50">
-                                            ·
-                                        </span>
-                                        <span className="text-primary/80 font-medium">
-                                            Forecast starts{" "}
-                                            {dateRange.forecastStart}
-                                        </span>
-                                    </>
-                                )}
-                                <span className="mx-1 opacity-50">→</span>
-                                {dateRange.end}
-                            </span>
+                        <div className="flex flex-wrap items-center gap-2 mt-1.5">
+                            {dateRange.histStart && (
+                                <div className="flex items-center gap-1.5 rounded-md bg-muted/60 border border-border/50 px-2 py-1 text-xs text-muted-foreground">
+                                    <CalendarRange className="h-3 w-3 shrink-0" />
+                                    <span className="font-medium text-foreground/70">
+                                        Data
+                                    </span>
+                                    <span>{dateRange.histStart}</span>
+                                    <span className="opacity-40">—</span>
+                                    <span>{dateRange.histEnd}</span>
+                                </div>
+                            )}
+                            {dateRange.forecastStart && (
+                                <div className="flex items-center gap-1.5 rounded-md bg-primary/8 border border-primary/20 px-2 py-1 text-xs text-primary/80">
+                                    <TrendingUp className="h-3 w-3 shrink-0" />
+                                    <span className="font-medium">
+                                        Forecast
+                                    </span>
+                                    <span>{dateRange.forecastStart}</span>
+                                    <span className="opacity-50">—</span>
+                                    <span>{dateRange.forecastEnd}</span>
+                                </div>
+                            )}
                         </div>
                     )}
                 </div>
