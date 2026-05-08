@@ -233,7 +233,7 @@ export default function ForecastChart() {
                             : "Select a dataset to view its forecast."}
                     </CardDescription>
                     {dateRange && (
-                        <div className="flex items-center gap-2 mt-1.5 rounded-lg border border-border/50 bg-muted/40 px-3 py-1.5 text-xs w-fit">
+                        <div className="flex items-center gap-2 mt-1.5 rounded-lg border border-border/50 bg-muted/40 px-3 py-1.5 text-xs w-fit whitespace-nowrap">
                             <CalendarRange className="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
                             {dateRange.histStart && (
                                 <>
@@ -241,19 +241,14 @@ export default function ForecastChart() {
                                         Data
                                     </span>
                                     <span className="text-foreground/80">
-                                        {dateRange.histStart}
-                                    </span>
-                                    <span className="text-muted-foreground/40">
-                                        —
-                                    </span>
-                                    <span className="text-foreground/80">
+                                        {dateRange.histStart} —{" "}
                                         {dateRange.histEnd}
                                     </span>
                                 </>
                             )}
                             {dateRange.forecastStart && (
                                 <>
-                                    <span className="text-muted-foreground/40 mx-0.5">
+                                    <span className="text-muted-foreground/40">
                                         ·
                                     </span>
                                     <TrendingUp className="h-3.5 w-3.5 shrink-0 text-primary/70" />
@@ -261,10 +256,7 @@ export default function ForecastChart() {
                                         Forecast
                                     </span>
                                     <span className="text-primary/70">
-                                        {dateRange.forecastStart}
-                                    </span>
-                                    <span className="text-primary/40">—</span>
-                                    <span className="text-primary/70">
+                                        {dateRange.forecastStart} —{" "}
                                         {dateRange.forecastEnd}
                                     </span>
                                 </>
