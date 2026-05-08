@@ -217,7 +217,7 @@ export default function ForecastChart() {
             <div className="absolute inset-0 bg-grid-pattern-subtle opacity-20 pointer-events-none" />
             <div className="geo-shape geo-ring w-[100px] h-[100px] -top-8 -right-8 opacity-30" />
             <div className="geo-shape geo-circle-filled w-[14px] h-[14px] bottom-4 left-6 opacity-50" />
-            <CardHeader className="relative flex flex-row items-start justify-between">
+            <CardHeader className="relative flex flex-row items-start justify-between gap-4">
                 <div className="space-y-1.5">
                     <div className="flex items-center gap-2">
                         <div className="flex items-center justify-center h-8 w-8 rounded-lg bg-primary/10 text-primary">
@@ -233,28 +233,41 @@ export default function ForecastChart() {
                             : "Select a dataset to view its forecast."}
                     </CardDescription>
                     {dateRange && (
-                        <div className="flex flex-wrap items-center gap-2 mt-1.5">
+                        <div className="flex items-center gap-2 mt-1.5 rounded-lg border border-border/50 bg-muted/40 px-3 py-1.5 text-xs w-fit">
+                            <CalendarRange className="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
                             {dateRange.histStart && (
-                                <div className="flex items-center gap-1.5 rounded-md bg-muted/60 border border-border/50 px-2 py-1 text-xs text-muted-foreground">
-                                    <CalendarRange className="h-3 w-3 shrink-0" />
-                                    <span className="font-medium text-foreground/70">
+                                <>
+                                    <span className="font-medium text-muted-foreground">
                                         Data
                                     </span>
-                                    <span>{dateRange.histStart}</span>
-                                    <span className="opacity-40">—</span>
-                                    <span>{dateRange.histEnd}</span>
-                                </div>
+                                    <span className="text-foreground/80">
+                                        {dateRange.histStart}
+                                    </span>
+                                    <span className="text-muted-foreground/40">
+                                        —
+                                    </span>
+                                    <span className="text-foreground/80">
+                                        {dateRange.histEnd}
+                                    </span>
+                                </>
                             )}
                             {dateRange.forecastStart && (
-                                <div className="flex items-center gap-1.5 rounded-md bg-primary/8 border border-primary/20 px-2 py-1 text-xs text-primary/80">
-                                    <TrendingUp className="h-3 w-3 shrink-0" />
-                                    <span className="font-medium">
+                                <>
+                                    <span className="text-muted-foreground/40 mx-0.5">
+                                        ·
+                                    </span>
+                                    <TrendingUp className="h-3.5 w-3.5 shrink-0 text-primary/70" />
+                                    <span className="font-medium text-primary/80">
                                         Forecast
                                     </span>
-                                    <span>{dateRange.forecastStart}</span>
-                                    <span className="opacity-50">—</span>
-                                    <span>{dateRange.forecastEnd}</span>
-                                </div>
+                                    <span className="text-primary/70">
+                                        {dateRange.forecastStart}
+                                    </span>
+                                    <span className="text-primary/40">—</span>
+                                    <span className="text-primary/70">
+                                        {dateRange.forecastEnd}
+                                    </span>
+                                </>
                             )}
                         </div>
                     )}
