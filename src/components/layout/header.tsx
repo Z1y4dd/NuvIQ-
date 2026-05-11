@@ -10,17 +10,9 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import {
-    User,
-    LogOut,
-    BrainCircuit,
-    ChevronDown,
-    Sun,
-    Moon,
-} from "lucide-react";
+import { User, LogOut, BrainCircuit, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useTheme } from "next-themes";
 
 export default function AppHeader() {
     const router = useRouter();
@@ -32,7 +24,6 @@ export default function AppHeader() {
     };
 
     const userInitials = user?.email?.substring(0, 2).toUpperCase() || "U";
-    const { resolvedTheme, setTheme } = useTheme();
 
     return (
         <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background/80 backdrop-blur-lg px-4 sm:px-6 relative overflow-hidden">
@@ -54,19 +45,6 @@ export default function AppHeader() {
             </Link>
 
             <div className="w-full flex-1" />
-
-            <Button
-                variant="ghost"
-                size="icon"
-                className="h-9 w-9 rounded-full"
-                onClick={() =>
-                    setTheme(resolvedTheme === "dark" ? "light" : "dark")
-                }
-                aria-label="Toggle theme"
-            >
-                <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-            </Button>
 
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
