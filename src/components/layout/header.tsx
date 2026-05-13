@@ -10,7 +10,13 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { User, LogOut, BrainCircuit, ChevronDown } from "lucide-react";
+import {
+    User,
+    LogOut,
+    BrainCircuit,
+    ChevronDown,
+    MessageSquare,
+} from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -45,6 +51,14 @@ export default function AppHeader() {
             </Link>
 
             <div className="w-full flex-1" />
+
+            <Link
+                href="/contact"
+                className="relative flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors px-2"
+            >
+                <MessageSquare className="h-4 w-4" />
+                <span className="hidden sm:inline">Contact</span>
+            </Link>
 
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
