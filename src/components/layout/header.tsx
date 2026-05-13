@@ -33,7 +33,7 @@ export default function AppHeader() {
 
             {/* Brand */}
             <Link
-                href="/dashboard"
+                href="/"
                 className="relative flex items-center gap-2.5 shrink-0"
             >
                 <div className="flex items-center justify-center h-8 w-8 rounded-lg bg-primary text-primary-foreground">

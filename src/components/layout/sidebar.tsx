@@ -7,7 +7,7 @@ import {
     SidebarHeader,
     SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { BrainCircuit, LayoutDashboard } from "lucide-react";
+import { BrainCircuit, LayoutDashboard, MessageSquare } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -30,7 +30,7 @@ const AppSidebar = () => {
                 <div className="absolute top-24 -left-10 w-24 h-24 rounded-full border border-accent/[0.07]" />
             </div>
             <SidebarHeader className="justify-between px-4 py-5 relative z-10">
-                <Link href="/dashboard" className="flex items-center gap-2.5">
+                <Link href="/" className="flex items-center gap-2.5">
                     <div className="flex items-center justify-center h-8 w-8 rounded-lg bg-primary text-primary-foreground shrink-0">
                         <BrainCircuit className="w-5 h-5" />
                     </div>
@@ -52,6 +52,21 @@ const AppSidebar = () => {
                             <LayoutDashboard className="h-4 w-4" />
                             <span className="group-data-[collapsible=icon]:hidden font-medium">
                                 Dashboard
+                            </span>
+                        </Link>
+                    </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                    <SidebarMenuButton
+                        asChild
+                        isActive={pathname === "/contact"}
+                        tooltip={{ children: "Contact" }}
+                        className="rounded-lg h-10"
+                    >
+                        <Link href="/contact">
+                            <MessageSquare className="h-4 w-4" />
+                            <span className="group-data-[collapsible=icon]:hidden font-medium">
+                                Contact
                             </span>
                         </Link>
                     </SidebarMenuButton>
