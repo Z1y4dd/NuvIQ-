@@ -128,6 +128,18 @@ export async function saveBundles(
     await updateDataset(datasetId, { bundles });
 }
 
+export async function saveContactMessage(data: {
+    name: string;
+    email: string;
+    subject: string;
+    message: string;
+}): Promise<void> {
+    await addDoc(collection(getDB(), "contactMessages"), {
+        ...data,
+        createdAt: Timestamp.now(),
+    });
+}
+
 export async function getUserProfile(
     uid: string,
 ): Promise<{ email?: string; name?: string; createdAt?: string } | null> {

@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Separator } from "@/components/ui/separator";
 import { useToast } from "@/hooks/use-toast";
+import { saveContactMessage } from "@/lib/firestore";
 import { Mail, Send, MessageSquare, Loader2, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
@@ -48,20 +49,37 @@ export default function ContactPage() {
         }
 
         setSending(true);
-        // Simulate sending — replace with actual email/API integration
-        await new Promise((resolve) => setTimeout(resolve, 1200));
-        setSending(false);
+        try {
+            // 1. Save to Firestore
+            await saveContactMessage({ name, email, subject, message });
 
-        toast({
-            title: "Message Sent!",
-            description:
-                "Thanks for reaching out. We'll get back to you within 24–48 hours.",
-        });
+            // 2. Open mailto so the message also lands in the inbox
+            const mailtoUrl =
+                `mailto:Ryan_56@outlook.sa` +
+                `?subject=${encodeURIComponent(subject || "Contact Form Message")}` +
+                `&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
+            window.open(mailtoUrl, "_blank");
 
-        setName("");
-        setEmail("");
-        setSubject("");
-        setMessage("");
+            toast({
+                title: "Message Sent!",
+                description:
+                    "Thanks for reaching out. We'll get back to you within 24–48 hours.",
+            });
+
+            setName("");
+            setEmail("");
+            setSubject("");
+            setMessage("");
+        } catch (err) {
+            console.error("Failed to save contact message:", err);
+            toast({
+                title: "Failed to Send",
+                description: "Something went wrong. Please try again.",
+                variant: "destructive",
+            });
+        } finally {
+            setSending(false);
+        }
     };
 
     return (
