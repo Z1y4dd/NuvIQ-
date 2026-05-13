@@ -53,12 +53,14 @@ export default function ContactPage() {
             // 1. Save to Firestore
             await saveContactMessage({ name, email, subject, message });
 
-            // 2. Open mailto so the message also lands in the inbox
+            // 2. Trigger mailto via a temporary anchor (window.open is blocked for mailto)
             const mailtoUrl =
                 `mailto:Ryan_56@outlook.sa` +
                 `?subject=${encodeURIComponent(subject || "Contact Form Message")}` +
                 `&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
-            window.open(mailtoUrl, "_blank");
+            const a = document.createElement("a");
+            a.href = mailtoUrl;
+            a.click();
 
             toast({
                 title: "Message Sent!",
