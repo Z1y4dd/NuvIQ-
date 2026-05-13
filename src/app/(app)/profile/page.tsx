@@ -23,7 +23,15 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { useToast } from "@/hooks/use-toast";
-import { User, KeyRound, Shield, Loader2, Save, ArrowLeft } from "lucide-react";
+import {
+    User,
+    KeyRound,
+    Shield,
+    Loader2,
+    Save,
+    ArrowLeft,
+    Mail,
+} from "lucide-react";
 import Link from "next/link";
 
 export default function ProfilePage() {
@@ -333,6 +341,33 @@ export default function ProfilePage() {
                     </CardFooter>
                 </Card>
             )}
+
+            {/* Contact Information */}
+            <Card className="relative overflow-hidden shadow-sm">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.04] via-transparent to-accent/[0.02] pointer-events-none" />
+                <CardHeader className="relative">
+                    <div className="flex items-center gap-2">
+                        <div className="flex items-center justify-center h-8 w-8 rounded-lg bg-primary/10 text-primary">
+                            <Mail className="h-4 w-4" />
+                        </div>
+                        <CardTitle className="text-lg">Contact</CardTitle>
+                    </div>
+                    <CardDescription>Get in touch with support</CardDescription>
+                </CardHeader>
+                <CardContent className="relative">
+                    <div className="grid gap-1.5">
+                        <Label className="text-muted-foreground text-sm">
+                            Email
+                        </Label>
+                        <a
+                            href="mailto:Ryan_56@outlook.sa"
+                            className="text-sm font-medium text-primary hover:underline"
+                        >
+                            Ryan_56@outlook.sa
+                        </a>
+                    </div>
+                </CardContent>
+            </Card>
         </div>
     );
 }

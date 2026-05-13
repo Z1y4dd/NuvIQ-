@@ -67,6 +67,15 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                     <main className="flex-1 p-4 sm:p-6 lg:p-8">
                         <div className="max-w-7xl mx-auto">{children}</div>
                     </main>
+                    <footer className="border-t bg-background/60 backdrop-blur-sm px-6 py-3 flex items-center justify-center gap-2 text-sm text-muted-foreground">
+                        <span>Questions or feedback?</span>
+                        <a
+                            href="mailto:Ryan_56@outlook.sa"
+                            className="font-medium text-primary hover:underline"
+                        >
+                            Ryan_56@outlook.sa
+                        </a>
+                    </footer>
                 </div>
             </div>
         </DatasetProvider>
