@@ -7,6 +7,12 @@ service cloud.firestore {
       allow read, write: if request.auth != null && request.auth.uid == userId;
     }
 
+    // Contact messages - any authenticated user can submit, no one can read/update/delete via client
+    match /contactMessages/{msgId} {
+      allow create: if request.auth != null;
+      allow read, update, delete: if false;
+    }
+
     // Datasets collection - users can only access their own datasets
     match /datasets/{datasetId} {
       // get (single doc): verify ownership via document data
